@@ -5,9 +5,17 @@ using UnityEngine;
 [System.Serializable]
 public class Dialogue
 {
-    [TextArea(3, 10)]
     public string name;
+    [TextArea(3, 10)]
     public string[] sentences;
     public Dictionary<int, string> animations;
     public Dictionary<int, string> poses;
+
+    public Dialogue(string name_, string[] lines_, Dictionary<int, string> animations_, Dictionary<int, string> poses_)
+    {
+        name = name_;
+        sentences = lines_;
+        animations = animations_;
+        poses = poses_;
+    }
 }

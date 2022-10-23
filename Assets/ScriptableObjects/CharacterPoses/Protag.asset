@@ -12,3 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f7d30657100559f4cadd1eba14d8a1a7, type: 3}
   m_Name: Protag
   m_EditorClassIdentifier: 
+  name: 
+  poses:
+  - {fileID: 0}

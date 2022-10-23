@@ -12,18 +12,11 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField]
     private DialogueBox dialogueBox;
-
-    [SerializeField]
-    private DialogueInteraction test; //Temperary so i can see in the editor
-    [SerializeField]
-    private Dictionary<int, string> test1;
-    
     
     public void StartDialogue(DialogueInteraction dialogueInteraction)
     {
         if (!dialogueBox.isActiveAndEnabled)
         {
-            test = dialogueInteraction;
             dialogueInteraction.PopulateData(); //Populates data before running
             dialogueBox.gameObject.SetActive(true); //activating dialogue box
             dialogueBox.dialogueManager = this;
@@ -43,6 +36,8 @@ public class DialogueManager : MonoBehaviour
 
             //Set lines
             dialogueBox.lines = currentDialogue.sentences; //Setting sentences
+            dialogueBox.animations = currentDialogue.animations;// Setting animations
+            dialogueBox.poses = currentDialogue.poses; //Setting poses
             dialogueBox.StartDialogue(); //Starting dialogue
             yield return new WaitUntil(() => completedDialogue);
             completedDialogue = false;
