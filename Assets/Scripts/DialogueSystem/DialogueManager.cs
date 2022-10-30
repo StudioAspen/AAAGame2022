@@ -17,7 +17,6 @@ public class DialogueManager : MonoBehaviour
     {
         if (!dialogueBox.isActiveAndEnabled)
         {
-            dialogueInteraction.PopulateData(); //Populates data before running
             dialogueBox.gameObject.SetActive(true); //activating dialogue box
             dialogueBox.dialogueManager = this;
             StartCoroutine(RunDialogue(dialogueInteraction.dialogues));

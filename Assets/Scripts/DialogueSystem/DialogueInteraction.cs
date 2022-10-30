@@ -8,10 +8,12 @@ using System.IO;
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/DialogueInteraction", order = 1)]
 public class DialogueInteraction : ScriptableObject
 {
-    [SerializeField]  
-    private TextAsset CSV;
     public Dialogue[] dialogues;
 
+#if UNITY_EDITOR
+    [SerializeField]
+    private TextAsset CSV;
+    [ContextMenu("PopulateData")]
     public void PopulateData()
     {
         string[] rows = CSV.text.Split('\n');
@@ -79,4 +81,5 @@ public class DialogueInteraction : ScriptableObject
             dialoguesHolder.Add(dialogue);
         }
     }
+#endif
 }
