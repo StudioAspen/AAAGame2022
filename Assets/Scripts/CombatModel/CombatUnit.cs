@@ -18,6 +18,9 @@ public class CombatUnit : MonoBehaviour
     float moveCDBase;
     float moveCD;
 
+    //For element activation
+    ElementSystem elementSystem;
+
     void Start()
     {
         //TESTING intialized values
@@ -26,6 +29,8 @@ public class CombatUnit : MonoBehaviour
         //Initalized Values
         moveCD = moveCDBase;
         currentStats = baseStats;
+
+        elementSystem = FindObjectOfType<ElementSystem>();
     }
 
     // Update is called once per frame
@@ -45,12 +50,14 @@ public class CombatUnit : MonoBehaviour
     }
     public void AddStatEffect(StatusEffect statusEffect) { }
     public void ApplyAllStatusEffect() { }
-    public void AddElementEffect(ElementEffect elementEffect) {
+    public void AddElementEffect(ElementEffect elementEffect, Stats userStats) {
         elementEffects.Add(elementEffect);
 
-        if(elementEffects.Count >= 2)
+        //Activating element effect after 2 elements
+        if(elementEffects.Count >= 2 && elementSystem != null)
         {
-            //do something
+            elementSystem.ActivateElement(this, userStats, elementEffects[0], elementEffects[1]);
+            elementEffects.Clear();
         }
     }
 

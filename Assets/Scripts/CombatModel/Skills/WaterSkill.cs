@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class WaterSkill : Skill
 {
-    // Start is called before the first frame update
-    void Start()
+
+    public WaterSkill()
+    {
+        name = "Water Skill Move";
+        element = ElementEffect.WATER;
+    }
+    private void Awake()
     {
         name = "Water Skill Move";
         element = ElementEffect.WATER;
@@ -13,8 +18,7 @@ public class WaterSkill : Skill
 
     public override void UseSkill(CombatUnit target, Stats userStats)
     {
-        Debug.Log("run water");
-        target.AddElementEffect(element);
+        target.AddElementEffect(element, userStats);
 
         target.TakeDamage(userStats.attack * 0.5f);
     }

@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class FireSkill : Skill
 {
-    // Start is called before the first frame update
-    void Start()
+    public FireSkill()
+    {
+        name = "Fire Skill Move";
+        element = ElementEffect.FIRE;
+    }
+    private void Awake()
     {
         name = "Fire Skill Move";
         element = ElementEffect.FIRE;
@@ -13,8 +17,7 @@ public class FireSkill : Skill
 
     public override void UseSkill(CombatUnit target, Stats userStats)
     {
-        Debug.Log("run water");
-        target.AddElementEffect(element);
+        target.AddElementEffect(element, userStats);
 
         target.TakeDamage(userStats.attack * 1.5f);
     }

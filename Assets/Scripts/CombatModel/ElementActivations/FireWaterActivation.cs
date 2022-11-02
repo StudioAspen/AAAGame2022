@@ -2,17 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireFireActivation : ElementActivation
+public class FireWaterActivation : ElementActivation
 {
-    public FireFireActivation()
+    public FireWaterActivation()
     {
         key.Add(ElementEffect.FIRE);
-        key.Add(ElementEffect.FIRE);
+        key.Add(ElementEffect.WATER);
     }
 
     public override void ActivateElementEffect(CombatUnit target, Stats userStats)
     {
-        Debug.Log("fire fire activation");
-        target.TakeDamage(userStats.attack * 3f);
+        Debug.Log("fire water activation");
+        target.TakeDamage(userStats.attack * 2f);
     }
 }
