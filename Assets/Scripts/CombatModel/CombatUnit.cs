@@ -9,7 +9,7 @@ public class CombatUnit : MonoBehaviour
     public Stats currentStats;
 
     //Available Skills on unit
-    public Skill[] skillSet;
+    public List<Skill> skillSet = new List<Skill>();
 
     //Effects on unit
     public List<StatusEffect> statusEffects = new List<StatusEffect>();
@@ -25,6 +25,8 @@ public class CombatUnit : MonoBehaviour
     {
         //TESTING intialized values
         baseStats = new Stats(100, 100, 100, 0, 10, 10);
+        skillSet.Add(new FireSkill());
+        skillSet.Add(new WaterSkill());
 
         //Initalized Values
         moveCD = moveCDBase;

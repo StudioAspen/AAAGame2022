@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract public class Skill : MonoBehaviour
+abstract public class Skill
 {
     public string name;
     public ElementEffect element;

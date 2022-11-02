@@ -10,11 +10,6 @@ public class WaterSkill : Skill
         name = "Water Skill Move";
         element = ElementEffect.WATER;
     }
-    private void Awake()
-    {
-        name = "Water Skill Move";
-        element = ElementEffect.WATER;
-    }
 
     public override void UseSkill(CombatUnit target, Stats userStats)
     {

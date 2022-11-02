@@ -9,11 +9,6 @@ public class FireSkill : Skill
         name = "Fire Skill Move";
         element = ElementEffect.FIRE;
     }
-    private void Awake()
-    {
-        name = "Fire Skill Move";
-        element = ElementEffect.FIRE;
-    }
 
     public override void UseSkill(CombatUnit target, Stats userStats)
     {
