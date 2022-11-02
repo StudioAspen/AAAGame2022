@@ -43,7 +43,7 @@ public class CombatTest : MonoBehaviour
                 statuses += status.name + "\n";
             }
             string skils = "";
-            foreach (Skill skill in unit.skillSet)
+            foreach (Skill skill in unit.skills)
             {
                 skils += skill.name + "\n";
             }
@@ -71,10 +71,10 @@ public class CombatTest : MonoBehaviour
 
     public void UseFireSkill()
     {
-        unitForBasicAttack.skillSet[0].UseSkill(targetForBasicAttack, unitForBasicAttack.currentStats);
+        unitForBasicAttack.skills[0].UseSkill(targetForBasicAttack, unitForBasicAttack.currentStats);
     }
     public void UseWaterSkill()
     {
-        unitForBasicAttack.skillSet[1].UseSkill(targetForBasicAttack, unitForBasicAttack.currentStats);
+        unitForBasicAttack.skills[1].UseSkill(targetForBasicAttack, unitForBasicAttack.currentStats);
     }
 }

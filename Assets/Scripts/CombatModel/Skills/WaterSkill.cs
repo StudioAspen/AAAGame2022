@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class WaterSkill : Skill
 {
-
+    float damageMultiplier;
     public WaterSkill()
     {
         name = "Water Skill Move";
         element = ElementEffect.WATER;
+        damageMultiplier = 0.5f;
+        mpCost = 10f;
     }
 
     public override void UseSkill(CombatUnit target, Stats userStats)
     {
         target.AddElementEffect(element, userStats);
-
-        target.TakeDamage(userStats.attack * 0.5f);
+        target.TakeDamage(userStats.attack * damageMultiplier);
+        userStats.MP -= mpCost;
     }
 }

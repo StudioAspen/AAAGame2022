@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class FireSkill : Skill
 {
+    float damageMultiplier;
     public FireSkill()
     {
         name = "Fire Skill Move";
         element = ElementEffect.FIRE;
+        damageMultiplier = 1.5f;
+        mpCost = 10f;
     }
 
     public override void UseSkill(CombatUnit target, Stats userStats)
     {
         target.AddElementEffect(element, userStats);
-
-        target.TakeDamage(userStats.attack * 1.5f);
+        target.TakeDamage(userStats.attack * damageMultiplier);
+        userStats.MP -= mpCost;
     }
 }

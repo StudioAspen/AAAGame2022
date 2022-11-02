@@ -6,6 +6,7 @@ abstract public class Skill
 {
     public string name;
     public ElementEffect element;
+    public float mpCost;
 
     abstract public void UseSkill(CombatUnit target, Stats userStats);
 }

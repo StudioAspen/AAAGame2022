@@ -9,14 +9,15 @@ public class CombatUnit : MonoBehaviour
     public Stats currentStats;
 
     //Available Skills on unit
-    public List<Skill> skillSet = new List<Skill>();
+    public List<Skill> skills = new List<Skill>();
 
     //Effects on unit
     public List<StatusEffect> statusEffects = new List<StatusEffect>();
     public List<ElementEffect> elementEffects;
 
-    float moveCDBase;
-    float moveCD;
+    public float moveCDBase;
+    private float moveCD;
+    public bool canMakeMove = false;
 
     //For element activation
     ElementSystem elementSystem;
@@ -25,8 +26,8 @@ public class CombatUnit : MonoBehaviour
     {
         //TESTING intialized values
         baseStats = new Stats(100, 100, 100, 0, 10, 10);
-        skillSet.Add(new FireSkill());
-        skillSet.Add(new WaterSkill());
+        skills.Add(new FireSkill());
+        skills.Add(new WaterSkill());
 
         //Initalized Values
         moveCD = moveCDBase;
@@ -38,8 +39,17 @@ public class CombatUnit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        moveCD = Mathf.Max(0f, moveCD - Time.deltaTime);
+        if(moveCD <= 0f)
+        {
+            canMakeMove = true;
+        }
     }
-
+    public void ResetTimer()
+    {
+        moveCD = moveCDBase;
+        canMakeMove = false;
+    }
     public void BasicAttack(CombatUnit target) {
         currentStats.MP += currentStats.mpGain;
     }
@@ -50,14 +60,6 @@ public class CombatUnit : MonoBehaviour
         statusEffects.Add(statusEffect);
         ApplyAllStatusEffects();
     }
-    public void ApplyAllStatusEffects() {
-        //Recalculating stats
-        currentStats = new Stats(baseStats);
-        foreach (StatusEffect statusEffect in statusEffects)
-        {
-            currentStats = statusEffect.ApplyEffect(currentStats);
-        }
-    }
     public void AddElementEffect(ElementEffect elementEffect, Stats userStats) {
         elementEffects.Add(elementEffect);
 
@@ -66,6 +68,15 @@ public class CombatUnit : MonoBehaviour
         {
             elementSystem.ActivateElement(this, userStats, elementEffects[0], elementEffects[1]);
             elementEffects.Clear();
+        }
+    }
+    public void ApplyAllStatusEffects()
+    {
+        //Recalculating stats
+        currentStats = new Stats(baseStats);
+        foreach (StatusEffect statusEffect in statusEffects)
+        {
+            currentStats = statusEffect.ApplyEffect(currentStats);
         }
     }
 

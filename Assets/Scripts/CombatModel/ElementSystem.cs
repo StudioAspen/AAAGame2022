@@ -8,17 +8,19 @@ using UnityEngine;
 
     private void Awake()
     {
-        InitalizeDictionary();
+        InitalizeLookup();
     }
 
-    public void InitalizeDictionary()
+    public void InitalizeLookup()
     {
+        //List of all element activations
         ElementActivation[] allActivations = {
                 new FireFireActivation(),
                 new WaterWaterActivation(),
                 new FireWaterActivation()
             };
 
+        //Constructing matrix of all element activations
         foreach(ElementActivation elementActivation in allActivations)
         {
             activationLookup[(int)elementActivation.key[0], (int)elementActivation.key[1]] = elementActivation;
