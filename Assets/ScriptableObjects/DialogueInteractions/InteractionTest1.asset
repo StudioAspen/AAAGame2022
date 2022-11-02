@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf2065dd0ac23d24c9c2473e5c91a04f, type: 3}
   m_Name: InteractionTest1
   m_EditorClassIdentifier: 
-  CSV: {fileID: 4900000, guid: 26ff014784cc8fa4384f7fb8f5c60c4d, type: 3}
   dialogues:
   - name: Name1
     sentences:
@@ -24,3 +23,4 @@ MonoBehaviour:
     - Test22
     - Test222
     - Test2222
+  CSV: {fileID: 4900000, guid: 26ff014784cc8fa4384f7fb8f5c60c4d, type: 3}
