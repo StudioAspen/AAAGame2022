@@ -9,11 +9,11 @@ public class CombatUnit : MonoBehaviour
     public Stats currentStats;
 
     //Available Skills on unit
-    Skill[] skillSet;
+    public Skill[] skillSet;
 
     //Effects on unit
     StatusEffect[] statusEffects;
-    ElementEffect[] elementEffects;
+    public List<ElementEffect> elementEffects;
 
     float moveCDBase;
     float moveCD;
@@ -45,7 +45,14 @@ public class CombatUnit : MonoBehaviour
     }
     public void AddStatEffect(StatusEffect statusEffect) { }
     public void ApplyAllStatusEffect() { }
-    public void AddElementEffect(ElementEffect elementEffect) { }
+    public void AddElementEffect(ElementEffect elementEffect) {
+        elementEffects.Add(elementEffect);
+
+        if(elementEffects.Count >= 2)
+        {
+            //do something
+        }
+    }
 
     //TESTING FUNCTIONS
     public void PrintStats(Stats stats)

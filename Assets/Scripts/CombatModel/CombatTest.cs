@@ -30,13 +30,28 @@ public class CombatTest : MonoBehaviour
         if (unit != null)
         {
             Stats stats = unit.currentStats;
+
+
+            string elements = "";
+            foreach(ElementEffect element in unit.elementEffects)
+            {
+                elements += element.ToString() + "\n";
+            }
+            string skils = "";
+            foreach (Skill skill in unit.skillSet)
+            {
+                skils += skill.name + "\n";
+            }
+
             string output = $@"
-                maxHP: {stats.maxHP} \n
-                HP: {stats.HP} \n
-                maxMP: {stats.maxMP} \n
-                MP: {stats.MP} \n
-                mpGain: {stats.mpGain} \n
-                attack: {stats.attack} \n
+                maxHP: {stats.maxHP} 
+                HP: {stats.HP} 
+                maxMP: {stats.maxMP} 
+                MP: {stats.MP} 
+                mpGain: {stats.mpGain} 
+                attack: {stats.attack} 
+                elements: {elements}
+                skills: {skils}
             ";
 
             statsDisplay.text = output;
@@ -46,5 +61,14 @@ public class CombatTest : MonoBehaviour
     public void UseBasicAttack()
     {
         unitForBasicAttack.BasicAttack(targetForBasicAttack);
+    }
+
+    public void UseFireSkill()
+    {
+        unitForBasicAttack.skillSet[0].UseSkill(targetForBasicAttack, unitForBasicAttack.currentStats);
+    }
+    public void UseWaterSkill()
+    {
+        unitForBasicAttack.skillSet[1].UseSkill(targetForBasicAttack, unitForBasicAttack.currentStats);
     }
 }

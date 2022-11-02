@@ -11,10 +11,11 @@ public class FireSkill : Skill
         element = ElementEffect.FIRE;
     }
 
-    public void UseSkill(CombatUnit target, Stats userStats)
+    public override void UseSkill(CombatUnit target, Stats userStats)
     {
+        Debug.Log("run water");
         target.AddElementEffect(element);
 
-        target.TakeDamage(userStats.attack * 0.5f);
+        target.TakeDamage(userStats.attack * 1.5f);
     }
 }
