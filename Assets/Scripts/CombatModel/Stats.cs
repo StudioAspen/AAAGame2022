@@ -16,8 +16,17 @@ public class Stats
         maxHP = _maxHP;
         HP = _HP;
         maxMP = _maxMP;
-        mpGain = _mpGain;
         MP = _MP;
+        mpGain = _mpGain;
         attack = _attack;
+    }
+    public Stats(Stats stats)
+    {
+        maxHP = stats.maxHP;
+        HP = stats.HP;
+        maxMP = stats.maxMP;
+        MP = stats.MP;
+        mpGain = stats.mpGain;
+        attack = stats.attack;
     }
 }

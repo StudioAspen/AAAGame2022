@@ -37,6 +37,11 @@ public class CombatTest : MonoBehaviour
             {
                 elements += element.ToString() + "\n";
             }
+            string statuses = "";
+            foreach (StatusEffect status in unit.statusEffects)
+            {
+                statuses += status.name + "\n";
+            }
             string skils = "";
             foreach (Skill skill in unit.skillSet)
             {
@@ -51,6 +56,7 @@ public class CombatTest : MonoBehaviour
                 mpGain: {stats.mpGain} 
                 attack: {stats.attack} 
                 elements: {elements}
+                statuses: {statuses}
                 skills: {skils}
             ";
 

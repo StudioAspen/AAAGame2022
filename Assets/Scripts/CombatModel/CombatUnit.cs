@@ -12,7 +12,7 @@ public class CombatUnit : MonoBehaviour
     public Skill[] skillSet;
 
     //Effects on unit
-    StatusEffect[] statusEffects;
+    public List<StatusEffect> statusEffects = new List<StatusEffect>();
     public List<ElementEffect> elementEffects;
 
     float moveCDBase;
@@ -28,7 +28,7 @@ public class CombatUnit : MonoBehaviour
 
         //Initalized Values
         moveCD = moveCDBase;
-        currentStats = baseStats;
+        currentStats = new Stats(baseStats);
 
         elementSystem = FindObjectOfType<ElementSystem>();
     }
@@ -36,10 +36,6 @@ public class CombatUnit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            PrintStats(currentStats);
-        }
     }
 
     public void BasicAttack(CombatUnit target) {
@@ -48,8 +44,18 @@ public class CombatUnit : MonoBehaviour
     public void TakeDamage(float amount) {
         currentStats.HP -= amount;
     }
-    public void AddStatEffect(StatusEffect statusEffect) { }
-    public void ApplyAllStatusEffect() { }
+    public void AddStatEffect(StatusEffect statusEffect) {
+        statusEffects.Add(statusEffect);
+        ApplyAllStatusEffects();
+    }
+    public void ApplyAllStatusEffects() {
+        //Recalculating stats
+        currentStats = new Stats(baseStats);
+        foreach (StatusEffect statusEffect in statusEffects)
+        {
+            currentStats = statusEffect.ApplyEffect(currentStats);
+        }
+    }
     public void AddElementEffect(ElementEffect elementEffect, Stats userStats) {
         elementEffects.Add(elementEffect);
 
