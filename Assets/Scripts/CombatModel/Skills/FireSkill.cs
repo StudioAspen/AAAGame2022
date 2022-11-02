@@ -13,7 +13,7 @@ public class FireSkill : Skill
         mpCost = 10f;
     }
 
-    public override void UseSkill(CombatUnit target, Stats userStats)
+    public override void UseMove(CombatUnit target, Stats userStats)
     {
         target.AddElementEffect(element, userStats);
         target.TakeDamage(userStats.attack * damageMultiplier);

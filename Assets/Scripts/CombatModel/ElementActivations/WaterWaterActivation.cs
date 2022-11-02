@@ -10,7 +10,7 @@ public class WaterWaterActivation : ElementActivation
         key.Add(ElementEffect.WATER);
         key.Add(ElementEffect.WATER);
 
-        attackDownEffect = new AttackDownEffect(0.5f);
+        attackDownEffect = new AttackDownEffect(2);
     }
 
     public override void ActivateElementEffect(CombatUnit target, Stats userStats)

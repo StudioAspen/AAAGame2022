@@ -66,15 +66,15 @@ public class CombatTest : MonoBehaviour
 
     public void UseBasicAttack()
     {
-        unitForBasicAttack.BasicAttack(targetForBasicAttack);
+        unitForBasicAttack.basicAttack.UseMove(targetForBasicAttack, unitForBasicAttack.currentStats);
     }
 
     public void UseFireSkill()
     {
-        unitForBasicAttack.skills[0].UseSkill(targetForBasicAttack, unitForBasicAttack.currentStats);
+        unitForBasicAttack.skills[0].UseMove(targetForBasicAttack, unitForBasicAttack.currentStats);
     }
     public void UseWaterSkill()
     {
-        unitForBasicAttack.skills[1].UseSkill(targetForBasicAttack, unitForBasicAttack.currentStats);
+        unitForBasicAttack.skills[1].UseMove(targetForBasicAttack, unitForBasicAttack.currentStats);
     }
 }

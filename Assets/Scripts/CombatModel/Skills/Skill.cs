@@ -2,11 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract public class Skill
+abstract public class Skill : CombatMove
 {
-    public string name;
     public ElementEffect element;
     public float mpCost;
-
-    abstract public void UseSkill(CombatUnit target, Stats userStats);
 }

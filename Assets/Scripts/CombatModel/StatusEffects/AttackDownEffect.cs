@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class AttackDownEffect : StatusEffect {
     float percentDecrease;
+    int version;
 
-    public AttackDownEffect(float _percentDecrease)
+    public AttackDownEffect(int _version)
     {
         name = "Attack Down";
-        percentDecrease = _percentDecrease;
+        version = _version; //Should be max 3
+        percentDecrease = version * 0.25f;
     }
 
     public override Stats ApplyEffect(Stats currentStats)

@@ -8,8 +8,9 @@ public class CombatUnit : MonoBehaviour
     private Stats baseStats;
     public Stats currentStats;
 
-    //Available Skills on unit
+    //Available moves on unit
     public List<Skill> skills = new List<Skill>();
+    public BasicAttack basicAttack;
 
     //Effects on unit
     public List<StatusEffect> statusEffects = new List<StatusEffect>();
@@ -18,6 +19,7 @@ public class CombatUnit : MonoBehaviour
     public float moveCDBase;
     private float moveCD;
     public bool canMakeMove = false;
+    public bool dead = false;
 
     //For element activation
     ElementSystem elementSystem;
@@ -26,6 +28,7 @@ public class CombatUnit : MonoBehaviour
     {
         //TESTING intialized values
         baseStats = new Stats(100, 100, 100, 0, 10, 10);
+        basicAttack = new BasicAttack();
         skills.Add(new FireSkill());
         skills.Add(new WaterSkill());
 
@@ -39,22 +42,19 @@ public class CombatUnit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        moveCD = Mathf.Max(0f, moveCD - Time.deltaTime);
-        if(moveCD <= 0f)
+        if (!dead)
         {
-            canMakeMove = true;
+            moveCD = Mathf.Max(0f, moveCD - Time.deltaTime);
+            if (moveCD <= 0f)
+            {
+                canMakeMove = true;
+            }
         }
     }
     public void ResetTimer()
     {
         moveCD = moveCDBase;
         canMakeMove = false;
-    }
-    public void BasicAttack(CombatUnit target) {
-        currentStats.MP += currentStats.mpGain;
-    }
-    public void TakeDamage(float amount) {
-        currentStats.HP -= amount;
     }
     public void AddStatEffect(StatusEffect statusEffect) {
         statusEffects.Add(statusEffect);
@@ -78,6 +78,20 @@ public class CombatUnit : MonoBehaviour
         {
             currentStats = statusEffect.ApplyEffect(currentStats);
         }
+    }
+    public void TakeDamage(float amount)
+    {
+        currentStats.HP -= amount;
+
+        if (currentStats.HP <= 0f)
+        {
+            Die();
+        }
+    }
+    public void Die()
+    {
+        dead = true;
+        canMakeMove = false;
     }
 
     //TESTING FUNCTIONS
