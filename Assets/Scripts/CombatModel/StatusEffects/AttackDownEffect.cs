@@ -8,8 +8,8 @@ public class AttackDownEffect : StatusEffect {
 
     public AttackDownEffect(int _version)
     {
-        name = "Attack Down";
-        version = _version; //Should be max 3
+        version = Mathf.Min(3, _version); //Should be max 3
+        name = "Attack Down " + version.ToString();
         percentDecrease = version * 0.25f;
     }
 

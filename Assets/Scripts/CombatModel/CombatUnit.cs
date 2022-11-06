@@ -22,7 +22,7 @@ public class CombatUnit : MonoBehaviour
     public bool dead = false;
 
     //For element activation
-    ElementSystem elementSystem;
+    private ElementSystem elementSystem;
 
     void Start()
     {

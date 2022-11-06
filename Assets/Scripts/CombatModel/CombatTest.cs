@@ -49,6 +49,7 @@ public class CombatTest : MonoBehaviour
             }
 
             string output = $@"
+                Name: {gameObject.name}
                 maxHP: {stats.maxHP} 
                 HP: {stats.HP} 
                 maxMP: {stats.maxMP} 
