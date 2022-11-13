@@ -11,6 +11,13 @@ public class Dialogue
     public Dictionary<int, string> animations;
     public Dictionary<int, string> poses;
 
+    public Dialogue()
+    {
+        name = "";
+        sentences = new string[1];
+        animations = new Dictionary<int, string>();
+        poses = new Dictionary<int, string>();
+    }
     public Dialogue(string name_, string[] lines_, Dictionary<int, string> animations_, Dictionary<int, string> poses_)
     {
         name = name_;

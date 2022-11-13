@@ -11,7 +11,7 @@ public class DialogueManager : MonoBehaviour
     public bool completedDialogue = false;
 
     [SerializeField]
-    private DialogueBox dialogueBox;
+    public DialogueBox dialogueBox;
     
     public void StartDialogue(DialogueInteraction dialogueInteraction)
     {
