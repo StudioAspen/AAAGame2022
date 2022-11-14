@@ -9,7 +9,7 @@ public class NPC : MonoBehaviour
     DialogueManager dialogueManager;
     public NPCQuestDisplay questDisplay;
 
-    //State Machine
+    //State Machine for quests
     enum QuestState
     {
         NOT_GIVEN,
@@ -19,7 +19,7 @@ public class NPC : MonoBehaviour
 
     QuestState questState = QuestState.NOT_GIVEN;
 
-    //Dialogues
+    //Dialogues for different quest states
     [SerializeField]
     private DialogueInteraction beforeQuest;
     [SerializeField]
@@ -32,12 +32,13 @@ public class NPC : MonoBehaviour
     {
         //questManager = FindObjectOfType<QuestManager>();
         dialogueManager = FindObjectOfType<DialogueManager>();
-        //questDisplay = FindObjectOfType<NPCQuestDisplay>();
+        questDisplay = FindObjectOfType<NPCQuestDisplay>(true);
         
     }
 
     public void Interact() //Player interacting with NPC
     {
+        //State machine for quest status
         DialogueInteraction playingDialogue = null;
         bool showQuestDisplay = false;
         switch (questState) {
@@ -62,28 +63,31 @@ public class NPC : MonoBehaviour
     }
     private IEnumerator IsDialogueBoxInactive()
     {
-        Debug.Log("start coroutine");
-        yield return new WaitUntil (() => !dialogueManager.dialogueBox);
-        Debug.Log("after wait");
+        //Showing menu after dialogue is completed
+        yield return new WaitUntil (() => !dialogueManager.dialogueBox.isActiveAndEnabled);
         ShowQuest();
     }
     public void ShowQuest()
     {
-        Debug.Log("showing quest");
         questDisplay.gameObject.SetActive(true);
+
+        //Adding listeners for buttons
         questDisplay.accept.onClick.AddListener(GiveQuest);
-        questDisplay.title.text = "test title"; //quest.title;
-        questDisplay.description.text = "test description test test test test test test test test test test test test test test test test test test test test"; //quest.description;
         
         //Only set active if youve gotten quest
-        if (questState == QuestState.HANDED_IN)
+        if (questState == QuestState.GIVEN)
         {
+            questDisplay.handIn.gameObject.SetActive(true);
             questDisplay.handIn.onClick.AddListener(HandInQuest);
         }
         else
         {
             questDisplay.handIn.gameObject.SetActive(false);
         }
+
+        //Setting information in display
+        questDisplay.title.text = "test title"; //quest.title;
+        questDisplay.description.text = "test description test test test test test test test test test test test test test test test test test test test test"; //quest.description;
     }
 
     public void GiveQuest()
