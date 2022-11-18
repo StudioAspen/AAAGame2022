@@ -16,8 +16,6 @@ public class CombatUnit : MonoBehaviour
     public List<StatusEffect> statusEffects = new List<StatusEffect>();
     public List<ElementEffect> elementEffects;
 
-    public float moveCDBase;
-    private float moveCD;
     public bool canMakeMove = false;
     public bool dead = false;
 
@@ -31,9 +29,9 @@ public class CombatUnit : MonoBehaviour
         basicAttack = new BasicAttack();
         skills.Add(new FireSkill());
         skills.Add(new WaterSkill());
+        skills.Add(new RegularSkill());
 
         //Initalized Values
-        moveCD = moveCDBase;
         currentStats = new Stats(baseStats);
 
         elementSystem = FindObjectOfType<ElementSystem>();
@@ -45,8 +43,8 @@ public class CombatUnit : MonoBehaviour
         if (!dead)
         {
             //Updating CD Timer
-            moveCD = Mathf.Max(0f, moveCD - Time.deltaTime);
-            if (moveCD <= 0f)
+            currentStats.moveCD = Mathf.Max(0f, currentStats.moveCD - Time.deltaTime);
+            if (currentStats.moveCD <= 0f)
             {
                 canMakeMove = true;
             }
@@ -65,7 +63,7 @@ public class CombatUnit : MonoBehaviour
     }
     public void ResetTimer()
     {
-        moveCD = moveCDBase;
+        currentStats.moveCD = currentStats.moveCDBase;
         canMakeMove = false;
     }
     public void AddStatEffect(StatusEffect statusEffect) {

@@ -79,4 +79,8 @@ public class CombatTest : MonoBehaviour
     {
         unitForBasicAttack.skills[1].UseMove(targetForBasicAttack, unitForBasicAttack.currentStats);
     }
+    public void UseRegularSkill()
+    {
+        unitForBasicAttack.skills[2].UseMove(targetForBasicAttack, unitForBasicAttack.currentStats);
+    }
 }
