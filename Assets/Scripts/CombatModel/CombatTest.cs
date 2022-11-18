@@ -40,7 +40,7 @@ public class CombatTest : MonoBehaviour
             string statuses = "";
             foreach (StatusEffect status in unit.statusEffects)
             {
-                statuses += status.name + "\n";
+                statuses += status.name + " " + status.duration + "\n";
             }
             string skils = "";
             foreach (Skill skill in unit.skills)
@@ -55,6 +55,7 @@ public class CombatTest : MonoBehaviour
                 maxMP: {stats.maxMP} 
                 MP: {stats.MP} 
                 mpGain: {stats.mpGain} 
+                CD: {stats.moveCD}
                 attack: {stats.attack} 
                 elements: {elements}
                 statuses: {statuses}
