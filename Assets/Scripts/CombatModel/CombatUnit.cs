@@ -35,6 +35,8 @@ public class CombatUnit : MonoBehaviour
         currentStats = new Stats(baseStats);
 
         elementSystem = FindObjectOfType<ElementSystem>();
+
+        //// Testing
     }
 
     // Update is called once per frame
