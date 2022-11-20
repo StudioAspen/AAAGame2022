@@ -8,9 +8,10 @@ public class AttackDownEffect : StatusEffect {
 
     public AttackDownEffect(int _version)
     {
-        version = Mathf.Min(3, _version); //Should be max 3
+        version = Mathf.Clamp(_version, 0, 3);
         name = "Attack Down " + version.ToString();
         percentDecrease = version * 0.25f;
+        duration = version * 2f;
     }
 
     public override Stats ApplyEffect(Stats currentStats)
