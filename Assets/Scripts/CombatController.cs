@@ -25,5 +25,10 @@ public class CombatController : MonoBehaviour
         GameObject currentSkillButton = Instantiate(skillButton);
         currentSkillButton.GetComponentInChildren<TMP_Text>();
         currentSkillButton.GetComponent<Button>();
+
+        playerUnits[0].basicAttack.UseMove();
+        
+
+        BasicAttack.();
     }
 }
