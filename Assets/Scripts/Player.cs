@@ -5,4 +5,6 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     public int gold = 0;
+
+    public List<Quest> quests;
 }
