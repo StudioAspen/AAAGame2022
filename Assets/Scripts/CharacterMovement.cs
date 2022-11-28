@@ -28,7 +28,7 @@ public class CharacterMovement : MonoBehaviour
         if(moveInput != Vector2.zero) {
             anim.SetFloat("Xinput", moveInput.x);
             anim.SetFloat("Yinput", moveInput.y);
-            if (Input.GetKey(KeyCode.UpArrow)|| Input.GetKey(KeyCode.DownArrow)|| Input.GetKey(KeyCode.LeftArrow)|| Input.GetKey(KeyCode.RightArrow)) //use vector3.mag
+            if (moveInput.magnitude!=0) //use vector3.mag
             {
                 anim.SetBool("Walking", true);
             }
