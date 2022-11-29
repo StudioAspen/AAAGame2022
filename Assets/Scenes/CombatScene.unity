@@ -4607,6 +4607,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 720698219}
   m_CullTransparentMesh: 1
+--- !u!1 &766950242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7341371827853480681, guid: 776e27c26113ff34286b5683cc929ff5, type: 3}
+  m_PrefabInstance: {fileID: 7341371827244165515}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &766950246
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766950242}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b59811e4845db7642943a633f0e9f3ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &775575968
 GameObject:
   m_ObjectHideFlags: 0
@@ -5763,65 +5780,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 975712702}
   m_CullTransparentMesh: 1
---- !u!1 &977390932
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 977390935}
-  - component: {fileID: 977390934}
-  - component: {fileID: 977390933}
-  m_Layer: 0
-  m_Name: Scripts
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &977390933
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977390932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc5b5d41e412b754d9839feea76c78ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  showCursor: 0
---- !u!114 &977390934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977390932}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc5b5d41e412b754d9839feea76c78ee, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  showCursor: 0
---- !u!4 &977390935
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 977390932}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 107.64528, y: 112.556694, z: 5.1742773}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &982082603
 GameObject:
   m_ObjectHideFlags: 0
@@ -12184,13 +12142,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7341371827853480680, guid: 776e27c26113ff34286b5683cc929ff5, type: 3}
+      propertyPath: enemies.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341371827853480680, guid: 776e27c26113ff34286b5683cc929ff5, type: 3}
+      propertyPath: players.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7341371827853480680, guid: 776e27c26113ff34286b5683cc929ff5, type: 3}
+      propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 1398376482}
+    - target: {fileID: 7341371827853480680, guid: 776e27c26113ff34286b5683cc929ff5, type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 1650605438}
+    - target: {fileID: 7341371827853480680, guid: 776e27c26113ff34286b5683cc929ff5, type: 3}
+      propertyPath: enemies.Array.data[2]
+      value: 
+      objectReference: {fileID: 1016897059}
+    - target: {fileID: 7341371827853480680, guid: 776e27c26113ff34286b5683cc929ff5, type: 3}
+      propertyPath: players.Array.data[0]
+      value: 
+      objectReference: {fileID: 556185046}
+    - target: {fileID: 7341371827853480680, guid: 776e27c26113ff34286b5683cc929ff5, type: 3}
+      propertyPath: players.Array.data[1]
+      value: 
+      objectReference: {fileID: 354804180}
+    - target: {fileID: 7341371827853480680, guid: 776e27c26113ff34286b5683cc929ff5, type: 3}
+      propertyPath: players.Array.data[2]
+      value: 
+      objectReference: {fileID: 1454390731}
     - target: {fileID: 7341371827853480681, guid: 776e27c26113ff34286b5683cc929ff5, type: 3}
       propertyPath: m_Name
       value: CombatController
       objectReference: {fileID: 0}
     - target: {fileID: 7341371827853480686, guid: 776e27c26113ff34286b5683cc929ff5, type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7341371827853480686, guid: 776e27c26113ff34286b5683cc929ff5, type: 3}
       propertyPath: m_LocalPosition.x
