@@ -6,15 +6,24 @@ using TMPro;
 
 public class CombatController : MonoBehaviour
 {
-    public GameObject skillButton;
-    public GameObject scrollViewContent;
     public List<GameObject> players;
     public List<GameObject> enemies;
 
     // Start is called before the first frame update
     void Start()
     {
+        //////////////TESTING INITALIZATION/////////////////////////
+        List<CombatData> playerData = new List<CombatData>();
+        playerData.Add(new CombatData());
+        playerData.Add(new CombatData());
+        playerData.Add(new CombatData());
+        List<CombatData> enemyData = new List<CombatData>();
+        enemyData.Add(new CombatData());
+        enemyData.Add(new CombatData());
+        enemyData.Add(new CombatData());
 
+        InitalizeCombat(playerData, enemyData);
+        ///////////////////////////////////////////////////////////////
     }
 
     // Update is called once per frame
@@ -23,28 +32,18 @@ public class CombatController : MonoBehaviour
         
     }
 
-    void IntializeCombat(List<CombatUnit> playerUnits, List<CombatUnit> enemyUnits)
+    public void InitalizeCombat(List<CombatData> playerUnits, List<CombatData> enemyUnits)
     {
-        CombatUnit playerTest = playerUnits[0];
-        CombatUnit enemyTest = enemyUnits[0];
-
-
-
-
-
-        foreach(Skill skill in playerTest.skills)
+        //Initalizing Players
+        for (int i = 0; i < players.Count; i++)
         {
-            //creating a buttons and setting parameters
-            GameObject currentSkillButton = Instantiate(skillButton);
-            TMP_Text text = currentSkillButton.GetComponentInChildren<TMP_Text>();
-            Button button = currentSkillButton.GetComponent<Button>();
-            text.text = skill.name;
-
-
-            //setting button to parent
-            currentSkillButton.transform.SetParent(scrollViewContent.transform);
+            players[i].GetComponent<CombatUnit>().InitalizeCombatUnit(playerUnits[i]);
         }
 
-
+        //Initalizing enemies
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            enemies[i].GetComponent<CombatUnit>().InitalizeCombatUnit(enemyUnits[i]);
+        }
     }
 }

@@ -26,21 +26,9 @@ public class CombatUnit : MonoBehaviour
     //For element activation
     private ElementSystem elementSystem;
 
+    
     void Start()
     {
-        //TESTING intialized values
-        baseStats = new Stats();
-        basicAttack = new BasicAttack();
-        skills.Add(new FireSkill());
-        skills.Add(new WaterSkill());
-        skills.Add(new RegularSkill());
-
-        //Initalized Values
-        currentHP = baseStats.maxHP;
-        currentMP = 0f;
-        currentMoveCD = baseStats.moveCD;
-        currentStats = new Stats(baseStats);
-
         //Getting element system
         elementSystem = FindObjectOfType<ElementSystem>();
     }
@@ -68,6 +56,21 @@ public class CombatUnit : MonoBehaviour
                 RemoveStatEffect(statusEffect);
             }
         }
+    }
+
+    //initalize combat unit with data
+    public void InitalizeCombatUnit(CombatData combatData)
+    {
+        //Setting stats and moves from overworld
+        baseStats = combatData.baseStats;
+        basicAttack = combatData.basicAttack;
+        skills = combatData.skills;
+
+        //Initalized Values for current combat stats
+        currentHP = baseStats.maxHP;
+        currentMP = 0f;
+        currentMoveCD = baseStats.moveCD;
+        currentStats = new Stats(baseStats);
     }
     public void ResetTimer()
     {
