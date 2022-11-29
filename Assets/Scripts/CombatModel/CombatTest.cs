@@ -51,11 +51,10 @@ public class CombatTest : MonoBehaviour
             string output = $@"
                 Name: {gameObject.name}
                 maxHP: {stats.maxHP} 
-                HP: {stats.HP} 
+                HP: {unit.currentHP} 
                 maxMP: {stats.maxMP} 
-                MP: {stats.MP} 
-                mpGain: {stats.mpGain} 
-                CD: {stats.moveCD}
+                MP: {unit.currentMP} 
+                CD: {unit.currentMoveCD}
                 attack: {stats.attack} 
                 elements: {elements}
                 statuses: {statuses}
@@ -68,19 +67,19 @@ public class CombatTest : MonoBehaviour
 
     public void UseBasicAttack()
     {
-        unitForBasicAttack.basicAttack.UseMove(targetForBasicAttack, unitForBasicAttack.currentStats);
+        unitForBasicAttack.basicAttack.UseMove(targetForBasicAttack, unitForBasicAttack);
     }
 
     public void UseFireSkill()
     {
-        unitForBasicAttack.skills[0].UseMove(targetForBasicAttack, unitForBasicAttack.currentStats);
+        unitForBasicAttack.skills[0].UseMove(targetForBasicAttack, unitForBasicAttack);
     }
     public void UseWaterSkill()
     {
-        unitForBasicAttack.skills[1].UseMove(targetForBasicAttack, unitForBasicAttack.currentStats);
+        unitForBasicAttack.skills[1].UseMove(targetForBasicAttack, unitForBasicAttack);
     }
     public void UseRegularSkill()
     {
-        unitForBasicAttack.skills[2].UseMove(targetForBasicAttack, unitForBasicAttack.currentStats);
+        unitForBasicAttack.skills[2].UseMove(targetForBasicAttack, unitForBasicAttack);
     }
 }

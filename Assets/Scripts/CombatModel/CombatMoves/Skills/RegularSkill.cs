@@ -10,9 +10,9 @@ public class RegularSkill : Skill
         mpCost = 10f;
     }
 
-    public override void UseMove(CombatUnit target, Stats userStats)
+    public override void UseMove(CombatUnit target, CombatUnit user)
     {
-        target.TakeDamage(userStats.attack);
-        userStats.MP -= mpCost;
+        target.TakeDamage(user.currentStats.attack);
+        user.currentMP -= mpCost;
     }
 }

@@ -4,39 +4,45 @@ using UnityEngine;
 
 public class CombatUnit : MonoBehaviour
 {
-    //Stats of unit
+    //Available moves and base stats on unit
     private Stats baseStats;
-    public Stats currentStats;
-
-    //Available moves on unit
     public List<Skill> skills = new List<Skill>();
     public BasicAttack basicAttack;
 
-    //Effects on unit
-    public List<StatusEffect> statusEffects = new List<StatusEffect>();
-    public List<ElementEffect> elementEffects;
+    //Current Stats
+    public Stats currentStats;
+    public float currentHP;
+    public float currentMP;
+    public float currentMoveCD;
 
+    //Current effects on unit
+    public List<StatusEffect> statusEffects = new List<StatusEffect>();
+    public List<ElementEffect> elementEffects = new List<ElementEffect>();
+
+    //Other Stats
     public bool canMakeMove = false;
     public bool dead = false;
-
+    
     //For element activation
     private ElementSystem elementSystem;
 
     void Start()
     {
         //TESTING intialized values
-        baseStats = new Stats(100, 100, 100, 10, 10);
+        baseStats = new Stats();
         basicAttack = new BasicAttack();
         skills.Add(new FireSkill());
         skills.Add(new WaterSkill());
         skills.Add(new RegularSkill());
 
         //Initalized Values
+        currentHP = baseStats.maxHP;
+        currentMP = 0f;
+        currentMoveCD = baseStats.moveCD;
         currentStats = new Stats(baseStats);
 
+        //Getting element system
         elementSystem = FindObjectOfType<ElementSystem>();
-
-        //// Testing
     }
 
     // Update is called once per frame
@@ -45,8 +51,8 @@ public class CombatUnit : MonoBehaviour
         if (!dead)
         {
             //Updating CD Timer
-            currentStats.moveCD = Mathf.Max(0f, currentStats.moveCD - Time.deltaTime);
-            if (currentStats.moveCD <= 0f)
+            currentMoveCD = Mathf.Max(0f, currentMoveCD - Time.deltaTime);
+            if (currentMoveCD <= 0f)
             {
                 canMakeMove = true;
             }
@@ -65,7 +71,7 @@ public class CombatUnit : MonoBehaviour
     }
     public void ResetTimer()
     {
-        currentStats.moveCD = currentStats.moveCDBase;
+        currentMoveCD = baseStats.moveCD;
         canMakeMove = false;
     }
     public void AddStatEffect(StatusEffect statusEffect) {
@@ -90,24 +96,22 @@ public class CombatUnit : MonoBehaviour
     public void ApplyAllStatusEffects()
     {
         //Recalculating stats
-        float hpHolder = currentStats.HP;
-        float mpHolder = currentStats.MP;
-        float cdHolder = currentStats.moveCD;
         currentStats = new Stats(baseStats);
 
-        currentStats.HP = hpHolder;
-        currentStats.MP = mpHolder;
-        currentStats.moveCD = cdHolder;
         foreach (StatusEffect statusEffect in statusEffects)
         {
             currentStats = statusEffect.ApplyEffect(currentStats);
         }
     }
+    public void AddMP(float amount)
+    {
+        currentMP = Mathf.Min(baseStats.maxMP, currentMP + amount);
+    }
     public void TakeDamage(float amount)
     {
-        currentStats.HP -= amount;
+        currentHP -= amount;
 
-        if (currentStats.HP <= 0f)
+        if (currentHP <= 0f)
         {
             Die();
         }
@@ -122,10 +126,9 @@ public class CombatUnit : MonoBehaviour
     public void PrintStats(Stats stats)
     {
         string output = $@"maxHP: {stats.maxHP} \n
-                HP: {stats.HP} \n
+                HP: {currentHP} \n
                 maxMP: {stats.maxMP} \n
-                MP: {stats.MP} \n
-                mpGain: {stats.mpGain} \n
+                MP: {currentMP} \n
                 attack: {stats.attack} \n
             ";
         Debug.Log(output);

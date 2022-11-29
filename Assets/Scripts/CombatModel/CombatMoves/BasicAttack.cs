@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class BasicAttack : CombatMove
 {
+    float mpGain;
     public BasicAttack()
     {
         name = "Basic Attack";
+        mpGain = 10f;
     }
-    public override void UseMove(CombatUnit target, Stats userStats)
+    public override void UseMove(CombatUnit target, CombatUnit user)
     {
-        userStats.MP += userStats.mpGain;
+        user.AddMP(mpGain);
     }
 }

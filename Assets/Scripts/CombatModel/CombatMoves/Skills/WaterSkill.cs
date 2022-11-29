@@ -13,10 +13,10 @@ public class WaterSkill : Skill
         mpCost = 10f;
     }
 
-    public override void UseMove(CombatUnit target, Stats userStats)
+    public override void UseMove(CombatUnit target, CombatUnit user)
     {
-        target.AddElementEffect(element, userStats);
-        target.TakeDamage(userStats.attack * damageMultiplier);
-        userStats.MP -= mpCost;
+        target.AddElementEffect(element, user.currentStats);
+        target.TakeDamage(user.currentStats.attack * damageMultiplier);
+        user.currentMP -= mpCost;
     }
 }

@@ -5,24 +5,24 @@ using UnityEngine;
 public class Stats
 {
     public float maxHP;
-    public float HP;
     public float maxMP;
-    public float MP;
-    public float moveCDBase;
     public float moveCD;
-    public float mpGain;
     public float attack;
 
+    public Stats()
+    {
+        //Arbitrary initalization for testing
+        maxHP = 100;
+        maxMP = 100;
+        moveCD = 10;
+        attack = 10;
+    }
     //Constructor that sets current equal to max stats
-    public Stats(float _maxHP, float _maxMP, float _moveCDBase, float _mpGain, float _attack)
+    public Stats(float _maxHP, float _maxMP, float _moveCD, float _attack)
     {
         maxHP = _maxHP;
-        HP = _maxHP;
         maxMP = _maxMP;
-        MP = _maxMP;
-        moveCDBase = _moveCDBase;
-        moveCD = _moveCDBase;
-        mpGain = _mpGain;
+        moveCD = _moveCD;
         attack = _attack;
     }
 
@@ -30,12 +30,8 @@ public class Stats
     public Stats(Stats stats)
     {
         maxHP = stats.maxHP;
-        HP = stats.HP;
         maxMP = stats.maxMP;
-        MP = stats.MP;
-        moveCDBase = stats.moveCDBase;
         moveCD = stats.moveCD;
-        mpGain = stats.mpGain;
         attack = stats.attack;
     }
 }

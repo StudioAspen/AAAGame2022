@@ -19,12 +19,12 @@ public class AssignStatBars : MonoBehaviour
     void Update()
     {
         float MaxHP = combatUnit.currentStats.maxHP;
-        float CurrentHP = combatUnit.currentStats.HP;
+        float CurrentHP = combatUnit.currentHP;
 
         float HPSliderValue = CurrentHP / MaxHP;
 
         float MaxMP = combatUnit.currentStats.maxMP;
-        float CurrentMP = combatUnit.currentStats.MP;
+        float CurrentMP = combatUnit.currentMP;
 
         float MPSliderValue = CurrentMP / MaxMP;
 
