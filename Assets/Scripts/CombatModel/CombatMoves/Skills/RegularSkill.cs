@@ -12,7 +12,7 @@ public class RegularSkill : Skill
 
     public override void UseMove(CombatUnit target, CombatUnit user)
     {
-        target.TakeDamage(user.currentStats.attack);
+        target.ChangeHP(-user.currentStats.attack);
         user.currentMP -= mpCost;
     }
 }

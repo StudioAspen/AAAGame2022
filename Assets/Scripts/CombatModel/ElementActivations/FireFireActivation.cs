@@ -13,6 +13,6 @@ public class FireFireActivation : ElementActivation
     public override void ActivateElementEffect(CombatUnit target, Stats userStats)
     {
         Debug.Log("fire fire activation");
-        target.TakeDamage(userStats.attack * 3f);
+        target.ChangeHP(-(userStats.attack * 3f));
     }
 }

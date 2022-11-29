@@ -14,6 +14,6 @@ public class FireWaterActivation : ElementActivation
     {
         Debug.Log("fire water activation");
         target.AddStatEffect(new AttackDownEffect(1));
-        target.TakeDamage(userStats.attack * 2f);
+        target.ChangeHP(-(userStats.attack * 2f));
     }
 }

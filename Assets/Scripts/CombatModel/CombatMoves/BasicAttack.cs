@@ -12,6 +12,6 @@ public class BasicAttack : CombatMove
     }
     public override void UseMove(CombatUnit target, CombatUnit user)
     {
-        user.AddMP(mpGain);
+        user.ChangeHP(mpGain);
     }
 }

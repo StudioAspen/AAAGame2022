@@ -83,6 +83,16 @@ public class CombatUnit : MonoBehaviour
         statusEffects.Remove(statusEffect);
         ApplyAllStatusEffects();
     }
+    private void ApplyAllStatusEffects()
+    {
+        //Recalculating stats
+        currentStats = new Stats(baseStats);
+
+        foreach (StatusEffect statusEffect in statusEffects)
+        {
+            currentStats = statusEffect.ApplyEffect(currentStats);
+        }
+    }
     public void AddElementEffect(ElementEffect elementEffect, Stats userStats) {
         elementEffects.Add(elementEffect);
 
@@ -93,23 +103,20 @@ public class CombatUnit : MonoBehaviour
             elementEffects.Clear();
         }
     }
-    public void ApplyAllStatusEffects()
+    public void RemoveElementEffect(ElementEffect elementEffect, Stats userStats)
     {
-        //Recalculating stats
-        currentStats = new Stats(baseStats);
-
-        foreach (StatusEffect statusEffect in statusEffects)
+        if(elementEffects.Contains(elementEffect))
         {
-            currentStats = statusEffect.ApplyEffect(currentStats);
+            elementEffects.Remove(elementEffect);
         }
     }
-    public void AddMP(float amount)
+    public void ChangeMP(float amount)
     {
-        currentMP = Mathf.Min(baseStats.maxMP, currentMP + amount);
+        currentMP = Mathf.Clamp(currentMP + amount, 0, baseStats.maxMP);
     }
-    public void TakeDamage(float amount)
+    public void ChangeHP(float amount)
     {
-        currentHP -= amount;
+        currentHP = Mathf.Clamp(currentMP + amount, 0, baseStats.maxHP);
 
         if (currentHP <= 0f)
         {

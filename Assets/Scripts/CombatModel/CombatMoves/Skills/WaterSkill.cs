@@ -16,7 +16,7 @@ public class WaterSkill : Skill
     public override void UseMove(CombatUnit target, CombatUnit user)
     {
         target.AddElementEffect(element, user.currentStats);
-        target.TakeDamage(user.currentStats.attack * damageMultiplier);
+        target.ChangeHP(-(user.currentStats.attack * damageMultiplier));
         user.currentMP -= mpCost;
     }
 }
