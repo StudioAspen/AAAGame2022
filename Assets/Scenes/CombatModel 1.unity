@@ -1510,8 +1510,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d46b03363b291040b2a0d6ee2cfcae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitForBasicAttack: {fileID: 0}
-  targetForBasicAttack: {fileID: 0}
+  unitForBasicAttack: {fileID: 1678374257}
+  targetForBasicAttack: {fileID: 1824795583}
 --- !u!114 &1678374257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1524,6 +1524,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314cc25b6554f3145ab2a9c8ba2275ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHP: 0
+  currentMP: 0
+  currentMoveCD: 0
   elementEffects: 
   canMakeMove: 0
   dead: 0
@@ -1783,7 +1786,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d46b03363b291040b2a0d6ee2cfcae7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitForBasicAttack: {fileID: 0}
+  unitForBasicAttack: {fileID: 1824795583}
   targetForBasicAttack: {fileID: 0}
 --- !u!114 &1824795583
 MonoBehaviour:
@@ -1797,6 +1800,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 314cc25b6554f3145ab2a9c8ba2275ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentHP: 0
+  currentMP: 0
+  currentMoveCD: 0
   elementEffects: 
   canMakeMove: 0
   dead: 0

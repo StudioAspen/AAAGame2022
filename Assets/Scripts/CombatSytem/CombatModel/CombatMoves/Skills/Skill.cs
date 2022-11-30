@@ -6,4 +6,9 @@ abstract public class Skill : CombatMove
 {
     public ElementEffect element;
     public float mpCost;
+
+    public bool CanUse(CombatUnit user)
+    {
+        return user.currentMP >= mpCost;
+    }
 }

@@ -17,6 +17,6 @@ public class WaterSkill : Skill
     {
         target.AddElementEffect(element, user.currentStats);
         target.ChangeHP(-(user.currentStats.attack * damageMultiplier));
-        user.currentMP -= mpCost;
+        user.ChangeMP(-mpCost);
     }
 }

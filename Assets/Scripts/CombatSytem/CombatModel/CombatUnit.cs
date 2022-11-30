@@ -29,6 +29,13 @@ public class CombatUnit : MonoBehaviour
     
     void Start()
     {
+        //testing
+        if(baseStats == null)
+        {
+            InitalizeCombatUnit(new CombatData());
+        }
+
+
         //Getting element system
         elementSystem = FindObjectOfType<ElementSystem>();
     }
@@ -119,7 +126,7 @@ public class CombatUnit : MonoBehaviour
     }
     public void ChangeHP(float amount)
     {
-        currentHP = Mathf.Clamp(currentMP + amount, 0, baseStats.maxHP);
+        currentHP = Mathf.Clamp(currentHP + amount, 0, baseStats.maxHP);
 
         if (currentHP <= 0f)
         {
