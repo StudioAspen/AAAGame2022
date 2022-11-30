@@ -1,18 +1,16 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &11400000
+--- !u!114 &1
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 61
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1a3b3b124434ae440936de58849dda48, type: 3}
-  m_Name: Gather
+  m_Script: {fileID: 11500000, guid: a287be6c49135cd4f9b2b8666c39d999, type: 3}
+  m_Name: 
   m_EditorClassIdentifier: 
-  title: Get Three Flowers
-  description: Go grab 3 flowers.
-  completed: 0
-  handed_in: 0
+  assetDefaultFramerate: 60
+  m_DefaultFrameRate: 60
