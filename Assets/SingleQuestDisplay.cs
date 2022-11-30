@@ -29,25 +29,28 @@ public class SingleQuestDisplay : MonoBehaviour
         quest_window.SetActive(false);
     }
 
-    public void Accept(Quest quest)
+    public void Accept()
     {
         QuestManager manager;
         manager = FindObjectOfType<QuestManager>();
-        manager.AddQuest(quest);
+        manager.AddQuest(quest_);
+        quest_window.SetActive(false);
     }
 
-    public void Abandon(Quest quest)
+    public void Abandon()
     {
         QuestManager manager;
         manager = FindObjectOfType<QuestManager>();
-        manager.RemoveQuest(quest);
+        manager.RemoveQuest(quest_);
+        quest_window.SetActive(false);
     }
 
-    public void HandIn(Quest quest)
+    public void HandIn()
     {
         QuestManager manager;
         manager = FindObjectOfType<QuestManager>();
-        manager.HandInQuest(quest);
+        manager.HandInQuest(quest_);
+        quest_window.SetActive(false);
     }
 
     public void DisplayAcceptReject()
