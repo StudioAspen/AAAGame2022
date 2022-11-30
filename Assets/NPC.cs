@@ -5,8 +5,24 @@ using UnityEngine;
 public class NPC : MonoBehaviour
 {
     public Quest quest_;
-    public bool given_quest;
-    
+    //public bool given_quest;
+
+    private void Start()
+    {
+        quest_ = new Quest();
+        quest_.title = "test name";
+        quest_.description = "test description";
+    }
+
+    public void CompleteQuest()
+    {
+        quest_.is_complete = true;
+    }
+
+    public void HandInQuest()
+    {
+        quest_.handed_in = true;
+    }
 
     public void Interact()
     {
@@ -48,6 +64,8 @@ public class NPC : MonoBehaviour
         //dialogue maybe
         else if (manager.FindQuest(quest_) && (quest_.handed_in == true))
         {
+            display.DisplayNo();
+            display.DisplayQuest(quest_);
             Debug.Log("quest is done");
         }
 

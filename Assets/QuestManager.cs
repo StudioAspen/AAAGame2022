@@ -4,17 +4,7 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    public List<Quest> all_quests;
-
-    public Quest ReturnQuest(Quest quest)
-    {
-        foreach (var i in all_quests)
-        {
-            if (quest.title == i.title)
-                return i;
-        }
-        return quest;
-    }
+    public List<Quest> all_quests = new List<Quest>();
 
     public bool FindQuest(Quest quest)
     {

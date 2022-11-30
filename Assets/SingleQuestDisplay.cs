@@ -55,6 +55,8 @@ public class SingleQuestDisplay : MonoBehaviour
 
     public void DisplayAcceptReject()
     {
+        accept_button.SetActive(true);
+        reject_button.SetActive(true);
         abandon_button.SetActive(false);
         handin_button.SetActive(false);
     }
@@ -63,6 +65,7 @@ public class SingleQuestDisplay : MonoBehaviour
     {
         accept_button.SetActive(false);
         reject_button.SetActive(false);
+        abandon_button.SetActive(true);
         handin_button.SetActive(false);
     }
 
@@ -71,5 +74,14 @@ public class SingleQuestDisplay : MonoBehaviour
         accept_button.SetActive(false);
         reject_button.SetActive(false);
         abandon_button.SetActive(false);
+        handin_button.SetActive(true);
+    }
+
+    public void DisplayNo()
+    {
+        accept_button.SetActive(false);
+        reject_button.SetActive(false);
+        abandon_button.SetActive(false);
+        handin_button.SetActive(false);
     }
 }
