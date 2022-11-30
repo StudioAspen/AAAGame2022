@@ -76,12 +76,4 @@ public class SingleQuestDisplay : MonoBehaviour
         abandon_button.SetActive(false);
         handin_button.SetActive(true);
     }
-
-    public void DisplayNo()
-    {
-        accept_button.SetActive(false);
-        reject_button.SetActive(false);
-        abandon_button.SetActive(false);
-        handin_button.SetActive(false);
-    }
 }

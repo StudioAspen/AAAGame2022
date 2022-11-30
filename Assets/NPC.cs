@@ -5,7 +5,6 @@ using UnityEngine;
 public class NPC : MonoBehaviour
 {
     public Quest quest_;
-    //public bool given_quest;
 
     private void Start()
     {
@@ -17,11 +16,6 @@ public class NPC : MonoBehaviour
     public void CompleteQuest()
     {
         quest_.is_complete = true;
-    }
-
-    public void HandInQuest()
-    {
-        quest_.handed_in = true;
     }
 
     public void Interact()
@@ -53,7 +47,7 @@ public class NPC : MonoBehaviour
         //if quest is there but completed
         //display the quest title+des
         //have a hand in button for quest
-        else if (manager.FindQuest(quest_) && (quest_.is_complete == true))
+        else if (manager.FindQuest(quest_) && (quest_.is_complete == true) && (quest_.handed_in == false))
         {
             display.DisplayHandIn();
             display.DisplayQuest(quest_);
@@ -64,8 +58,6 @@ public class NPC : MonoBehaviour
         //dialogue maybe
         else if (manager.FindQuest(quest_) && (quest_.handed_in == true))
         {
-            display.DisplayNo();
-            display.DisplayQuest(quest_);
             Debug.Log("quest is done");
         }
 
