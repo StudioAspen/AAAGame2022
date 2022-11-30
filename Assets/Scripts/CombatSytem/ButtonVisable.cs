@@ -21,6 +21,7 @@ public class ButtonVisable : MonoBehaviour
     public void Update()
     {
         // Compare selected gameObject with referenced Button gameObject
+        /*
         if (EventSystem.current.currentSelectedGameObject == PlayerSelected 
             || EventSystem.current.currentSelectedGameObject == AttackButton 
             || EventSystem.current.currentSelectedGameObject == FireSkillButton)
@@ -34,6 +35,7 @@ public class ButtonVisable : MonoBehaviour
             AttackButton.SetActive(false);
             FireSkillButton.SetActive(false);
         }
+        */
     }
 }
                                             
