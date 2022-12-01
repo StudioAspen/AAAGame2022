@@ -1,0 +1,7 @@
+Name,Sentences,Emotion,Animation
+Name1,Test1,,SlideIn
+,Test11,,SlideOut
+Name2,Test2,,SlideIn
+,Test22,Happy,
+,Test222,,
+,Test2222,,SlideOut
