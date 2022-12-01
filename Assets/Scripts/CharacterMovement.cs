@@ -28,13 +28,13 @@ public class CharacterMovement : MonoBehaviour
         if(moveInput != Vector2.zero) {
             anim.SetFloat("Xinput", moveInput.x);
             anim.SetFloat("Yinput", moveInput.y);
-            if (moveInput.magnitude!=0) //use vector3.mag
+            if (moveInput.magnitude==0) //use vector3.mag
             {
-                anim.SetBool("Walking", true);
+                anim.SetBool("Walking", false); 
             }
             else
             {
-                anim.SetBool("Walking", false);
+                anim.SetBool("Walking", true);
             }
 
           
