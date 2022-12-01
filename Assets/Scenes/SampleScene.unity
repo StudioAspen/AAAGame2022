@@ -250,6 +250,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: DialogueBox
       objectReference: {fileID: 0}
+    - target: {fileID: 8676755957696620997, guid: ad3d6c0a4f56ab6488a33d967de9b501, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8676755957696620998, guid: ad3d6c0a4f56ab6488a33d967de9b501, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -334,6 +338,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8676755957696621001, guid: ad3d6c0a4f56ab6488a33d967de9b501, type: 3}
+      propertyPath: dialogueManager
+      value: 
+      objectReference: {fileID: 1764433036}
     - target: {fileID: 8676755957719449158, guid: ad3d6c0a4f56ab6488a33d967de9b501, type: 3}
       propertyPath: m_SizeDelta.x
       value: 1394.562
@@ -381,6 +389,28 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 8676755957696620998, guid: ad3d6c0a4f56ab6488a33d967de9b501, type: 3}
   m_PrefabInstance: {fileID: 274382005}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &274382007 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8676755957696621001, guid: ad3d6c0a4f56ab6488a33d967de9b501, type: 3}
+  m_PrefabInstance: {fileID: 274382005}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6913cc890caa3ca4ca5438178f8ba7e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &274382008 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8676755957719449160, guid: ad3d6c0a4f56ab6488a33d967de9b501, type: 3}
+  m_PrefabInstance: {fileID: 274382005}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &280058970
 GameObject:
   m_ObjectHideFlags: 0
@@ -2658,9 +2688,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4336c610b64d50f43922ab8907c8514d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText1: {fileID: 0}
+  nameText1: {fileID: 274382008}
   completedDialogue: 0
-  dialogueBox: {fileID: 0}
+  dialogueBox: {fileID: 274382007}
 --- !u!4 &1764433037
 Transform:
   m_ObjectHideFlags: 0
@@ -3046,7 +3076,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf2bb1122ff2c44e8889b6972f63372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  action: {fileID: 0}
+  action: {fileID: 11400000, guid: a7c25dd366bcc0c41acad2ee855eca30, type: 2}
 --- !u!4 &2025280904
 Transform:
   m_ObjectHideFlags: 0
