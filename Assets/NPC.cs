@@ -5,12 +5,15 @@ using UnityEngine;
 public class NPC : MonoBehaviour
 {
     public Quest quest_;
+    public DialogueInteraction action;
+    DialogueManager dialogue_manager;
 
     private void Start()
     {
         quest_ = new Quest();
         quest_.title = "test name";
         quest_.description = "test description";
+        dialogue_manager = FindObjectOfType<DialogueManager>();
     }
 
     public void CompleteQuest()
@@ -18,7 +21,21 @@ public class NPC : MonoBehaviour
         quest_.is_complete = true;
     }
 
+    private IEnumerator IsDialogueBoxInactive()
+    {
+        //Showing menu after dialogue is completed
+        yield return new WaitUntil(() => !dialogue_manager.dialogueBox.isActiveAndEnabled);
+        ShowQuest();
+    }
+
     public void Interact()
+    {
+        dialogue_manager.StartDialogue(action);
+        StartCoroutine(IsDialogueBoxInactive());
+    }
+
+
+    public void ShowQuest()
     {
         QuestManager manager;
         manager = FindObjectOfType<QuestManager>();

@@ -401,10 +401,10 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -49.99997}
-  m_SizeDelta: {x: 668.7062, y: -244.1547}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 36.038696}
+  m_SizeDelta: {x: 2012.7062, y: 683.9226}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8676755957696621000
 CanvasRenderer:
@@ -427,12 +427,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textComponents: {fileID: 8676755955862717710}
+  textSpeed: 0.05
   dialogueManager: {fileID: 0}
   lines:
   - sentence 1
   - s e n t e n c e   t w o
   - s                              encten              3
-  textSpeed: 0.05
 --- !u!1 &8676755957719449157
 GameObject:
   m_ObjectHideFlags: 0

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPC : MonoBehaviour
+public class NPCTest : MonoBehaviour
 {
     //Quest quest;
     //QuestManager questManager;
