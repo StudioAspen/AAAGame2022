@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CombatController : MonoBehaviour
 {
@@ -29,7 +30,7 @@ public class CombatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void InitalizeCombat(List<CombatData> playerUnits, List<CombatData> enemyUnits)
@@ -44,6 +45,22 @@ public class CombatController : MonoBehaviour
         for (int i = 0; i < enemies.Count; i++)
         {
             enemies[i].GetComponent<CombatUnit>().InitalizeCombatUnit(enemyUnits[i]);
+        }
+        foreach (AssignStatBars statBars in FindObjectsOfType<AssignStatBars>())
+        {
+            statBars.UpdateMoveList();
+        }
+    }
+    public void EndCombat()
+    {
+        SceneManager.UnloadSceneAsync("CombatSystem");
+    }
+    /// FOR TESTING /////////
+    public void KillAllEnemies()
+    {
+        foreach(GameObject enemy in enemies)
+        {
+            enemy.GetComponent<CombatUnit>().ChangeHP(-10000);
         }
     }
 }
