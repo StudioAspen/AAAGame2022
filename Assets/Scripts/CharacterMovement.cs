@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class CharacterMovement : MonoBehaviour
@@ -14,7 +12,11 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
+
         
+
+
+
     }
 
     // Update is called once per frame
@@ -23,19 +25,19 @@ public class CharacterMovement : MonoBehaviour
         moveInput.x = Input.GetAxis("Horizontal");
         moveInput.y = Input.GetAxis("Vertical");
         moveInput.Normalize();
-        rb.velocity = new Vector3(moveInput.x*moveSpeed, rb.velocity.y, moveInput.y*moveSpeed);
+        rb.velocity = new Vector3(moveInput.x * moveSpeed, rb.velocity.y, moveInput.y * moveSpeed);
 
-        if(moveInput != Vector2.zero) {
+        
+
+        if (moveInput.magnitude != 0)
+        {
             anim.SetFloat("Xinput", moveInput.x);
             anim.SetFloat("Yinput", moveInput.y);
-            if (moveInput.magnitude==0) //use vector3.mag
-            {
-                anim.SetBool("Walking", false); 
-            }
-            else
-            {
-                anim.SetBool("Walking", true);
-            }
+            anim.SetBool("Walking", true);
+        }
+        else
+        {
+            anim.SetBool("Walking", false);
         }
 
         if(Input.GetKeyDown(KeyCode.E))
