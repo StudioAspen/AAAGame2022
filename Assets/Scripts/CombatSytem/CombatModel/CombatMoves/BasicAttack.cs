@@ -8,7 +8,7 @@ public class BasicAttack : CombatMove
     public BasicAttack()
     {
         name = "Basic Attack";
-        mpGain = 10f;
+        mpGain = 30f;
     }
     public override void UseMove(CombatUnit target, CombatUnit user)
     {

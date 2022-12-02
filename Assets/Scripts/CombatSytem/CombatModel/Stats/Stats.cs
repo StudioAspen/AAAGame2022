@@ -34,4 +34,16 @@ public class Stats
         moveCD = stats.moveCD;
         attack = stats.attack;
     }
+    public void RandomizeStats()
+    {
+        float maxHPQuart = this.maxHP / 4;
+        float maxMPQuart = this.maxMP / 4;
+        float moveCDQuart = this.moveCD / 4;
+        float attackQuart = this.attack / 4;
+
+        this.maxHP += Random.Range(-maxHPQuart, maxHPQuart);
+        this.maxMP += Random.Range(-maxMPQuart, maxMPQuart);
+        this.moveCD += Random.Range(-moveCDQuart, moveCDQuart);
+        this.attack += Random.Range(-attackQuart, attackQuart);
+    }
 }

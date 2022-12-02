@@ -1,0 +1,20 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class FireBite : Skill
+{
+    public FireBite()
+    {
+        name = "Fire Bite";
+        element = ElementEffect.FIRE;
+        mpCost = 0f;
+    }
+
+    public override void UseMove(CombatUnit target, CombatUnit user)
+    {
+        target.AddElementEffect(element, user.currentStats);
+        target.ChangeHP(-user.currentStats.attack);
+    }
+    
+}

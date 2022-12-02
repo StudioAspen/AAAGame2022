@@ -11,20 +11,24 @@ public class CombatController : MonoBehaviour
     public List<GameObject> enemies;
 
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
         //////////////TESTING INITALIZATION/////////////////////////
         List<CombatData> playerData = new List<CombatData>();
-        playerData.Add(new CombatData());
-        playerData.Add(new CombatData());
-        playerData.Add(new CombatData());
+        playerData.Add(new CombatData(true));
+        playerData.Add(new CombatData(true));
+        playerData.Add(new CombatData(true));
         List<CombatData> enemyData = new List<CombatData>();
-        enemyData.Add(new CombatData());
-        enemyData.Add(new CombatData());
-        enemyData.Add(new CombatData());
+        enemyData.Add(new CombatData(false));
+        enemyData.Add(new CombatData(false));
+        enemyData.Add(new CombatData(false));
 
         InitalizeCombat(playerData, enemyData);
         ///////////////////////////////////////////////////////////////
+
+    }
+    void Start()
+    {
     }
 
     // Update is called once per frame
@@ -51,12 +55,30 @@ public class CombatController : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync("CombatSystem");
     }
-    /// FOR TESTING /////////
-    public void KillAllEnemies()
+    public void UpdateDead()
     {
-        foreach(GameObject enemy in enemies)
+        bool alive = false;
+        //Initalizing Players
+        for (int i = 0; i < players.Count; i++)
         {
-            enemy.GetComponent<CombatUnit>().ChangeHP(-10000);
+            if(!players[i].GetComponent<CombatUnit>().dead)
+            {
+                alive = true;
+            }
+        }
+
+        //Initalizing enemies
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            if (!enemies[i].GetComponent<CombatUnit>().dead)
+            {
+                alive = true;
+            }
+        }
+
+        if(!alive)
+        {
+            EndCombat();
         }
     }
 }

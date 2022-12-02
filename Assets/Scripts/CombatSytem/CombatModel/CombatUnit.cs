@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.Events;
 public class CombatUnit : MonoBehaviour
 {
     //Available moves and base stats on unit
@@ -32,7 +32,7 @@ public class CombatUnit : MonoBehaviour
         //testing
         if(baseStats == null)
         {
-            InitalizeCombatUnit(new CombatData());
+            InitalizeCombatUnit(new CombatData(true));
         }
 
 
@@ -137,6 +137,13 @@ public class CombatUnit : MonoBehaviour
     {
         dead = true;
         canMakeMove = false;
+
+        //                          TEMPERARY
+        CombatController combatController = FindObjectOfType<CombatController>();
+        if(combatController != null)
+        {
+            combatController.UpdateDead();
+        }
     }
 
     //TESTING FUNCTIONS

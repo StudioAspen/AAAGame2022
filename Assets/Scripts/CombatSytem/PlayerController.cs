@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     private Camera _mainCamera;
     CombatUnit selectedUser = null;
     CombatMove selectedMove = null;
+    public List<GameObject> players;
 
     private void Start()
     {
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(0))
         {
+            //Checking click on an object
             Ray _ray;
             _ray = _mainCamera.ScreenPointToRay(Input.mousePosition);
 
@@ -25,12 +27,36 @@ public class PlayerController : MonoBehaviour
             RaycastHit _hit;
             if (Physics.Raycast(_ray, out _hit, 1000f))
             {
-                CombatUnitController combatUnitController;
-                if(_hit.transform.gameObject.TryGetComponent<CombatUnitController>(out combatUnitController))
+                GameObject foundObject = _hit.transform.gameObject;
+                Debug.Log(foundObject.name);
+                //If clicked player unit
+                CombatUnitAdapter combatUnitAdapter;
+                if(foundObject.TryGetComponent<CombatUnitAdapter>(out combatUnitAdapter))
                 {
-                    ResetTargeting();
-                    selectedUser = combatUnitController.combatUnit;
-                    Debug.Log("Clicked on: " + selectedUser.name);
+                    bool foundPlayer = false;
+                    //Selected Player
+                    foreach(GameObject player in players)
+                    {
+                        player.GetComponent<CombatUnitAdapter>().assignStatBars.HideSkillList();
+                        if (foundObject == player)
+                        {
+                            foundPlayer = true;
+                            if (combatUnitAdapter.combatUnit.canMakeMove)
+                            {
+                                ResetTargeting();
+                                selectedUser = combatUnitAdapter.combatUnit;
+                                combatUnitAdapter.assignStatBars.ShowSkillList();
+                                combatUnitAdapter.UpdateCanUseSkill();
+                            }
+                        }
+                    }
+                    //Selected Enemy
+                    if(selectedMove != null && !foundPlayer)
+                    {
+                        selectedMove.UseMove(combatUnitAdapter.combatUnit, selectedUser);
+                        selectedUser.ResetTimer();
+                        ResetTargeting();
+                    }
                 }
             }
         }

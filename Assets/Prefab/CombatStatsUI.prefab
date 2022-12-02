@@ -86,7 +86,7 @@ MonoBehaviour:
   m_MinValue: 0
   m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: 0.848
+  m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -398,7 +398,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 2.3000107, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8955195516169300987
@@ -533,10 +533,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53284793394724a44a9f9c9d19823d19, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combatUnit: {fileID: 0}
   HPSlider: {fileID: 8955195517239264350}
   MPSlider: {fileID: 8955195517016853185}
   CDSlider: {fileID: 8955195515854323998}
+  skillList: {fileID: 8955195517820761524}
   verticalLayoutGroup: {fileID: 8955195517820761526}
   skillButton: {fileID: 2025238344726450702, guid: 17d02fc338f537e498e4e611eaf48a5e, type: 3}
 --- !u!1 &8955195516409440752
@@ -611,8 +611,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 10, y: 0}
+  m_AnchoredPosition: {x: 2.199997, y: 0}
+  m_SizeDelta: {x: 10, y: -0.000000834465}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8955195516704524762
 CanvasRenderer:
@@ -724,7 +724,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 2.3000107, y: 0}
   m_SizeDelta: {x: 10, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8955195516874812144
@@ -1069,7 +1069,7 @@ GameObject:
   - component: {fileID: 8955195517820761527}
   - component: {fileID: 8955195517820761526}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: SkillList
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
