@@ -13,7 +13,7 @@ public class CharacterMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        anim =GetComponent<Animator>();
+        anim = GetComponent<Animator>();
         
     }
 
@@ -36,15 +36,21 @@ public class CharacterMovement : MonoBehaviour
             {
                 anim.SetBool("Walking", true);
             }
-
-          
         }
-        
-        
-        
 
-
-
-
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            //returns list of colliders
+            Collider[] colliders = Physics.OverlapSphere(transform.position, radius: 1);
+            for(int i = 0; i < colliders.Length; i++)
+            {
+                NPC npc;
+                if(colliders[i].gameObject.TryGetComponent<NPC>(out npc))
+                {
+                    npc.Interact();
+                    break;
+                }
+            }  
+        }
     }
 }
