@@ -6,7 +6,6 @@ using TMPro;
 
 public class AssignStatBars : MonoBehaviour
 {
-    public CombatUnit combatUnit;
     public Slider HPSlider;
     public Slider MPSlider;
     public Slider CDSlider;
@@ -16,31 +15,21 @@ public class AssignStatBars : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        /*
-        int holder = 5;
-        while (holder > 0)
-        {
-            GameObject test = Instantiate(skillButton);
-            test.transform.SetParent(verticalLayoutGroup.transform);
-            holder--;
-        }
-        */
 
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Tracking Sliders
-        /*
+    }
+
+    public void UpdateStatBars(CombatUnit combatUnit)
+    {
         HPSlider.value = combatUnit.currentHP / combatUnit.currentStats.maxHP;
         MPSlider.value = combatUnit.currentMP / combatUnit.currentStats.maxMP;
         CDSlider.value = combatUnit.currentMoveCD / combatUnit.currentStats.moveCD;
-        */
     }
-
-
-    public void UpdateMoveList()
+    public void UpdateMoveList(CombatUnit combatUnit)
     {
         GameObject holder = Instantiate(skillButton);
         holder.GetComponentInChildren<TMP_Text>().text = combatUnit.basicAttack.name;
@@ -50,7 +39,12 @@ public class AssignStatBars : MonoBehaviour
         {
             holder = Instantiate(skillButton);
             holder.GetComponentInChildren<TMP_Text>().text = skill.name;
-            holder.transform.SetParent(verticalLayoutGroup.transform);
+            holder.GetComponent<Button>().onClick.AddListener(() => SetCombatMove(skill));
+            holder.transform.SetParent(verticalLayoutGroup.transform); 
         }
+    }
+    public void SetCombatMove(CombatMove combatMove)
+    {
+
     }
 }

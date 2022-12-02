@@ -46,10 +46,6 @@ public class CombatController : MonoBehaviour
         {
             enemies[i].GetComponent<CombatUnit>().InitalizeCombatUnit(enemyUnits[i]);
         }
-        foreach (AssignStatBars statBars in FindObjectsOfType<AssignStatBars>())
-        {
-            statBars.UpdateMoveList();
-        }
     }
     public void EndCombat()
     {

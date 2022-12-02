@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     private Camera _mainCamera;
-
+    CombatUnit selectedUser = null;
+    CombatMove selectedMove = null;
 
     private void Start()
     {
@@ -24,8 +25,23 @@ public class PlayerController : MonoBehaviour
             RaycastHit _hit;
             if (Physics.Raycast(_ray, out _hit, 1000f))
             {
-                Debug.Log("Click");
+                CombatUnitController combatUnitController;
+                if(_hit.transform.gameObject.TryGetComponent<CombatUnitController>(out combatUnitController))
+                {
+                    ResetTargeting();
+                    selectedUser = combatUnitController.combatUnit;
+                    Debug.Log("Clicked on: " + selectedUser.name);
+                }
             }
         }
+    }
+    public void ResetTargeting()
+    {
+        selectedUser = null;
+        selectedMove = null;
+    }
+    public void SetCombatMove(CombatMove combatMove)
+    {
+        selectedMove = combatMove;
     }
 }
