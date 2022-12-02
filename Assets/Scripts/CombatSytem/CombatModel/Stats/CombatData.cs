@@ -19,12 +19,12 @@ public class CombatData
         {
             skills.Add(new FireSkill());
             skills.Add(new WaterSkill());
+            skills.Add(new RegularSkill());
         }
         else
         {
             skills.Add(new FireBite());
         }
-        skills.Add(new RegularSkill());
         baseStats.RandomizeStats();
         /////////////////////////////////////////
     }

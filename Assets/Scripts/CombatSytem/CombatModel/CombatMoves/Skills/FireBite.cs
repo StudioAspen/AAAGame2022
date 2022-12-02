@@ -13,8 +13,9 @@ public class FireBite : Skill
 
     public override void UseMove(CombatUnit target, CombatUnit user)
     {
-        target.AddElementEffect(element, user.currentStats);
-        target.ChangeHP(-user.currentStats.attack);
+        //target.AddElementEffect(element, user.currentStats);
+        target.ChangeHP(-(user.currentStats.attack*0.5f));
+        target.ChangeMP(-(user.currentStats.attack * 0.25f));
     }
     
 }

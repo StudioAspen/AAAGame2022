@@ -51,7 +51,7 @@ public class PlayerController : MonoBehaviour
                         }
                     }
                     //Selected Enemy
-                    if(selectedMove != null && !foundPlayer)
+                    if(selectedMove != null && !foundPlayer && !combatUnitAdapter.combatUnit.dead)
                     {
                         selectedMove.UseMove(combatUnitAdapter.combatUnit, selectedUser);
                         selectedUser.ResetTimer();

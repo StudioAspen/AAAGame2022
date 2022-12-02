@@ -34,7 +34,10 @@ public class CombatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            KillEnemies();
+        }
     }
 
     public void InitalizeCombat(List<CombatData> playerUnits, List<CombatData> enemyUnits)
@@ -53,30 +56,40 @@ public class CombatController : MonoBehaviour
     }
     public void EndCombat()
     {
+        Debug.Log("EndBattle");
         SceneManager.UnloadSceneAsync("CombatSystem");
+    }
+
+    public void KillEnemies()
+    {
+        //Initalizing enemies
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            enemies[i].GetComponent<CombatUnit>().ChangeHP(-10000);
+        }
     }
     public void UpdateDead()
     {
-        bool alive = false;
+        bool playerAlive = false;
         //Initalizing Players
         for (int i = 0; i < players.Count; i++)
         {
             if(!players[i].GetComponent<CombatUnit>().dead)
             {
-                alive = true;
+                playerAlive = true;
             }
         }
-
+        bool enemyAlive = false;
         //Initalizing enemies
         for (int i = 0; i < enemies.Count; i++)
         {
             if (!enemies[i].GetComponent<CombatUnit>().dead)
             {
-                alive = true;
+                enemyAlive = true;
             }
         }
 
-        if(!alive)
+        if(!enemyAlive || !playerAlive)
         {
             EndCombat();
         }
