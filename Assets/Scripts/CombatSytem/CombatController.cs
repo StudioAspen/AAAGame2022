@@ -61,7 +61,7 @@ public class CombatController : MonoBehaviour
     {
         SceneManager.UnloadSceneAsync("CombatScene");
         FindObjectOfType<DisableRoot>(true).gameObject.SetActive(true);
-        FindObjectOfType<NPC>().CompleteQuest();
+        FindObjectOfType<QuestManager>(true).CompleteQuest(questObjective);
     }
 
     public void KillEnemies()
@@ -101,6 +101,7 @@ public class CombatController : MonoBehaviour
 
     public void SaveOverWorld(Quest quest)
     {
+        Debug.Log(quest.title);
         questObjective = quest;
     }
 }

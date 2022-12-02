@@ -54,7 +54,7 @@ public class QuestManager : MonoBehaviour
     {
         foreach(var quest in all_quests)
         {
-            Debug.Log(quest.title);
+            Debug.Log(quest.title + quest.is_complete + quest.handed_in);
         }
     }
 }

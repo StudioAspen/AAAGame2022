@@ -16,11 +16,14 @@ public class Battle : MonoBehaviour
         {
             canEnter = false;
             SceneManager.LoadScene("CombatScene", LoadSceneMode.Additive);
+            Quest quest = FindObjectOfType<NPC>().quest_;
+            Debug.Log(quest.title);
             FindObjectOfType<DisableRoot>().gameObject.SetActive(false);
             CombatController combatController = FindObjectOfType<CombatController>();
+            Debug.Log(combatController.name);
             if(combatController != null)
             {
-                FindObjectOfType<CombatController>().SaveOverWorld(FindObjectOfType<NPC>().quest_);
+                FindObjectOfType<CombatController>().SaveOverWorld(quest);
             }
         }
     }
