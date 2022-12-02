@@ -13,6 +13,10 @@ public class CharacterMovement : MonoBehaviour
     {
         anim = GetComponent<Animator>();
 
+        
+
+
+
     }
 
     // Update is called once per frame
@@ -36,8 +40,19 @@ public class CharacterMovement : MonoBehaviour
             anim.SetBool("Walking", false);
         }
 
-
-
-
+        if(Input.GetKeyDown(KeyCode.E))
+        {
+            //returns list of colliders
+            Collider[] colliders = Physics.OverlapSphere(transform.position, radius: 1);
+            for(int i = 0; i < colliders.Length; i++)
+            {
+                NPC npc;
+                if(colliders[i].gameObject.TryGetComponent<NPC>(out npc))
+                {
+                    npc.Interact();
+                    break;
+                }
+            }  
+        }
     }
 }

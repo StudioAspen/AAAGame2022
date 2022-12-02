@@ -34,7 +34,6 @@ public class NPC : MonoBehaviour
         StartCoroutine(IsDialogueBoxInactive());
     }
 
-
     public void ShowQuest()
     {
         QuestManager manager;
