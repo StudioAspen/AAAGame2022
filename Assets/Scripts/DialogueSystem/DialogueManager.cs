@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using TMPro;
 
 public class DialogueManager : MonoBehaviour
@@ -12,18 +13,28 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField]
     public DialogueBox dialogueBox;
+
     
     public void StartDialogue(DialogueInteraction dialogueInteraction)
     {
         if (!dialogueBox.isActiveAndEnabled)
         {
-            dialogueBox.gameObject.SetActive(true); //activating dialogue box
+            dialogueBox.gameObject.SetActive(true); 
             dialogueBox.dialogueManager = this;
             StartCoroutine(RunDialogue(dialogueInteraction.dialogues));
         }
     }
 
-    private IEnumerator RunDialogue(Dialogue[] dialogues)
+    public void StartDialogue(DialogueInteraction dialogueInteraction, UnityEvent actionAfterDialogue)
+    {
+        if (!dialogueBox.isActiveAndEnabled)
+        {
+            dialogueBox.gameObject.SetActive(true);
+            dialogueBox.dialogueManager = this;
+            StartCoroutine(RunDialogue(dialogueInteraction.dialogues, actionAfterDialogue));
+        }
+    }
+    private IEnumerator RunDialogue(Dialogue[] dialogues, UnityEvent actionAfterDialogue = null)
     {
         Dialogue currentDialogue;
         for (int i = 0; i < dialogues.Length; i++)
@@ -42,5 +53,9 @@ public class DialogueManager : MonoBehaviour
             completedDialogue = false;
         }
         dialogueBox.gameObject.SetActive(false);
+        if (actionAfterDialogue != null)
+        {
+            actionAfterDialogue.Invoke();
+        }
     }
 }
