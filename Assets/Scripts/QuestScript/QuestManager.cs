@@ -5,7 +5,12 @@ using UnityEngine;
 public class QuestManager : MonoBehaviour
 {
     public List<Quest> all_quests = new List<Quest>();
-
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.P)){
+            PrintQuests();
+        }
+    }
     public bool FindQuest(Quest quest)
     {
         foreach (var i in all_quests)
@@ -28,10 +33,12 @@ public class QuestManager : MonoBehaviour
 
     public void CompleteQuest(Quest quest)
     {
+        Debug.Log(quest.title + "outside");
         foreach (var i in all_quests)
         {
-            if (quest == i)
-                quest.is_complete = true;
+            Debug.Log(i.title + "foreach");
+            if (quest.title == i.title)
+                i.is_complete = true;
         }
     }
 
@@ -41,6 +48,13 @@ public class QuestManager : MonoBehaviour
         {
             if (quest == i && quest.is_complete)
                 quest.handed_in = true;
+        }
+    }
+    public void PrintQuests()
+    {
+        foreach(var quest in all_quests)
+        {
+            Debug.Log(quest.title + quest.is_complete + quest.handed_in);
         }
     }
 }

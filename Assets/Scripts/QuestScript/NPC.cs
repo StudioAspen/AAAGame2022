@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class NPC : MonoBehaviour
 {
@@ -21,17 +22,11 @@ public class NPC : MonoBehaviour
         quest_.is_complete = true;
     }
 
-    private IEnumerator IsDialogueBoxInactive()
-    {
-        //Showing menu after dialogue is completed
-        yield return new WaitUntil(() => !dialogue_manager.dialogueBox.isActiveAndEnabled);
-        ShowQuest();
-    }
-
     public void Interact()
     {
-        dialogue_manager.StartDialogue(action);
-        StartCoroutine(IsDialogueBoxInactive());
+        UnityEvent afterDialogue = new UnityEvent();
+        afterDialogue.AddListener(ShowQuest);
+        dialogue_manager.StartDialogue(action, afterDialogue);
     }
 
     public void ShowQuest()
