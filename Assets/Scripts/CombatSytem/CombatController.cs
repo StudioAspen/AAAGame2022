@@ -9,9 +9,7 @@ public class CombatController : MonoBehaviour
 {
     public List<GameObject> players;
     public List<GameObject> enemies;
-
-    GameObject root; //to enable overworld
-    Quest questObjective;
+    GameObject[] overworldObjects;
 
     // Start is called before the first frame update
     private void Awake()
@@ -29,9 +27,6 @@ public class CombatController : MonoBehaviour
         InitalizeCombat(playerData, enemyData);
         ///////////////////////////////////////////////////////////////
 
-    }
-    void Start()
-    {
     }
 
     // Update is called once per frame
@@ -60,13 +55,15 @@ public class CombatController : MonoBehaviour
     public void EndCombat(bool playerWon)
     {
         SceneManager.UnloadSceneAsync("CombatScene");
-        FindObjectOfType<DisableRoot>(true).gameObject.SetActive(true);
-        FindObjectOfType<QuestManager>(true).CompleteQuest(questObjective);
+        foreach(GameObject a in overworldObjects)
+        {
+            a.SetActive(true);
+        }
     }
 
     public void KillEnemies()
     {
-        //Initalizing enemies
+        //Killing enemies
         for (int i = 0; i < enemies.Count; i++)
         {
             enemies[i].GetComponent<CombatUnit>().ChangeHP(-10000);
@@ -99,9 +96,8 @@ public class CombatController : MonoBehaviour
         }
     }
 
-    public void SaveOverWorld(Quest quest)
+    public void SaveOverWorld(GameObject[] _overworldObects)
     {
-        Debug.Log(quest.title);
-        questObjective = quest;
+        overworldObjects = _overworldObects;
     }
 }
