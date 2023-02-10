@@ -5,19 +5,18 @@ using UnityEngine.Playables;
 
 public class StartCutScene : MonoBehaviour
 {
-    public Collider player;
-    public Collider ground;
-    public Collider trigger;
-
-    private PlayableDirector director;
-    public GameObject controlPanel;
-
-
+    public GameObject Timeline;
+    PlayableDirector director;
+    private void Start()
+    {
+        director = Timeline.GetComponent<PlayableDirector>();
+    }
 
     private void OnTriggerEnter(Collider player)
     {
         if (player.CompareTag("Player") == true)
         {
+            director.Play();
 
         }
 
