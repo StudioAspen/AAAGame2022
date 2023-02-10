@@ -80,6 +80,8 @@ public class DialogueInteraction : ScriptableObject
             Dialogue dialogue = new Dialogue(currentName, currentSentences.ToArray(), currentAnimations, currentPoses);
             dialoguesHolder.Add(dialogue);
         }
+
+        Debug.Log("data populated!");
     }
 #endif
 }
