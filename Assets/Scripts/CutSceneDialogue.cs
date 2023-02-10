@@ -6,14 +6,13 @@ using UnityEngine.Events;
 
 public class CutSceneDialogue : MonoBehaviour
 {
-    public DialogueManager dialogueManager;
     public DialogueInteraction script;
 
     void Start()
     {
         UnityEvent afterDialogue = new UnityEvent();
         afterDialogue.AddListener(GoToOverworld);
-        dialogueManager.StartDialogue(script, afterDialogue);
+        DialogueManager.Instance.StartDialogue(script, afterDialogue);
     }
 
     void GoToOverworld() {

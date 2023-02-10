@@ -6,31 +6,30 @@ using TMPro;
 public class DialogueBox : MonoBehaviour
 {
     [SerializeField]
+    private TextMeshProUGUI nameText1;
+    [SerializeField]
     private TextMeshProUGUI textComponents;
     [SerializeField]
     private float textSpeed;
-    public DialogueManager dialogueManager;
 
-    public string[] lines;
-    public Dictionary<int, string> poses;
-    public Dictionary<int, string> animations;
-
+    public Dialogue currentDialogue;
+    
     private int index;
 
-    // Update is called once per frame
+
     void Update()
     {
         //make it so that you can only click inside dialogue box to proceed to next dialogue
-        if(Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0))
         {
-            if (textComponents.text == lines[index])
+            if (textComponents.text == currentDialogue.lines[index])
             {
                 NextLine();
             }     
             else
             {
                 StopAllCoroutines();
-                textComponents.text = lines[index];
+                textComponents.text = currentDialogue.lines[index];
             }
         }
     }
@@ -38,6 +37,7 @@ public class DialogueBox : MonoBehaviour
     public void StartDialogue()
     {
         index = 0;
+        nameText1.text = currentDialogue.name;
         textComponents.text = string.Empty;
         PlayAnimations();
         StartCoroutine(TypeLine());
@@ -45,7 +45,7 @@ public class DialogueBox : MonoBehaviour
 
     IEnumerator TypeLine() 
     {
-        foreach (char c in lines[index].ToCharArray())
+        foreach (char c in currentDialogue.lines[index].ToCharArray())
         {
             textComponents.text += c;
             yield return new WaitForSeconds(textSpeed);
@@ -55,7 +55,7 @@ public class DialogueBox : MonoBehaviour
 
     void NextLine()
     {
-        if (index < lines.Length - 1)
+        if (index < currentDialogue.lines.Length - 1)
         {
             index++;
             textComponents.text = string.Empty;
@@ -66,19 +66,19 @@ public class DialogueBox : MonoBehaviour
         //if there is no next line close the dialogue box
         else
         {
-            dialogueManager.completedDialogue = true;
+            DialogueManager.Instance.completedDialogue = true;
         }
     }
 
     void PlayAnimations()
     {
         string poseKey;
-        if (poses.TryGetValue(index, out poseKey))
+        if (currentDialogue.poses.TryGetValue(index, out poseKey))
         {
             Debug.Log("Pose: " + poseKey); //Should be replaced with function
         }
         string animationKey;
-        if (animations.TryGetValue(index, out animationKey))
+        if (currentDialogue.animations.TryGetValue(index, out animationKey))
         {
             Debug.Log("Animation: " + animationKey); //Should be replaced with function
         }

@@ -7,51 +7,44 @@ using TMPro;
 
 public class DialogueManager : MonoBehaviour
 {
-    [SerializeField]
-    private TextMeshProUGUI nameText1;
+    public static DialogueManager Instance { get; private set; }
+
     public bool completedDialogue = false;
 
     [SerializeField]
     public DialogueBox dialogueBox;
 
-    
-    public void StartDialogue(DialogueInteraction dialogueInteraction)
+    private void Awake() {
+        Instance = this;
+    }
+
+    public void StartDialogue(DialogueInteraction dialogueInteraction, UnityEvent actionAfterDialogue = null)
     {
         if (!dialogueBox.isActiveAndEnabled)
         {
             dialogueBox.gameObject.SetActive(true); 
-            dialogueBox.dialogueManager = this;
-            StartCoroutine(RunDialogue(dialogueInteraction.dialogues));
+            
+            if (actionAfterDialogue == null)
+            {
+                StartCoroutine(RunDialogue(dialogueInteraction.dialogues));
+            }
+            else 
+            {
+                StartCoroutine(RunDialogue(dialogueInteraction.dialogues, actionAfterDialogue));
+            }
         }
     }
 
-    public void StartDialogue(DialogueInteraction dialogueInteraction, UnityEvent actionAfterDialogue)
-    {
-        if (!dialogueBox.isActiveAndEnabled)
-        {
-            dialogueBox.gameObject.SetActive(true);
-            dialogueBox.dialogueManager = this;
-            StartCoroutine(RunDialogue(dialogueInteraction.dialogues, actionAfterDialogue));
-        }
-    }
     private IEnumerator RunDialogue(Dialogue[] dialogues, UnityEvent actionAfterDialogue = null)
     {
-        Dialogue currentDialogue;
         for (int i = 0; i < dialogues.Length; i++)
         {
-            currentDialogue = dialogues[i];
-
-            //Set name on the correct nametag
-            nameText1.text = currentDialogue.name;
-
-            //Set lines
-            dialogueBox.lines = currentDialogue.sentences; //Setting sentences
-            dialogueBox.animations = currentDialogue.animations;// Setting animations
-            dialogueBox.poses = currentDialogue.poses; //Setting poses
-            dialogueBox.StartDialogue(); //Starting dialogue
+            dialogueBox.currentDialogue = dialogues[i];
+            dialogueBox.StartDialogue();
             yield return new WaitUntil(() => completedDialogue);
             completedDialogue = false;
         }
+
         dialogueBox.gameObject.SetActive(false);
         if (actionAfterDialogue != null)
         {

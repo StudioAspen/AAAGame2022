@@ -814,7 +814,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueManager: {fileID: 562074244}
-  script: {fileID: 11400000, guid: a7c25dd366bcc0c41acad2ee855eca30, type: 2}
+  script: {fileID: 11400000, guid: 31b4f670df01146c29be7f310733b020, type: 2}
 --- !u!4 &2079520709
 Transform:
   m_ObjectHideFlags: 0

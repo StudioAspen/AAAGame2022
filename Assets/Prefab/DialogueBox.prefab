@@ -426,13 +426,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6913cc890caa3ca4ca5438178f8ba7e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nameText1: {fileID: 8676755957719449160}
   textComponents: {fileID: 8676755955862717710}
   textSpeed: 0.05
   dialogueManager: {fileID: 0}
-  lines:
-  - sentence 1
-  - s e n t e n c e   t w o
-  - s                              encten              3
+  currentDialogue:
+    name: 
+    lines:
+    - 
 --- !u!1 &8676755957719449157
 GameObject:
   m_ObjectHideFlags: 0
