@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
     private Camera _mainCamera;
     CombatUnit selectedUser = null;
     CombatMove selectedMove = null;
     public List<GameObject> players;
 
-    private void Start()
-    {
-        _mainCamera = Camera.main;
-    }
 
     private void Update()
     {

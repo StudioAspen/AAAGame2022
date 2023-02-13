@@ -1984,6 +1984,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 766950246, guid: 776e27c26113ff34286b5683cc929ff5, type: 3}
+      propertyPath: _mainCamera
+      value: 
+      objectReference: {fileID: 932320723}
+    - target: {fileID: 766950246, guid: 776e27c26113ff34286b5683cc929ff5, type: 3}
       propertyPath: players.Array.size
       value: 3
       objectReference: {fileID: 0}
