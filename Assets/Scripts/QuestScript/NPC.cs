@@ -7,14 +7,12 @@ public class NPC : MonoBehaviour
 {
     public Quest quest_;
     public DialogueInteraction action;
-    DialogueManager dialogue_manager;
 
     private void Start()
     {
         quest_ = new Quest();
         quest_.title = "test name";
         quest_.description = "test description";
-        dialogue_manager = FindObjectOfType<DialogueManager>();
     }
 
     public void CompleteQuest()
@@ -26,7 +24,7 @@ public class NPC : MonoBehaviour
     {
         UnityEvent afterDialogue = new UnityEvent();
         afterDialogue.AddListener(ShowQuest);
-        dialogue_manager.StartDialogue(action, afterDialogue);
+        DialogueManager.Instance.StartDialogue(action, afterDialogue);
     }
 
     public void ShowQuest()
