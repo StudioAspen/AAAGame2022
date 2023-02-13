@@ -22,6 +22,7 @@ public class CombatUnit : MonoBehaviour
     //Other Stats
     public bool canMakeMove = false;
     public bool dead = false;
+    public bool selected = false;
     
     //For element activation
     private ElementSystem elementSystem;

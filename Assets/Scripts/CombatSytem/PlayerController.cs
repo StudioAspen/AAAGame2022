@@ -29,31 +29,34 @@ public class PlayerController : MonoBehaviour
             {
                 GameObject foundObject = _hit.transform.gameObject;
                 Debug.Log(foundObject.name);
+
                 //If clicked player unit
-                CombatUnitAdapter combatUnitAdapter;
-                if(foundObject.TryGetComponent<CombatUnitAdapter>(out combatUnitAdapter))
+                CombatUnit combatUnit;
+                if(foundObject.TryGetComponent<CombatUnit>(out combatUnit))
                 {
                     bool foundPlayer = false;
                     //Selected Player
                     foreach(GameObject player in players)
                     {
-                        player.GetComponent<CombatUnitAdapter>().assignStatBars.HideSkillList();
+                        //player.GetComponent<AssignStatBars>().HideSkillList();
+                        player.GetComponent<CombatUnit>().selected = false;
                         if (foundObject == player)
                         {
                             foundPlayer = true;
-                            if (combatUnitAdapter.combatUnit.canMakeMove)
+                            if (combatUnit.canMakeMove)
                             {
                                 ResetTargeting();
-                                selectedUser = combatUnitAdapter.combatUnit;
-                                combatUnitAdapter.assignStatBars.ShowSkillList();
-                                combatUnitAdapter.UpdateCanUseSkill();
+                                selectedUser = combatUnit;
+                                combatUnit.selected = true;
+                                //assignStatBars.ShowSkillList();
+                                //assignStatBars.UpdateCanUseSkill();
                             }
                         }
                     }
                     //Selected Enemy
-                    if(selectedMove != null && !foundPlayer && !combatUnitAdapter.combatUnit.dead)
+                    if(selectedMove != null && !foundPlayer && !combatUnit.dead)
                     {
-                        selectedMove.UseMove(combatUnitAdapter.combatUnit, selectedUser);
+                        selectedMove.UseMove(combatUnit, selectedUser);
                         selectedUser.ResetTimer();
                         ResetTargeting();
                     }

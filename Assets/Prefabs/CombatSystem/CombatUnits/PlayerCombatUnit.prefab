@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3293131506066533985}
   - component: {fileID: 3293131506066533997}
   - component: {fileID: 3293131506066533994}
-  - component: {fileID: 1952686370}
+  - component: {fileID: -3142395502937148463}
   m_Layer: 0
   m_Name: PlayerCombatUnit
   m_TagString: Untagged
@@ -119,17 +119,24 @@ MonoBehaviour:
   elementEffects: 
   canMakeMove: 0
   dead: 0
---- !u!114 &1952686370
-MonoBehaviour:
+  selected: 0
+--- !u!95 &-3142395502937148463
+Animator:
+  serializedVersion: 4
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3293131506066533984}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69c6f2a76958bf541992409659f00648, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  combatUnit: {fileID: 0}
-  assignStatBars: {fileID: 0}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
