@@ -14,6 +14,7 @@ public class Battle : MonoBehaviour
         //Getting all objects to disable in current scene
         overworldObjects = FindObjectsOfType<GameObject>();
 
+
         //Load Combat Scene and waiting for it to load
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("CombatScene", LoadSceneMode.Additive);
         yield return new WaitUntil(() => asyncLoad.isDone);
@@ -25,6 +26,7 @@ public class Battle : MonoBehaviour
         {
             combatController.SaveOverWorld(overworldObjects);
         }
+
 
         //Disabling all objects
         foreach (GameObject a in overworldObjects)
