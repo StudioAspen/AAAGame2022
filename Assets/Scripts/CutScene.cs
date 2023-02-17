@@ -13,7 +13,7 @@ public class CutScene : MonoBehaviour
         {
             canEnter = false;
             SceneManager.LoadScene("FindInstitute", LoadSceneMode.Additive);
-            FindObjectOfType<DisableRoot>().gameObject.SetActive(false);
+            //FindObjectOfType<DisableRoot>().gameObject.SetActive(false); 
         }
     }
 }
