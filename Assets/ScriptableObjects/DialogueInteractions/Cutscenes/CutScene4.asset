@@ -1,0 +1,90 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2065dd0ac23d24c9c2473e5c91a04f, type: 3}
+  m_Name: CutScene4
+  m_EditorClassIdentifier: 
+  dialogues:
+  - name: ProfessorAurea
+    lines:
+    - "\"Magnificent timing, you two! I was just about to take this thing for a test
+      run myself. I wasn\u2019t sure if you were coming in today since someone(glances
+      at Cynthi)took forever to get you\u2026\"\r"
+    - "\"Nevertheless!!! That prosthetic you sent up was a real piece of work, I
+      stayed up all night taking a look at it\u2026 of course, I couldn\u2019t help
+      making a few tweaks here and there\u2026 but this truly is your piece-de-resistance!!
+      Just what I expect from my boy\u2026\"\r"
+    - "\"Of course, I picked out the color myself. So\u2014 don\u2019t be shy, it\u2019s
+      all yours! Try it on, wave it around, and tell me what you think! \"\r"
+  - name: Cynthi
+    lines:
+    - "Alonso are you okay?! \r"
+  - name: Alonso
+    lines:
+    - "\"(weakly) (looking down) Y-yeah...I\u2019m fine. (confidently)(raises head)
+      I\u2019m alright.\"\r"
+  - name: ProfessorAurea
+    lines:
+    - "Hold on. Let him learn.\r"
+  - name: Cynthi
+    lines:
+    - "So? How do you feel?! \r"
+  - name: Alonso
+    lines:
+    - "\u2026 Stronger\r"
+  - name: Cynthi
+    lines:
+    - "Stronger?\r"
+  - name: Alonso
+    lines:
+    - "\"I can feel it Cynthi...every groove, every cable, every pulse of energy
+      oscillating running through this hand. (pause) But it\u2019s not mine.\"\r"
+    - "It\u2019s not my strength.\r"
+  - name: Cynthi
+    lines:
+    - "\"Not yours\u2026? This is your machine, your arm, and the product of all
+      your hard work, how can you say it isn\u2019t yours?! \"\r"
+  - name: Alonso
+    lines:
+    - "I just\u2014 \r"
+  - name: Cynthi
+    lines:
+    - "Stop.\r"
+    - "\"Some feelings...just can\u2019t be expressed with words alone, ain\u2019t
+      that right Alonso?\"\r"
+  - name: Alonso
+    lines:
+    - "Without words\u2026? What are you\u2014\r"
+  - name: Cynthi
+    lines:
+    - "\"Enough talking! Let\u2019s see you grit those teeth! \"\r"
+    - "(panting) Do you get it now?\r"
+  - name: Alonso
+    lines:
+    - "How about we try that one more ti\u2014\r"
+  - name: ProfessorAurea
+    lines:
+    - "\"Children! While I appreciate the enthusiasm, and I\u2019d love nothing more
+      than to observe what this apparatus can really do\u2026 duty calls! And without
+      someone around to make sure you two don\u2019t break something, I\u2019d kindly
+      ask that you keep the fighting away from these marvelously polished institute
+      doors for now.\"\r"
+    - "\"Scurry on now you two\u2014 and as always my dear boy, c\u2019est magnifique!
+      Ta ta!! \"\r"
+  - name: Cynthi
+    lines:
+    - "\"So listen...I\u2019ve gotta head out and finish my work with Professor Avrati
+      up in the greenhouse, I\u2019m guessing you\u2019re gonna go finish up back
+      out by your house right?\"\r"
+    - "\"Well, I\u2019ll catch up with you later then, right? \"\r"
+    - '"By the way...that arm of yours? Thing packs one hell of a punch. Take care,
+      bozo. "'
+  CSV: {fileID: 4900000, guid: 3e4824c90d1b24f4c9bf0caa375efdf8, type: 3}
