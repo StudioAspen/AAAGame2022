@@ -34,6 +34,5 @@ public class CombatData
         baseStats = _baseStats;
         basicAttack = _basicAttack;
         skills = _skills;
-
     }
 }

@@ -1530,6 +1530,7 @@ MonoBehaviour:
   elementEffects: 
   canMakeMove: 0
   dead: 0
+  selected: 0
 --- !u!114 &1678374258
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1806,6 +1807,7 @@ MonoBehaviour:
   elementEffects: 
   canMakeMove: 0
   dead: 0
+  selected: 0
 --- !u!114 &1824795584
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2163,60 +2165,3 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2129161367}
   m_CullTransparentMesh: 1
---- !u!1001 &1294738612244298187
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2727634164123455564, guid: 6eda7326ad8791549bff02ad4ad3f4f9, type: 3}
-      propertyPath: m_RootOrder
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2727634164123455564, guid: 6eda7326ad8791549bff02ad4ad3f4f9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 271.6535
-      objectReference: {fileID: 0}
-    - target: {fileID: 2727634164123455564, guid: 6eda7326ad8791549bff02ad4ad3f4f9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 217.42183
-      objectReference: {fileID: 0}
-    - target: {fileID: 2727634164123455564, guid: 6eda7326ad8791549bff02ad4ad3f4f9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 6.2156143
-      objectReference: {fileID: 0}
-    - target: {fileID: 2727634164123455564, guid: 6eda7326ad8791549bff02ad4ad3f4f9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2727634164123455564, guid: 6eda7326ad8791549bff02ad4ad3f4f9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2727634164123455564, guid: 6eda7326ad8791549bff02ad4ad3f4f9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2727634164123455564, guid: 6eda7326ad8791549bff02ad4ad3f4f9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2727634164123455564, guid: 6eda7326ad8791549bff02ad4ad3f4f9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2727634164123455564, guid: 6eda7326ad8791549bff02ad4ad3f4f9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2727634164123455564, guid: 6eda7326ad8791549bff02ad4ad3f4f9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3250623971532234192, guid: 6eda7326ad8791549bff02ad4ad3f4f9, type: 3}
-      propertyPath: m_Name
-      value: CombatUnitPrefab
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 6eda7326ad8791549bff02ad4ad3f4f9, type: 3}
