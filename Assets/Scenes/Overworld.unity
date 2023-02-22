@@ -2980,6 +2980,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 39be38020b0a9344193fb0b728114da4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  ground: {fileID: 0}
+  trigger: {fileID: 0}
+  character: {fileID: 1039644255}
+  battleScene: 0
+  characterStats: {fileID: 11400000, guid: da0af05287125b648a226c02e841ad1e, type: 2}
   enemies: []
 --- !u!1 &1622668994
 GameObject:
