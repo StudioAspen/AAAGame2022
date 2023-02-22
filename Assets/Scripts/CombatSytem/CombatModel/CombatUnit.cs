@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+
+using UnityEngine.UI;
 public class CombatUnit : MonoBehaviour
 {
     //Available moves and base stats on unit
@@ -27,6 +29,9 @@ public class CombatUnit : MonoBehaviour
     //For element activation
     private ElementSystem elementSystem;
 
+    //Data (TEMPERARY)
+    [SerializeField]
+    public Sprite profile;
     
     void Start()
     {
