@@ -5,11 +5,19 @@ using System.Linq;
 using TMPro;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using Unity.VisualScripting;
 
 public class BattleEnd : MonoBehaviour
 {
     public Button button;
     public bool battleEnd;
+    public GameObject character;
+
+    public bool battleScene = true;
+
+    [SerializeField]
+    private CharacterStats characterStats;
+
     public void OnButtonPress()   
     {
         Debug.Log("pressed");
@@ -20,8 +28,9 @@ public class BattleEnd : MonoBehaviour
     {
         if (battleEnd == true)
         {
-           
+            characterStats.battleScene = false;
             SceneManager.LoadScene("Overworld");
+            character.transform.position= characterStats.overworldPos;
             battleEnd = false;
 
         }

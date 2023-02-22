@@ -424,6 +424,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   button: {fileID: 1488421998}
   battleEnd: 0
+  battleScene: 1
+  characterStats: {fileID: 11400000, guid: da0af05287125b648a226c02e841ad1e, type: 2}
 --- !u!114 &1488421998
 MonoBehaviour:
   m_ObjectHideFlags: 0
