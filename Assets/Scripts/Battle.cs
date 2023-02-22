@@ -12,21 +12,61 @@ public class Battle : MonoBehaviour
 
     [SerializeField]
     private CharacterStats characterStats;
+
+    bool canEnter = true;
+    GameObject[] overworldObjects;
+    public List<GameObject> enemies;
+
     void Update()
     {
         characterStats.overworldPos = character.transform.position;
     }
-    private void OnTriggerEnter(Collider player)
-    {
-        if (player.CompareTag("Player") == true)
-        {
-            characterStats.battleScene = true;
 
-            SceneManager.LoadScene("Battle");
-            Debug.Log("Battle begins");
+    IEnumerator TriggerCombat()
+    {
+        //Getting all objects to disable in current scene
+        overworldObjects = FindObjectsOfType<GameObject>();
+
+
+        //Load Combat Scene and waiting for it to load
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("CombatScene", LoadSceneMode.Additive);
+        yield return new WaitUntil(() => asyncLoad.isDone);
+
+        //Passing data to combat controller
+        CombatController combatController = FindObjectOfType<CombatController>();
+        if (combatController != null)
+        {
+            combatController.SaveOverWorld(overworldObjects);
         }
 
+        //Disabling all objects
+        foreach (GameObject a in overworldObjects)
+        {
+            a.SetActive(false);
+        }
+    }
 
+
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.CompareTag("Player") && canEnter)
+        {
+            canEnter = false;
+            characterStats.battleScene = true;
+            //SceneManager.LoadScene("Battle"); NOTE: the change in scene is done in the coroutine because I need the loading to happen in a certain sequence
+            Debug.Log("Battle begins");
+            StartCoroutine(TriggerCombat());
+        }
+    }
+    
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player") == true)
+        {
+            canEnter = true;
+        }
     }
 
 

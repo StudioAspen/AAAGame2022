@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2065dd0ac23d24c9c2473e5c91a04f, type: 3}
+  m_Name: CutScene2
+  m_EditorClassIdentifier: 
+  dialogues:
+  - name: Zinnia (O.S.)
+    lines:
+    - "Hey Alonso! Can you tell yer mother I started work on that new poncho of yers?\r"
+  - name: Alonso
+    lines:
+    - "Thanks, Ms. Zinnia, but please take your time, it's just a poncho.\r"
+  - name: 'Zinnia '
+    lines:
+    - "Just a poncho huh? That must be why you destroyed the first three I made you.(chuckles)
+      \r"
+  - name: Cynthi
+    lines:
+    - "(chuckling) (looks toward Alonso) So you didn\u2019t tell her about the poncho
+      you borrowed from me lastweek? \r"
+  - name: Zinnia (O.S.)
+    lines:
+    - "Huh? What poncho. Speak up!\r"
+  - name: Alonso
+    lines:
+    - "Nothing Ms.Zinnia! I\u2019ll go tell mom about the progress. Goodbye."
+  CSV: {fileID: 4900000, guid: 85e925a468e8f4f29b0428a8f8ac2fbe, type: 3}
