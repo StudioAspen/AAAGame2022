@@ -2,25 +2,44 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.Events;
 
 public class StartCutScene : MonoBehaviour
 {
-    public GameObject Timeline;
-    PlayableDirector director;
+    public DialogueInteraction script;
+
+    public GameObject preCutsceneTimeline;
+    public GameObject postCutsceneTimeline;
+    PlayableDirector preCutsceneDirector;
+    PlayableDirector postCutsceneDirector;
+
+    bool canEnter = true;
+
     private void Start()
     {
-        director = Timeline.GetComponent<PlayableDirector>();
+        preCutsceneDirector = preCutsceneTimeline.GetComponent<PlayableDirector>();
+        postCutsceneDirector = postCutsceneTimeline.GetComponent<PlayableDirector>();
     }
 
     private void OnTriggerEnter(Collider player)
     {
-        if (player.CompareTag("Player") == true)
+        if (player.CompareTag("Player") == true && canEnter)
         {
-            director.Play();
-
+            canEnter = false;
+            StartCoroutine(PlayCutscene());
         }
-
-
     }
 
+    private IEnumerator PlayCutscene() {
+        preCutsceneDirector.Play();
+        yield return new WaitForSeconds((float)preCutsceneDirector.duration);
+
+        UnityEvent afterDialogue = new UnityEvent();
+        afterDialogue.AddListener(PlayPostCutscene);
+        DialogueManager.Instance.StartDialogue(script, afterDialogue);
+    }
+
+    private void PlayPostCutscene() {
+        postCutsceneDirector.Play();
+    }
 }
