@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: b5df513aba63d44a1b0bc000e157e5e7
+<<<<<<<< HEAD:Assets/Scripts/CombatSytem/ActionBar.cs.meta
+guid: 739af68f8715aa34fa3def33f7181db9
+========
+guid: 4e53328acc24eb448b17d569c6af903b
+>>>>>>>> main:Assets/Scripts/CharacterStats.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
