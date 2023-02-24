@@ -2838,6 +2838,10 @@ PrefabInstance:
       propertyPath: dialogueManager
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8676755957696621001, guid: ad3d6c0a4f56ab6488a33d967de9b501, type: 3}
+      propertyPath: characters.Array.data[0]
+      value: 
+      objectReference: {fileID: 1044876777, guid: 2712e727887ee4d1b817639ccc70798f, type: 3}
     - target: {fileID: 8676755957719449158, guid: ad3d6c0a4f56ab6488a33d967de9b501, type: 3}
       propertyPath: m_SizeDelta.x
       value: 1394.562
