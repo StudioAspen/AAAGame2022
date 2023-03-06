@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CharacterMovement : MonoBehaviour
 {
@@ -8,11 +9,13 @@ public class CharacterMovement : MonoBehaviour
 
     private Vector2 moveInput;
     public VectorValue startingPosition;
+    public string startingScene;
 
     // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
+        transform.position = startingPosition.initialValue; // have good initalization for the scriptable object
     }
 
     // Update is called once per frame

@@ -20,14 +20,12 @@ public class SceneTransition : MonoBehaviour
         {
             startingPosition.initialValue = playerPosition;
             animator.SetTrigger("FadeOut");
-            
-            
         }
     }
 
     public void OnFadeComplete()
     {
         SceneManager.LoadScene(sceneToLoad);
-        rb.position = startingPosition.initialValue;
+        rb.position = startingPosition.initialValue; // get rid of this
     }
 }
