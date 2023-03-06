@@ -7,5 +7,6 @@ public abstract class StatusEffect
     public string name;
     public float duration;
     public bool limited;
+    public Sprite icon;
     public abstract Stats ApplyEffect(Stats currentStats);
 }

@@ -17,8 +17,6 @@ public class CombatData
         ///Curently for testing
         if (isPlayer)
         {
-            skills.Add(new FireSkill());
-            skills.Add(new WaterSkill());
             skills.Add(new RegularSkill());
         }
         else

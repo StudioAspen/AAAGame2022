@@ -8,14 +8,25 @@ public class AssignStatBars : MonoBehaviour
 {
     public CombatUnit combatUnit;
 
+    //UI
     public Slider HPSlider;
     public Slider MPSlider;
-    public Slider CDSlider;
+    public Image elementIcon;
+    public Sprite fireIcon;
 
+    //Skill List
     public GameObject skillList;
     public VerticalLayoutGroup verticalLayoutGroup;
     public GameObject skillButton; //Prefab to instantiate
     public List<GameObject> skillButtons;
+
+
+    public GameObject debuffList;
+    public GridLayout gridLayout;
+    public GameObject debuffIcon; //Prefab to instantiate
+    public List<GameObject> debuffs;
+
+
 
     private bool previousSelected;
 
@@ -37,7 +48,6 @@ public class AssignStatBars : MonoBehaviour
         //Updating Stat Bars
         HPSlider.value = combatUnit.currentHP / combatUnit.currentStats.maxHP;
         MPSlider.value = combatUnit.currentMP / combatUnit.currentStats.maxMP;
-        CDSlider.value = 1 - (combatUnit.currentMoveCD / combatUnit.currentStats.moveCD);
 
         //player controller selecting the combat unit
         if(previousSelected != combatUnit.selected)
@@ -60,14 +70,37 @@ public class AssignStatBars : MonoBehaviour
     {
         combatUnit = _combatUnit;
         UpdateMoveList(combatUnit);
+        UpdateElementIcon(combatUnit);
         previousSelected = combatUnit.selected;
     }
     public void UpdateStatBars(CombatUnit combatUnit)
     {
         HPSlider.value = combatUnit.currentHP / combatUnit.currentStats.maxHP;
         MPSlider.value = combatUnit.currentMP / combatUnit.currentStats.maxMP;
-        CDSlider.value = 1-(combatUnit.currentMoveCD / combatUnit.currentStats.moveCD);
     }
+    public void UpdateElementIcon(CombatUnit combatUnit)
+    {
+        //Swapping Icon
+        elementIcon.sprite = ElementEffect.GetElementIcon(combatUnit.element);
+    }
+    /*
+    public void UpdateStatusEffects(CombatUnit combatUnit)
+    {
+        //Adding Element Status
+        GameObject holder = Instantiate(debuffIcon);
+        holder.GetComponentInChildren<Image>().sprite = ElementEffect.GetElementIcon(combatUnit.element);
+        holder.transform.SetParent(gridLayout.transform);
+        debuffs.Add(holder);
+
+        foreach (StatusEffect status in combatUnit.statusEffects)
+        {
+            //Adding Debuff
+            holder = Instantiate(debuffIcon);
+            holder.GetComponentInChildren<Image>().sprite = status.icon;
+            holder.transform.SetParent(gridLayout.transform);
+            debuffs.Add(holder);
+        }
+    }*/
     public void UpdateMoveList(CombatUnit combatUnit)
     {
         //Adding Basic Attack
@@ -86,6 +119,10 @@ public class AssignStatBars : MonoBehaviour
             skillButtons.Add(holder);
         }
     }
+    public void SetCombatMove(CombatMove combatMove)
+    {
+        FindObjectOfType<PlayerController>().SetCombatMove(combatMove);
+    }
     public void UpdateCanUseSkill()
     {
         for (int i = 0; i < skillButtons.Count; i++)
@@ -100,10 +137,6 @@ public class AssignStatBars : MonoBehaviour
                 button.interactable = false;
             }
         }
-    }
-    public void SetCombatMove(CombatMove combatMove)
-    {
-        FindObjectOfType<PlayerController>().SetCombatMove(combatMove);
     }
     public void ShowSkillList()
     {

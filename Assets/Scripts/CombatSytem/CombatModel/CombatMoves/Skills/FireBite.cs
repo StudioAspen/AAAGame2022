@@ -7,7 +7,6 @@ public class FireBite : Skill
     public FireBite()
     {
         name = "Fire Bite";
-        element = ElementEffect.FIRE;
         mpCost = 0f;
     }
 

@@ -16,18 +16,16 @@ public class CombatUnit : MonoBehaviour
     public float currentHP;
     public float currentMP;
     public float currentMoveCD;
+    public Element element;
 
     //Current effects on unit
     public List<StatusEffect> statusEffects = new List<StatusEffect>();
-    public List<ElementEffect> elementEffects = new List<ElementEffect>();
+    public ElementStatus currentElementSatus;
 
     //Other Stats
     public bool canMakeMove = false;
     public bool dead = false;
     public bool selected = false;
-    
-    //For element activation
-    private ElementSystem elementSystem;
 
     //Data (TEMPERARY)
     [SerializeField]
@@ -40,10 +38,6 @@ public class CombatUnit : MonoBehaviour
         {
             InitalizeCombatUnit(new CombatData(true));
         }
-
-
-        //Getting element system
-        elementSystem = FindObjectOfType<ElementSystem>();
     }
 
     // Update is called once per frame
@@ -109,22 +103,21 @@ public class CombatUnit : MonoBehaviour
             currentStats = statusEffect.ApplyEffect(currentStats);
         }
     }
-    public void AddElementEffect(ElementEffect elementEffect, Stats userStats) {
-        elementEffects.Add(elementEffect);
-
-        //Activating element effect after 2 elements
-        if(elementEffects.Count >= 2 && elementSystem != null)
+    public void AddElementStatus(ElementStatus elementStatus)
+    {
+        if(currentElementSatus == null)
         {
-            elementSystem.ActivateElement(this, userStats, elementEffects[0], elementEffects[1]);
-            elementEffects.Clear();
+            currentElementSatus = elementStatus;
+        }
+        else
+        {
+            elementStatus.ElementActivation(currentElementSatus.element, this);
+            RemoveElementStatus();
         }
     }
-    public void RemoveElementEffect(ElementEffect elementEffect, Stats userStats)
+    public void RemoveElementStatus()
     {
-        if(elementEffects.Contains(elementEffect))
-        {
-            elementEffects.Remove(elementEffect);
-        }
+        currentElementSatus = null;
     }
     public void ChangeMP(float amount)
     {

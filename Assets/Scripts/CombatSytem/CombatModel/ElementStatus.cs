@@ -7,17 +7,12 @@ using UnityEngine;
 /// </summary>
 public class ElementStatus
 {
-    public enum Element { 
-        FIRE,
-        WATER,
-        TERA
-    }
-
     public string name;
     public Element element;
-
-    ElementStatus(Element _element)
+    public CombatUnit owner;
+    public ElementStatus(Element _element, CombatUnit _owner)
     {
+        owner = _owner;
         element = _element;
         switch(element) {
             case Element.FIRE:
@@ -36,19 +31,19 @@ public class ElementStatus
     }
     
 
-protected void ElementActivation(Element element1, Element element2, CombatUnit combatUnit)
+public void ElementActivation(Element activationElement, CombatUnit target)
     {
         HashSet<Element> elements = new HashSet<Element>();
-        elements.Add(element1);
-        elements.Add(element2);
+        elements.Add(element);
+        elements.Add(activationElement);
 
         if(elements.Contains(Element.FIRE))
         {
             if(elements.Contains(Element.WATER))
             {
                 //FIRE WATER
-                combatUnit.ChangeHP(-25);
-                combatUnit.AddStatEffect(new AttackDownEffect(1)) ;
+                target.ChangeHP(-25);
+                target.AddStatEffect(new AttackDownEffect(1)) ;
             }
             else if(elements.Contains(Element.TERA))
             {
@@ -57,7 +52,7 @@ protected void ElementActivation(Element element1, Element element2, CombatUnit 
             else
             {
                 //FIRE FIRE
-                combatUnit.ChangeHP(-50);
+                target.ChangeHP(-50);
             }
         }
         else if(elements.Contains(Element.WATER))
@@ -69,7 +64,7 @@ protected void ElementActivation(Element element1, Element element2, CombatUnit 
             else
             {
                 //WATER WATER
-                combatUnit.AddStatEffect(new AttackDownEffect(3));
+                target.AddStatEffect(new AttackDownEffect(3));
             }
         }
         else if (elements.Contains(Element.TERA))
