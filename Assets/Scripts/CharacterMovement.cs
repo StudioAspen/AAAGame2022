@@ -7,6 +7,7 @@ public class CharacterMovement : MonoBehaviour
     public Animator anim;
 
     private Vector2 moveInput;
+    public VectorValue startingPosition;
 
     // Start is called before the first frame update
     void Start()

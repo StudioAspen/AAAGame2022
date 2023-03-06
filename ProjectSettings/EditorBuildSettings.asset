@@ -14,7 +14,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/CombatScene.unity
     guid: 5f2374225d3960147ae92f22da55c3ac
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/FindInstitute.unity
-    guid: 7293f0993480e4d69a2108b10d9d1057
+    path: Assets/Scenes/OtherScene.unity
+    guid: 100ae11b15628ca429b36ed6a6ec05c7
   m_configObjects: {}
