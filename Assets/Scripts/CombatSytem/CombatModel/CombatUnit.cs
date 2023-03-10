@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class CombatUnit : MonoBehaviour
 {
     //Available moves and base stats on unit
-    private Stats baseStats;
+    protected Stats baseStats;
     public List<Skill> skills = new List<Skill>();
     public BasicAttack basicAttack;
 
@@ -33,11 +33,6 @@ public class CombatUnit : MonoBehaviour
     
     void Start()
     {
-        //testing
-        if(baseStats == null)
-        {
-            InitalizeCombatUnit(new CombatData(true));
-        }
     }
 
     // Update is called once per frame
@@ -78,6 +73,7 @@ public class CombatUnit : MonoBehaviour
         currentMP = 0f;
         currentMoveCD = baseStats.moveCD;
         currentStats = new Stats(baseStats);
+        
     }
     public void ResetTimer()
     {

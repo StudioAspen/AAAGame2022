@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BasicAttack : CombatMove
 {
-    float mpGain;
+    protected float mpGain;
     public BasicAttack()
     {
         name = "Basic Attack";

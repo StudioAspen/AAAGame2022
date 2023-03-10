@@ -6,7 +6,7 @@ abstract public class Skill : CombatMove
 {
     public float mpCost;
 
-    public bool CanUse(CombatUnit user)
+    public bool EnoughMana(CombatUnit user)
     {
         return user.currentMP >= mpCost;
     }

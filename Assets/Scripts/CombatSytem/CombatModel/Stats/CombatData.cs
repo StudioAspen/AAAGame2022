@@ -2,35 +2,38 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CombatData
+public class CombatData : MonoBehaviour
 {
-    public Stats baseStats;
-    public BasicAttack basicAttack;
-    public List<Skill> skills;
+    public List<string> skillKeys = new List<string>();
+    public float maxHP;
+    public float maxMP;
+    public float moveCD;
+    public float attack;
 
-    public CombatData(bool isPlayer)
+
+    public Stats baseStats = new Stats();
+    public List<Skill> skills = new List<Skill>();
+
+    // Start is called before the first frame update
+    void Start()
     {
-        baseStats = new Stats();
-        basicAttack = new BasicAttack();
-        skills = new List<Skill>();
-
-        ///Curently for testing
-        if (isPlayer)
-        {
-            skills.Add(new RegularSkill());
-        }
-        else
-        {
-            skills.Add(new FireBite());
-        }
-        baseStats.RandomizeStats();
-        /////////////////////////////////////////
+        
     }
-
-    public CombatData(Stats _baseStats, BasicAttack _basicAttack, List<Skill> _skills)
+    public void ApplyManualStats()
     {
-        baseStats = _baseStats;
-        basicAttack = _basicAttack;
-        skills = _skills;
+        //Setting Hidden stats
+        baseStats = new Stats(maxHP, maxMP, moveCD, attack);
+
+        //Initalizing all skills from key list
+        skills.Clear();
+        foreach (string skillKey in skillKeys)
+        {
+            AddSkill(allAlonzoSkills[skillKey]);
+        }
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        
     }
 }

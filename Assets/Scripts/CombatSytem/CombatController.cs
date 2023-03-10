@@ -8,27 +8,17 @@ using UnityEngine.SceneManagement;
 public class CombatController : MonoBehaviour
 {
     public List<GameObject> players;
+    public List<GameObject> playerPositions;
+    public List<AssignStatBars> playersUI;
     public List<GameObject> enemies;
+    public List<GameObject> enemyPositions;
+    public List<AssignStatBars> enemiesUI;
     GameObject[] overworldObjects;
 
-    // Start is called before the first frame update
-    private void Awake()
-    {
-        //////////////TESTING INITALIZATION/////////////////////////
-        List<CombatData> playerData = new List<CombatData>();
-        playerData.Add(new CombatData(true));
-        playerData.Add(new CombatData(true));
-        playerData.Add(new CombatData(true));
-        List<CombatData> enemyData = new List<CombatData>();
-        enemyData.Add(new CombatData(false));
-        enemyData.Add(new CombatData(false));
-        enemyData.Add(new CombatData(false));
-
-        InitalizeCombat(playerData, enemyData);
-        ///////////////////////////////////////////////////////////////
-
-    }
-
+    //Default values for testing
+    public List<GameObject> testPlayers;
+    public List<GameObject> testEnemies;
+    
     // Update is called once per frame
     void Update()
     {
@@ -37,19 +27,43 @@ public class CombatController : MonoBehaviour
             KillEnemies();
         }
     }
-
-    public void InitalizeCombat(List<CombatData> playerUnits, List<CombatData> enemyUnits)
+    public void InitalizeCombat(List<GameObject> _players, List<GameObject> _enemies)
     {
-        //Initalizing Players
-        for (int i = 0; i < players.Count; i++)
+        InitalizeSide(_players, playerPositions, playersUI, players);
+        InitalizeSide(_enemies, enemyPositions, enemiesUI, enemies);
+    }
+    private void InitalizeSide(List<GameObject> units, List<GameObject> positions, List<AssignStatBars> UI, List<GameObject> side)
+    {
+        int indexUI = 0;
+        GameObject holder;
+        //instantiate unit + setting position + adding to list 
+        foreach (GameObject position in positions)
         {
-            players[i].GetComponent<CombatUnit>().InitalizeCombatUnit(playerUnits[i]);
+            if (indexUI < units.Count)
+            {
+                holder = Instantiate(units[indexUI]);
+                holder.transform.SetParent(position.transform);
+                side.Add(holder);
+            }
+            else
+            {
+                position.SetActive(false);
+            }
+            indexUI++;
         }
-
-        //Initalizing enemies
-        for (int i = 0; i < enemies.Count; i++)
+        indexUI = 0;
+        foreach (AssignStatBars _UI in UI)
         {
-            enemies[i].GetComponent<CombatUnit>().InitalizeCombatUnit(enemyUnits[i]);
+
+            if (indexUI < side.Count)
+            {
+                _UI.AssignCombatUnit(side[indexUI].GetComponent<CombatUnit>());
+            }
+            else
+            {
+                _UI.gameObject.SetActive(false);
+            }
+            indexUI++;
         }
     }
     public void EndCombat(bool playerWon)
@@ -60,7 +74,6 @@ public class CombatController : MonoBehaviour
             a.SetActive(true);
         }
     }
-
     public void KillEnemies()
     {
         //Killing enemies
@@ -95,7 +108,6 @@ public class CombatController : MonoBehaviour
             EndCombat(true);
         }
     }
-
     public void SaveOverWorld(GameObject[] _overworldObects)
     {
         overworldObjects = _overworldObects;

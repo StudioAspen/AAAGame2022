@@ -30,19 +30,6 @@ public class AssignStatBars : MonoBehaviour
 
     private bool previousSelected;
 
-    void Start()
-    {
-        if (combatUnit != null)
-        {
-            AssignCombatUnit(combatUnit);
-        }
-        else {
-            Debug.Log("No Combat Unit Assigned to Stat Bar: " + gameObject.name);
-            AssignCombatUnit(new CombatUnit());
-        }
-        HideSkillList();
-    }
-
     private void Update()
     {
         //Updating Stat Bars
@@ -71,7 +58,8 @@ public class AssignStatBars : MonoBehaviour
         combatUnit = _combatUnit;
         UpdateMoveList(combatUnit);
         UpdateElementIcon(combatUnit);
-        previousSelected = combatUnit.selected;
+        previousSelected = combatUnit.selected; 
+        HideSkillList();
     }
     public void UpdateStatBars(CombatUnit combatUnit)
     {
@@ -128,7 +116,7 @@ public class AssignStatBars : MonoBehaviour
         for (int i = 0; i < skillButtons.Count; i++)
         {
             Button button = skillButtons[i].GetComponent<Button>();
-            if (combatUnit.skills[i].CanUse(combatUnit))
+            if (combatUnit.skills[i].EnoughMana(combatUnit))
             {
                 button.interactable = true;
             }

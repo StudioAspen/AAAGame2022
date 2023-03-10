@@ -11,8 +11,8 @@ GameObject:
   - component: {fileID: 3293131506066533996}
   - component: {fileID: 3293131506066533985}
   - component: {fileID: 3293131506066533997}
-  - component: {fileID: 3293131506066533994}
   - component: {fileID: -3142395502937148463}
+  - component: {fileID: -4053464808067558074}
   m_Layer: 0
   m_Name: PlayerCombatUnit
   m_TagString: Untagged
@@ -27,14 +27,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3293131506066533984}
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: -1.78, y: -1.4913846, z: 8.49}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 45, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!136 &3293131506066533985
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -101,26 +101,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3293131506066533994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3293131506066533984}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 314cc25b6554f3145ab2a9c8ba2275ce, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentHP: 0
-  currentMP: 0
-  currentMoveCD: 0
-  element: 3
-  canMakeMove: 0
-  dead: 0
-  selected: 0
-  profile: {fileID: 0}
 --- !u!95 &-3142395502937148463
 Animator:
   serializedVersion: 5
@@ -141,3 +121,25 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &-4053464808067558074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3293131506066533984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: efaaa45926e0a89499be9a8780a631e9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentHP: 0
+  currentMP: 0
+  currentMoveCD: 0
+  element: 3
+  canMakeMove: 0
+  dead: 0
+  selected: 0
+  profile: {fileID: 0}
+  charge: 3
+  combatData: {fileID: 11400000, guid: 05e108159b0ba8640a30685e5c4da1bc, type: 2}
