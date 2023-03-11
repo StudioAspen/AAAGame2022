@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class RegularStrike : AlonzoSkill
 {
-    public RegularStrike(AlonzoCombatUnit _alonzo = null)
+    public RegularStrike(AlonzoCombatUnit _owner = null)
     {
         name = "Regular Strike";
-        alonzo = _alonzo;
+        owner = _owner;
         mpCost = 10f;
     }
 
     public override void UseMove(CombatUnit target, CombatUnit user)
     {
         target.ChangeHP(-user.currentStats.attack);
-        target.AddElementStatus(new ElementStatus(alonzo.charge, alonzo));
-        alonzo.SetCharge(Element.NONE);
+        target.AddElementStatus(new ElementStatus(owner.charge, owner));
+        owner.SetCharge(Element.NONE);
         user.ChangeMP(-mpCost);
     }
 }

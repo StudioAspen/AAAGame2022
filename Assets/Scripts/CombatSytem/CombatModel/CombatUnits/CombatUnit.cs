@@ -30,10 +30,6 @@ public class CombatUnit : MonoBehaviour
     //Data (TEMPERARY)
     [SerializeField]
     public Sprite profile;
-    
-    void Start()
-    {
-    }
 
     // Update is called once per frame
     void Update()

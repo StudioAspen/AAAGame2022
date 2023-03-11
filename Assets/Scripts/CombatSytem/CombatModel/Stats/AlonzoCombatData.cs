@@ -19,8 +19,10 @@ public class AlonzoCombatData : ScriptableObject
     public Stats baseStats;
     public List<AlonzoSkill> alonzoSkills = new List<AlonzoSkill>();
     public AlonzoBasicAttack alonzoBasicAttack = new AlonzoBasicAttack();
-    public AlonzoCombatData()
+    [ContextMenu("InitalizeSkillDictionary")]
+    public void InitalizeSkillDictionary()
     {
+        allAlonzoSkills.Clear();
         //Initalize all skills in dictionary
         allAlonzoSkills.Add("Regular Strike", new RegularStrike());
     }
@@ -66,11 +68,12 @@ public class AlonzoCombatData : ScriptableObject
             }
         }
     }
+    [ContextMenu("InitalizeDefaultValues")]
     public void InitalizeDefaultValues()
     {
-        baseStats = new Stats();
+        baseStats = new Stats(100);
         baseStats.RandomizeStats();
         alonzoSkills.Clear();
-        alonzoSkills.Add(new RegularStrike());
+        alonzoSkills.Add(allAlonzoSkills["Regular Strike"]);
     }
 }

@@ -28,14 +28,14 @@ public struct Stats
     }
     public void RandomizeStats()
     {
-        float maxHPQuart = this.maxHP / 4;
-        float maxMPQuart = this.maxMP / 4;
-        float moveCDQuart = this.moveCD / 4;
-        float attackQuart = this.attack / 4;
+        float maxHPQuart = maxHP / 4;
+        float maxMPQuart = maxMP / 4;
+        float moveCDQuart = moveCD / 4;
+        float attackQuart = attack / 4;
 
-        this.maxHP += Random.Range(-maxHPQuart, maxHPQuart);
-        this.maxMP += Random.Range(-maxMPQuart, maxMPQuart);
-        this.moveCD += Random.Range(-moveCDQuart, moveCDQuart);
-        this.attack += Random.Range(-attackQuart, attackQuart);
+        maxHP += Random.Range(-maxHPQuart, maxHPQuart);
+        maxMP += Random.Range(-maxMPQuart, maxMPQuart);
+        moveCD += Random.Range(-moveCDQuart, moveCDQuart);
+        attack += Random.Range(-attackQuart, attackQuart);
     }
 }

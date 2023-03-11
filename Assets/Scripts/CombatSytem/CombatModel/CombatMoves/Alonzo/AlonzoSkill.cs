@@ -4,5 +4,5 @@ using UnityEngine;
 
 abstract public class AlonzoSkill : Skill
 {
-    public AlonzoCombatUnit alonzo;
+    public AlonzoCombatUnit owner;
 }

@@ -35,7 +35,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -112.5, y: 59.6}
+  m_AnchoredPosition: {x: -112.48999, y: -23.410011}
   m_SizeDelta: {x: 25.0101, y: 25.0101}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1616148498088435894
@@ -585,11 +585,14 @@ MonoBehaviour:
   HPSlider: {fileID: 8955195517239264350}
   MPSlider: {fileID: 8955195517016853185}
   elementIcon: {fileID: 8632731175066787806}
-  fireIcon: {fileID: 21300000, guid: e680291463fe0a543b4eef5cfd0f427a, type: 3}
   skillList: {fileID: 8955195517820761524}
   verticalLayoutGroup: {fileID: 8955195517820761526}
   skillButton: {fileID: 2025238344726450702, guid: 17d02fc338f537e498e4e611eaf48a5e, type: 3}
   skillButtons: []
+  debuffList: {fileID: 0}
+  gridLayout: {fileID: 6431673111711931991}
+  debuffIcon: {fileID: 2025238344726450702, guid: 9080a0e8b6c333947b1b2cd62216a238, type: 3}
+  debuffs: []
 --- !u!1 &8955195516409440752
 GameObject:
   m_ObjectHideFlags: 0

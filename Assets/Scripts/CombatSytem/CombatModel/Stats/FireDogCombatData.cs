@@ -2,13 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MonsterCombatData
+public class FireDogCombatData : CombatData
 {
-    public Stats baseStats = new Stats();
-    public List<Skill> skills = new List<Skill>();
-
-
-    public MonsterCombatData()
+    private void Start()
     {
         skills.Add(new FireBite());
         baseStats.RandomizeStats(); // Currently randomized for testing

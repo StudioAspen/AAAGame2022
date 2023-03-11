@@ -12,9 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34da7fd471ea3c54e85c339c8cc081f6, type: 3}
   m_Name: AlonzoCombatData
   m_EditorClassIdentifier: 
-  skillKeys:
-  - Regular Strike
-  maxHP: 100
-  maxMP: 100
-  moveCD: 30
-  attack: 10
+  skillKeys: []
+  maxHP: 0
+  maxMP: 0
+  moveCD: 0
+  attack: 0

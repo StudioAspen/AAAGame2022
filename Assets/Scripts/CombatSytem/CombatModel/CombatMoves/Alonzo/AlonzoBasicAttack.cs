@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class AlonzoBasicAttack : BasicAttack
 {
-    AlonzoCombatUnit alonzo;
-    public AlonzoBasicAttack (AlonzoCombatUnit _alonzo = null)
+    public AlonzoCombatUnit owner;
+    public AlonzoBasicAttack (AlonzoCombatUnit _owner = null)
     {
         name = "Basic Attack";
-        alonzo = _alonzo;
+        owner = _owner;
     }
     public override void UseMove(CombatUnit target, CombatUnit user)
     {
-        if (alonzo != null)
+        if (owner != null)
         {
-            alonzo.SetCharge(target.element);
+            owner.SetCharge(target.element);
         }
         user.ChangeMP(mpGain);
     }

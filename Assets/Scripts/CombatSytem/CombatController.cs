@@ -18,7 +18,11 @@ public class CombatController : MonoBehaviour
     //Default values for testing
     public List<GameObject> testPlayers;
     public List<GameObject> testEnemies;
-    
+
+    private void Awake()
+    {
+        InitalizeCombat(testPlayers, testEnemies); 
+    }
     // Update is called once per frame
     void Update()
     {
@@ -41,8 +45,7 @@ public class CombatController : MonoBehaviour
         {
             if (indexUI < units.Count)
             {
-                holder = Instantiate(units[indexUI]);
-                holder.transform.SetParent(position.transform);
+                holder = Instantiate(units[indexUI], position.transform);
                 side.Add(holder);
             }
             else
@@ -54,7 +57,7 @@ public class CombatController : MonoBehaviour
         indexUI = 0;
         foreach (AssignStatBars _UI in UI)
         {
-
+            
             if (indexUI < side.Count)
             {
                 _UI.AssignCombatUnit(side[indexUI].GetComponent<CombatUnit>());
