@@ -4394,7 +4394,7 @@ MonoBehaviour:
   m_Padding:
     m_Left: 170
     m_Right: 0
-    m_Top: 20
+    m_Top: 200
     m_Bottom: 0
   m_ChildAlignment: 0
   m_Spacing: 20
@@ -4455,7 +4455,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69460f48e71393547983688a45ee0b30, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  all_quests: []
   myPrefab: {fileID: 3609826841193056659, guid: 9e03a72ef986ff749830fe255dface21, type: 3}
   parent: {fileID: 2128423329}
 --- !u!1001 &2133572739
