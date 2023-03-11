@@ -4681,6 +4681,10 @@ PrefabInstance:
       propertyPath: fadeOut
       value: 
       objectReference: {fileID: 2034398381}
+    - target: {fileID: 2160857618170984192, guid: 3afc7ecb94476b94a93899a4265c5318, type: 3}
+      propertyPath: duration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2160857618170984196, guid: 3afc7ecb94476b94a93899a4265c5318, type: 3}
       propertyPath: m_Name
       value: AudioArea (1)
@@ -5060,6 +5064,10 @@ PrefabInstance:
       propertyPath: fadeOut
       value: 
       objectReference: {fileID: 2034398382}
+    - target: {fileID: 2160857618170984192, guid: 3afc7ecb94476b94a93899a4265c5318, type: 3}
+      propertyPath: duration
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2160857618170984196, guid: 3afc7ecb94476b94a93899a4265c5318, type: 3}
       propertyPath: m_Name
       value: AudioArea
@@ -6600,19 +6608,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3160291128621177399, guid: a19ee3dc3fd1a3948b1cbfbfc19550cc, type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.57479495
+      value: 0.629
       objectReference: {fileID: 0}
     - target: {fileID: 3160291128621177399, guid: a19ee3dc3fd1a3948b1cbfbfc19550cc, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0.53523535
+      value: 0.72700006
       objectReference: {fileID: 0}
     - target: {fileID: 3160291128621177399, guid: a19ee3dc3fd1a3948b1cbfbfc19550cc, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 62.6476
+      value: 65.4828
       objectReference: {fileID: 0}
     - target: {fileID: 3160291128621177399, guid: a19ee3dc3fd1a3948b1cbfbfc19550cc, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 47.009995
+      value: 24.8829
       objectReference: {fileID: 0}
     - target: {fileID: 3160291128621177399, guid: a19ee3dc3fd1a3948b1cbfbfc19550cc, type: 3}
       propertyPath: m_LocalPosition.x
@@ -6644,11 +6652,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3160291128621177399, guid: a19ee3dc3fd1a3948b1cbfbfc19550cc, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0.099990845
+      value: -5.542404
       objectReference: {fileID: 0}
     - target: {fileID: 3160291128621177399, guid: a19ee3dc3fd1a3948b1cbfbfc19550cc, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 1.800003
+      value: 0.24450684
       objectReference: {fileID: 0}
     - target: {fileID: 3160291128621177399, guid: a19ee3dc3fd1a3948b1cbfbfc19550cc, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
