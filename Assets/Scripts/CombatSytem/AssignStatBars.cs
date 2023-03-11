@@ -36,7 +36,7 @@ public class AssignStatBars : MonoBehaviour
             //Updating Stat Bars
             UpdateStatBars();
             UpdateElementIcon();
-            UpdateStatusEffects();
+            //UpdateStatusEffects();
 
             //player controller selecting the combat unit
             if (previousSelected != combatUnit.selected)
@@ -74,7 +74,7 @@ public class AssignStatBars : MonoBehaviour
         //Swapping Icon
         elementIcon.sprite = ElementEffect.GetElementIcon(combatUnit.element);
     }
-    
+    /*
     public void UpdateStatusEffects()
     {
         //Destorying old icons
@@ -96,7 +96,7 @@ public class AssignStatBars : MonoBehaviour
             holder.transform.SetParent(gridLayout.transform);
             debuffs.Add(holder);
         }
-    }
+    }*/
     public void UpdateMoveList()
     {
         //Clearing old objects

@@ -17,16 +17,6 @@ public class ActionBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        combatController = FindObjectOfType<CombatController>();
-
-        foreach (GameObject player in combatController.players)
-        {
-            AssignActionBar(player.GetComponent<CombatUnit>()); 
-        }
-        foreach (GameObject enemy in combatController.enemies)
-        {
-            AssignActionBar(enemy.GetComponent<CombatUnit>());
-        }
         originalRect = actionSlider.GetComponent<RectTransform>();
     }
 
@@ -37,6 +27,18 @@ public class ActionBar : MonoBehaviour
         {
             SliderUpdate(i);
         }
+    }
+    public void InitalizeBars(CombatController combatController)
+    {
+        foreach (GameObject player in combatController.players)
+        {
+            AssignActionBar(player.GetComponent<CombatUnit>());
+        }
+        foreach (GameObject enemy in combatController.enemies)
+        {
+            AssignActionBar(enemy.GetComponent<CombatUnit>());
+        }
+
     }
     void SliderUpdate(int index)
     {
