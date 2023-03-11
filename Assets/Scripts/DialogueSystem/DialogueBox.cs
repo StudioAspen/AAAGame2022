@@ -29,6 +29,8 @@ public class DialogueBox : MonoBehaviour
     [SerializeField]
     private Sprite[] alonsoSprites = new Sprite[5];
     [SerializeField]
+    private Sprite[] almomsoSprites = new Sprite[5];
+    [SerializeField]
     private Sprite[] zinniaSprites = new Sprite[5];
 
     void Awake() {
@@ -47,6 +49,7 @@ public class DialogueBox : MonoBehaviour
         {
             { "Cynthi", cynthiSprites },
             { "Alonso", alonsoSprites },
+            { "ProfessorAurea", almomsoSprites },
             { "Zinnia (O.S.)", zinniaSprites },
         };
     }
@@ -70,6 +73,17 @@ public class DialogueBox : MonoBehaviour
 
     public void StartDialogue()
     {
+        if (currentPortrait == portrait1) 
+        {
+            currentPortrait = portrait2;
+            otherPortrait = portrait1;
+        }
+        else 
+        {
+            currentPortrait = portrait1;
+            otherPortrait = portrait2;
+        }
+        
         index = 0;
         nameText1.text = currentDialogue.name;
         textComponents.text = string.Empty;
@@ -106,17 +120,6 @@ public class DialogueBox : MonoBehaviour
 
     void PlayAnimations()
     {
-        if (currentPortrait == portrait1) 
-        {
-            currentPortrait = portrait2;
-            otherPortrait = portrait1;
-        }
-        else 
-        {
-            currentPortrait = portrait1;
-            otherPortrait = portrait2;
-        }
-
         if (characters.ContainsKey(currentDialogue.name))
             currentPortrait.sprite = characters[currentDialogue.name][poses[currentDialogue.poses[index]]];
         currentPortrait.color = new Color(1, 1, 1, 1);

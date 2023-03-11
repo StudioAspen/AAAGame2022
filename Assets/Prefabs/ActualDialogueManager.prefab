@@ -219,7 +219,7 @@ RectTransform:
   m_GameObject: {fileID: 4640096373951011476}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: -1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5567226608519491511}
@@ -342,17 +342,23 @@ MonoBehaviour:
     lines:
     - 
   cynthiSprites:
-  - {fileID: -74680223, guid: 2712e727887ee4d1b817639ccc70798f, type: 3}
-  - {fileID: 1109686589, guid: 2712e727887ee4d1b817639ccc70798f, type: 3}
-  - {fileID: -304367878, guid: 2712e727887ee4d1b817639ccc70798f, type: 3}
-  - {fileID: 1044876777, guid: 2712e727887ee4d1b817639ccc70798f, type: 3}
-  - {fileID: -627000819, guid: 2712e727887ee4d1b817639ccc70798f, type: 3}
+  - {fileID: 951908682, guid: 3d618a9ec485e4d6e9a5632400428488, type: 3}
+  - {fileID: 1415991978, guid: 3d618a9ec485e4d6e9a5632400428488, type: 3}
+  - {fileID: -26106601, guid: 3d618a9ec485e4d6e9a5632400428488, type: 3}
+  - {fileID: -1481925540, guid: 3d618a9ec485e4d6e9a5632400428488, type: 3}
+  - {fileID: -961831806, guid: 3d618a9ec485e4d6e9a5632400428488, type: 3}
   alonsoSprites:
-  - {fileID: 1951683281, guid: f909894b483f54b6380dd23ecce76571, type: 3}
-  - {fileID: -875920419, guid: f909894b483f54b6380dd23ecce76571, type: 3}
-  - {fileID: -1288025405, guid: f909894b483f54b6380dd23ecce76571, type: 3}
-  - {fileID: 1980051502, guid: f909894b483f54b6380dd23ecce76571, type: 3}
-  - {fileID: 1511850572, guid: f909894b483f54b6380dd23ecce76571, type: 3}
+  - {fileID: -425360362, guid: 129e7f13ac66e4768b9dd6d105d057d9, type: 3}
+  - {fileID: 2130981060, guid: 129e7f13ac66e4768b9dd6d105d057d9, type: 3}
+  - {fileID: -908413479, guid: 129e7f13ac66e4768b9dd6d105d057d9, type: 3}
+  - {fileID: -382254165, guid: 129e7f13ac66e4768b9dd6d105d057d9, type: 3}
+  - {fileID: -1230220912, guid: 129e7f13ac66e4768b9dd6d105d057d9, type: 3}
+  almomsoSprites:
+  - {fileID: -938616587, guid: c1f697157c1b64031a0d52b226fcfcb6, type: 3}
+  - {fileID: -48538170, guid: c1f697157c1b64031a0d52b226fcfcb6, type: 3}
+  - {fileID: 1680625075, guid: c1f697157c1b64031a0d52b226fcfcb6, type: 3}
+  - {fileID: 1337706296, guid: c1f697157c1b64031a0d52b226fcfcb6, type: 3}
+  - {fileID: 1499339764, guid: c1f697157c1b64031a0d52b226fcfcb6, type: 3}
   zinniaSprites:
   - {fileID: 1947664152, guid: ebd8f5f9aacd44458bed9856addaf6fa, type: 3}
   - {fileID: 43735720, guid: ebd8f5f9aacd44458bed9856addaf6fa, type: 3}

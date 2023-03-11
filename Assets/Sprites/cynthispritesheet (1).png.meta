@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2712e727887ee4d1b817639ccc70798f
+guid: 3d618a9ec485e4d6e9a5632400428488
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,7 +105,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: cynthispritesheet_0
+      name: cynthispritesheet (1)_0
       rect:
         serializedVersion: 2
         x: 0
@@ -119,14 +119,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec83a7efb6bba4c818a92c851f90e50e
-      internalID: 1044876777
+      spriteID: 868490189b4e546a99bb135c6546851e
+      internalID: -961831806
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cynthispritesheet_1
+      name: cynthispritesheet (1)_1
       rect:
         serializedVersion: 2
         x: 688
@@ -140,14 +140,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 291b2dc57f4e64bedb43d4de9c44451f
-      internalID: 1109686589
+      spriteID: e8d530f0415f6460fa2777bf68b63d61
+      internalID: -26106601
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cynthispritesheet_2
+      name: cynthispritesheet (1)_2
       rect:
         serializedVersion: 2
         x: 1376
@@ -161,14 +161,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 08fe9c0e4054b429689a33a6be280ed9
-      internalID: -74680223
+      spriteID: ced87665e23574f808402dc58626006b
+      internalID: 951908682
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cynthispritesheet_3
+      name: cynthispritesheet (1)_3
       rect:
         serializedVersion: 2
         x: 2064
@@ -182,14 +182,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7bf9afedd289a495ca42eca30e7e8a60
-      internalID: -304367878
+      spriteID: db77e887a5ba741d0b2885be1482476f
+      internalID: 1415991978
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: cynthispritesheet_4
+      name: cynthispritesheet (1)_4
       rect:
         serializedVersion: 2
         x: 2752
@@ -203,8 +203,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f16b46872ee1442e28d28972eb371227
-      internalID: -627000819
+      spriteID: 41b43244f22fc4224805a3893f435ff0
+      internalID: -1481925540
       vertices: []
       indices: 
       edges: []
@@ -212,7 +212,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: e122edb49642547ceb43d5bcb60e411e
+    spriteID: e28c945b8461941318756bd92b026174
     internalID: 0
     vertices: []
     indices: 
@@ -220,11 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      cynthispritesheet_3: -304367878
-      cynthispritesheet_0: 1044876777
-      cynthispritesheet_2: -74680223
-      cynthispritesheet_4: -627000819
-      cynthispritesheet_1: 1109686589
+      cynthispritesheet (1)_2: 951908682
+      cynthispritesheet (1)_4: -1481925540
+      cynthispritesheet (1)_3: 1415991978
+      cynthispritesheet (1)_1: -26106601
+      cynthispritesheet (1)_0: -961831806
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

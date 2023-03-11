@@ -22,7 +22,7 @@ MonoBehaviour:
     poses:
     - neutral
     lines:
-    - "\"Thanks, Ms. Zinnia, but please take your time, it's just a poncho.\"\r"
+    - "Thanks, Ms. Zinnia, but please take your time, it's just a poncho.\r"
   - name: Zinnia (O.S.)
     poses:
     - happy
@@ -47,4 +47,4 @@ MonoBehaviour:
     lines:
     - "Nothing Ms.Zinnia! I\u2019ll go tell mom about the progress.\r"
     - Goodbye.
-  CSV: {fileID: 4900000, guid: fe02d98b64b9f40bab57a98ae4111675, type: 3}
+  CSV: {fileID: 4900000, guid: 8ff76b2eedcc84241885196e24477bb5, type: 3}
