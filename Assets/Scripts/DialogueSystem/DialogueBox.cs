@@ -117,7 +117,8 @@ public class DialogueBox : MonoBehaviour
             otherPortrait = portrait2;
         }
 
-        currentPortrait.sprite = characters[currentDialogue.name][poses[currentDialogue.poses[index]]];
+        if (characters.ContainsKey(currentDialogue.name))
+            currentPortrait.sprite = characters[currentDialogue.name][poses[currentDialogue.poses[index]]];
         currentPortrait.color = new Color(1, 1, 1, 1);
         otherPortrait.color = new Color(1, 1, 1, 0.5f);
 

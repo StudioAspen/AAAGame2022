@@ -13,24 +13,77 @@ MonoBehaviour:
   m_Name: CutScene1
   m_EditorClassIdentifier: 
   dialogues:
-  - name: Zinnia (O.S.)
+  - name: ???
+    poses:
+    - 
     lines:
-    - "Hey Alonso! Can you tell yer mother I started work on that new poncho of yers?\r"
+    - "About time you noticed! Here I was wondering if you were gonna watch grass
+      grow all morning... \r"
   - name: Alonso
+    poses:
+    - 
     lines:
-    - "Thanks, Ms. Zinnia, but please take your time, it's just a poncho.\r"
-  - name: 'Zinnia '
+    - "Cynthi... \r"
+    - "the sun\u2019s only been out for a few minutes, aren\u2019t you supposed to
+      be busy crowing to wake everyone up? Maybe circling over some carrion?\r"
+  - name: 'Cynthi '
+    poses:
+    - 
     lines:
-    - "Just a poncho huh? That must be why you destroyed the first three I made you.(chuckles)
-      \r"
+    - "Ha Ha. Hilarious, doofus. Maybe spend a little less time thinking about birds
+      and a little more timedigging the wax outta those...\r"
+    - "ears.\r"
+    - "This soil is putrid, the dew point around here is constantly fluctuating,
+      and the humidity is gonna eat away at those plants\u2019 caudex turning them
+      all goopy,but you\u2019d KNOW all that if you ever bothered to show up to\u2014\r"
+    - "I...\r"
+    - "listen\u2026 \r"
+    - "forget all that...\r"
+    - "Is this all for...\r"
+    - "Her?\r"
+  - name: Alonso
+    poses:
+    - 
+    lines:
+    - "Yeah. It\u2019s for her. Pineberries were always her favorite. I guessed...\r"
+    - "well, I just figured\u2026 \r"
+    - "if she was...\r"
+    - "if she ever...\r"
+    - "you know...\r"
+    - "they\u2019d be here for her. I know, I know it\u2019s dumb\u2014\r"
   - name: Cynthi
+    poses:
+    - 
     lines:
-    - "(chuckling) (looks toward Alonso) So you didn\u2019t tell her about the poncho
-      you borrowed from me lastweek? \r"
-  - name: Zinnia (O.S.)
-    lines:
-    - "Huh? What poncho. Speak up!\r"
+    - "Dumb!? Dumb?! Listen, pal, you know as well as I do, if anyone could survive
+      out there,(points at forest) \r"
+    - "It's her! \r"
+    - "So, uh, why don\u2019t we hold off on the whole past tensing her just yet,
+      huh buddy?\r"
   - name: Alonso
+    poses:
+    - 
     lines:
-    - "Nothing Ms.Zinnia! I\u2019ll go tell mom about the progress. Goodbye."
-  CSV: {fileID: 4900000, guid: 85e925a468e8f4f29b0428a8f8ac2fbe, type: 3}
+    - "Alright, alright I get it, just please, fix your face.\r"
+  - name: Cynthi
+    poses:
+    - 
+    lines:
+    - "See! There\u2019s the dummy I know\u2014\r"
+    - "Now get those seeds outta the ground before I give your face a the plot of
+      dirt right next to em... \r"
+  - name: Alonso
+    poses:
+    - 
+    lines:
+    - "I\u2019m going, I\u2019m going...\r"
+    - "did you really come all the way down here just to give me a lecture on seed
+      ethics, or are you just that nosy?\r"
+  - name: Cynthi
+    poses:
+    - 
+    lines:
+    - "OOPS!!! I almost forgot!! I caught up with your mom by the greenhouse; she
+      said she finished taking a look at your invention! She\u2019s probably waiting
+      for us back at the institute so let\u2019s get moving."
+  CSV: {fileID: 4900000, guid: b1f5313938ab64bf999f802c226c5754, type: 3}
