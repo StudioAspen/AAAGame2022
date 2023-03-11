@@ -7,11 +7,17 @@ public class QuestDisplay : MonoBehaviour
 {
     public GameObject myPrefab;
     public Transform parent;
+    QuestManager questManager;
+    private void Start()
+    {
+        questManager = FindObjectOfType<QuestManager>();
+    }
 
     // Update is called once per frame
     void Update()
     {
-        GameObject tempPrefab;
+        //GameObject tempPrefab;
+        /*
         int num_quest = FindObjectOfType<QuestManager>().all_quests.Count; //for current amount of quest in list
         int current_quest = 0; //tracker to update quest list DISPLAY
 
@@ -27,8 +33,9 @@ public class QuestDisplay : MonoBehaviour
                 current_quest++;
             }
             Debug.Log(current_quest + " = quest displayed, " + num_quest + " = quests in list");
+        
         }
-
+        */
         //when a quest has been completed and removed
         /*
         if (num_quest < current_quest)
@@ -47,9 +54,24 @@ public class QuestDisplay : MonoBehaviour
         }
         */
 
-        void DisplayUpdate(List<Quest> list) {
-            //Basically for each quest item in the quest list you create an game object ->
-            //check if it is completed ->
+    }
+    public void DisplayUpdate()
+    {
+        List<Quest> list = questManager.all_quests;
+        for (int i = parent.transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(parent.transform.GetChild(i).gameObject);
+        }
+        GameObject holder;
+        foreach (Quest quest in list)
+        {
+            if (!quest.is_complete)
+            {
+                holder = Instantiate(myPrefab, parent);
+                Text test;
+                holder.TryGetComponent<Text>(out test);
+                test.text = quest.title;
+            }
         }
     }
 }

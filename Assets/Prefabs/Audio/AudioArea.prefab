@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2160857618170984198}
   - component: {fileID: 2160857618170984192}
-  - component: {fileID: 2160857618170984199}
   m_Layer: 0
   m_Name: AudioArea
   m_TagString: Untagged
@@ -48,17 +47,3 @@ MonoBehaviour:
   fadeIn: {fileID: 0}
   fadeOut: {fileID: 0}
   duration: 1
---- !u!136 &2160857618170984199
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2160857618170984196}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 3.61
-  m_Height: 15.54
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
