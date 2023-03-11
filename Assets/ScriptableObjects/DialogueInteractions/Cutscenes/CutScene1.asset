@@ -15,20 +15,28 @@ MonoBehaviour:
   dialogues:
   - name: ???
     poses:
-    - 
+    - neutral
     lines:
     - "About time you noticed! Here I was wondering if you were gonna watch grass
       grow all morning... \r"
   - name: Alonso
     poses:
-    - 
+    - neutral
+    - neutral
     lines:
     - "Cynthi... \r"
     - "the sun\u2019s only been out for a few minutes, aren\u2019t you supposed to
       be busy crowing to wake everyone up? Maybe circling over some carrion?\r"
-  - name: 'Cynthi '
+  - name: Cynthi
     poses:
-    - 
+    - neutral
+    - neutral
+    - neutral
+    - sad
+    - sad
+    - sad
+    - sad
+    - sad
     lines:
     - "Ha Ha. Hilarious, doofus. Maybe spend a little less time thinking about birds
       and a little more timedigging the wax outta those...\r"
@@ -43,7 +51,12 @@ MonoBehaviour:
     - "Her?\r"
   - name: Alonso
     poses:
-    - 
+    - sad
+    - sad
+    - sad
+    - sad
+    - sad
+    - sad
     lines:
     - "Yeah. It\u2019s for her. Pineberries were always her favorite. I guessed...\r"
     - "well, I just figured\u2026 \r"
@@ -53,7 +66,9 @@ MonoBehaviour:
     - "they\u2019d be here for her. I know, I know it\u2019s dumb\u2014\r"
   - name: Cynthi
     poses:
-    - 
+    - angry
+    - angry
+    - neutral
     lines:
     - "Dumb!? Dumb?! Listen, pal, you know as well as I do, if anyone could survive
       out there,(points at forest) \r"
@@ -62,26 +77,28 @@ MonoBehaviour:
       huh buddy?\r"
   - name: Alonso
     poses:
-    - 
+    - neutral
     lines:
     - "Alright, alright I get it, just please, fix your face.\r"
   - name: Cynthi
     poses:
-    - 
+    - happy
+    - neutral
     lines:
     - "See! There\u2019s the dummy I know\u2014\r"
     - "Now get those seeds outta the ground before I give your face a the plot of
       dirt right next to em... \r"
   - name: Alonso
     poses:
-    - 
+    - neutral
+    - neutral
     lines:
     - "I\u2019m going, I\u2019m going...\r"
     - "did you really come all the way down here just to give me a lecture on seed
       ethics, or are you just that nosy?\r"
   - name: Cynthi
     poses:
-    - 
+    - happy
     lines:
     - "OOPS!!! I almost forgot!! I caught up with your mom by the greenhouse; she
       said she finished taking a look at your invention! She\u2019s probably waiting
