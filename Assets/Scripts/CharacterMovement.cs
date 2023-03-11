@@ -12,11 +12,6 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-
-        
-
-
-
     }
 
     // Update is called once per frame

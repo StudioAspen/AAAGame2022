@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class AttackDownEffect : StatusEffect {
     float percentDecrease;
-    int version;
 
     public AttackDownEffect(int _version)
     {
@@ -12,6 +11,7 @@ public class AttackDownEffect : StatusEffect {
         name = "Attack Down " + version.ToString();
         percentDecrease = version * 0.25f;
         duration = version * 2f;
+        icon = Resources.Load<Sprite>("Sprites/DebuffIcons/blueSquareArrow");
     }
 
     public override Stats ApplyEffect(Stats currentStats)

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/CombatSytem/CombatModel/StatusEffects/ElementStatus.cs.meta
+guid: 8f431681f23b1904ea5cc8f45c190003
+========
+guid: 739af68f8715aa34fa3def33f7181db9
+>>>>>>>> main:Assets/Scripts/CombatSytem/ActionBar.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
