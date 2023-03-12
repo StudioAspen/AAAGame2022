@@ -17,6 +17,7 @@ public class Battle : MonoBehaviour
 
     bool canEnter = true;
     GameObject[] overworldObjects;
+    public List<GameObject> players;
     public List<GameObject> enemies;
 
     void Update()
@@ -39,6 +40,7 @@ public class Battle : MonoBehaviour
         if (combatController != null)
         {
             combatController.SaveOverWorld(overworldObjects);
+            combatController.InitalizeCombat(players, enemies);
         }
 
         //Disabling all objects
@@ -57,7 +59,6 @@ public class Battle : MonoBehaviour
         {
             canEnter = false;
             characterStats.battleScene = true;
-            //SceneManager.LoadScene("Battle"); NOTE: the change in scene is done in the coroutine because I need the loading to happen in a certain sequence
             Debug.Log("Battle begins");
             StartCoroutine(TriggerCombat());
         }

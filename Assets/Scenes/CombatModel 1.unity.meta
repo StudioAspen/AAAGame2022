@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scenes/CombatModel 1.unity.meta
 guid: 829627db29bd7404d8bee5cd42f362a9
+========
+guid: 682354b4a1c921d4dbd3061b9f97a69a
+>>>>>>>> main:Assets/Scenes/TestScenes/QuestCollison.unity.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

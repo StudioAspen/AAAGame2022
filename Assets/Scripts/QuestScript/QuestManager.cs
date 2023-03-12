@@ -16,7 +16,11 @@ public class QuestManager : MonoBehaviour
         foreach (var i in all_quests)
         {
             if (quest.title == i.title)
+            {
+                //Debug.Log("QuestManager: quest found");
+                //The message does run twice, but nothing is broken
                 return true;
+            }
         }
         return false;
     }
@@ -33,12 +37,13 @@ public class QuestManager : MonoBehaviour
 
     public void CompleteQuest(Quest quest)
     {
-        Debug.Log(quest.title + "outside");
         foreach (var i in all_quests)
         {
-            Debug.Log(i.title + "foreach");
             if (quest.title == i.title)
+            {
                 i.is_complete = true;
+                //Debug.Log(i.title + " is complete QM");
+            }
         }
     }
 
@@ -47,7 +52,10 @@ public class QuestManager : MonoBehaviour
         foreach (var i in all_quests)
         {
             if (quest == i && quest.is_complete)
+            {
                 quest.handed_in = true;
+                //Debug.Log("QuestManager: quest handed in");
+            }
         }
     }
     public void PrintQuests()
