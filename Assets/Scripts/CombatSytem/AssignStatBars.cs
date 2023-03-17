@@ -36,7 +36,7 @@ public class AssignStatBars : MonoBehaviour
             //Updating Stat Bars
             UpdateStatBars();
             UpdateElementIcon();
-            //UpdateStatusEffects();
+            UpdateStatusEffects();
 
             //player controller selecting the combat unit
             if (previousSelected != combatUnit.selected)
@@ -74,36 +74,42 @@ public class AssignStatBars : MonoBehaviour
         //Swapping Icon
         elementIcon.sprite = ElementEffect.GetElementIcon(combatUnit.element);
     }
-    /*
     public void UpdateStatusEffects()
     {
         //Destorying old icons
         for (int i = gridLayout.transform.childCount - 1; i >= 0; i--)
         {
-            Destroy(gridLayout.transform.GetChild(i));
+            Destroy(gridLayout.transform.GetChild(i).gameObject);
         }
+        debuffs.Clear();
+
+
+        GameObject holder;
         //Adding Element Status
-        GameObject holder = Instantiate(debuffIcon);
-        holder.GetComponentInChildren<Image>().sprite = ElementEffect.GetElementIcon(combatUnit.element);
-        holder.transform.SetParent(gridLayout.transform);
-        debuffs.Add(holder);
+        if (combatUnit.currentElementSatus != null)
+        {
+            holder = Instantiate(debuffIcon, gridLayout.transform);
+            holder.GetComponentInChildren<Image>().sprite = ElementEffect.GetElementIcon(combatUnit.currentElementSatus.element);
+            debuffs.Add(holder);
+        }
 
         foreach (StatusEffect status in combatUnit.statusEffects)
         {
             //Adding Debuff
-            holder = Instantiate(debuffIcon);
+            holder = Instantiate(debuffIcon, gridLayout.transform);
             holder.GetComponentInChildren<Image>().sprite = status.icon;
-            holder.transform.SetParent(gridLayout.transform);
+            holder.GetComponentInChildren<Slider>().value = 1 - (status.duration/status.durationBase);
             debuffs.Add(holder);
         }
-    }*/
+    }
     public void UpdateMoveList()
     {
         //Clearing old objects
         for(int i = verticalLayoutGroup.transform.childCount-1; i >= 0; i-- )
         {
-            Destroy(verticalLayoutGroup.transform.GetChild(i));
+            Destroy(verticalLayoutGroup.transform.GetChild(i).gameObject);
         }
+        skillButtons.Clear();
             
         //Adding Basic Attack
         GameObject holder = Instantiate(skillButton);

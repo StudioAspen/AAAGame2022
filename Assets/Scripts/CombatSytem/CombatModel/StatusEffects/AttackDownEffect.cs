@@ -10,8 +10,9 @@ public class AttackDownEffect : StatusEffect {
         version = Mathf.Clamp(_version, 0, 3);
         name = "Attack Down " + version.ToString();
         percentDecrease = version * 0.25f;
-        duration = version * 2f;
-        icon = Resources.Load<Sprite>("Sprites/DebuffIcons/blueSquareArrow");
+        durationBase = version * 2f;
+        duration = durationBase;
+        icon = Resources.Load<Sprite>("Sprites/DebuffIcons/blueSquareDown");
     }
 
     public override Stats ApplyEffect(Stats currentStats)

@@ -6,17 +6,20 @@ static class ElementEffect {
     
     public static Sprite GetElementIcon(Element _element)
     {
+        Sprite output = null;
         switch(_element)
         {
             case Element.FIRE:
-                //Debug.Log(Resources.Load<Sprite>("Sprites/redSquare"));
-                return Resources.Load<Sprite>("Sprites/ElementIcons/redSquare");
+                output = Resources.Load<Sprite>("Sprites/ElementIcons/redSquare");
+                break;
             case Element.WATER:
-                return Resources.Load<Sprite>("Sprites/ElementIcons/blueSquare");
+                output = Resources.Load<Sprite>("Sprites/ElementIcons/blueSquare");
+                break;
             case Element.TERA:
-                return Resources.Load<Sprite>("Sprites/ElementIcons/greenSquare");
+                output = Resources.Load<Sprite>("Sprites/ElementIcons/greenSquare");
+                break;
         }
-        return null;
+        return output;
     }
 }
 
