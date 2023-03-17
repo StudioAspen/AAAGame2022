@@ -13,6 +13,7 @@ public class CombatController : MonoBehaviour
     public List<GameObject> enemies;
     public List<GameObject> enemyPositions;
     public List<AssignStatBars> enemiesUI;
+    public ActionBar actionBar;
     GameObject[] overworldObjects;
 
     //Default values for testing
@@ -21,7 +22,7 @@ public class CombatController : MonoBehaviour
 
     private void Awake()
     {
-        InitalizeCombat(testPlayers, testEnemies); 
+        //InitalizeCombat(testPlayers, testEnemies); 
     }
     // Update is called once per frame
     void Update()
@@ -35,6 +36,7 @@ public class CombatController : MonoBehaviour
     {
         InitalizeSide(_players, playerPositions, playersUI, players);
         InitalizeSide(_enemies, enemyPositions, enemiesUI, enemies);
+        actionBar.InitalizeBars(this);
     }
     private void InitalizeSide(List<GameObject> units, List<GameObject> positions, List<AssignStatBars> UI, List<GameObject> side)
     {

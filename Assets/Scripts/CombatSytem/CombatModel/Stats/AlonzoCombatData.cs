@@ -71,8 +71,7 @@ public class AlonzoCombatData : ScriptableObject
     [ContextMenu("InitalizeDefaultValues")]
     public void InitalizeDefaultValues()
     {
-        baseStats = new Stats(100);
-        baseStats.RandomizeStats();
+        baseStats = new Stats(100, 100, 5, 15);
         alonzoSkills.Clear();
         alonzoSkills.Add(allAlonzoSkills["Regular Strike"]);
     }

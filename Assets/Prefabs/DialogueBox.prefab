@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 3966041695996696155}
   - component: {fileID: 8568983454095505781}
   m_Layer: 5
-  m_Name: Portrait1
+  m_Name: Portrait2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -107,7 +107,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8676755957696620998}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -142,9 +142,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -164,7 +164,7 @@ GameObject:
   - component: {fileID: 6775428518212073223}
   - component: {fileID: 1538954005938390774}
   m_Layer: 5
-  m_Name: Portrait2
+  m_Name: Portrait1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -183,7 +183,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 8676755957696620998}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -218,9 +218,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
-  m_PreserveAspect: 0
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -393,8 +393,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 717531912744104934}
   - {fileID: 2750507009039389292}
+  - {fileID: 717531912744104934}
   - {fileID: 2520441782876578349}
   - {fileID: 8676755957719449158}
   - {fileID: 8676755955862717808}
@@ -428,12 +428,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nameText1: {fileID: 8676755957719449160}
   textComponents: {fileID: 8676755955862717710}
-  textSpeed: 0.05
-  dialogueManager: {fileID: 0}
+  portrait1: {fileID: 1538954005938390774}
+  portrait2: {fileID: 8568983454095505781}
   currentDialogue:
     name: 
+    poses:
+    - 
     lines:
     - 
+  cynthiSprites:
+  - {fileID: -74680223, guid: 2712e727887ee4d1b817639ccc70798f, type: 3}
+  - {fileID: 1109686589, guid: 2712e727887ee4d1b817639ccc70798f, type: 3}
+  - {fileID: -304367878, guid: 2712e727887ee4d1b817639ccc70798f, type: 3}
+  - {fileID: 1044876777, guid: 2712e727887ee4d1b817639ccc70798f, type: 3}
+  - {fileID: -627000819, guid: 2712e727887ee4d1b817639ccc70798f, type: 3}
+  alonsoSprites:
+  - {fileID: 1951683281, guid: f909894b483f54b6380dd23ecce76571, type: 3}
+  - {fileID: -875920419, guid: f909894b483f54b6380dd23ecce76571, type: 3}
+  - {fileID: -1288025405, guid: f909894b483f54b6380dd23ecce76571, type: 3}
+  - {fileID: 1980051502, guid: f909894b483f54b6380dd23ecce76571, type: 3}
+  - {fileID: 1511850572, guid: f909894b483f54b6380dd23ecce76571, type: 3}
+  zinniaSprites:
+  - {fileID: 1947664152, guid: ebd8f5f9aacd44458bed9856addaf6fa, type: 3}
+  - {fileID: 43735720, guid: ebd8f5f9aacd44458bed9856addaf6fa, type: 3}
+  - {fileID: -1827937547, guid: ebd8f5f9aacd44458bed9856addaf6fa, type: 3}
+  - {fileID: -435605129, guid: ebd8f5f9aacd44458bed9856addaf6fa, type: 3}
+  - {fileID: -169976236, guid: ebd8f5f9aacd44458bed9856addaf6fa, type: 3}
 --- !u!1 &8676755957719449157
 GameObject:
   m_ObjectHideFlags: 0

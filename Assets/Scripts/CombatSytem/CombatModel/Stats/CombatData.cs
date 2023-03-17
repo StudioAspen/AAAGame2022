@@ -4,7 +4,7 @@ using UnityEngine;
 
 abstract public class CombatData : MonoBehaviour
 {
-    public Stats baseStats = new Stats(100);
+    public Stats baseStats = new Stats(50);
     public BasicAttack basicAttack = new BasicAttack();
     public List<Skill> skills = new List<Skill>();
 }
