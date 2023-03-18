@@ -110,20 +110,21 @@ public class AssignStatBars : MonoBehaviour
             Destroy(verticalLayoutGroup.transform.GetChild(i).gameObject);
         }
         skillButtons.Clear();
-            
-        //Adding Basic Attack
-        GameObject holder = Instantiate(skillButton);
-        holder.GetComponentInChildren<TMP_Text>().text = combatUnit.basicAttack.name;
-        holder.GetComponent<Button>().onClick.AddListener(() => SetCombatMove(combatUnit.basicAttack));
-        holder.transform.SetParent(verticalLayoutGroup.transform);
 
+        GameObject holder;
+        //Adding Basic Attack
+        if (combatUnit.basicAttack != null)
+        {
+            holder = Instantiate(skillButton, verticalLayoutGroup.transform);
+            holder.GetComponentInChildren<TMP_Text>().text = combatUnit.basicAttack.name;
+            holder.GetComponent<Button>().onClick.AddListener(() => SetCombatMove(combatUnit.basicAttack));
+        }
+        //Adding Skills
         foreach (Skill skill in combatUnit.skills)
         {
-            //Adding Skills
-            holder = Instantiate(skillButton);
+            holder = Instantiate(skillButton, verticalLayoutGroup.transform);
             holder.GetComponentInChildren<TMP_Text>().text = skill.name;
             holder.GetComponent<Button>().onClick.AddListener(() => SetCombatMove(skill));
-            holder.transform.SetParent(verticalLayoutGroup.transform);
             skillButtons.Add(holder);
         }
     }

@@ -63,6 +63,16 @@ public class CombatController : MonoBehaviour
             }
             index++;
         }
+
+
+        //Initalizing combat units
+        index = 0;
+        foreach (GameObject combatPrefab in side)
+        {
+            combatPrefab.GetComponent<CombatUnit>().InitalizeBaseCombatUnit(data[index]);
+            index++;
+        }
+
         //Assigning UI + activating vaid UI
         index = 0;
         foreach (AssignStatBars _UI in UI)
@@ -80,13 +90,6 @@ public class CombatController : MonoBehaviour
             index++;
         }
 
-        //Initalizing combat units
-        index = 0;
-        foreach (GameObject combatPrefab in side)
-        {
-            combatPrefab.GetComponent<CombatUnit>().InitalizeBaseCombatUnit(data[index]);
-            index++;
-        }
 
     }
     public void EndCombat(bool playerWon)
