@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FireBite : Skill
+public class FireDogBite : FireDogSkill
 {
-    public FireBite()
+    public FireDogBite()
     {
         name = "Fire Bite";
         mpCost = 0f;

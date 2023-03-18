@@ -32,44 +32,62 @@ public class CombatController : MonoBehaviour
             KillEnemies();
         }
     }
-    public void InitalizeCombat(List<GameObject> _players, List<GameObject> _enemies)
+    public void InitalizeCombat(List<CombatData> _players, List<CombatData> _enemies)
     {
-        InitalizeSide(_players, playerPositions, playersUI, players);
-        InitalizeSide(_enemies, enemyPositions, enemiesUI, enemies);
+        InitalizeSide(_players, playerPositions, playersUI, ref players);
+        InitalizeSide(_enemies, enemyPositions, enemiesUI, ref enemies);
         actionBar.InitalizeBars(this);
     }
-    private void InitalizeSide(List<GameObject> units, List<GameObject> positions, List<AssignStatBars> UI, List<GameObject> side)
+    private void InitalizeSide(List<CombatData> data, List<GameObject> positions, List<AssignStatBars> UI, ref List<GameObject> side)
     {
-        int indexUI = 0;
+        List<GameObject> units = new List<GameObject>();
+
+        foreach(CombatData _data in data)
+        {
+            units.Add(_data.combatPrefab);
+        }
+        int index = 0;
         GameObject holder;
         //instantiate unit + setting position + adding to list 
         foreach (GameObject position in positions)
         {
-            if (indexUI < units.Count)
+            if (index < units.Count)
             {
-                holder = Instantiate(units[indexUI], position.transform);
+                holder = Instantiate(units[index], position.transform);
                 side.Add(holder);
             }
             else
             {
+                //Disabling Unused Positions
                 position.SetActive(false);
             }
-            indexUI++;
+            index++;
         }
-        indexUI = 0;
+        //Assigning UI + activating vaid UI
+        index = 0;
         foreach (AssignStatBars _UI in UI)
         {
             
-            if (indexUI < side.Count)
+            if (index < side.Count)
             {
-                _UI.AssignCombatUnit(side[indexUI].GetComponent<CombatUnit>());
+                _UI.AssignCombatUnit(side[index].GetComponent<CombatUnit>());
             }
             else
             {
+                //Disabliing Unused UI
                 _UI.gameObject.SetActive(false);
             }
-            indexUI++;
+            index++;
         }
+
+        //Initalizing combat units
+        index = 0;
+        foreach (GameObject combatPrefab in side)
+        {
+            combatPrefab.GetComponent<CombatUnit>().InitalizeBaseCombatUnit(data[index]);
+            index++;
+        }
+
     }
     public void EndCombat(bool playerWon)
     {

@@ -17,8 +17,8 @@ public class Battle : MonoBehaviour
 
     bool canEnter = true;
     GameObject[] overworldObjects;
-    public List<GameObject> players;
-    public List<GameObject> enemies;
+    public List<CombatData> players;
+    public List<CombatData> enemies;
 
     void Update()
     {

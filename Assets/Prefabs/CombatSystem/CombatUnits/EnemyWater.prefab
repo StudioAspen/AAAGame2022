@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 5930822611558441163}
   - component: {fileID: 5930822611558441175}
   - component: {fileID: -2186283655859538461}
-  - component: {fileID: -7089977846800386004}
   - component: {fileID: 681191764}
+  - component: {fileID: 5403821493280385914}
   m_Layer: 0
   m_Name: EnemyWater
   m_TagString: Untagged
@@ -114,6 +114,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 054fc3ac571af8547b3db561a54017dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentStats:
+    maxHP: 0
+    maxMP: 0
+    moveCD: 0
+    attack: 0
   currentHP: 0
   currentMP: 0
   currentMoveCD: 0
@@ -122,18 +127,6 @@ MonoBehaviour:
   dead: 0
   selected: 0
   profile: {fileID: 21300000, guid: f98513294dbd26c4bbdb68d8bb2e5f5c, type: 3}
---- !u!114 &-7089977846800386004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5930822611558441162}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be3b75b98d9054c4bb68177dcb076375, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &681191764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -146,3 +139,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34b1cb2be97855e49a3095238429126d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5403821493280385914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5930822611558441162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be3b75b98d9054c4bb68177dcb076375, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseStats:
+    maxHP: 0
+    maxMP: 0
+    moveCD: 0
+    attack: 0
+  skillKeys: []

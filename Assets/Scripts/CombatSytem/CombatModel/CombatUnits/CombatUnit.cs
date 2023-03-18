@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 using UnityEngine.UI;
-public class CombatUnit : MonoBehaviour
+abstract public class CombatUnit : MonoBehaviour
 {
     //Available moves and base stats on unit
     protected Stats baseStats;
@@ -31,6 +31,10 @@ public class CombatUnit : MonoBehaviour
     [SerializeField]
     public Sprite profile;
 
+    private void Start()
+    {
+        InitalizeCombatUnit();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -57,20 +61,17 @@ public class CombatUnit : MonoBehaviour
     }
 
     //initalize combat unit with data
-    public void InitalizeCombatUnit(CombatData combatData)
+    abstract public void InitalizeBaseCombatUnit(CombatData combatData);
+    
+    public void InitalizeCombatUnit()
     {
-        //Setting stats and moves from overworld
-        baseStats = combatData.baseStats;
-        basicAttack = combatData.basicAttack;
-        skills = combatData.skills;
-
-        //Initalized Values for current combat stats
+        //Initalizing current Values
         currentHP = baseStats.maxHP;
         currentMP = 0f;
         currentMoveCD = baseStats.moveCD;
         currentStats = new Stats(baseStats);
-        
     }
+    
     public void ResetTimer()
     {
         currentMoveCD = baseStats.moveCD;
