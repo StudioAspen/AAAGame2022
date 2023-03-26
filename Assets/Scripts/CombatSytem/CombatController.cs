@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class CombatController : MonoBehaviour
 {
+    public GameObject sceneCanvas;
+
     public List<GameObject> players;
     public List<GameObject> playerPositions;
     public List<AssignStatBars> playersUI;
@@ -78,7 +80,11 @@ public class CombatController : MonoBehaviour
         {
             a.SetActive(true);
         }
+
+        //added
+        FindInActiveObjectByName("VictoryScreen").SetActive(true);
     }
+
     public void KillEnemies()
     {
         //Killing enemies
@@ -116,5 +122,21 @@ public class CombatController : MonoBehaviour
     public void SaveOverWorld(GameObject[] _overworldObects)
     {
         overworldObjects = _overworldObects;
+    }
+
+    GameObject FindInActiveObjectByName(string name)
+    {
+        Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
+        for (int i = 0; i < objs.Length; i++)
+        {
+            if (objs[i].hideFlags == HideFlags.None)
+            {
+                if (objs[i].name == name)
+                {
+                    return objs[i].gameObject;
+                }
+            }
+        }
+        return null;
     }
 }
