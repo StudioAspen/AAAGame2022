@@ -369,7 +369,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 57886064138227076, guid: 8c36076a1885cb94497efb0a5df325c0, type: 3}
       propertyPath: newAlonzoStats.moveCD
-      value: 27.8
+      value: 1.9
       objectReference: {fileID: 0}
     - target: {fileID: 57886064138227076, guid: 8c36076a1885cb94497efb0a5df325c0, type: 3}
       propertyPath: newAlonzoStats.mpGain

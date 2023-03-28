@@ -129,9 +129,13 @@ public class CombatController : MonoBehaviour
             }
         }
 
-        if(!enemyAlive || !playerAlive)
+        if(!enemyAlive)
         {
             EndCombat(true);
+        }
+        if (!playerAlive)
+        {
+            EndCombat(false);
         }
     }
     public void SaveOverWorld(GameObject[] _overworldObects)

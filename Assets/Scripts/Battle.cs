@@ -40,12 +40,12 @@ public class Battle : MonoBehaviour
         if (combatController != null)
         {
             combatController.SaveOverWorld(overworldObjects);
-            //Disabling all objects
-            foreach (GameObject a in overworldObjects)
-            {
-                a.SetActive(false);
-            }
             combatController.InitalizeCombat(players, enemies);
+        }
+        //Disabling all objects
+        foreach (GameObject a in overworldObjects)
+        {
+            a.SetActive(false);
         }
     }
 
