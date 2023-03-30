@@ -134,7 +134,10 @@ MonoBehaviour:
   rb: {fileID: 8928645480559623748}
   moveSpeed: 15
   anim: {fileID: 0}
-  stepHeight: 0
+  stepHeight: 1
+  enviornment:
+    serializedVersion: 2
+    m_Bits: 64
 --- !u!95 &8928645480559623745
 Animator:
   serializedVersion: 5
