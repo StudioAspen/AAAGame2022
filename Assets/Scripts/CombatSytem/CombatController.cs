@@ -82,7 +82,10 @@ public class CombatController : MonoBehaviour
         }
 
         //added
-        FindInActiveObjectByName("VictoryScreen").SetActive(true);
+        if(playerWon)
+            FindInActiveObjectByName("VictoryScreen").SetActive(true);
+        if(!playerWon)
+            FindInActiveObjectByName("DefeatScreen").SetActive(true);
     }
 
     public void KillEnemies()
@@ -114,10 +117,10 @@ public class CombatController : MonoBehaviour
             }
         }
 
-        if(!enemyAlive || !playerAlive)
-        {
+        if(!enemyAlive)
             EndCombat(true);
-        }
+        if (!playerAlive)
+            EndCombat(false);
     }
     public void SaveOverWorld(GameObject[] _overworldObects)
     {
