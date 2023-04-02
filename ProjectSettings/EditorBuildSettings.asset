@@ -18,6 +18,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Overworld.unity
     guid: a2905a45d19c0564088dac494c684ee9
   - enabled: 0
-    path: Assets/Scenes/CutScenes/FindInstitute.unity
+    path: 
     guid: 7293f0993480e4d69a2108b10d9d1057
+  - enabled: 1
+    path: Assets/Scenes/TitleScreen.unity
+    guid: 90c6423cbf0cac94eb60319776d55ea5
   m_configObjects: {}
