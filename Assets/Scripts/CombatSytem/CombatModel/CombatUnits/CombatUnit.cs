@@ -31,9 +31,13 @@ abstract public class CombatUnit : MonoBehaviour
     [SerializeField]
     public Sprite profile;
 
+    //Animation
+
+
     private void Start()
     {
         InitalizeCombatUnit();
+
     }
     // Update is called once per frame
     void Update()
