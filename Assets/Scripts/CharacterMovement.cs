@@ -11,6 +11,10 @@ public class CharacterMovement : MonoBehaviour
     public VectorValue startingPosition;
     public string startingScene;
 
+    //Steps
+    public float stepHeight = 1;
+    public LayerMask enviornment;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,16 +22,31 @@ public class CharacterMovement : MonoBehaviour
         transform.position = startingPosition.initialValue; // have good initalization for the scriptable object
     }
 
-    // Update is called once per frame
-    void Update()
+    private void FixedUpdate()
     {
         moveInput.x = Input.GetAxis("Horizontal");
         moveInput.y = Input.GetAxis("Vertical");
         moveInput.Normalize();
         rb.velocity = new Vector3(moveInput.x * moveSpeed, rb.velocity.y, moveInput.y * moveSpeed);
 
-        
+        //Step Up
+        Vector3 moveDir = new Vector3(moveInput.x, 0, moveInput.y);
+        float castDistance = 0.7f;
+        float castDownDisplacement = 0.75f;
+        Debug.DrawRay(transform.position + Vector3.down * castDownDisplacement, moveDir.normalized * castDistance);
+        if (Physics.Raycast(transform.position + Vector3.down * castDownDisplacement, moveDir.normalized, castDistance, enviornment))
+        {
+            Debug.Log("hit step");
+            Vector3 stepDisplacement = Vector3.up * stepHeight;
+            Debug.DrawRay(transform.position + Vector3.down * castDownDisplacement + stepDisplacement, moveDir.normalized * castDistance);
+            if (!Physics.Raycast(transform.position + Vector3.down * castDownDisplacement + stepDisplacement, moveDir.normalized, castDistance, enviornment))
+            {
+                Debug.Log("moving step");
+                rb.MovePosition(rb.position + stepDisplacement + (rb.velocity * Time.fixedDeltaTime));
+            }
+        }
 
+        //Animation
         if (moveInput.magnitude != 0)
         {
             anim.SetFloat("Xinput", moveInput.x);
@@ -38,7 +57,11 @@ public class CharacterMovement : MonoBehaviour
         {
             anim.SetBool("Walking", false);
         }
+    }
 
+    // Update is called once per frame
+    void Update()
+    {
         if(Input.GetKeyDown(KeyCode.E))
         {
             //returns list of colliders
@@ -53,5 +76,10 @@ public class CharacterMovement : MonoBehaviour
                 }
             }  
         }
+    }
+
+    public void DevControls()
+    {
+
     }
 }
