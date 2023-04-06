@@ -8,13 +8,13 @@ public class FireDogBite : FireDogSkill
     {
         name = "Fire Bite";
         mpCost = 0f;
+        targetAmount = 1;
     }
 
-    public override void UseMove(CombatUnit target, CombatUnit user)
+    public override void UseMove(List<CombatUnit> target, CombatUnit user)
     {
-        //target.AddElementEffect(element, user.currentStats);
-        target.ChangeHP(-(user.currentStats.attack*0.5f));
-        target.ChangeMP(-(user.currentStats.attack * 0.25f));
+        target[0].TakeDamage(user.currentStats.attack*0.25f);
+        target[0].ChangeMP(-(user.currentStats.attack*0.25f));
     }
     
 }

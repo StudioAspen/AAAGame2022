@@ -353,19 +353,19 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 57886064138227076, guid: 8c36076a1885cb94497efb0a5df325c0, type: 3}
       propertyPath: newAlonzoStats.maxHP
-      value: 101.41
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 57886064138227076, guid: 8c36076a1885cb94497efb0a5df325c0, type: 3}
       propertyPath: newAlonzoStats.maxMP
-      value: 84.9
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 57886064138227076, guid: 8c36076a1885cb94497efb0a5df325c0, type: 3}
       propertyPath: newAlonzoStats.speed
-      value: 12.36
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 57886064138227076, guid: 8c36076a1885cb94497efb0a5df325c0, type: 3}
       propertyPath: newAlonzoStats.attack
-      value: 5.63
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 57886064138227076, guid: 8c36076a1885cb94497efb0a5df325c0, type: 3}
       propertyPath: newAlonzoStats.moveCD
@@ -373,19 +373,35 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 57886064138227076, guid: 8c36076a1885cb94497efb0a5df325c0, type: 3}
       propertyPath: newAlonzoStats.mpGain
-      value: 8.59
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 57886064138227076, guid: 8c36076a1885cb94497efb0a5df325c0, type: 3}
       propertyPath: newAlonzoStats.defence
-      value: 11.05
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 57886064138227076, guid: 8c36076a1885cb94497efb0a5df325c0, type: 3}
       propertyPath: newAlonzoSkills.Array.size
-      value: 1
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 57886064138227076, guid: 8c36076a1885cb94497efb0a5df325c0, type: 3}
       propertyPath: newAlonzoSkills.Array.data[0]
       value: Regular Strike
+      objectReference: {fileID: 0}
+    - target: {fileID: 57886064138227076, guid: 8c36076a1885cb94497efb0a5df325c0, type: 3}
+      propertyPath: newAlonzoSkills.Array.data[1]
+      value: Butterfly Strike
+      objectReference: {fileID: 0}
+    - target: {fileID: 57886064138227076, guid: 8c36076a1885cb94497efb0a5df325c0, type: 3}
+      propertyPath: newAlonzoSkills.Array.data[2]
+      value: Cross Stream
+      objectReference: {fileID: 0}
+    - target: {fileID: 57886064138227076, guid: 8c36076a1885cb94497efb0a5df325c0, type: 3}
+      propertyPath: newAlonzoSkills.Array.data[3]
+      value: NightShade Aura
+      objectReference: {fileID: 0}
+    - target: {fileID: 57886064138227076, guid: 8c36076a1885cb94497efb0a5df325c0, type: 3}
+      propertyPath: newAlonzoSkills.Array.data[4]
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 818241944016538910, guid: 8c36076a1885cb94497efb0a5df325c0, type: 3}
       propertyPath: m_Name
@@ -3909,7 +3925,7 @@ PrefabInstance:
       objectReference: {fileID: 11400000, guid: 3ec582224f33b7144af3e38163c13a3a, type: 2}
     - target: {fileID: 6806738591834337883, guid: 54919ec2cc5e3e248a7f7470ca776013, type: 3}
       propertyPath: enemies.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 6806738591834337883, guid: 54919ec2cc5e3e248a7f7470ca776013, type: 3}
       propertyPath: players.Array.size
@@ -3917,6 +3933,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6806738591834337883, guid: 54919ec2cc5e3e248a7f7470ca776013, type: 3}
       propertyPath: enemies.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f3d2d352bc010444a7b3f4ad270228a, type: 2}
+    - target: {fileID: 6806738591834337883, guid: 54919ec2cc5e3e248a7f7470ca776013, type: 3}
+      propertyPath: enemies.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8f3d2d352bc010444a7b3f4ad270228a, type: 2}
+    - target: {fileID: 6806738591834337883, guid: 54919ec2cc5e3e248a7f7470ca776013, type: 3}
+      propertyPath: enemies.Array.data[2]
       value: 
       objectReference: {fileID: 11400000, guid: 8f3d2d352bc010444a7b3f4ad270228a, type: 2}
     - target: {fileID: 6806738591834337883, guid: 54919ec2cc5e3e248a7f7470ca776013, type: 3}

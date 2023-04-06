@@ -42,7 +42,7 @@ public void ElementActivation(Element activationElement, CombatUnit target)
             if(elements.Contains(Element.WATER))
             {
                 //FIRE WATER
-                target.ChangeHP(-25);
+                target.TakeDamage(15);
                 target.AddStatEffect(new AttackDownEffect(1)) ;
             }
             else if(elements.Contains(Element.TERA))
@@ -52,7 +52,7 @@ public void ElementActivation(Element activationElement, CombatUnit target)
             else
             {
                 //FIRE FIRE
-                target.ChangeHP(-50);
+                target.TakeDamage(50);
             }
         }
         else if(elements.Contains(Element.WATER))

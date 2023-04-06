@@ -37,7 +37,6 @@ abstract public class CombatUnit : MonoBehaviour
     private void Start()
     {
         InitalizeCombatUnit();
-
     }
     // Update is called once per frame
     void Update()
@@ -70,15 +69,15 @@ abstract public class CombatUnit : MonoBehaviour
     public void InitalizeCombatUnit()
     {
         //Initalizing current Values
+        currentStats = new Stats(baseStats);
         currentHP = baseStats.maxHP;
         currentMP = 0f;
-        currentMoveCD = baseStats.moveCD;
-        currentStats = new Stats(baseStats);
+        currentMoveCD = currentStats.SpeedToSec();
     }
     
     public void ResetTimer()
     {
-        currentMoveCD = baseStats.moveCD;
+        currentMoveCD = currentStats.SpeedToSec();
         canMakeMove = false;
     }
     public void AddStatEffect(StatusEffect statusEffect) {
@@ -102,14 +101,17 @@ abstract public class CombatUnit : MonoBehaviour
     }
     public void AddElementStatus(ElementStatus elementStatus)
     {
-        if(currentElementSatus == null)
+        if (elementStatus.element != Element.NONE)
         {
-            currentElementSatus = elementStatus;
-        }
-        else
-        {
-            elementStatus.ElementActivation(currentElementSatus.element, this);
-            RemoveElementStatus();
+            if (currentElementSatus == null)
+            {
+                currentElementSatus = elementStatus;
+            }
+            else
+            {
+                elementStatus.ElementActivation(currentElementSatus.element, this);
+                RemoveElementStatus();
+            }
         }
     }
     public void RemoveElementStatus()
@@ -120,9 +122,10 @@ abstract public class CombatUnit : MonoBehaviour
     {
         currentMP = Mathf.Clamp(currentMP + amount, 0, baseStats.maxMP);
     }
-    public void ChangeHP(float amount)
+    public void TakeDamage(float amount)
     {
-        currentHP = Mathf.Clamp(currentHP + amount, 0, baseStats.maxHP);
+        amount = amount * (amount + 100f) * 0.08f / (currentStats.defence + 8f); //Damage Calc
+        currentHP = Mathf.Clamp(currentHP - amount, 0, baseStats.maxHP);
 
         if (currentHP <= 0f)
         {

@@ -8,13 +8,15 @@ public class RegularStrike : AlonzoSkill
     {
         name = "Regular Strike";
         owner = _owner;
-        mpCost = 10f;
+        mpCost = 20f;
+        targetAmount = 1;
     }
 
-    public override void UseMove(CombatUnit target, CombatUnit user)
+    public override void UseMove(List<CombatUnit> target, CombatUnit user)
     {
-        target.ChangeHP(-user.currentStats.attack);
-        target.AddElementStatus(new ElementStatus(owner.charge, owner));
+        target[0].TakeDamage(user.currentStats.attack);
+        target[0].AddElementStatus(new ElementStatus(owner.charge, owner));
+
         owner.SetCharge(Element.NONE);
         user.ChangeMP(-mpCost);
     }

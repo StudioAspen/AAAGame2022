@@ -16,7 +16,7 @@ MonoBehaviour:
     maxHP: 50
     maxMP: 0
     moveCD: 10
-    speed: 130
+    speed: 120
     mpGain: 0
     attack: 47
     defence: 22

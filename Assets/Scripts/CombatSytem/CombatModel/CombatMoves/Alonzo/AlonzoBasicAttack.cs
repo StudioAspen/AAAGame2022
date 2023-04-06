@@ -9,12 +9,13 @@ public class AlonzoBasicAttack : BasicAttack
     {
         name = "Basic Attack";
         owner = _owner;
+        targetAmount = 1;
     }
-    public override void UseMove(CombatUnit target, CombatUnit user)
+    public override void UseMove(List<CombatUnit> target, CombatUnit user)
     {
         if (owner != null)
         {
-            owner.SetCharge(target.element);
+            owner.SetCharge(target[0].element);
         }
         user.ChangeMP(mpGain);
     }

@@ -16,14 +16,7 @@ public class CombatController : MonoBehaviour
     public ActionBar actionBar;
     GameObject[] overworldObjects;
 
-    //Default values for testing
-    public List<GameObject> testPlayers;
-    public List<GameObject> testEnemies;
 
-    private void Awake()
-    {
-        //InitalizeCombat(testPlayers, testEnemies); 
-    }
     // Update is called once per frame
     void Update()
     {
@@ -100,12 +93,36 @@ public class CombatController : MonoBehaviour
             a.SetActive(true);
         }
     }
+    public int GetPlayerAliveCount()
+    {
+        int count = 0;
+        foreach (GameObject player in players)
+        {
+            if(!player.GetComponent<CombatUnit>().dead)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
+    public int GetEnemyAliveCount()
+    {
+        int count = 0;
+        foreach (GameObject enemy in enemies)
+        {
+            if (!enemy.GetComponent<CombatUnit>().dead)
+            {
+                count++;
+            }
+        }
+        return count;
+    }
     public void KillEnemies()
     {
         //Killing enemies
         for (int i = 0; i < enemies.Count; i++)
         {
-            enemies[i].GetComponent<CombatUnit>().ChangeHP(-10000);
+            enemies[i].GetComponent<CombatUnit>().TakeDamage(10000);
         }
     }
     public void UpdateDead()

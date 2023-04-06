@@ -6,7 +6,10 @@ abstract public class AlonzoSkill : Skill
 {
     static Dictionary<string, AlonzoSkill> dictionary = new Dictionary<string, AlonzoSkill>()
     {
-        {"Regular Strike", new RegularStrike() }
+        {"Regular Strike", new RegularStrike() },
+        {"Butterfly Strike", new ButterflyStrike() },
+        {"Cross Stream", new CrossStream() },
+        {"NightShade Aura", new NightShadeAura() }
     };
     public AlonzoCombatUnit owner;
 

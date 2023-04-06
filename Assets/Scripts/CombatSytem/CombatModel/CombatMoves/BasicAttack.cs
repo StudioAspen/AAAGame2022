@@ -9,8 +9,9 @@ public class BasicAttack : CombatMove
     {
         name = "Basic Attack";
         mpGain = 30f;
+        targetAmount = 1;
     }
-    public override void UseMove(CombatUnit target, CombatUnit user)
+    public override void UseMove(List<CombatUnit> target, CombatUnit user)
     {
         user.ChangeMP(mpGain);
     }

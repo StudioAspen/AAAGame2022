@@ -5,5 +5,7 @@ using UnityEngine;
 public abstract class CombatMove
 {
     public string name;
-    public abstract void UseMove(CombatUnit target, CombatUnit user);
+    public int targetAmount; // -1 is all available targets
+
+    public abstract void UseMove(List<CombatUnit> target, CombatUnit user);
 }
