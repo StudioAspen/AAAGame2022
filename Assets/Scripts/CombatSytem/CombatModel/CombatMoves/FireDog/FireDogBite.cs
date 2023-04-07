@@ -13,8 +13,8 @@ public class FireDogBite : FireDogSkill
 
     public override void UseMove(List<CombatUnit> target, CombatUnit user)
     {
-        target[0].TakeDamage(user.currentStats.attack*0.25f);
-        target[0].ChangeMP(-(user.currentStats.attack*0.25f));
+        target[0].TakeDamage(user.currentStats.attack);
+        target[0].ChangeMP(-(user.currentStats.attack));
     }
     
 }

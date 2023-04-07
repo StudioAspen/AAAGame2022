@@ -26,6 +26,7 @@ abstract public class CombatUnit : MonoBehaviour
     public bool canMakeMove = false;
     public bool dead = false;
     public bool selected = false;
+    public bool isPlayer;
 
     //Data (TEMPERARY)
     [SerializeField]
@@ -120,11 +121,23 @@ abstract public class CombatUnit : MonoBehaviour
     }
     public void ChangeMP(float amount)
     {
+        if (amount < 0)
+        {
+            amount = amount * (amount + 100f) * 0.08f / (currentStats.defence + 8f); //Damage Calc
+            if (isPlayer)
+            {
+                amount = amount * 0.25f;
+            }
+        }
         currentMP = Mathf.Clamp(currentMP + amount, 0, baseStats.maxMP);
     }
     public void TakeDamage(float amount)
     {
         amount = amount * (amount + 100f) * 0.08f / (currentStats.defence + 8f); //Damage Calc
+        if(isPlayer)
+        {
+            amount = amount * 0.25f;
+        }
         currentHP = Mathf.Clamp(currentHP - amount, 0, baseStats.maxHP);
 
         if (currentHP <= 0f)

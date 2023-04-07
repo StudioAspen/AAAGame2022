@@ -23,9 +23,8 @@ public class CrossStream : AlonzoSkill
     }
     public void StrikeFirstTarget(CombatUnit target, CombatUnit user)
     {
-        owner.SetCharge(target.currentElementSatus.element);
+        owner.SetCharge(target.element);
         target.TakeDamage(user.currentStats.attack);
-        target.RemoveElementStatus();
     }
     public void StrikeSecondTarget(CombatUnit target, CombatUnit user)
     {

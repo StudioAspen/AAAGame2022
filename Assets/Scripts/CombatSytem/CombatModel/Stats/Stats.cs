@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public struct Stats
 {
-    const float speedToSec = 10f;
+    const float speedToSec = 5f;
     const float baseSpeed = 100f;
     public float maxHP;
     public float maxMP;

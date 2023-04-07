@@ -29,6 +29,10 @@ public class CombatController : MonoBehaviour
     {
         InitalizeSide(_players, playerPositions, playersUI, ref players);
         InitalizeSide(_enemies, enemyPositions, enemiesUI, ref enemies);
+        foreach(GameObject player in players)
+        {
+            player.GetComponent<CombatUnit>().isPlayer = true;
+        }
         actionBar.InitalizeBars(this);
     }
     private void InitalizeSide(List<CombatData> data, List<GameObject> positions, List<AssignStatBars> UI, ref List<GameObject> side)
