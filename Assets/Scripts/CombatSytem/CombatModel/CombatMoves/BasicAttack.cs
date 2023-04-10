@@ -5,6 +5,8 @@ using UnityEngine;
 public class BasicAttack : CombatMove
 {
     protected float mpGain;
+    protected AnimatorOverrideController overrideController =
+        Resources.Load<AnimatorOverrideController>("Animations/CombatSystem/Alonzo/AlonzoAttackOverride");
     public BasicAttack()
     {
         name = "Basic Attack";

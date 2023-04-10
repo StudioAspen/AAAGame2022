@@ -16,4 +16,8 @@ public class FireDogCombatUnit : CombatUnit
             skills.Add(currentSkill);
         }
     }
+    override public void StartAttack()
+    {
+        //animator.SetTrigger("StartAttack");
+    }
 }

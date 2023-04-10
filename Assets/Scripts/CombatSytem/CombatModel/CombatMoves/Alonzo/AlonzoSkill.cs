@@ -11,6 +11,8 @@ abstract public class AlonzoSkill : Skill
         {"Cross Stream", new CrossStream() },
         {"NightShade Aura", new NightShadeAura() }
     };
+    protected AnimatorOverrideController overrideController =
+        Resources.Load<AnimatorOverrideController>("Animations/CombatSystem/Alonzo/AlonzoAttackOverride");
     public AlonzoCombatUnit owner;
 
     static public AlonzoSkill GetSkill(string key)

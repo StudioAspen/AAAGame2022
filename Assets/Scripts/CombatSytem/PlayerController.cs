@@ -89,6 +89,7 @@ public class PlayerController : MonoBehaviour
     private void StartUseMove()
     {
         selectedMove.UseMove(targets, selectedUser);
+        selectedUser.StartAttack();
         selectedUser.ResetTimer();
         ResetTargeting();
     }

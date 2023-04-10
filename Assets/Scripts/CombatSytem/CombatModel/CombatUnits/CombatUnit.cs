@@ -33,11 +33,12 @@ abstract public class CombatUnit : MonoBehaviour
     public Sprite profile;
 
     //Animation
-
+    protected Animator animator;
 
     private void Start()
     {
         InitalizeCombatUnit();
+        animator = GetComponent<Animator>();
     }
     // Update is called once per frame
     void Update()
@@ -66,7 +67,9 @@ abstract public class CombatUnit : MonoBehaviour
 
     //initalize combat unit with data
     abstract public void InitalizeBaseCombatUnit(CombatData combatData);
-    
+
+    abstract public void StartAttack();
+
     public void InitalizeCombatUnit()
     {
         //Initalizing current Values

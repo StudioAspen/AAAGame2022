@@ -26,6 +26,11 @@ public class AlonzoCombatUnit : CombatUnit
             skills.Add(currentSkill);
         }
     }
+
+    override public void StartAttack()
+    {
+        animator.SetTrigger("StartAttack");
+    }
     public void SetCharge(Element element)
     {
         charge = element;
