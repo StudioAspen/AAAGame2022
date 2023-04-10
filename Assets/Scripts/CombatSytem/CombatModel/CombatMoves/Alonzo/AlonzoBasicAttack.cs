@@ -42,11 +42,11 @@ public class AlonzoBasicAttack : BasicAttack
     public void SetMoveTarget0()
     {
         float timingEndMarker = animation.events[2].time;
-        curve = AnimationCurve.EaseInOut(0, 0, timingEndMarker, 1);
+        curve = AnimationCurve.Linear(0, 0, timingEndMarker, 1);
         skillAnimation.startMove.AddListener(SetMoveTarget1);
         skillAnimation.startMove.RemoveListener(SetMoveTarget0);
 
-        skillAnimation.SetMoveToTarget(targets[0].transform.position, curve);
+        skillAnimation.SetMoveToTarget(targets[0].transform.position + Vector3.left, curve);
     }
     public void SetMoveTarget1()
     {

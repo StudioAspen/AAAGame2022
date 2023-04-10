@@ -415,7 +415,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0
+  - time: 0.041666668
     functionName: StartMove
     data: 
     objectReferenceParameter: {fileID: 0}
@@ -436,7 +436,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.7916667
+  - time: 0.8333333
     functionName: TriggerSkill
     data: 
     objectReferenceParameter: {fileID: 0}
