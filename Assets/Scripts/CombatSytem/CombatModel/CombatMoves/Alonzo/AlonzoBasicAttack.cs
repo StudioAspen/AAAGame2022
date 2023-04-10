@@ -7,6 +7,8 @@ public class AlonzoBasicAttack : BasicAttack
 {
     public AlonzoCombatUnit owner;
     private AnimationClip animation;
+    private AnimationCurve curve;
+    private SkillAnimation skillAnimation;
     public AlonzoBasicAttack (AlonzoCombatUnit _owner = null)
     {
         name = "Basic Attack";
@@ -19,8 +21,13 @@ public class AlonzoBasicAttack : BasicAttack
         targets = new List<CombatUnit>(_targets);
         user = _user;
 
-        user.GetComponent<SkillAnimation>().skillActivation.RemoveAllListeners();
-        user.GetComponent<SkillAnimation>().skillActivation.AddListener(ActivateSkill);
+        skillAnimation = user.GetComponent<SkillAnimation>();
+        skillAnimation.skillActivation.AddListener(ActivateSkill);
+
+        //Setting up target movement
+        Vector3 holder = user.transform.position;
+        skillAnimation.originalPos = new Vector3(holder.x, holder.y, holder.z);
+        skillAnimation.startMove.AddListener(SetMoveTarget0);
 
         //Setting Animation
         overrideController = AnimationOverride.SetAnimationClip(overrideController, "BaseCase", animation);
@@ -29,10 +36,23 @@ public class AlonzoBasicAttack : BasicAttack
     }
     public void ActivateSkill()
     {
-        Debug.Log("starting activatiion");
         owner.SetCharge(targets[0].element);
-        Debug.Log("starting activatiion");
         user.ChangeMP(mpGain);
-        Debug.Log("starting activatiion");
+    }
+    public void SetMoveTarget0()
+    {
+        float timingEndMarker = animation.events[2].time;
+        curve = AnimationCurve.EaseInOut(0, 0, timingEndMarker, 1);
+        skillAnimation.startMove.AddListener(SetMoveTarget1);
+        skillAnimation.startMove.RemoveListener(SetMoveTarget0);
+
+        skillAnimation.SetMoveToTarget(targets[0].transform.position, curve);
+    }
+    public void SetMoveTarget1()
+    {
+        float timingStartMarker = animation.events[5].time;
+        curve = AnimationCurve.EaseInOut(0, 0, animation.length-timingStartMarker, 1);
+
+        skillAnimation.SetMoveToOrigin(curve);
     }
 }
