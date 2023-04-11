@@ -10,21 +10,61 @@ public class ButterflyStrike : AlonzoSkill
         owner = _owner;
         mpCost = 25f;
         targetAmount = 1;
+        animation = Resources.Load<AnimationClip>("Animations/CombatSystem/Alonzo/AlonzoButterflyStrike");
     }
 
-    public override void UseMove(List<CombatUnit> target, CombatUnit user)
+    public override void UseMove(List<CombatUnit> _targets, CombatUnit _user)
     {
-        //Double Strike
-        Strike(target[0], user);
-        Strike(target[0], user);
+        targets = new List<CombatUnit>(_targets);
+        user = _user;
+
+        skillAnimation = user.GetComponent<SkillAnimationComponent>();
+        skillAnimation.skillActivation.AddListener(FirstStrike);
+
+        //Setting up target movement
+        Vector3 holder = user.transform.position;
+        skillAnimation.originalPos = new Vector3(holder.x, holder.y, holder.z);
+        skillAnimation.startMove.AddListener(SetMoveTargetFirst);
+
+        //Setting Animation
+        Animator animator = user.GetComponent<Animator>();
+        AnimationOverride.SetAnimationClip(animator, overrideController, "BaseCase", animation);
+
+    }
+
+    public void FirstStrike()
+    {
+        targets[0].TakeDamage(user.currentStats.attack);
+        targets[0].AddElementStatus(new ElementStatus(owner.charge, owner));
+
+        skillAnimation.skillActivation.AddListener(SecondStrike);
+        skillAnimation.skillActivation.RemoveListener(FirstStrike);
+    }
+    public void SecondStrike()
+    {
+        targets[0].TakeDamage(user.currentStats.attack);
+        targets[0].AddElementStatus(new ElementStatus(owner.charge, owner));
 
         owner.SetCharge(Element.NONE);
         user.ChangeMP(-mpCost);
-    }
 
-    public void Strike(CombatUnit target, CombatUnit user)
+        skillAnimation.skillActivation.RemoveListener(SecondStrike);
+    }
+    public void SetMoveTargetFirst()
     {
-        target.TakeDamage(user.currentStats.attack);
-        target.AddElementStatus(new ElementStatus(owner.charge, owner));
+        float timingEndMarker = animation.events[2].time;
+        curve = AnimationCurve.Linear(0, 0, timingEndMarker, 1);
+        skillAnimation.startMove.AddListener(SetMoveOrigin);
+        skillAnimation.startMove.RemoveListener(SetMoveTargetFirst);
+
+        skillAnimation.SetMoveToTarget(targets[0].transform.position + Vector3.left, curve);
+    }
+    public void SetMoveOrigin()
+    {
+        float timingStartMarker = animation.events[7].time;
+        curve = AnimationCurve.EaseInOut(0, 0, animation.length - timingStartMarker, 1);
+
+        skillAnimation.SetMoveToOrigin(curve);
+        skillAnimation.startMove.RemoveListener(SetMoveOrigin);
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimationOverride : MonoBehaviour
 {
-    public static AnimatorOverrideController SetAnimationClip(AnimatorOverrideController overrideController, string baseCase, AnimationClip animationClip)
+    public static void SetAnimationClip(Animator animator, AnimatorOverrideController overrideController, string baseCase, AnimationClip animationClip)
     {
         List<KeyValuePair<AnimationClip, AnimationClip>> overrides = 
             new List<KeyValuePair<AnimationClip, AnimationClip>>(overrideController.overridesCount);
@@ -22,7 +22,6 @@ public class AnimationOverride : MonoBehaviour
             }
         }
         overrideController.ApplyOverrides(overrides);
-
-        return overrideController;
+        animator.runtimeAnimatorController = overrideController;
     }
 }

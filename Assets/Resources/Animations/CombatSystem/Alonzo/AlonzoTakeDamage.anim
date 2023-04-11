@@ -71,4 +71,11 @@ AnimationClip:
   m_EulerEditorCurves: []
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
-  m_Events: []
+  m_Events:
+  - time: 0
+    functionName: CreateParticleEffect
+    data: 
+    objectReferenceParameter: {fileID: 7923244812740193873, guid: 55e972ffef5a4c04b95d4702bac96241, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0

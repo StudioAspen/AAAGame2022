@@ -136,6 +136,7 @@ abstract public class CombatUnit : MonoBehaviour
     }
     public void TakeDamage(float amount)
     {
+        animator.SetTrigger("TakeDamage");
         amount = amount * (amount + 100f) * 0.08f / (currentStats.defence + 8f); //Damage Calc
         if(isPlayer)
         {
@@ -150,6 +151,7 @@ abstract public class CombatUnit : MonoBehaviour
     }
     public void Die()
     {
+        animator.SetTrigger("Dead");
         dead = true;
         canMakeMove = false;
 

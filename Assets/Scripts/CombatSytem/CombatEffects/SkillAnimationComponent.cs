@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class SkillAnimation : MonoBehaviour
+public class SkillAnimationComponent : MonoBehaviour
 {
     public UnityEvent skillActivation;
     
@@ -19,13 +19,11 @@ public class SkillAnimation : MonoBehaviour
     public void TriggerSkill()
     {
         skillActivation.Invoke();
-        skillActivation.RemoveAllListeners();
     }
     public void StartMove()
     {
         moving = true;
         startMove.Invoke();
-        //startMove.RemoveAllListeners();
     }
     public void EndMove()
     {
@@ -42,6 +40,11 @@ public class SkillAnimation : MonoBehaviour
     public void SetMoveToOrigin(AnimationCurve _curve)
     {
         SetMoveToTarget(originalPos, _curve);
+    }
+    public void CreateParticleEffect(GameObject particle)
+    {
+        //Playing Particles
+        Instantiate(particle, gameObject.transform);
     }
     private void Update()
     {
