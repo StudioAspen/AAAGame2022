@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: glass
-  m_Shader: {fileID: 4800000, guid: 0e0019510d6142644b412d07db9dee4e, type: 3}
+  m_Shader: {fileID: 4800000, guid: bbb29bc6f1f0b704d989cac34a3a1b7e, type: 3}
   m_ValidKeywords:
   - _SOURCE_SPECULARALPHA
   m_InvalidKeywords:
@@ -67,6 +67,10 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
+    - _TransparentMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _texcoord:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -75,9 +79,10 @@ Material:
     m_Floats:
     - _AoIntensity: 1
     - _BlendMainNormal: 1
-    - _Brightness: 2.81
+    - _Brightness: 2.57
     - _BumpScale: 1
     - _ContrastDetailMap: 0
+    - _ContrastTransparentMap: 0
     - _Cull: 0
     - _Cutoff: 0.5
     - _DetailBrightness: 1
@@ -91,9 +96,11 @@ Material:
     - _GlossyReflections: 1
     - _IntensityCutoutMap: 0.5
     - _IntensityMask: 1
+    - _IntensityTransparentMap: 0.327
     - _InvertABaseColor: 0
     - _InvertCutout: 0
     - _InvertMask: 0
+    - _InvertTransparent: 0
     - _Metallic: 0
     - _Mode: 3
     - _OcclusionStrength: 1
@@ -105,6 +112,7 @@ Material:
     - _SpecularHighlights: 1
     - _SpecularIntensity: 0
     - _SpreadDetailMap: 0
+    - _SpreadTransparentMap: 0
     - _SrcBlend: 1
     - _UVSec: 0
     - _UseBaseColorAlpha: 0
