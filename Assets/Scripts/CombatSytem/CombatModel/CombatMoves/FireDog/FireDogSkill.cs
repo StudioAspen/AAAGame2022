@@ -8,7 +8,9 @@ abstract public class FireDogSkill : Skill
     {
         { "Fire Dog Bite", new FireDogBite()}
     };
-    public AlonzoCombatUnit owner;
+
+    protected AnimatorOverrideController overrideController =
+        Resources.Load<AnimatorOverrideController>("Animations/CombatSystem/FireBoar/FireBoarOverride");
 
     static public FireDogSkill GetSkill(string key)
     {

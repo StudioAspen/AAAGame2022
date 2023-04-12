@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7935159122749272128}
   - component: {fileID: 7474559291533640711}
   m_Layer: 0
-  m_Name: CynthiHitEffect
+  m_Name: CynthiSwingEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

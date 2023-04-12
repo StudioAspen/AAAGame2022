@@ -47,6 +47,7 @@ public class EnemyAI : MonoBehaviour
             }
 
             selectedSkill.UseMove(targets, combatUnit);
+            combatUnit.StartAttack();
             combatUnit.ResetTimer();
         }
     }

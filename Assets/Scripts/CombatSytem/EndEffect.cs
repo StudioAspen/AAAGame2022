@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class EndEffect : MonoBehaviour
 {
-    ParticleSystem particle;
+    private ParticleSystem particle;
+    
+    [SerializeField]
+    private bool isChild;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,7 +19,14 @@ public class EndEffect : MonoBehaviour
     {
         if(particle.isStopped)
         {
-            Destroy(gameObject);
+            if (isChild)
+            {
+                Destroy(gameObject.transform.parent.gameObject);
+            }
+            else
+            {
+                Destroy(gameObject);
+            }
         }
     }
 }

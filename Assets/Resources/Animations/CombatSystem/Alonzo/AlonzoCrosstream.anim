@@ -30,7 +30,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.25
+        time: 1.5833334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -170,11 +170,17 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 21300000, guid: 109c2bd420a19534b8ecf8b75872ed33, type: 3}
-    - time: 0.5833333
+    - time: 0.375
       value: {fileID: 21300000, guid: 4e439f71af62bfd4a875d9fa7a52e8a6, type: 3}
-    - time: 0.7916667
+    - time: 0.5416667
       value: {fileID: 21300000, guid: 1d9de3ac040d9c848b8b7373e4214645, type: 3}
-    - time: 1.25
+    - time: 0.75
+      value: {fileID: 21300000, guid: 109c2bd420a19534b8ecf8b75872ed33, type: 3}
+    - time: 1.1666666
+      value: {fileID: 21300000, guid: 4e439f71af62bfd4a875d9fa7a52e8a6, type: 3}
+    - time: 1.3333334
+      value: {fileID: 21300000, guid: 1d9de3ac040d9c848b8b7373e4214645, type: 3}
+    - time: 1.5833334
       value: {fileID: 21300000, guid: 109c2bd420a19534b8ecf8b75872ed33, type: 3}
     attribute: m_Sprite
     path: 
@@ -234,6 +240,9 @@ AnimationClip:
     - {fileID: 21300000, guid: 4e439f71af62bfd4a875d9fa7a52e8a6, type: 3}
     - {fileID: 21300000, guid: 1d9de3ac040d9c848b8b7373e4214645, type: 3}
     - {fileID: 21300000, guid: 109c2bd420a19534b8ecf8b75872ed33, type: 3}
+    - {fileID: 21300000, guid: 4e439f71af62bfd4a875d9fa7a52e8a6, type: 3}
+    - {fileID: 21300000, guid: 1d9de3ac040d9c848b8b7373e4214645, type: 3}
+    - {fileID: 21300000, guid: 109c2bd420a19534b8ecf8b75872ed33, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -268,7 +277,7 @@ AnimationClip:
         inWeight: 0
         outWeight: 0
       - serializedVersion: 3
-        time: 1.25
+        time: 1.5833334
         value: 1
         inSlope: Infinity
         outSlope: Infinity
@@ -409,48 +418,90 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0
+    functionName: StartMove
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0
     functionName: PlayAudio
     data: 
     objectReferenceParameter: {fileID: 8300000, guid: 4a24afd739f737a47b8d834e948a6195, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.041666668
-    functionName: StartMove
+  - time: 0
+    functionName: CreateParticleEffect
     data: 
-    objectReferenceParameter: {fileID: 0}
+    objectReferenceParameter: {fileID: 11400000, guid: 2b54f765665a764468039a800e472d00, type: 2}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.5416667
+  - time: 0.29166666
     functionName: EndMove
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.7916667
+  - time: 0.5416667
     functionName: PlayAudio
     data: 
-    objectReferenceParameter: {fileID: 8300000, guid: 85194ad9f9da88e4a955a086347b0438, type: 3}
+    objectReferenceParameter: {fileID: 8300000, guid: 4039f9cf615f2e842b760dd2ef66d1a2, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.8333333
+  - time: 0.5416667
     functionName: TriggerSkill
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.2083334
+  - time: 0.75
     functionName: StartMove
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.25
+  - time: 0.75
+    functionName: PlayAudio
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 4a24afd739f737a47b8d834e948a6195, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.0416666
+    functionName: EndMove
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.3333334
+    functionName: PlayAudio
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 091b0ca679b75b349a7b6fdb0244025b, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.3333334
+    functionName: TriggerSkill
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.5833333
+    functionName: StartMove
+    data: 
+    objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.5833333
     functionName: PlayAudio
     data: 
     objectReferenceParameter: {fileID: 8300000, guid: 4a24afd739f737a47b8d834e948a6195, type: 3}

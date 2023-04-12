@@ -10,25 +10,67 @@ public class CrossStream : AlonzoSkill
         owner = _owner;
         mpCost = 25f;
         targetAmount = 2;
+        animation = Resources.Load<AnimationClip>("Animations/CombatSystem/Alonzo/AlonzoCrosstream");
     }
 
-    public override void UseMove(List<CombatUnit> target, CombatUnit user)
+    public override void UseMove(List<CombatUnit> _targets, CombatUnit _user)
     {
-        //Double Strike
-        StrikeFirstTarget(target[0], user);
-        StrikeSecondTarget(target[1], user);
+        targets = new List<CombatUnit>(_targets);
+        user = _user;
 
+        skillAnimation = user.GetComponent<SkillAnimationComponent>();
+        skillAnimation.skillActivation.AddListener(StrikeFirstTarget);
+
+        //Setting up target movement
+        Vector3 holder = user.transform.position;
+        skillAnimation.originalPos = new Vector3(holder.x, holder.y, holder.z);
+        skillAnimation.startMove.AddListener(SetMoveTargetFirst);
+
+        //Setting Animation
+        Animator animator = user.GetComponent<Animator>();
+        AnimationOverride.SetAnimationClip(animator, overrideController, "BaseCase", animation);
+
+        //Double Strike
         owner.SetCharge(Element.NONE);
         user.ChangeMP(-mpCost);
     }
-    public void StrikeFirstTarget(CombatUnit target, CombatUnit user)
+    public void StrikeFirstTarget()
     {
-        owner.SetCharge(target.element);
-        target.TakeDamage(user.currentStats.attack);
+        owner.SetCharge(targets[0].element);
+        targets[0].TakeDamage(user.currentStats.attack);
+
+        skillAnimation.skillActivation.AddListener(StrikeSecondTarget);
+        skillAnimation.skillActivation.RemoveListener(StrikeFirstTarget);
     }
-    public void StrikeSecondTarget(CombatUnit target, CombatUnit user)
+    public void StrikeSecondTarget()
     {
-        target.TakeDamage(user.currentStats.attack);
-        target.AddElementStatus(new ElementStatus(owner.charge, owner));
+        targets[1].TakeDamage(user.currentStats.attack);
+        targets[1].AddElementStatus(new ElementStatus(owner.charge, owner));
+
+        skillAnimation.skillActivation.RemoveListener(StrikeSecondTarget);
+    }
+
+    public void SetMoveTargetFirst()
+    {
+        curve = CalculateDashCurve(animation, 0);
+        skillAnimation.startMove.AddListener(SetMoveTargetSecond);
+        skillAnimation.startMove.RemoveListener(SetMoveTargetFirst);
+
+        skillAnimation.SetMoveToTarget(targets[0].transform.position + Vector3.left, curve);
+    }
+    public void SetMoveTargetSecond()
+    {
+        curve = CalculateDashCurve(animation, 1);
+        skillAnimation.startMove.AddListener(SetMoveOrigin);
+        skillAnimation.startMove.RemoveListener(SetMoveTargetSecond);
+
+        skillAnimation.SetMoveToTarget(targets[1].transform.position + Vector3.left, curve);
+    }
+    public void SetMoveOrigin()
+    {
+        curve = CalculateDashCurve(animation, 2);
+
+        skillAnimation.SetMoveToOrigin(curve);
+        skillAnimation.startMove.RemoveListener(SetMoveOrigin);
     }
 }

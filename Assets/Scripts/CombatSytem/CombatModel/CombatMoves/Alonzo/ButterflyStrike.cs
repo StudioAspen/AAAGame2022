@@ -29,7 +29,6 @@ public class ButterflyStrike : AlonzoSkill
         //Setting Animation
         Animator animator = user.GetComponent<Animator>();
         AnimationOverride.SetAnimationClip(animator, overrideController, "BaseCase", animation);
-
     }
 
     public void FirstStrike()
@@ -52,8 +51,7 @@ public class ButterflyStrike : AlonzoSkill
     }
     public void SetMoveTargetFirst()
     {
-        float timingEndMarker = animation.events[2].time;
-        curve = AnimationCurve.Linear(0, 0, timingEndMarker, 1);
+        curve = CalculateDashCurve(animation, 0);
         skillAnimation.startMove.AddListener(SetMoveOrigin);
         skillAnimation.startMove.RemoveListener(SetMoveTargetFirst);
 
@@ -61,8 +59,7 @@ public class ButterflyStrike : AlonzoSkill
     }
     public void SetMoveOrigin()
     {
-        float timingStartMarker = animation.events[7].time;
-        curve = AnimationCurve.EaseInOut(0, 0, animation.length - timingStartMarker, 1);
+        curve = CalculateDashCurve(animation, 1);
 
         skillAnimation.SetMoveToOrigin(curve);
         skillAnimation.startMove.RemoveListener(SetMoveOrigin);

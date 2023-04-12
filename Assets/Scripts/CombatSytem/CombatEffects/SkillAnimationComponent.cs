@@ -41,10 +41,27 @@ public class SkillAnimationComponent : MonoBehaviour
     {
         SetMoveToTarget(originalPos, _curve);
     }
-    public void CreateParticleEffect(GameObject particle)
+    public void CreateParticleEffect(SkillEffectData skillEffect)
     {
-        //Playing Particles
-        Instantiate(particle, gameObject.transform);
+        //Setting up particle
+        GameObject particle = Instantiate(skillEffect.particle, gameObject.transform.position + skillEffect.offset, Quaternion.identity);
+        //EndEffectSprite endEffectSprite = particle.GetComponent<EndEffectSprite>();
+        //AnimationOverride.SetAnimationClip(endEffectSprite.animator, endEffectSprite.animatorOverrideController, endEffectSprite.baseCase, skillEffect.animation);
+
+        //Changing Conditions
+        if (skillEffect.isChild)
+        {
+            particle.transform.parent = gameObject.transform;
+        }
+        //if(skillEffect.xFlipped)
+        //{
+        //    particle.GetComponent<ParticleSystemRenderer>().flip = new Vector3(1, 0, 0);
+        //}
+        //if (skillEffect.yFlipped)
+        //{
+        //    particle.GetComponent<ParticleSystemRenderer>().flip = new Vector3(0, 1, 0);
+        //}
+        //particle.transform.localScale = particle.transform.localScale * skillEffect.scale;
     }
     private void Update()
     {

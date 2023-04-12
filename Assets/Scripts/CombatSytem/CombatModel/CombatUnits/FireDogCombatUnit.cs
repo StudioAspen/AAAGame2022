@@ -18,6 +18,6 @@ public class FireDogCombatUnit : CombatUnit
     }
     override public void StartAttack()
     {
-        //animator.SetTrigger("StartAttack");
+        animator.SetTrigger("StartAttack");
     }
 }

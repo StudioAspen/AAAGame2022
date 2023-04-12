@@ -415,10 +415,17 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 0.041666668
+  - time: 0
     functionName: StartMove
     data: 
     objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0
+    functionName: CreateParticleEffect
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 2b54f765665a764468039a800e472d00, type: 2}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
@@ -450,7 +457,7 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.25
+  - time: 1.2083334
     functionName: PlayAudio
     data: 
     objectReferenceParameter: {fileID: 8300000, guid: 4a24afd739f737a47b8d834e948a6195, type: 3}

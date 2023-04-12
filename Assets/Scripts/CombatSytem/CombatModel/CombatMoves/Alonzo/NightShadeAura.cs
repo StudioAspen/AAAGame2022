@@ -10,14 +10,29 @@ public class NightShadeAura : AlonzoSkill
         owner = _owner;
         mpCost = 30f;
         targetAmount = -1;
+        animation = Resources.Load<AnimationClip>("Animations/CombatSystem/Alonzo/AlonzoNightShade");
     }
 
-    public override void UseMove(List<CombatUnit> targets, CombatUnit user)
+    public override void UseMove(List<CombatUnit> _targets, CombatUnit _user)
     {
-        foreach(CombatUnit target in targets)
+        targets = new List<CombatUnit>(_targets);
+        user = _user;
+
+        skillAnimation = user.GetComponent<SkillAnimationComponent>();
+        skillAnimation.skillActivation.AddListener(ActivateSkill);
+
+        //Setting Animation
+        Animator animator = user.GetComponent<Animator>();
+        AnimationOverride.SetAnimationClip(animator, overrideController, "BaseCase", animation);
+    }
+    public void ActivateSkill()
+    {
+        foreach (CombatUnit target in targets)
         {
-            target.TakeDamage(-user.currentStats.attack);
+            target.TakeDamage(user.currentStats.attack);
         }
         user.ChangeMP(-mpCost);
+
+        skillAnimation.skillActivation.RemoveListener(ActivateSkill);
     }
 }

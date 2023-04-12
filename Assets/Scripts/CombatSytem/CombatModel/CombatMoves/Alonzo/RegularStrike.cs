@@ -43,8 +43,7 @@ public class RegularStrike : AlonzoSkill
     }
     public void SetMoveTarget()
     {
-        float timingEndMarker = animation.events[2].time;
-        curve = AnimationCurve.Linear(0, 0, timingEndMarker, 1);
+        curve = CalculateDashCurve(animation, 0);
         skillAnimation.startMove.AddListener(SetMoveTargetOrigin);
         skillAnimation.startMove.RemoveListener(SetMoveTarget);
 
@@ -52,8 +51,7 @@ public class RegularStrike : AlonzoSkill
     }
     public void SetMoveTargetOrigin()
     {
-        float timingStartMarker = animation.events[5].time;
-        curve = AnimationCurve.EaseInOut(0, 0, animation.length - timingStartMarker, 1);
+        curve = CalculateDashCurve(animation, 1);
 
         skillAnimation.SetMoveToOrigin(curve);
         skillAnimation.startMove.RemoveListener(SetMoveTargetOrigin);

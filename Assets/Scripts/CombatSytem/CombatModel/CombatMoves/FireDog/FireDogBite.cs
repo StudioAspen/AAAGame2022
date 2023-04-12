@@ -11,10 +11,42 @@ public class FireDogBite : FireDogSkill
         targetAmount = 1;
     }
 
-    public override void UseMove(List<CombatUnit> target, CombatUnit user)
+    public override void UseMove(List<CombatUnit> _targets, CombatUnit _user)
     {
-        target[0].TakeDamage(user.currentStats.attack);
-        target[0].ChangeMP(-(user.currentStats.attack));
+        targets = new List<CombatUnit>(_targets);
+        user = _user;
+
+        skillAnimation = user.GetComponent<SkillAnimationComponent>();
+        skillAnimation.skillActivation.AddListener(ActivateSkill);
+
+        //Setting up target movement
+        Vector3 holder = user.transform.position;
+        skillAnimation.originalPos = new Vector3(holder.x, holder.y, holder.z);
+        skillAnimation.startMove.AddListener(SetMoveTarget);
+
+        //Setting Animation
+        Animator animator = user.GetComponent<Animator>();
+        AnimationOverride.SetAnimationClip(animator, overrideController, "BaseCase", animation);
+
     }
-    
+    public void ActivateSkill()
+    {
+        targets[0].TakeDamage(user.currentStats.attack);
+        targets[0].ChangeMP(-(user.currentStats.attack));
+    }
+    public void SetMoveTarget()
+    {
+        curve = CalculateDashCurve(animation, 0);
+        skillAnimation.startMove.AddListener(SetMoveTargetOrigin);
+        skillAnimation.startMove.RemoveListener(SetMoveTarget);
+
+        skillAnimation.SetMoveToTarget(targets[0].transform.position + Vector3.left, curve);
+    }
+    public void SetMoveTargetOrigin()
+    {
+        curve = CalculateDashCurve(animation, 1);
+
+        skillAnimation.SetMoveToOrigin(curve);
+        skillAnimation.startMove.RemoveListener(SetMoveTargetOrigin);
+    }
 }

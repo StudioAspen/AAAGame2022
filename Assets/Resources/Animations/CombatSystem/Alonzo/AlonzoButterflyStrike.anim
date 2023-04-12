@@ -174,10 +174,10 @@ AnimationClip:
       value: {fileID: 21300000, guid: 4e439f71af62bfd4a875d9fa7a52e8a6, type: 3}
     - time: 0.6666667
       value: {fileID: 21300000, guid: 1d9de3ac040d9c848b8b7373e4214645, type: 3}
-    - time: 1.125
-      value: {fileID: 21300000, guid: 4e439f71af62bfd4a875d9fa7a52e8a6, type: 3}
-    - time: 1.25
-      value: {fileID: 21300000, guid: 1d9de3ac040d9c848b8b7373e4214645, type: 3}
+    - time: 1.0416666
+      value: {fileID: 21300000, guid: 414bc5c6890c67d4bac117f9ea15369e, type: 3}
+    - time: 1.2083334
+      value: {fileID: 21300000, guid: aea523b7595e1854489451c0a717a830, type: 3}
     - time: 1.5416666
       value: {fileID: 21300000, guid: 109c2bd420a19534b8ecf8b75872ed33, type: 3}
     attribute: m_Sprite
@@ -237,8 +237,8 @@ AnimationClip:
     - {fileID: 21300000, guid: 109c2bd420a19534b8ecf8b75872ed33, type: 3}
     - {fileID: 21300000, guid: 4e439f71af62bfd4a875d9fa7a52e8a6, type: 3}
     - {fileID: 21300000, guid: 1d9de3ac040d9c848b8b7373e4214645, type: 3}
-    - {fileID: 21300000, guid: 4e439f71af62bfd4a875d9fa7a52e8a6, type: 3}
-    - {fileID: 21300000, guid: 1d9de3ac040d9c848b8b7373e4214645, type: 3}
+    - {fileID: 21300000, guid: 414bc5c6890c67d4bac117f9ea15369e, type: 3}
+    - {fileID: 21300000, guid: aea523b7595e1854489451c0a717a830, type: 3}
     - {fileID: 21300000, guid: 109c2bd420a19534b8ecf8b75872ed33, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
@@ -436,27 +436,34 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.6666667
-    functionName: PlayAudio
-    data: 
-    objectReferenceParameter: {fileID: 8300000, guid: 85194ad9f9da88e4a955a086347b0438, type: 3}
-    floatParameter: 0
-    intParameter: 0
-    messageOptions: 0
-  - time: 0.7083333
     functionName: TriggerSkill
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.2083334
+  - time: 0.6666667
     functionName: PlayAudio
     data: 
-    objectReferenceParameter: {fileID: 8300000, guid: 85194ad9f9da88e4a955a086347b0438, type: 3}
+    objectReferenceParameter: {fileID: 8300000, guid: 2b82c596fe1b66a4fb52903372ef570c, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
-  - time: 1.25
+  - time: 1.0416666
+    functionName: CreateParticleEffect
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: d7b7d1607eeebd64cbfbd2869cc069ce, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.2083334
+    functionName: PlayAudio
+    data: 
+    objectReferenceParameter: {fileID: 8300000, guid: 48bb02adc9ad4d048928d2723475a938, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.2083334
     functionName: TriggerSkill
     data: 
     objectReferenceParameter: {fileID: 0}
