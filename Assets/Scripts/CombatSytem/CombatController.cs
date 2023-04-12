@@ -4,9 +4,11 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEngine.Events;
 
 public class CombatController : MonoBehaviour
 {
+    //Combat Variables
     public List<GameObject> players;
     public List<GameObject> playerPositions;
     public List<AssignStatBars> playersUI;
@@ -14,7 +16,15 @@ public class CombatController : MonoBehaviour
     public List<GameObject> enemyPositions;
     public List<AssignStatBars> enemiesUI;
     public ActionBar actionBar;
-    GameObject[] overworldObjects;
+
+    //Overworld Setup
+    public GameObject root;
+    public Transform combatCamera;
+    private Vector3 overworldCameraOldPos;
+    private Quaternion overworldCameraOldRot;
+    private GameObject overworldCamera;
+    private List<GameObject> overworldObjects;
+    private UnityEvent afterTransition = new UnityEvent();
 
 
     // Update is called once per frame
@@ -91,8 +101,12 @@ public class CombatController : MonoBehaviour
     }
     public void EndCombat(bool playerWon)
     {
+        StartCoroutine(SmoothCameraPos(overworldCamera.transform, overworldCameraOldPos, overworldCameraOldRot, 0.1f, afterTransition));
+    }
+    private void ResetOverworld()
+    {
         SceneManager.UnloadSceneAsync("CombatScene");
-        foreach(GameObject a in overworldObjects)
+        foreach (GameObject a in overworldObjects)
         {
             a.SetActive(true);
         }
@@ -159,8 +173,32 @@ public class CombatController : MonoBehaviour
             EndCombat(false);
         }
     }
-    public void SaveOverWorld(GameObject[] _overworldObects)
+    public void SaveOverWorld(List<GameObject> _overworldObects)
     {
         overworldObjects = _overworldObects;
+    }
+    public void SetRootPos(Vector3 _rootPos)
+    {
+        root.transform.position = _rootPos;
+    }
+    public void SetCameraPos(GameObject _overworldCamera)
+    {
+        afterTransition.AddListener(ResetOverworld);
+        overworldCamera = _overworldCamera;
+        Vector3 holderPos = overworldCamera.transform.position;
+        overworldCameraOldPos = new Vector3(holderPos.x, holderPos.y, holderPos.z);
+        Quaternion holderRot = overworldCamera.transform.rotation;
+        overworldCameraOldRot = new Quaternion(holderRot.x, holderRot.y, holderRot.z, holderRot.w);
+        StartCoroutine(SmoothCameraPos(overworldCamera.transform, combatCamera.position + root.transform.position, combatCamera.rotation, 0.1f));
+    }
+    IEnumerator SmoothCameraPos(Transform fromTransform, Vector3 toPos, Quaternion toRot, float speed, UnityEvent afterTransition = null)
+    {
+        while ((fromTransform.position - fromTransform.position).magnitude < 0.05f) {
+            fromTransform.position = Vector3.Lerp(fromTransform.position, toPos, speed);
+            fromTransform.rotation = Quaternion.Lerp(fromTransform.rotation, toRot, speed);
+
+            yield return new WaitForSeconds(0.05f);
+        }
+        afterTransition.Invoke();
     }
 }

@@ -16,7 +16,7 @@ public class Battle : MonoBehaviour
     private CharacterStats characterStats;
 
     bool canEnter = true;
-    GameObject[] overworldObjects;
+    List<GameObject> overworldObjects = new List<GameObject>();
     public List<CombatData> players;
     public List<CombatData> enemies;
 
@@ -28,8 +28,12 @@ public class Battle : MonoBehaviour
     IEnumerator TriggerCombat()
     {
         //Getting all objects to disable in current scene
-        overworldObjects = FindObjectsOfType<GameObject>();
-
+        //overworldObjects = FindObjectsOfType<GameObject>();
+        GameObject playerObject = FindObjectOfType<CharacterMovement>().gameObject;
+        Transform cameraTransform = playerObject.transform.GetChild(0);
+        cameraTransform.SetParent(playerObject.transform.parent);
+        overworldObjects.Add(playerObject);
+        overworldObjects.Add(FindObjectOfType<Canvas>().gameObject);
 
         //Load Combat Scene and waiting for it to load
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("CombatScene", LoadSceneMode.Additive);
@@ -40,6 +44,8 @@ public class Battle : MonoBehaviour
         if (combatController != null)
         {
             combatController.SaveOverWorld(overworldObjects);
+            combatController.SetRootPos(playerObject.transform.position);
+            combatController.SetCameraPos(cameraTransform.gameObject);
             combatController.InitalizeCombat(players, enemies);
         }
         //Disabling all objects
