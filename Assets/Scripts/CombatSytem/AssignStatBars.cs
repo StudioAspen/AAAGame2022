@@ -12,6 +12,8 @@ public class AssignStatBars : MonoBehaviour
     public Slider HPSlider;
     public Slider MPSlider;
     public Image elementIcon;
+    public Image alonzoChargeIcon;
+    public Image profileImage;
 
     //Skill List
     public GameObject skillList;
@@ -36,6 +38,7 @@ public class AssignStatBars : MonoBehaviour
             //Updating Stat Bars
             UpdateStatBars();
             UpdateElementIcon();
+            UpdateChargeIcon();
             UpdateStatusEffects();
 
             //player controller selecting the combat unit
@@ -73,6 +76,19 @@ public class AssignStatBars : MonoBehaviour
     {
         //Swapping Icon
         elementIcon.sprite = ElementEffect.GetElementIcon(combatUnit.element);
+    }
+    public void UpdateChargeIcon()
+    {
+        //Swapping Icon
+        AlonzoCombatUnit holder;
+        if (combatUnit.TryGetComponent<AlonzoCombatUnit>(out holder))
+        {
+            alonzoChargeIcon.sprite = ElementEffect.GetElementIcon(holder.charge);
+        }
+        else
+        {
+            alonzoChargeIcon.sprite = ElementEffect.GetElementIcon(Element.NONE);
+        }
     }
     public void UpdateStatusEffects()
     {

@@ -58,6 +58,7 @@ abstract public class CombatUnit : MonoBehaviour
         {
             StatusEffect statusEffect = statusEffects[i];
             statusEffect.duration -= Time.deltaTime;
+            statusEffect.ApplyUpdateEffect(this);
             if (statusEffect.duration <= 0f)
             {
                 RemoveStatEffect(statusEffect);

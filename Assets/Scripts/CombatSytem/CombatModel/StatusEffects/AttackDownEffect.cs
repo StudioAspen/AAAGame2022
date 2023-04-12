@@ -12,7 +12,7 @@ public class AttackDownEffect : StatusEffect {
         percentDecrease = version * 0.25f;
         durationBase = version * 2f;
         duration = durationBase;
-        icon = Resources.Load<Sprite>("Sprites/DebuffIcons/blueSquareDown");
+        icon = GetIcon("Icons_for_daybreak_6");
     }
 
     public override Stats ApplyEffect(Stats currentStats)
@@ -20,4 +20,5 @@ public class AttackDownEffect : StatusEffect {
         currentStats.attack *= (1 - percentDecrease);
         return currentStats;
     }
+    public override void ApplyUpdateEffect(CombatUnit owner) { }
 }

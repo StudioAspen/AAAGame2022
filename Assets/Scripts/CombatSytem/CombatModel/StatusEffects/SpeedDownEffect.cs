@@ -2,21 +2,21 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackUpEffect : StatusEffect
+public class SpeedDownEffect : StatusEffect
 {
-    public float percentIncrease;
-    public AttackUpEffect(int _version)
+    public float percentDecrease;
+    public SpeedDownEffect(int _version)
     {
         version = Mathf.Clamp(_version, 0, 3);
-        name = "Attack Up " + version.ToString();
-        percentIncrease = version * 0.25f;
+        name = "Speed Down " + version.ToString();
+        percentDecrease = version * 0.25f;
         durationBase = version * 2f;
         duration = durationBase;
-        icon = GetIcon("Icons_for_daybreak_5");
+        icon = GetIcon("Icons_for_daybreak_1");
     }
     override public Stats ApplyEffect(Stats currentStats)
     {
-        currentStats.attack *= (1 + percentIncrease);
+        currentStats.speed *= (1 - percentDecrease);
         return currentStats;
     }
     public override void ApplyUpdateEffect(CombatUnit owner) { }
