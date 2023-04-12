@@ -27,8 +27,6 @@ public class AssignStatBars : MonoBehaviour
     public GameObject debuffIcon; //Prefab to instantiate
     public List<GameObject> debuffs;
 
-
-
     private bool previousSelected;
 
     private void Update()
@@ -64,7 +62,8 @@ public class AssignStatBars : MonoBehaviour
         combatUnit = _combatUnit;
         UpdateMoveList();
         UpdateElementIcon();
-        previousSelected = combatUnit.selected; 
+        previousSelected = combatUnit.selected;
+        profileImage.sprite = combatUnit.profile;
         HideSkillList();
     }
     public void UpdateStatBars()

@@ -133,7 +133,7 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_StartCorner: 0
   m_StartAxis: 0
-  m_CellSize: {x: 100, y: 100}
+  m_CellSize: {x: 50, y: 50}
   m_Spacing: {x: 0, y: 0}
   m_Constraint: 0
   m_ConstraintCount: 2
@@ -618,9 +618,10 @@ MonoBehaviour:
   MPSlider: {fileID: 8955195517016853185}
   elementIcon: {fileID: 8632731175066787806}
   alonzoChargeIcon: {fileID: 7001359682036229851}
+  profileImage: {fileID: 8955195516065885508}
   skillList: {fileID: 8955195517820761524}
   verticalLayoutGroup: {fileID: 8955195517820761526}
-  skillButton: {fileID: 2025238344726450702, guid: 17d02fc338f537e498e4e611eaf48a5e, type: 3}
+  skillButton: {fileID: 2025238344726450702, guid: a6802e35048eb6149ace5444fb2e7400, type: 3}
   skillButtons: []
   debuffList: {fileID: 0}
   gridLayout: {fileID: 6431673111711931991}
@@ -988,10 +989,10 @@ RectTransform:
   m_Father: {fileID: 8955195516327321320}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 157.98514, y: -140.62172}
-  m_SizeDelta: {x: -53.451, y: 83.2434}
+  m_SizeDelta: {x: 200, y: 83.24341}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &8955195517820761526
 MonoBehaviour:
@@ -1012,10 +1013,10 @@ MonoBehaviour:
     m_Bottom: 0
   m_ChildAlignment: 1
   m_Spacing: 0
-  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 0
-  m_ChildControlWidth: 0
+  m_ChildControlWidth: 1
   m_ChildControlHeight: 0
-  m_ChildScaleWidth: 1
+  m_ChildScaleWidth: 0
   m_ChildScaleHeight: 1
   m_ReverseArrangement: 0

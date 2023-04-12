@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CynthiStrike : CynthiSkill
+public class CynthiHeavyStrike : CynthiSkill
 {
-    public CynthiStrike()
+    public CynthiHeavyStrike()
     {
-        name = "Cynthi Strike";
+        name = "Cynthi Heavy Strike";
         mpCost = 0f;
         targetAmount = 1;
-        animation = Resources.Load<AnimationClip>("Animations/CombatSystem/Cynthi/CynthiStrike");
+        animation = Resources.Load<AnimationClip>("Animations/CombatSystem/Cynthi/CynthiHeavyStrike");
     }
 
     public override void UseMove(List<CombatUnit> _targets, CombatUnit _user)
