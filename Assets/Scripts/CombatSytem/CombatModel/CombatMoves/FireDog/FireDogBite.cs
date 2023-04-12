@@ -9,6 +9,7 @@ public class FireDogBite : FireDogSkill
         name = "Fire Bite";
         mpCost = 0f;
         targetAmount = 1;
+        animation = Resources.Load<AnimationClip>("Animations/CombatSystem/FireBoar/BoarAttack");
     }
 
     public override void UseMove(List<CombatUnit> _targets, CombatUnit _user)
@@ -40,7 +41,7 @@ public class FireDogBite : FireDogSkill
         skillAnimation.startMove.AddListener(SetMoveTargetOrigin);
         skillAnimation.startMove.RemoveListener(SetMoveTarget);
 
-        skillAnimation.SetMoveToTarget(targets[0].transform.position + Vector3.left, curve);
+        skillAnimation.SetMoveToTarget(targets[0].transform.position + Vector3.right, curve);
     }
     public void SetMoveTargetOrigin()
     {

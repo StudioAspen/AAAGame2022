@@ -4,9 +4,13 @@ using UnityEngine;
 
 abstract public class FireDogSkill : Skill
 {
-    static Dictionary<string, FireDogSkill> dictionary = new Dictionary<string, FireDogSkill>()
+    enum FireDogSkills { 
+        FIREBITE
+    }
+
+    static Dictionary<string, FireDogSkills> dictionary = new Dictionary<string, FireDogSkills>()
     {
-        { "Fire Dog Bite", new FireDogBite()}
+        { "Fire Dog Bite", FireDogSkills.FIREBITE}
     };
 
     protected AnimatorOverrideController overrideController =
@@ -14,6 +18,13 @@ abstract public class FireDogSkill : Skill
 
     static public FireDogSkill GetSkill(string key)
     {
-        return dictionary[key];
+        FireDogSkill output = new FireDogBite();
+        switch (dictionary[key]) {
+            case FireDogSkills.FIREBITE:
+                output = new FireDogBite();
+                break;
+        }
+
+        return output;
     }
 }
