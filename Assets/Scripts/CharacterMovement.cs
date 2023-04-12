@@ -6,7 +6,6 @@ public class CharacterMovement : MonoBehaviour
     public Rigidbody rb;
     public float moveSpeed;
     public Animator anim;
-    public CharacterController charController;
 
     private Vector2 moveInput;
     public VectorValue startingPosition;

@@ -1,55 +1,58 @@
-using System;
-using System.Collections.Generic;
 using UnityEngine;
 
 
 public class NPCFollow : MonoBehaviour
 {
-    public GameObject leader; // the game object to follow - assign in inspector
-    public int steps; // number of steps to stay behind - assign in inspector
+    private Transform target;
 
+    public float speed;
+    private float dist;
+    private Vector3 direction;
+    public float boundary;
 
-    private Queue<Vector3> record = new Queue<Vector3>();
-    private Vector3 lastRecord;
-    float minDist = 3f;
     public Animator anim;
+    public Animator playerAnim;
+    public bool playerMoving;
+    public float dirX;
+    public float dirY;
+    private bool moving;
 
 
 
     private void Start()
     {
-
+        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
         anim = GetComponent<Animator>();
-
     }
-
-    void FixedUpdate()
+    void Update()
     {
-
-        float dist = Vector3.Distance(GameObject.Find("Player").transform.position, transform.position);
-        // record position of leader
-        record.Enqueue(leader.transform.position);
-
-        var pos = GetComponent<Rigidbody>().position;
-        var move = GetComponent<Rigidbody>().velocity;
-
-
-
-        // remove last position from the record and use it for our own
-        Debug.DrawRay(pos, GameObject.Find("Player").transform.position - pos, Color.green, dist);
-        if (record.Count > steps /*&& (dist > minDist)*/)
+        dist = Vector3.Distance(target.position, transform.position);
+        direction = transform.position - target.position;
+        playerMoving = playerAnim.GetBool("Walking");
+        dirX = playerAnim.GetFloat("Xinput");
+        dirY = playerAnim.GetFloat("Yinput");
+        if (dist > boundary)
         {
-            var next = record.Dequeue();
-            
-
-            if (move != Vector3.zero)
-            {
-                anim.SetFloat("X", move.x);
-                anim.SetFloat("Y", move.y);
-                anim.SetBool("Walking", true);
-            }
-
+            transform.position = Vector3.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
         }
+
+        if (this.GetComponent<Rigidbody>().velocity.magnitude > 0.01)
+        {
+            moving = true;
+        }
+        if (this.GetComponent<Rigidbody>().velocity.magnitude <= 0.01)
+        {
+            moving = false;
+        }
+
+        if (playerMoving == true)
+        {
+            anim.SetFloat("X", dirX);
+            anim.SetFloat("Y", dirY);
+            anim.SetBool("Walking", true);
+        }
+
+
         else
         {
             anim.SetBool("Walking", false);
