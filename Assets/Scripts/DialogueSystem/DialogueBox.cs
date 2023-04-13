@@ -10,10 +10,8 @@ public class DialogueBox : MonoBehaviour
     private TextMeshProUGUI nameText1;
     [SerializeField]
     private TextMeshProUGUI textComponents;
-    [SerializeField]
-    private Image portrait1;
-    [SerializeField]
-    private Image portrait2;
+    public Image portrait1;
+    public Image portrait2;
 
     private float textSpeed;
     private int index;
@@ -35,6 +33,7 @@ public class DialogueBox : MonoBehaviour
 
     void Awake() {
         currentPortrait = portrait2;
+        otherPortrait = portrait1;
 
         poses = new Dictionary<string, int>() 
         {
@@ -50,7 +49,7 @@ public class DialogueBox : MonoBehaviour
             { "Cynthi", cynthiSprites },
             { "Alonso", alonsoSprites },
             { "ProfessorAurea", almomsoSprites },
-            { "Zinnia (O.S.)", zinniaSprites },
+            { "Zinnia", zinniaSprites },
         };
     }
 
@@ -73,19 +72,29 @@ public class DialogueBox : MonoBehaviour
 
     public void StartDialogue()
     {
-        if (currentPortrait == portrait1) 
-        {
-            currentPortrait = portrait2;
-            otherPortrait = portrait1;
-        }
-        else 
+        if (currentDialogue.name == "Alonso") 
         {
             currentPortrait = portrait1;
             otherPortrait = portrait2;
+            currentPortrait.gameObject.SetActive(true);
+            nameText1.text = currentDialogue.name;
+        } 
+        else if (currentDialogue.name == "Cynthi" ||
+            currentDialogue.name == "Zinnia" ||
+            currentDialogue.name == "Prof. Aurea" ||
+            currentDialogue.name == "???")
+        {
+            currentPortrait = portrait2;
+            otherPortrait = portrait1;
+            currentPortrait.gameObject.SetActive(true);
+            nameText1.text = currentDialogue.name;
         }
-        
+        else if (currentDialogue.name == "ACTION") {
+            nameText1.text = string.Empty;
+        }
+        // else use silhouette
+
         index = 0;
-        nameText1.text = currentDialogue.name;
         textComponents.text = string.Empty;
         PlayAnimations();
         StartCoroutine(TypeLine());
@@ -121,9 +130,16 @@ public class DialogueBox : MonoBehaviour
     void PlayAnimations()
     {
         if (characters.ContainsKey(currentDialogue.name))
+        {
             currentPortrait.sprite = characters[currentDialogue.name][poses[currentDialogue.poses[index]]];
-        currentPortrait.color = new Color(1, 1, 1, 1);
-        otherPortrait.color = new Color(1, 1, 1, 0.5f);
+            currentPortrait.color = new Color(1, 1, 1, 1);
+            otherPortrait.color = new Color(0.8f, 0.8f, 0.8f, 0.5f);
+        }
+        else 
+        {
+            currentPortrait.color = new Color(0.8f, 0.8f, 0.8f, 0.5f);
+            otherPortrait.color = new Color(0.8f, 0.8f, 0.8f, 0.5f);
+        }
 
         // string poseKey;
         // if (currentDialogue.poses.TryGetValue(index, out poseKey))

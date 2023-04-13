@@ -13,47 +13,52 @@ MonoBehaviour:
   m_Name: Dialogue7
   m_EditorClassIdentifier: 
   dialogues:
-  - name: Zinnia
-    poses:
-    - neutral
-    - neutral
-    lines:
-    - "Hey Alonso!\r"
-    - "Can you tell yer mother I started work on that new poncho of yers?\r"
-  - name: Alonso
-    poses:
-    - neutral
-    - neutral
-    lines:
-    - "Thanks, Ms. Zinnia, but please take your time.\r"
-    - "It's just a poncho.\r"
-  - name: Zinnia
-    poses:
-    - happy
-    - happy
-    lines:
-    - "Just a poncho huh? \r"
-    - "That must be why you destroyed the first three I made you. *chuckles*\r"
-  - name: Cynthi
-    poses:
-    - happy
-    lines:
-    - "So you didn\u2019t tell her about the poncho you borrowed from me last week?
-      \r"
-  - name: Zinnia
-    poses:
-    - neutral
-    - neutral
-    lines:
-    - "Huh, What poncho?\r"
-    - "Speak up!\r"
   - name: Alonso
     poses:
     - shock
-    - shock
-    - neutral
     lines:
-    - "Nothing Ms.Zinnia!\r"
-    - "I\u2019ll go tell mom about the progress.\r"
-    - Goodbye!
-  CSV: {fileID: 4900000, guid: 1b930a84ea72742e1a67090c3d61bc31, type: 3}
+    - "Dad!!!\r"
+  - name: Actions
+    poses:
+    - Narrator
+    lines:
+    - "*Turns around*\r"
+  - name: Judge
+    poses:
+    - shock
+    - shock
+    lines:
+    - "Alonso?!? \r"
+    - "GET OUT OF HERE, NOW!!!\r"
+  - name: Actions
+    poses:
+    - Narrator
+    - Narrator
+    lines:
+    - "The beast pins Judge down. Crushing him.\r"
+    - "Judge screams in anguish.\r"
+  - name: Alonso
+    poses:
+    - angry
+    lines:
+    - "Get away from him!!! \r"
+  - name: Judge
+    poses:
+    - shock
+    lines:
+    - "Alonso! Run!\r"
+  - name: Alonso
+    poses:
+    - sad
+    - shock
+    - shock
+    lines:
+    - "(weakly) Dad? \r"
+    - "Dad!?\r"
+    - "NOOO-\r"
+  - name: Judge
+    poses:
+    - shock
+    lines:
+    - GRAAGGHHHHH!!!
+  CSV: {fileID: 4900000, guid: 17d4cc490fc204e45a5984bfa4536057, type: 3}

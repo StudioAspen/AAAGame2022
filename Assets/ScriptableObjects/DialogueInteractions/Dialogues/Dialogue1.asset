@@ -121,9 +121,9 @@ MonoBehaviour:
     - "I know, I know it\u2019s dumb\u2014\r"
   - name: Cynthi
     poses:
-    - 'angry '
-    - 'angry '
-    - 'angry '
+    - angry
+    - angry
+    - angry
     - neutral
     - neutral
     lines:
