@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     CombatController combatController;
     List<GameObject> players;
     List<CombatUnit> targets = new List<CombatUnit>();
+    public LayerMask combatLayer;
     private void Start()
     {
         combatController = FindAnyObjectByType<CombatController>();
@@ -28,7 +29,7 @@ public class PlayerController : MonoBehaviour
             Debug.DrawLine(_ray.GetPoint(0f), _ray.direction *100, Color.blue, 10f);
 
             RaycastHit _hit;
-            if (Physics.Raycast(_ray, out _hit, 1000f))
+            if (Physics.Raycast(_ray, out _hit, 1000f, combatLayer))
             {
                 GameObject foundObject = _hit.transform.gameObject;
 

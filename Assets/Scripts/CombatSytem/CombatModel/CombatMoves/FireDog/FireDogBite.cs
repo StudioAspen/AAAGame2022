@@ -41,7 +41,7 @@ public class FireDogBite : FireDogSkill
         skillAnimation.startMove.AddListener(SetMoveTargetOrigin);
         skillAnimation.startMove.RemoveListener(SetMoveTarget);
 
-        skillAnimation.SetMoveToTarget(targets[0].transform.position + Vector3.right, curve);
+        skillAnimation.SetMoveToTarget(targets[0].transform.position + Vector3.right * strikeDistance, curve);
     }
     public void SetMoveTargetOrigin()
     {

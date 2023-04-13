@@ -21,9 +21,9 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: -967822872, guid: b3d774d6c0dc0754ebfa238878119c0a, type: 3}
-    - time: 0.125
-      value: {fileID: -1819082028, guid: b3d774d6c0dc0754ebfa238878119c0a, type: 3}
     - time: 0.25
+      value: {fileID: -1819082028, guid: b3d774d6c0dc0754ebfa238878119c0a, type: 3}
+    - time: 0.5
       value: {fileID: -1646967996, guid: b3d774d6c0dc0754ebfa238878119c0a, type: 3}
     attribute: m_Sprite
     path: 
@@ -52,7 +52,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.375
+    m_StopTime: 0.625
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
@@ -72,7 +72,14 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
-  - time: 0.375
+  - time: 0
+    functionName: CreateParticleEffect
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 05facfe48aa74574db4b8758ebfe875d, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5
     functionName: EndMove
     data: 
     objectReferenceParameter: {fileID: 0}

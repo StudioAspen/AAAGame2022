@@ -55,7 +55,7 @@ public class ButterflyStrike : AlonzoSkill
         skillAnimation.startMove.AddListener(SetMoveOrigin);
         skillAnimation.startMove.RemoveListener(SetMoveTargetFirst);
 
-        skillAnimation.SetMoveToTarget(targets[0].transform.position + Vector3.left, curve);
+        skillAnimation.SetMoveToTarget(targets[0].transform.position + Vector3.left * strikeDistance, curve);
     }
     public void SetMoveOrigin()
     {

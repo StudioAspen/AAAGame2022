@@ -43,7 +43,7 @@ public class AlonzoBasicAttack : BasicAttack
         skillAnimation.startMove.AddListener(SetMoveTargetOrigin);
         skillAnimation.startMove.RemoveListener(SetMoveTarget);
 
-        skillAnimation.SetMoveToTarget(targets[0].transform.position + Vector3.left, curve);
+        skillAnimation.SetMoveToTarget(targets[0].transform.position + Vector3.left * strikeDistance, curve);
     }
     public void SetMoveTargetOrigin()
     {

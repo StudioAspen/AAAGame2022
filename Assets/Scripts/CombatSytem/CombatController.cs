@@ -101,7 +101,19 @@ public class CombatController : MonoBehaviour
     }
     public void EndCombat(bool playerWon)
     {
-        StartCoroutine(SmoothCameraPos(overworldCamera.transform, overworldCameraOldPos, overworldCameraOldRot, 0.1f, afterTransition));
+        foreach(AssignStatBars statBars in playersUI)
+        {
+            statBars.gameObject.SetActive(false);
+        }
+        foreach (AssignStatBars statBars in enemiesUI)
+        {
+            statBars.gameObject.SetActive(false);
+        }
+        actionBar.gameObject.SetActive(false);
+        root.SetActive(false);
+
+        afterTransition.AddListener(ResetOverworld);
+        StartCoroutine(SmoothCameraPos(overworldCamera.transform, overworldCameraOldPos, overworldCameraOldRot, 0.1f));
     }
     private void ResetOverworld()
     {
@@ -183,21 +195,21 @@ public class CombatController : MonoBehaviour
     }
     public void SetCameraPos(GameObject _overworldCamera)
     {
-        afterTransition.AddListener(ResetOverworld);
         overworldCamera = _overworldCamera;
         Vector3 holderPos = overworldCamera.transform.position;
         overworldCameraOldPos = new Vector3(holderPos.x, holderPos.y, holderPos.z);
         Quaternion holderRot = overworldCamera.transform.rotation;
         overworldCameraOldRot = new Quaternion(holderRot.x, holderRot.y, holderRot.z, holderRot.w);
+
         StartCoroutine(SmoothCameraPos(overworldCamera.transform, combatCamera.position + root.transform.position, combatCamera.rotation, 0.1f));
     }
-    IEnumerator SmoothCameraPos(Transform fromTransform, Vector3 toPos, Quaternion toRot, float speed, UnityEvent afterTransition = null)
+    IEnumerator SmoothCameraPos(Transform fromTransform, Vector3 toPos, Quaternion toRot, float speed)
     {
-        while ((fromTransform.position - fromTransform.position).magnitude < 0.05f) {
+        while ((fromTransform.position - toPos).magnitude > 0.05f) {
             fromTransform.position = Vector3.Lerp(fromTransform.position, toPos, speed);
             fromTransform.rotation = Quaternion.Lerp(fromTransform.rotation, toRot, speed);
 
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(0.01f);
         }
         afterTransition.Invoke();
     }

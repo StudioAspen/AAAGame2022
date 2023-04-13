@@ -19,7 +19,7 @@ AnimationClip:
   m_FloatCurves: []
   m_PPtrCurves:
   - curve:
-    - time: 0.083333336
+    - time: 0
       value: {fileID: 21300000, guid: ff23c7456be22cb46886ac19da218989, type: 3}
     - time: 0.6666667
       value: {fileID: 21300000, guid: bc2b42a5a8262cb43861dcdda1422cf5, type: 3}
@@ -91,16 +91,16 @@ AnimationClip:
     intParameter: 0
     messageOptions: 0
   - time: 0.6666667
-    functionName: PlayAudio
+    functionName: CreateParticleEffect
     data: 
-    objectReferenceParameter: {fileID: 8300000, guid: 797c466edf91c3a4bb4d7c6c2bc94605, type: 3}
+    objectReferenceParameter: {fileID: 11400000, guid: 6766574cbc68c1344b2547ddfef44019, type: 2}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
   - time: 0.6666667
-    functionName: CreateParticleEffect
+    functionName: PlayAudio
     data: 
-    objectReferenceParameter: {fileID: 11400000, guid: 6766574cbc68c1344b2547ddfef44019, type: 2}
+    objectReferenceParameter: {fileID: 8300000, guid: 797c466edf91c3a4bb4d7c6c2bc94605, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

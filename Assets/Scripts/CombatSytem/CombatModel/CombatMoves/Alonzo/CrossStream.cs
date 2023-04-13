@@ -56,7 +56,7 @@ public class CrossStream : AlonzoSkill
         skillAnimation.startMove.AddListener(SetMoveTargetSecond);
         skillAnimation.startMove.RemoveListener(SetMoveTargetFirst);
 
-        skillAnimation.SetMoveToTarget(targets[0].transform.position + Vector3.left, curve);
+        skillAnimation.SetMoveToTarget(targets[0].transform.position + Vector3.left * strikeDistance, curve);
     }
     public void SetMoveTargetSecond()
     {
@@ -64,7 +64,7 @@ public class CrossStream : AlonzoSkill
         skillAnimation.startMove.AddListener(SetMoveOrigin);
         skillAnimation.startMove.RemoveListener(SetMoveTargetSecond);
 
-        skillAnimation.SetMoveToTarget(targets[1].transform.position + Vector3.left, curve);
+        skillAnimation.SetMoveToTarget(targets[1].transform.position + Vector3.left * strikeDistance, curve);
     }
     public void SetMoveOrigin()
     {

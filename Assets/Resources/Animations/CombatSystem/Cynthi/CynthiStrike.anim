@@ -152,6 +152,13 @@ AnimationClip:
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
+  - time: 0
+    functionName: CreateParticleEffect
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: cf7a7fd3f56d77f4b83a80cb43d23074, type: 2}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.375
     functionName: EndMove
     data: 
@@ -184,6 +191,13 @@ AnimationClip:
     functionName: StartMove
     data: 
     objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 1.125
+    functionName: CreateParticleEffect
+    data: 
+    objectReferenceParameter: {fileID: 11400000, guid: 2b54f765665a764468039a800e472d00, type: 2}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0

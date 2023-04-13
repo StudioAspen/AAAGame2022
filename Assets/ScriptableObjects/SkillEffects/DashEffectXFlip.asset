@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b95d54235778c54e8a072ff5c51279c, type: 3}
   m_Name: DashEffectXFlip
   m_EditorClassIdentifier: 
-  particle: {fileID: 7923244812740193873, guid: 92e419276883e754da25b60b393d8ba2, type: 3}
+  particle: {fileID: 7923244812740193873, guid: 8a8ea01c2b5181543a59f62cb145b44d, type: 3}
   animation: {fileID: 7400000, guid: a685df1beff3f0e47822fd2d7932a88e, type: 2}
   isChild: 0
   xFlipped: 1
