@@ -16,11 +16,6 @@ public class CharacterMovement : MonoBehaviour
     void Start()
     {
         anim = GetComponent<Animator>();
-
-        
-
-
-
     }
 
     private void FixedUpdate()

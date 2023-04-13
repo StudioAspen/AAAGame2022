@@ -5,9 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class Battle : MonoBehaviour
 {
+    public Collider player;
+    public Collider ground;
+    public Collider trigger;
+    public GameObject character;
+
+    public bool battleScene = false;
+
+    [SerializeField]
+    private CharacterStats characterStats;
+
     bool canEnter = true;
     GameObject[] overworldObjects;
+    public List<GameObject> players;
     public List<GameObject> enemies;
+
+    void Update()
+    {
+        characterStats.overworldPos = character.transform.position;
+    }
 
     IEnumerator TriggerCombat()
     {
@@ -19,14 +35,13 @@ public class Battle : MonoBehaviour
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("CombatScene", LoadSceneMode.Additive);
         yield return new WaitUntil(() => asyncLoad.isDone);
 
-
         //Passing data to combat controller
         CombatController combatController = FindObjectOfType<CombatController>();
         if (combatController != null)
         {
             combatController.SaveOverWorld(overworldObjects);
+            combatController.InitalizeCombat(players, enemies);
         }
-
 
         //Disabling all objects
         foreach (GameObject a in overworldObjects)
@@ -43,9 +58,12 @@ public class Battle : MonoBehaviour
         if(other.CompareTag("Player") && canEnter)
         {
             canEnter = false;
+            characterStats.battleScene = true;
+            Debug.Log("Battle begins");
             StartCoroutine(TriggerCombat());
         }
     }
+    
     private void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Player") == true)

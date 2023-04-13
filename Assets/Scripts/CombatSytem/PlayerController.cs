@@ -8,8 +8,12 @@ public class PlayerController : MonoBehaviour
     private Camera _mainCamera;
     CombatUnit selectedUser = null;
     CombatMove selectedMove = null;
-    public List<GameObject> players;
+    List<GameObject> players;
 
+    private void Start()
+    {
+        players = FindAnyObjectByType<CombatController>().players;
+    }
 
     private void Update()
     {
@@ -45,8 +49,6 @@ public class PlayerController : MonoBehaviour
                                 ResetTargeting();
                                 selectedUser = combatUnit;
                                 combatUnit.selected = true;
-                                //assignStatBars.ShowSkillList();
-                                //assignStatBars.UpdateCanUseSkill();
                             }
                         }
                     }

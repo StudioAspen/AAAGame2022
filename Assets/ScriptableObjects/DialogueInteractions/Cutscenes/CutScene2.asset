@@ -14,23 +14,37 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogues:
   - name: Zinnia (O.S.)
+    poses:
+    - neutral
     lines:
     - "Hey Alonso! Can you tell yer mother I started work on that new poncho of yers?\r"
   - name: Alonso
+    poses:
+    - neutral
     lines:
     - "Thanks, Ms. Zinnia, but please take your time, it's just a poncho.\r"
-  - name: 'Zinnia '
+  - name: Zinnia (O.S.)
+    poses:
+    - happy
     lines:
     - "Just a poncho huh? That must be why you destroyed the first three I made you.(chuckles)
       \r"
   - name: Cynthi
+    poses:
+    - happy
     lines:
-    - "(chuckling) (looks toward Alonso) So you didn\u2019t tell her about the poncho
-      you borrowed from me lastweek? \r"
+    - "(chuckling)(toward Alonso) So you didn\u2019t tell her about the poncho you
+      borrowed from me last week? \r"
   - name: Zinnia (O.S.)
+    poses:
+    - neutral
     lines:
     - "Huh? What poncho. Speak up!\r"
   - name: Alonso
+    poses:
+    - shock
+    - neutral
     lines:
-    - "Nothing Ms.Zinnia! I\u2019ll go tell mom about the progress. Goodbye."
-  CSV: {fileID: 4900000, guid: 85e925a468e8f4f29b0428a8f8ac2fbe, type: 3}
+    - "Nothing Ms.Zinnia! I\u2019ll go tell mom about the progress.\r"
+    - Goodbye.
+  CSV: {fileID: 4900000, guid: 8ff76b2eedcc84241885196e24477bb5, type: 3}
