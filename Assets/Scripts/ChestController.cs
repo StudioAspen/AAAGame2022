@@ -5,27 +5,38 @@ using UnityEngine.UI;
 
 public class ChestController : MonoBehaviour
 {
-    bool isOpen;
-    bool inRange;
-    GameObject chestPanel;
-
-    private void Start()
-    {
-            
-    }
+    public bool isOpen;
+    public bool inRange;
+    public GameObject currentChest;
+    public GameObject chestClosed;
+    public GameObject chestOpen;
 
     void Update()
     {
         if(inRange && Input.GetKeyDown(KeyCode.E) && !(isOpen))
         {
-            FindInActiveObjectByName("ChestNote").SetActive(true);
-            isOpen = true;
+            OpenChest();
         }
         else if(inRange && Input.GetKeyDown(KeyCode.E) && isOpen)
         {
-            GameObject.Find("ChestNote").SetActive(false);
-            isOpen = false;
+            CloseChest();
         }
+    }
+
+    void OpenChest()
+    {
+        isOpen = true;
+        Destroy(currentChest);
+        currentChest = Instantiate(chestOpen, transform);
+        FindInActiveObjectByName("ChestNote").SetActive(true);
+    }
+
+    void CloseChest()
+    {
+        isOpen = false;
+        Destroy(currentChest);
+        currentChest = Instantiate(chestClosed, transform);
+        GameObject.Find("ChestNote").SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -45,6 +56,7 @@ public class ChestController : MonoBehaviour
             Debug.Log("out of range");
         }
     }
+
     GameObject FindInActiveObjectByName(string name)
     {
         Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];

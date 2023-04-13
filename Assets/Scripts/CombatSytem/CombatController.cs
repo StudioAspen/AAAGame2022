@@ -82,10 +82,16 @@ public class CombatController : MonoBehaviour
         }
 
         //added
-        if(playerWon)
+        if (playerWon)
+        {
             FindInActiveObjectByName("VictoryScreen").SetActive(true);
-        if(!playerWon)
+            GameObject.Find("QuestList").SetActive(false);
+        }
+        if (!playerWon)
+        {
             FindInActiveObjectByName("DefeatScreen").SetActive(true);
+            GameObject.Find("QuestList").SetActive(false);
+        }
     }
 
     public void KillEnemies()
