@@ -45,7 +45,7 @@ public class CrossStream : AlonzoSkill
     public void StrikeSecondTarget()
     {
         targets[1].TakeDamage(user.currentStats.attack);
-        targets[1].AddElementStatus(new ElementStatus(owner.charge, owner));
+        targets[1].AddElementStatus(new ElementStatus(owner.charge, targets[1]));
 
         skillAnimation.skillActivation.RemoveListener(StrikeSecondTarget);
     }

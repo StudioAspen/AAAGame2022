@@ -23,8 +23,11 @@ public class CombatController : MonoBehaviour
     private Vector3 overworldCameraOldPos;
     private Quaternion overworldCameraOldRot;
     private GameObject overworldCamera;
-    private List<GameObject> overworldObjects;
+    private List<GameObject> overworldObjects = new List<GameObject>();
     private UnityEvent afterTransition = new UnityEvent();
+
+    public BoxCollider clearAreaBox;
+    public LayerMask cameraObstacle;
 
 
     // Update is called once per frame
@@ -122,6 +125,7 @@ public class CombatController : MonoBehaviour
         {
             a.SetActive(true);
         }
+        overworldObjects.Clear();
     }
     public int GetPlayerAliveCount()
     {
@@ -185,9 +189,22 @@ public class CombatController : MonoBehaviour
             EndCombat(false);
         }
     }
+    public void ClearArea()
+    {
+        Collider[] obstacles = Physics.OverlapBox(clearAreaBox.center, clearAreaBox.size / 2, 
+            clearAreaBox.transform.rotation, cameraObstacle);
+
+        foreach(Collider collider in obstacles)
+        {
+            overworldObjects.Add(collider.gameObject);
+        }
+    }
     public void SaveOverWorld(List<GameObject> _overworldObects)
     {
-        overworldObjects = _overworldObects;
+        foreach (GameObject a in _overworldObects)
+        {
+            overworldObjects.Add(a);
+        }
     }
     public void SetRootPos(Vector3 _rootPos)
     {

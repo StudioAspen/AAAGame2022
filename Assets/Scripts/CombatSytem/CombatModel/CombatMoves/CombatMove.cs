@@ -11,7 +11,7 @@ public abstract class CombatMove
     protected AnimationClip animation;
     protected AnimationCurve curve;
     protected SkillAnimationComponent skillAnimation;
-    protected const float strikeDistance = 5f;
+    protected const float strikeDistance = 3f;
 
     public abstract void UseMove(List<CombatUnit> target, CombatUnit user);
 

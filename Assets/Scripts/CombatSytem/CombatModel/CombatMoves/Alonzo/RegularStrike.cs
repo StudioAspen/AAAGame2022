@@ -34,7 +34,7 @@ public class RegularStrike : AlonzoSkill
     public void ActivateSkill()
     {
         targets[0].TakeDamage(user.currentStats.attack);
-        targets[0].AddElementStatus(new ElementStatus(owner.charge, owner));
+        targets[0].AddElementStatus(new ElementStatus(owner.charge, targets[0]));
 
         owner.SetCharge(Element.NONE);
         user.ChangeMP(-mpCost);

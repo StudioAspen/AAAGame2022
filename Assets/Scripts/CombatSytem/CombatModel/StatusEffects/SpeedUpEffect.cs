@@ -13,6 +13,7 @@ public class SpeedUpEffect : StatusEffect
         durationBase = version * 2f;
         duration = durationBase;
         icon = GetIcon("Icons_for_daybreak_0");
+        applySound = Resources.Load<AudioClip>("Debuffs/ChrisChavez_speedupbuff");
     }
     override public Stats ApplyEffect(Stats currentStats)
     {

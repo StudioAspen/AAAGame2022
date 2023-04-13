@@ -13,6 +13,7 @@ public class SpeedDownEffect : StatusEffect
         durationBase = version * 2f;
         duration = durationBase;
         icon = GetIcon("Icons_for_daybreak_1");
+        applySound = Resources.Load<AudioClip>("");
     }
     override public Stats ApplyEffect(Stats currentStats)
     {

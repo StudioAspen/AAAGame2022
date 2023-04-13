@@ -13,6 +13,7 @@ public class DefenceDownEffect : StatusEffect
         durationBase = version * 2f;
         duration = durationBase;
         icon = GetIcon("Icons_for_daybreak_3");
+        applySound = Resources.Load<AudioClip>("Debuffs/ChrisChavez_defdowndebuff");
     }
     override public Stats ApplyEffect(Stats currentStats)
     {

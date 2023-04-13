@@ -13,6 +13,7 @@ public class AttackUpEffect : StatusEffect
         durationBase = version * 2f;
         duration = durationBase;
         icon = GetIcon("Icons_for_daybreak_5");
+        applySound = Resources.Load<AudioClip>("Debuffs/ChrisChavez_attackUPbuff");
     }
     override public Stats ApplyEffect(Stats currentStats)
     {

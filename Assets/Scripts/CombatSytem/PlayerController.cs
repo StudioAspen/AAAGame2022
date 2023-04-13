@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour
     {
         combatController = FindAnyObjectByType<CombatController>();
         players = combatController.players;
+        _mainCamera = Camera.main;
     }
 
     private void Update()

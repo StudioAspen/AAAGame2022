@@ -34,6 +34,7 @@ abstract public class CombatUnit : MonoBehaviour
 
     //Animation
     protected Animator animator;
+    protected AudioSource audioSource;
 
     private void Start()
     {
@@ -85,7 +86,11 @@ abstract public class CombatUnit : MonoBehaviour
         currentMoveCD = currentStats.SpeedToSec();
         canMakeMove = false;
     }
-    public void AddStatEffect(StatusEffect statusEffect) {
+    public void AddStatEffect(StatusEffect statusEffect)
+    {
+        audioSource.clip = statusEffect.applySound;
+        audioSource.Play();
+
         statusEffects.Add(statusEffect);
         ApplyAllStatusEffects();
     }

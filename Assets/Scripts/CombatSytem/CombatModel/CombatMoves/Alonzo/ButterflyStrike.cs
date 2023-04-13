@@ -34,7 +34,7 @@ public class ButterflyStrike : AlonzoSkill
     public void FirstStrike()
     {
         targets[0].TakeDamage(user.currentStats.attack);
-        targets[0].AddElementStatus(new ElementStatus(owner.charge, owner));
+        targets[0].AddElementStatus(new ElementStatus(owner.charge, targets[0]));
 
         skillAnimation.skillActivation.AddListener(SecondStrike);
         skillAnimation.skillActivation.RemoveListener(FirstStrike);
@@ -42,7 +42,7 @@ public class ButterflyStrike : AlonzoSkill
     public void SecondStrike()
     {
         targets[0].TakeDamage(user.currentStats.attack);
-        targets[0].AddElementStatus(new ElementStatus(owner.charge, owner));
+        targets[0].AddElementStatus(new ElementStatus(owner.charge, targets[0]));
 
         owner.SetCharge(Element.NONE);
         user.ChangeMP(-mpCost);
