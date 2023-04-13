@@ -1,0 +1,201 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2065dd0ac23d24c9c2473e5c91a04f, type: 3}
+  m_Name: Dialogue1
+  m_EditorClassIdentifier: 
+  dialogues:
+  - name: ACTION
+    poses:
+    - Narrator
+    lines:
+    - "A rose flutters in his metal arm as Alonso closes his eyes.\r"
+  - name: Alonso
+    poses:
+    - neutral
+    lines:
+    - "*Breathe in ... breathe out*\r"
+  - name: ACTION
+    poses:
+    - Narrator
+    - Narrator
+    - Narrator
+    lines:
+    - "The metal arm twitches as it loosens its grip on the flower and flies out.\r"
+    - "Alonso tries to catch it but misses.\r"
+    - "He glares at his hand as it crudely forms a fist.\r"
+  - name: ???
+    poses:
+    - neutral
+    - neutral
+    lines:
+    - "About time you noticed!\r"
+    - "Here I was wondering if you were gonna watch grass grow all morning.\r"
+  - name: ACTION
+    poses:
+    - Narrator
+    lines:
+    - "Alonso turns to see where the noise is coming from. \r"
+  - name: Alonso
+    poses:
+    - neutral
+    - neutral
+    - neutral
+    lines:
+    - "Cynthi... \r"
+    - "the sun\u2019s only been out for a few minutes. Aren\u2019t you supposed to
+      be busy crowing to wake everyone up?\r"
+    - "Maybe circling over some carrion?\r"
+  - name: ACTION
+    poses:
+    - Narrator
+    - Narrator
+    lines:
+    - "Alonso snickers, cracking a weak smile.\r"
+    - "Cynthi walks closer and grabs Alonso's shoulder\r"
+  - name: Cynthi
+    poses:
+    - neutral
+    - neutral
+    - neutral
+    - neutral
+    - neutral
+    - neutral
+    - neutral
+    lines:
+    - "Ha Ha. Hilarious, doofus. \r"
+    - "Maybe spend a little less time thinking about birds and a little more time
+      digging the wax outta those ...  \r"
+    - " ... ears \r"
+    - "*points at the ground*\r"
+    - "This soil is putrid, the dew point around here is constantly fluctuating\r"
+    - "and the humidity is gonna eat away at those plants\u2019 caudex turning them
+      all goopy.\r"
+    - "But you\u2019d KNOW all that if you ever bothered to show up to\u2014\r"
+  - name: ACTION
+    poses:
+    - Narrator
+    lines:
+    - "Her words trail off as she gazes toward the gravestone. Then at Alonso.\r"
+  - name: Cynthi
+    poses:
+    - sad
+    - sad
+    - sad
+    - sad
+    - sad
+    lines:
+    - "I...\r"
+    - "listen\u2026 \r"
+    - "forget all that...\r"
+    - "Is this all for...\r"
+    - "Her?\r"
+  - name: Alonso
+    poses:
+    - sad
+    - sad
+    - sad
+    - sad
+    - sad
+    - sad
+    - sad
+    - sad
+    - sad
+    lines:
+    - "Yeah.\r"
+    - "It\u2019s for her. Pineberries were always her favorite.\r"
+    - "I guessed...\r"
+    - "well, I just figured\u2026 \r"
+    - "if she was...\r"
+    - "if she ever...\r"
+    - "you know...\r"
+    - "they\u2019d be here for her. \r"
+    - "I know, I know it\u2019s dumb\u2014\r"
+  - name: Cynthi
+    poses:
+    - 'angry '
+    - 'angry '
+    - 'angry '
+    - neutral
+    - neutral
+    lines:
+    - "Dumb!? Dumb?!\r"
+    - "Listen, pal, you know as well as I do, if anyone could survive out there ...
+      \r"
+    - "It's her! \r"
+    - "So, uh, why don\u2019t we hold off on the whole past-tensing her just yet.\r"
+    - "huh buddy?\r"
+  - name: ACTION
+    poses:
+    - Narrator
+    lines:
+    - "Cynthi raises his head and flashes a bittersweet smile and grabs her hand.\r"
+  - name: Cynthi
+    poses:
+    - happy
+    lines:
+    - "*contorts face to an awkward smile*\r"
+  - name: Alonso
+    poses:
+    - neutral
+    lines:
+    - "Alright, alright I get it, just please, fix your face.\r"
+  - name: ACTION
+    poses:
+    - Narrator
+    lines:
+    - "Both Cynthi and Alonso chuckle a little.\r"
+  - name: Cynthi
+    poses:
+    - happy
+    lines:
+    - "See! There\u2019s the dummy I know\u2014\r"
+  - name: ACTION
+    poses:
+    - Narrator
+    lines:
+    - "Cynthi pulls Alonso close and hugs him while smiling sinisterly.\r"
+  - name: Cynthi
+    poses:
+    - neutral
+    lines:
+    - "Now get those seeds outta the ground before I plant your face in the dirt
+      right next to 'em... \r"
+  - name: ACTION
+    poses:
+    - Narrator
+    lines:
+    - "Alonso sighs loudly\r"
+  - name: Alonso
+    poses:
+    - neutral
+    - neutral
+    lines:
+    - "I\u2019m going, I\u2019m going...\r"
+    - "did you really come all the way down here just to give me a lecture on seed
+      ethics, or are you just that nosy?\r"
+  - name: Cynthi
+    poses:
+    - neutral
+    - happy
+    - happy
+    - happy
+    - happy
+    - happy
+    lines:
+    - "Cynthi thinks for a moment ...\r"
+    - "...\r"
+    - "OH!!! I almost forgot!!\r"
+    - "I caught up with your mom by the greenhouse.\r"
+    - "She said she finished taking a look at your invention! \r"
+    - "She\u2019s probably waiting for us back at the institute so let\u2019s get
+      moving."
+  CSV: {fileID: 4900000, guid: 30fe1640a0a06458389258911cdba70d, type: 3}
