@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7341371827853480686}
-  - component: {fileID: 7341371827853480687}
   - component: {fileID: 7341371827853480680}
   - component: {fileID: 766950246}
   m_Layer: 0
@@ -34,18 +33,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7341371827853480687
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7341371827853480681}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39c29bfd964ad02498fb0db8db1f2386, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &7341371827853480680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58,14 +45,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cfc7e03f02737d45becff9f680b6cf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  players:
+  players: []
+  playerPositions:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  enemies:
+  playersUI:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  enemies: []
+  enemyPositions:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  enemiesUI:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  testPlayers:
+  - {fileID: 3293131506066533984, guid: f31e636e80b38e045958be8f1c95fdd8, type: 3}
+  testEnemies:
+  - {fileID: 5930822611558441162, guid: 666ce43445c99fc4f9ffe3f24be169d8, type: 3}
+  - {fileID: 5930822611558441162, guid: 666ce43445c99fc4f9ffe3f24be169d8, type: 3}
 --- !u!114 &766950246
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -78,3 +80,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b59811e4845db7642943a633f0e9f3ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _mainCamera: {fileID: 0}

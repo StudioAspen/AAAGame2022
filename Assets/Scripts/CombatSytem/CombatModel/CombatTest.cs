@@ -31,12 +31,6 @@ public class CombatTest : MonoBehaviour
         {
             Stats stats = unit.currentStats;
 
-
-            string elements = "";
-            foreach(ElementEffect element in unit.elementEffects)
-            {
-                elements += element.ToString() + "\n";
-            }
             string statuses = "";
             foreach (StatusEffect status in unit.statusEffects)
             {
@@ -56,7 +50,6 @@ public class CombatTest : MonoBehaviour
                 MP: {unit.currentMP} 
                 CD: {unit.currentMoveCD}
                 attack: {stats.attack} 
-                elements: {elements}
                 statuses: {statuses}
                 skills: {skils}
             ";
@@ -64,7 +57,7 @@ public class CombatTest : MonoBehaviour
             statsDisplay.text = output;
         }
     }
-
+    /*
     public void UseBasicAttack()
     {
         unitForBasicAttack.basicAttack.UseMove(targetForBasicAttack, unitForBasicAttack);
@@ -81,5 +74,5 @@ public class CombatTest : MonoBehaviour
     public void UseRegularSkill()
     {
         unitForBasicAttack.skills[2].UseMove(targetForBasicAttack, unitForBasicAttack);
-    }
+    }*/
 }

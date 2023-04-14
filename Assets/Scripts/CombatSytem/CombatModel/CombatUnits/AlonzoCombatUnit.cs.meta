@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/CombatSytem/CombatModel/CombatUnits/AlonzoCombatUnit.cs.meta
+guid: efaaa45926e0a89499be9a8780a631e9
+========
+guid: 46222c9c8a847d040a6cf2356653b46c
+>>>>>>>> main:Assets/Scripts/CameraActivation.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

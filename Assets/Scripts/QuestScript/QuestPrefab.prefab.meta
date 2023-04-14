@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/QuestScript/QuestPrefab.prefab.meta
 guid: 9e03a72ef986ff749830fe255dface21
+========
+guid: 9e0d988115e99cd41a789488a7820741
+>>>>>>>> main:Assets/Prefabs/CombatSystem/ActionBar.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

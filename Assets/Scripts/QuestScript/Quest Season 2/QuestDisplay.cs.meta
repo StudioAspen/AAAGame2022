@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/QuestScript/Quest Season 2/QuestDisplay.cs.meta
 guid: 69460f48e71393547983688a45ee0b30
+========
+guid: 4f6d5b6aa45768e4f8e6d3786007e062
+>>>>>>>> main:Assets/Scripts/QuestScript/Quest Season 2/QuestCollision.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

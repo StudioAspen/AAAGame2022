@@ -8,90 +8,151 @@ public class AssignStatBars : MonoBehaviour
 {
     public CombatUnit combatUnit;
 
+    //UI
     public Slider HPSlider;
     public Slider MPSlider;
-    public Slider CDSlider;
+    public Image elementIcon;
+    public Image alonzoChargeIcon;
+    public Image profileImage;
 
+    //Skill List
     public GameObject skillList;
     public VerticalLayoutGroup verticalLayoutGroup;
     public GameObject skillButton; //Prefab to instantiate
     public List<GameObject> skillButtons;
 
-    private bool previousSelected;
 
-    void Start()
-    {
-        if (combatUnit != null)
-        {
-            AssignCombatUnit(combatUnit);
-        }
-        else {
-            Debug.Log("No Combat Unit Assigned to Stat Bar: " + gameObject.name);
-            AssignCombatUnit(new CombatUnit());
-        }
-        HideSkillList();
-    }
+    public GameObject debuffList;
+    public GridLayoutGroup gridLayout;
+    public GameObject debuffIcon; //Prefab to instantiate
+    public List<GameObject> debuffs;
+
+    private bool previousSelected;
 
     private void Update()
     {
-        //Updating Stat Bars
-        HPSlider.value = combatUnit.currentHP / combatUnit.currentStats.maxHP;
-        MPSlider.value = combatUnit.currentMP / combatUnit.currentStats.maxMP;
-        CDSlider.value = 1 - (combatUnit.currentMoveCD / combatUnit.currentStats.moveCD);
-
-        //player controller selecting the combat unit
-        if(previousSelected != combatUnit.selected)
+        if (combatUnit != null)
         {
-            if(combatUnit.selected)
-            {
-                ShowSkillList();
-                UpdateCanUseSkill();
-            }
-            else
-            {
-                HideSkillList();
-            }
+            //Updating Stat Bars
+            UpdateStatBars();
+            UpdateElementIcon();
+            UpdateChargeIcon();
+            UpdateStatusEffects();
 
-            previousSelected = combatUnit.selected;
+            //player controller selecting the combat unit
+            if (previousSelected != combatUnit.selected)
+            {
+                if (combatUnit.selected)
+                {
+                    ShowSkillList();
+                    UpdateCanUseSkill();
+                }
+                else
+                {
+                    HideSkillList();
+                }
+
+                previousSelected = combatUnit.selected;
+            }
         }
     }
 
     public void AssignCombatUnit(CombatUnit _combatUnit)
     {
         combatUnit = _combatUnit;
-        UpdateMoveList(combatUnit);
+        UpdateMoveList();
+        UpdateElementIcon();
         previousSelected = combatUnit.selected;
+        profileImage.sprite = combatUnit.profile;
+        HideSkillList();
     }
-    public void UpdateStatBars(CombatUnit combatUnit)
+    public void UpdateStatBars()
     {
         HPSlider.value = combatUnit.currentHP / combatUnit.currentStats.maxHP;
         MPSlider.value = combatUnit.currentMP / combatUnit.currentStats.maxMP;
-        CDSlider.value = 1-(combatUnit.currentMoveCD / combatUnit.currentStats.moveCD);
     }
-    public void UpdateMoveList(CombatUnit combatUnit)
+    public void UpdateElementIcon()
     {
-        //Adding Basic Attack
-        GameObject holder = Instantiate(skillButton);
-        holder.GetComponentInChildren<TMP_Text>().text = combatUnit.basicAttack.name;
-        holder.GetComponent<Button>().onClick.AddListener(() => SetCombatMove(combatUnit.basicAttack));
-        holder.transform.SetParent(verticalLayoutGroup.transform);
+        //Swapping Icon
+        elementIcon.sprite = ElementEffect.GetElementIcon(combatUnit.element);
+    }
+    public void UpdateChargeIcon()
+    {
+        //Swapping Icon
+        AlonzoCombatUnit holder;
+        if (combatUnit.TryGetComponent<AlonzoCombatUnit>(out holder))
+        {
+            alonzoChargeIcon.sprite = ElementEffect.GetElementIcon(holder.charge);
+        }
+        else
+        {
+            alonzoChargeIcon.sprite = ElementEffect.GetElementIcon(Element.NONE);
+        }
+    }
+    public void UpdateStatusEffects()
+    {
+        //Destorying old icons
+        for (int i = gridLayout.transform.childCount - 1; i >= 0; i--)
+        {
+            Destroy(gridLayout.transform.GetChild(i).gameObject);
+        }
+        debuffs.Clear();
 
+
+        GameObject holder;
+        //Adding Element Status
+        if (combatUnit.currentElementSatus != null)
+        {
+            holder = Instantiate(debuffIcon, gridLayout.transform);
+            holder.GetComponentInChildren<Image>().sprite = ElementEffect.GetElementIcon(combatUnit.currentElementSatus.element);
+            debuffs.Add(holder);
+        }
+
+        foreach (StatusEffect status in combatUnit.statusEffects)
+        {
+            //Adding Debuff
+            holder = Instantiate(debuffIcon, gridLayout.transform);
+            holder.GetComponentInChildren<Image>().sprite = status.icon;
+            holder.GetComponentInChildren<Slider>().value = 1 - (status.duration/status.durationBase);
+            debuffs.Add(holder);
+        }
+    }
+    public void UpdateMoveList()
+    {
+        //Clearing old objects
+        for(int i = verticalLayoutGroup.transform.childCount-1; i >= 0; i-- )
+        {
+            Destroy(verticalLayoutGroup.transform.GetChild(i).gameObject);
+        }
+        skillButtons.Clear();
+
+        GameObject holder;
+        //Adding Basic Attack
+        if (combatUnit.basicAttack != null)
+        {
+            holder = Instantiate(skillButton, verticalLayoutGroup.transform);
+            holder.GetComponentInChildren<TMP_Text>().text = combatUnit.basicAttack.name;
+            holder.GetComponent<Button>().onClick.AddListener(() => SetCombatMove(combatUnit.basicAttack));
+        }
+        //Adding Skills
         foreach (Skill skill in combatUnit.skills)
         {
-            //Adding Skills
-            holder = Instantiate(skillButton);
+            holder = Instantiate(skillButton, verticalLayoutGroup.transform);
             holder.GetComponentInChildren<TMP_Text>().text = skill.name;
             holder.GetComponent<Button>().onClick.AddListener(() => SetCombatMove(skill));
-            holder.transform.SetParent(verticalLayoutGroup.transform);
             skillButtons.Add(holder);
         }
+    }
+    public void SetCombatMove(CombatMove combatMove)
+    {
+        FindObjectOfType<PlayerController>().SetCombatMove(combatMove);
     }
     public void UpdateCanUseSkill()
     {
         for (int i = 0; i < skillButtons.Count; i++)
         {
             Button button = skillButtons[i].GetComponent<Button>();
-            if (combatUnit.skills[i].CanUse(combatUnit))
+            if (combatUnit.skills[i].EnoughMana(combatUnit))
             {
                 button.interactable = true;
             }
@@ -100,10 +161,6 @@ public class AssignStatBars : MonoBehaviour
                 button.interactable = false;
             }
         }
-    }
-    public void SetCombatMove(CombatMove combatMove)
-    {
-        FindObjectOfType<PlayerController>().SetCombatMove(combatMove);
     }
     public void ShowSkillList()
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class DialogueBox : MonoBehaviour
@@ -9,13 +10,48 @@ public class DialogueBox : MonoBehaviour
     private TextMeshProUGUI nameText1;
     [SerializeField]
     private TextMeshProUGUI textComponents;
-    [SerializeField]
+    public Image portrait1;
+    public Image portrait2;
+
     private float textSpeed;
-
-    public Dialogue currentDialogue;
-    
     private int index;
+    private Image currentPortrait;
+    private Image otherPortrait;
+    public Dialogue currentDialogue;
 
+    private Dictionary<string, int> poses;
+    private Dictionary<string, Sprite[]> characters;
+
+    [SerializeField]
+    private Sprite[] cynthiSprites = new Sprite[5];
+    [SerializeField]
+    private Sprite[] alonsoSprites = new Sprite[5];
+    [SerializeField]
+    private Sprite[] almomsoSprites = new Sprite[5];
+    [SerializeField]
+    private Sprite[] zinniaSprites = new Sprite[5];
+
+    void Awake() {
+        currentPortrait = portrait2;
+        otherPortrait = portrait1;
+
+        poses = new Dictionary<string, int>() 
+        {
+            { "neutral", 0 },
+            { "happy", 1 },
+            { "sad", 2 },
+            { "angry", 3 },
+            { "shock", 4 },
+        };
+
+        characters = new Dictionary<string, Sprite[]>() 
+        {
+            { "Cynthi", cynthiSprites },
+            { "Alonso", alonsoSprites },
+            { "ProfessorAurea", almomsoSprites },
+            { "Zinnia", zinniaSprites },
+        };
+    }
 
     void Update()
     {
@@ -36,8 +72,29 @@ public class DialogueBox : MonoBehaviour
 
     public void StartDialogue()
     {
+        if (currentDialogue.name == "Alonso") 
+        {
+            currentPortrait = portrait1;
+            otherPortrait = portrait2;
+            currentPortrait.gameObject.SetActive(true);
+            nameText1.text = currentDialogue.name;
+        } 
+        else if (currentDialogue.name == "Cynthi" ||
+            currentDialogue.name == "Zinnia" ||
+            currentDialogue.name == "Prof. Aurea" ||
+            currentDialogue.name == "???")
+        {
+            currentPortrait = portrait2;
+            otherPortrait = portrait1;
+            currentPortrait.gameObject.SetActive(true);
+            nameText1.text = currentDialogue.name;
+        }
+        else if (currentDialogue.name == "ACTION") {
+            nameText1.text = string.Empty;
+        }
+        // else use silhouette
+
         index = 0;
-        nameText1.text = currentDialogue.name;
         textComponents.text = string.Empty;
         PlayAnimations();
         StartCoroutine(TypeLine());
@@ -72,16 +129,28 @@ public class DialogueBox : MonoBehaviour
 
     void PlayAnimations()
     {
-        string poseKey;
-        if (currentDialogue.poses.TryGetValue(index, out poseKey))
+        if (characters.ContainsKey(currentDialogue.name))
         {
-            Debug.Log("Pose: " + poseKey); //Should be replaced with function
+            currentPortrait.sprite = characters[currentDialogue.name][poses[currentDialogue.poses[index]]];
+            currentPortrait.color = new Color(1, 1, 1, 1);
+            otherPortrait.color = new Color(0.8f, 0.8f, 0.8f, 0.5f);
         }
-        string animationKey;
-        if (currentDialogue.animations.TryGetValue(index, out animationKey))
+        else 
         {
-            Debug.Log("Animation: " + animationKey); //Should be replaced with function
+            currentPortrait.color = new Color(0.8f, 0.8f, 0.8f, 0.5f);
+            otherPortrait.color = new Color(0.8f, 0.8f, 0.8f, 0.5f);
         }
+
+        // string poseKey;
+        // if (currentDialogue.poses.TryGetValue(index, out poseKey))
+        // {
+        //     Debug.Log("Pose: " + poseKey); //Should be replaced with function
+        // }
+        // string animationKey;
+        // if (currentDialogue.animations.TryGetValue(index, out animationKey))
+        // {
+        //     Debug.Log("Animation: " + animationKey); //Should be replaced with function
+        // }
     }
 
 }

@@ -2,28 +2,27 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Stats
+[System.Serializable]
+public struct Stats
 {
+    const float speedToSec = 5f;
+    const float baseSpeed = 100f;
     public float maxHP;
     public float maxMP;
-    public float moveCD;
+    public float speed;
+    public float mpGain;
     public float attack;
+    public float defence;
 
-    public Stats()
-    {
-        //Arbitrary initalization for testing
-        maxHP = 100;
-        maxMP = 100;
-        moveCD = 10;
-        attack = 10;
-    }
-    //Constructor that sets current equal to max stats
-    public Stats(float _maxHP, float _maxMP, float _moveCD, float _attack)
+    //Constructor that sets current equal to max stats with arbitrary stats
+    public Stats(float _maxHP = 100, float _maxMP = 100, float _speed = 10, float _mpGain = 10, float _attack = 10, float _defence = 10)
     {
         maxHP = _maxHP;
         maxMP = _maxMP;
-        moveCD = _moveCD;
+        speed = _speed;
+        mpGain = _mpGain;
         attack = _attack;
+        defence = _defence;
     }
 
     //Copy Constructor
@@ -31,19 +30,38 @@ public class Stats
     {
         maxHP = stats.maxHP;
         maxMP = stats.maxMP;
-        moveCD = stats.moveCD;
+        speed = stats.speed;
+        mpGain = stats.mpGain;
         attack = stats.attack;
+        defence = stats.defence;
     }
     public void RandomizeStats()
     {
-        float maxHPQuart = this.maxHP / 4;
-        float maxMPQuart = this.maxMP / 4;
-        float moveCDQuart = this.moveCD / 4;
-        float attackQuart = this.attack / 4;
+        float maxHPQuart = maxHP / 4;
+        float maxMPQuart = maxMP / 4;
+        float speedQuart = speed / 4;
+        float mpGainQuart = mpGain / 4;
+        float attackQuart = attack / 4;
+        float defenceQuart = attack / 4;
 
-        this.maxHP += Random.Range(-maxHPQuart, maxHPQuart);
-        this.maxMP += Random.Range(-maxMPQuart, maxMPQuart);
-        this.moveCD += Random.Range(-moveCDQuart, moveCDQuart);
-        this.attack += Random.Range(-attackQuart, attackQuart);
+        maxHP += Random.Range(-maxHPQuart, maxHPQuart);
+        maxMP += Random.Range(-maxMPQuart, maxMPQuart);
+        speed += Random.Range(-speedQuart, speedQuart);
+        mpGain += Random.Range(-mpGainQuart, mpGainQuart);
+        attack += Random.Range(-attackQuart, attackQuart);
+        defence += Random.Range(-defenceQuart, defenceQuart);
+    }
+    public void Add(Stats stats)
+    {
+        maxHP += stats.maxHP;
+        maxMP += stats.maxMP;
+        speed += stats.speed;
+        mpGain += stats.mpGain;
+        attack += stats.attack;
+        defence += stats.defence;
+    }
+    public float SpeedToSec()
+    {
+        return speedToSec * (baseSpeed / speed);
     }
 }

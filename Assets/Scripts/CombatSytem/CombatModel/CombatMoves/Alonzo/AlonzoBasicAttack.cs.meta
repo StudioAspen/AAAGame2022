@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/CombatSytem/CombatModel/CombatMoves/Alonzo/AlonzoBasicAttack.cs.meta
+guid: 48f8d77c934b9224b93aba8d5cffdc36
+========
+guid: 53b32d2c5ad3746479aa2c70e13504e5
+>>>>>>>> main:Assets/QuestCollisionComplete.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

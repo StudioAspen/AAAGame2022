@@ -23,11 +23,12 @@ public class DialogueInteraction : ScriptableObject
         //Initalizing dialogue variables
         string currentName = rows[1].Split(',')[0]; //Initializing first name
         List<string> currentSentences = new List<string>();
+        List<string> currentPoses = new List<string>();
 
-        int animationIterator = 0;
-        Dictionary<int, string> currentAnimations = new Dictionary<int, string>();
-        int poseIterator = 0;
-        Dictionary<int, string> currentPoses = new Dictionary<int, string>();
+        // int animationIterator = 0;
+        // Dictionary<int, string> currentAnimations = new Dictionary<int, string>();
+        // int poseIterator = 0;
+        // Dictionary<int, string> currentPoses = new Dictionary<int, string>();
 
 
         for (int i = 1; i < rows.Length; i++)
@@ -41,17 +42,19 @@ public class DialogueInteraction : ScriptableObject
                 //Resetting for new dialogue
                 currentName = currentRow[0];
                 currentSentences = new List<string>();
-                currentAnimations = new Dictionary<int, string>();
-                currentPoses = new Dictionary<int, string>();
+                currentPoses = new List<string>();
+                // currentAnimations = new Dictionary<int, string>();
+                // currentPoses = new Dictionary<int, string>();
 
-                animationIterator = 0;
-                poseIterator = 0;
+                // animationIterator = 0;
+                // poseIterator = 0;
             }
 
             //Adding poses
             if (currentRow[1] != "")
             {
-                currentPoses.Add(poseIterator, currentRow[1]);
+                // currentPoses.Add(poseIterator, currentRow[1]);
+                currentPoses.Add(currentRow[1]);
             }
 
             //Adding sentences
@@ -66,8 +69,8 @@ public class DialogueInteraction : ScriptableObject
             //     currentAnimations.Add(animationIterator, currentRow[3]);
             // }
 
-            animationIterator++;
-            poseIterator++;
+            // animationIterator++;
+            // poseIterator++;
         }
             
         //Adding the last dialogue
@@ -77,7 +80,8 @@ public class DialogueInteraction : ScriptableObject
         //Adding dialogue 
         void AddDialogue()
         {
-            Dialogue dialogue = new Dialogue(currentName, currentSentences.ToArray(), currentAnimations, currentPoses);
+            // Dialogue dialogue = new Dialogue(currentName, currentSentences.ToArray(), currentAnimations, currentPoses);
+            Dialogue dialogue = new Dialogue(currentName, currentPoses.ToArray(), currentSentences.ToArray());
             dialoguesHolder.Add(dialogue);
         }
 

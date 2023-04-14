@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2065dd0ac23d24c9c2473e5c91a04f, type: 3}
+  m_Name: Dialogue6
+  m_EditorClassIdentifier: 
+  dialogues:
+  - name: ???
+    poses:
+    - shock
+    - shock
+    lines:
+    - "Help!!!\r"
+    - "Help us!!!\r"
+  - name: Alonso
+    poses:
+    - shock
+    lines:
+    - "*Looks up*\r"
+  - name: Researcher
+    poses:
+    - shock
+    lines:
+    - "It\u2019s inside!!! It got inside!!! \r"
+  - name: ACTION
+    poses:
+    - Narrator
+    lines:
+    - "*Bumps into Alonso*\r"
+  - name: Researcher
+    poses:
+    - shock
+    - shock
+    lines:
+    - "Y-you\u2019re Judge\u2019s boy? Run! Y-your father, he\u2014\r"
+    - "Get out, get out while you still can!!!\r"
+  - name: ACTION
+    poses:
+    - Narrator
+    lines:
+    - '*Runs off*'
+  CSV: {fileID: 4900000, guid: 91dbd832aa5264e06b5110795fbc62e1, type: 3}

@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/QuestScript/Quest Season 2/QuestCollision.cs.meta
+guid: 4f6d5b6aa45768e4f8e6d3786007e062
+========
+guid: 8f431681f23b1904ea5cc8f45c190003
+>>>>>>>> main:Assets/Scripts/CombatSytem/CombatModel/StatusEffects/ElementStatus.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

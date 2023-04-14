@@ -45,7 +45,10 @@ public class DialogueManager : MonoBehaviour
             completedDialogue = false;
         }
 
+        dialogueBox.portrait1.gameObject.SetActive(false);
+        dialogueBox.portrait2.gameObject.SetActive(false);
         dialogueBox.gameObject.SetActive(false);
+        
         if (actionAfterDialogue != null)
         {
             actionAfterDialogue.Invoke();

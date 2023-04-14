@@ -8,8 +8,16 @@ public class PlayerController : MonoBehaviour
     private Camera _mainCamera;
     CombatUnit selectedUser = null;
     CombatMove selectedMove = null;
-    public List<GameObject> players;
-
+    CombatController combatController;
+    List<GameObject> players;
+    List<CombatUnit> targets = new List<CombatUnit>();
+    public LayerMask combatLayer;
+    private void Start()
+    {
+        combatController = FindAnyObjectByType<CombatController>();
+        players = combatController.players;
+        _mainCamera = Camera.main;
+    }
 
     private void Update()
     {
@@ -22,20 +30,18 @@ public class PlayerController : MonoBehaviour
             Debug.DrawLine(_ray.GetPoint(0f), _ray.direction *100, Color.blue, 10f);
 
             RaycastHit _hit;
-            if (Physics.Raycast(_ray, out _hit, 1000f))
+            if (Physics.Raycast(_ray, out _hit, 1000f, combatLayer))
             {
                 GameObject foundObject = _hit.transform.gameObject;
-                Debug.Log(foundObject.name);
 
                 //If clicked player unit
                 CombatUnit combatUnit;
                 if(foundObject.TryGetComponent<CombatUnit>(out combatUnit))
                 {
                     bool foundPlayer = false;
-                    //Selected Player
+                    //Checking if Selected Player
                     foreach(GameObject player in players)
                     {
-                        //player.GetComponent<AssignStatBars>().HideSkillList();
                         player.GetComponent<CombatUnit>().selected = false;
                         if (foundObject == player)
                         {
@@ -45,26 +51,55 @@ public class PlayerController : MonoBehaviour
                                 ResetTargeting();
                                 selectedUser = combatUnit;
                                 combatUnit.selected = true;
-                                //assignStatBars.ShowSkillList();
-                                //assignStatBars.UpdateCanUseSkill();
                             }
                         }
                     }
-                    //Selected Enemy
-                    if(selectedMove != null && !foundPlayer && !combatUnit.dead)
+                    //Checking if Selected Enemy
+                    if (selectedMove != null && !foundPlayer && !combatUnit.dead)
                     {
-                        selectedMove.UseMove(combatUnit, selectedUser);
-                        selectedUser.ResetTimer();
-                        ResetTargeting();
+                        //Adding all enemies
+                        if (selectedMove.targetAmount == -1)
+                        {
+                            foreach (GameObject enemy in combatController.enemies)
+                            {
+                                CombatUnit enemyUnit = enemy.GetComponent<CombatUnit>();
+                                if (!enemyUnit.dead)
+                                {
+                                    targets.Add(enemyUnit);
+                                }
+                            }
+                            StartUseMove();
+                        }
+                        else
+                        {
+                            //Adding enemy targets
+                            int enemyAliveCount = combatController.GetEnemyAliveCount();
+                            if (targets.Count < selectedMove.targetAmount && selectedMove.targetAmount <= enemyAliveCount)
+                            {
+                                targets.Add(combatUnit);
+                            }
+                            if (targets.Count == selectedMove.targetAmount)
+                            {
+                                StartUseMove();
+                            }
+                        }
                     }
                 }
             }
         }
     }
+    private void StartUseMove()
+    {
+        selectedMove.UseMove(targets, selectedUser);
+        selectedUser.StartAttack();
+        selectedUser.ResetTimer();
+        ResetTargeting();
+    }
     public void ResetTargeting()
     {
         selectedUser = null;
         selectedMove = null;
+        targets.Clear();
     }
     public void SetCombatMove(CombatMove combatMove)
     {
