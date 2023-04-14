@@ -29,7 +29,9 @@ public class DialogueBox : MonoBehaviour
     [SerializeField]
     private Sprite[] almomsoSprites = new Sprite[5];
     [SerializeField]
-    private Sprite[] blankSprites = new Sprite[5];
+    private Sprite judgeSprite;
+    [SerializeField]
+    private Sprite blankSprite;
 
     void Awake() {
         currentPortrait = portrait2;
@@ -49,8 +51,6 @@ public class DialogueBox : MonoBehaviour
             { "Cynthi", cynthiSprites },
             { "Alonso", alonsoSprites },
             { "Prof. Aurea", almomsoSprites },
-            { "Zinnia", blankSprites },
-            { "???", blankSprites },
         };
     }
 
@@ -73,27 +73,26 @@ public class DialogueBox : MonoBehaviour
 
     public void StartDialogue()
     {
-        if (currentDialogue.name == "Alonso") 
+        if (currentDialogue.name == "ACTION") 
+        {
+            nameText1.text = string.Empty;
+        }
+        else if (currentDialogue.name == "Alonso") 
         {
             currentPortrait = portrait1;
             otherPortrait = portrait2;
             currentPortrait.gameObject.SetActive(true);
             nameText1.text = currentDialogue.name;
         } 
-        else if (currentDialogue.name == "Cynthi" ||
-            currentDialogue.name == "Zinnia" ||
-            currentDialogue.name == "Prof. Aurea" ||
-            currentDialogue.name == "???")
+        // else if (currentDialogue.name == "Cynthi" ||
+        //     currentDialogue.name == "Prof. Aurea")
+        else
         {
             currentPortrait = portrait2;
             otherPortrait = portrait1;
             currentPortrait.gameObject.SetActive(true);
             nameText1.text = currentDialogue.name;
         }
-        else if (currentDialogue.name == "ACTION") {
-            nameText1.text = string.Empty;
-        }
-        // else use silhouette
 
         index = 0;
         textComponents.text = string.Empty;
@@ -130,15 +129,27 @@ public class DialogueBox : MonoBehaviour
 
     void PlayAnimations()
     {
-        if (characters.ContainsKey(currentDialogue.name))
+        if (currentDialogue.name == "ACTION")
+        {
+            currentPortrait.color = new Color(0.8f, 0.8f, 0.8f, 0.5f);
+            otherPortrait.color = new Color(0.8f, 0.8f, 0.8f, 0.5f);
+        }
+        else if (characters.ContainsKey(currentDialogue.name))
         {
             currentPortrait.sprite = characters[currentDialogue.name][poses[currentDialogue.poses[index]]];
             currentPortrait.color = new Color(1, 1, 1, 1);
             otherPortrait.color = new Color(0.8f, 0.8f, 0.8f, 0.5f);
         }
+        else if (currentDialogue.name == "Judge")
+        {
+            currentPortrait.sprite = judgeSprite;
+            currentPortrait.color = new Color(1, 1, 1, 1);
+            otherPortrait.color = new Color(0.8f, 0.8f, 0.8f, 0.5f);
+        }
         else 
         {
-            currentPortrait.color = new Color(0.8f, 0.8f, 0.8f, 0.5f);
+            currentPortrait.sprite = blankSprite;
+            currentPortrait.color = new Color(1, 1, 1, 1);
             otherPortrait.color = new Color(0.8f, 0.8f, 0.8f, 0.5f);
         }
 

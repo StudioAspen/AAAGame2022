@@ -12,15 +12,15 @@ public class StartDialogue : MonoBehaviour
     public Battle battle2;
     public DialogueInteraction script3;
 
-    // public List<ScriptableObject> events;
-
-    public bool canEnter = false;
+    public bool canEnter;
+    public StartDialogue next;
 
     private void OnTriggerEnter(Collider player)
     {
         if (player.CompareTag("Player") == true && canEnter)
         {
             canEnter = false;
+            if (next != null) next.canEnter = true;
 
             UnityEvent startDialogue3 = new UnityEvent();
             UnityEvent startBattle2 = new UnityEvent();
@@ -71,9 +71,5 @@ public class StartDialogue : MonoBehaviour
             }
 
         }
-    }
-
-    public void ActivateTrigger() {
-        canEnter = true;
     }
 }
