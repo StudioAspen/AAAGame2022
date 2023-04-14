@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &44096386
 Transform:
   m_ObjectHideFlags: 0
@@ -2424,7 +2424,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 115.26813, y: 89.63068}
+  m_AnchoredPosition: {x: 284, y: 89.63068}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1855952403
@@ -2447,20 +2447,64 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Role
+  m_text: 'Mark Allman
 
 
-    Role
+    Ken Park
 
 
-    Role
+    Daquan Griffith
 
 
+    Kai Lacerna
 
-    Thanks'
+
+    Alex
+    Cazan
+
+    Tomasz Wiercioch
+
+    Franky Tso
+
+    Sebastian Baksh
+
+    Arhum Miah
+
+
+    Anthony
+    Melendez
+
+
+    Hamad Naroze
+
+    Sebastian Baksh
+
+    Arhum Miah
+
+
+    Nelson
+    Liu
+
+
+    Bian Pasiliao
+
+    Habin Park
+
+    Hua Caparusso
+
+    Kyle Yang
+
+
+    Chris
+    Chavez
+
+
+    Roman Pinto
+
+    Kevin Rodriguez'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 04b94e90581a99c4899ec239e5268307, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: -344116113315032861, guid: 04b94e90581a99c4899ec239e5268307, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2520,10 +2564,10 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0.000015258789, z: 0, w: 0}
+  m_margin: {x: 0, y: 0.000015258789, z: -131.35938, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1855952404
@@ -2799,7 +2843,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1959209833
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2815,10 +2859,10 @@ RectTransform:
   m_Father: {fileID: 1260994050}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 880, y: 458}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1959209834
 MonoBehaviour:
@@ -2893,7 +2937,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -136.73187, y: 89.63068}
+  m_AnchoredPosition: {x: 48, y: 89.63068}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1995825717
@@ -2916,20 +2960,51 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Role
+  m_text: 'Executive Producer
 
 
-    Role
+    Project Manager
 
 
-    Role
+    Design Lead
+
+
+    Art
+    Lead
+
+
+    Art Team
 
 
 
-    Thanks'
+
+
+
+    Narrative Lead
+
+
+    Narrative Team
+
+
+
+
+    Programming
+    Lead
+
+
+    Programming Team
+
+
+
+
+
+    Audio Lead
+
+
+    Audio Team'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 04b94e90581a99c4899ec239e5268307, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: -344116113315032861, guid: 04b94e90581a99c4899ec239e5268307, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -2989,10 +3064,10 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0.000015258789, z: 0, w: 0}
+  m_margin: {x: -227.8681, y: 0.000015258789, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 1
+  m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &1995825718

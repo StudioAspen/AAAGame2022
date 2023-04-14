@@ -2,14 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ChestController : MonoBehaviour
 {
     public bool isOpen;
     public bool inRange;
+
     public GameObject currentChest;
     public GameObject chestClosed;
     public GameObject chestOpen;
+
+    public TMP_Text loreText;
+    public TMP_Text changeText;
+    public string text;
 
     void Update()
     {
@@ -29,6 +35,7 @@ public class ChestController : MonoBehaviour
         Destroy(currentChest);
         currentChest = Instantiate(chestOpen, transform);
         FindInActiveObjectByName("ChestNote").SetActive(true);
+        changeText.text = text;
     }
 
     void CloseChest()
