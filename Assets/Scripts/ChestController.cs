@@ -13,13 +13,14 @@ public class ChestController : MonoBehaviour
     public GameObject chestClosed;
     public GameObject chestOpen;
 
-    public TMP_Text loreText;
     public TMP_Text changeText;
     public string text;
 
     void Update()
     {
-        if(inRange && Input.GetKeyDown(KeyCode.E) && !(isOpen))
+        if(!(inRange))
+            CloseChest();
+        if (inRange && Input.GetKeyDown(KeyCode.E) && !(isOpen))
         {
             OpenChest();
         }
