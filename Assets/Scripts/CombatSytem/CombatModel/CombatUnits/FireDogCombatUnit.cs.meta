@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/CombatSytem/CombatModel/CombatUnits/FireDogCombatUnit.cs.meta
 guid: 054fc3ac571af8547b3db561a54017dc
+========
+guid: 48f8d77c934b9224b93aba8d5cffdc36
+>>>>>>>> main:Assets/Scripts/CombatSytem/CombatModel/CombatMoves/Alonzo/AlonzoBasicAttack.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

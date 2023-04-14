@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 
 using UnityEngine.UI;
-public class CombatUnit : MonoBehaviour
+abstract public class CombatUnit : MonoBehaviour
 {
     //Available moves and base stats on unit
     protected Stats baseStats;
@@ -26,11 +26,21 @@ public class CombatUnit : MonoBehaviour
     public bool canMakeMove = false;
     public bool dead = false;
     public bool selected = false;
+    public bool isPlayer;
 
     //Data (TEMPERARY)
     [SerializeField]
     public Sprite profile;
 
+    //Animation
+    protected Animator animator;
+    protected AudioSource audioSource;
+
+    private void Start()
+    {
+        InitalizeCombatUnit();
+        animator = GetComponent<Animator>();
+    }
     // Update is called once per frame
     void Update()
     {
@@ -49,6 +59,7 @@ public class CombatUnit : MonoBehaviour
         {
             StatusEffect statusEffect = statusEffects[i];
             statusEffect.duration -= Time.deltaTime;
+            statusEffect.ApplyUpdateEffect(this);
             if (statusEffect.duration <= 0f)
             {
                 RemoveStatEffect(statusEffect);
@@ -57,26 +68,29 @@ public class CombatUnit : MonoBehaviour
     }
 
     //initalize combat unit with data
-    public void InitalizeCombatUnit(CombatData combatData)
-    {
-        //Setting stats and moves from overworld
-        baseStats = combatData.baseStats;
-        basicAttack = combatData.basicAttack;
-        skills = combatData.skills;
+    abstract public void InitalizeBaseCombatUnit(CombatData combatData);
 
-        //Initalized Values for current combat stats
+    abstract public void StartAttack();
+
+    public void InitalizeCombatUnit()
+    {
+        //Initalizing current Values
+        currentStats = new Stats(baseStats);
         currentHP = baseStats.maxHP;
         currentMP = 0f;
-        currentMoveCD = baseStats.moveCD;
-        currentStats = new Stats(baseStats);
-        
+        currentMoveCD = currentStats.SpeedToSec();
     }
+    
     public void ResetTimer()
     {
-        currentMoveCD = baseStats.moveCD;
+        currentMoveCD = currentStats.SpeedToSec();
         canMakeMove = false;
     }
-    public void AddStatEffect(StatusEffect statusEffect) {
+    public void AddStatEffect(StatusEffect statusEffect)
+    {
+        audioSource.clip = statusEffect.applySound;
+        audioSource.Play();
+
         statusEffects.Add(statusEffect);
         ApplyAllStatusEffects();
     }
@@ -97,14 +111,17 @@ public class CombatUnit : MonoBehaviour
     }
     public void AddElementStatus(ElementStatus elementStatus)
     {
-        if(currentElementSatus == null)
+        if (elementStatus.element != Element.NONE)
         {
-            currentElementSatus = elementStatus;
-        }
-        else
-        {
-            elementStatus.ElementActivation(currentElementSatus.element, this);
-            RemoveElementStatus();
+            if (currentElementSatus == null)
+            {
+                currentElementSatus = elementStatus;
+            }
+            else
+            {
+                elementStatus.ElementActivation(currentElementSatus.element, this);
+                RemoveElementStatus();
+            }
         }
     }
     public void RemoveElementStatus()
@@ -113,11 +130,25 @@ public class CombatUnit : MonoBehaviour
     }
     public void ChangeMP(float amount)
     {
+        if (amount < 0)
+        {
+            amount = amount * (amount + 100f) * 0.08f / (currentStats.defence + 8f); //Damage Calc
+            if (isPlayer)
+            {
+                amount = amount * 0.25f;
+            }
+        }
         currentMP = Mathf.Clamp(currentMP + amount, 0, baseStats.maxMP);
     }
-    public void ChangeHP(float amount)
+    public void TakeDamage(float amount)
     {
-        currentHP = Mathf.Clamp(currentHP + amount, 0, baseStats.maxHP);
+        animator.SetTrigger("TakeDamage");
+        amount = amount * (amount + 100f) * 0.08f / (currentStats.defence + 8f); //Damage Calc
+        if(isPlayer)
+        {
+            amount = amount * 0.25f;
+        }
+        currentHP = Mathf.Clamp(currentHP - amount, 0, baseStats.maxHP);
 
         if (currentHP <= 0f)
         {
@@ -126,6 +157,7 @@ public class CombatUnit : MonoBehaviour
     }
     public void Die()
     {
+        animator.SetTrigger("Dead");
         dead = true;
         canMakeMove = false;
 

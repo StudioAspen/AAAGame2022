@@ -9,11 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34da7fd471ea3c54e85c339c8cc081f6, type: 3}
+  m_Script: {fileID: 11500000, guid: f2d31a12268decc4ca6c94f1da03d228, type: 3}
   m_Name: AlonzoCombatData
   m_EditorClassIdentifier: 
+  baseStats:
+    maxHP: 100
+    maxMP: 100
+    moveCD: 10
+    speed: 9.1
+    mpGain: 0
+    attack: 10
+    defence: 0
   skillKeys: []
-  maxHP: 0
-  maxMP: 0
-  moveCD: 0
-  attack: 0
+  combatPrefab: {fileID: 3293131506066533984, guid: f31e636e80b38e045958be8f1c95fdd8, type: 3}

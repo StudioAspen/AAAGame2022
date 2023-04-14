@@ -13,6 +13,7 @@ public class CharacterMovement : MonoBehaviour
     private Vector2 moveInput;
     public VectorValue startingPosition;
     public string startingScene;
+    public CombatData alonzoCombatData;
 
     //Steps
     public float stepHeight = 1;

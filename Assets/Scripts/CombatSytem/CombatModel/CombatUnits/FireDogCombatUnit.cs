@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class FireDogCombatUnit : CombatUnit
 {
-    FireDogCombatData combatData;
-    // Start is called before the first frame update
-    private void Awake()
+    override public void InitalizeBaseCombatUnit(CombatData combatData)
     {
-        combatData = GetComponent<FireDogCombatData>();
-        InitalizeCombatUnit(combatData);
+        //Setting stats and moves from overworld
+        baseStats = combatData.baseStats;
+        //Assigning Skills
+        skills.Clear();
+        foreach (string skillKey in combatData.skillKeys)
+        {
+            FireDogSkill currentSkill = FireDogSkill.GetSkill(skillKey);
+            skills.Add(currentSkill);
+        }
+    }
+    override public void StartAttack()
+    {
+        animator.SetTrigger("StartAttack");
     }
 }
