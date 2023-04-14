@@ -2,22 +2,46 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 public class NPC : MonoBehaviour
 {
+    public Transform camera;
+    public Animator anim;
+
     public Quest quest_;
     public DialogueInteraction action;
 
-    private void Start()
+    bool forth = true;          // going from start to end
+    bool isWalking = false;
+    public Vector3 startPos;
+    public Vector3 endPos;
+    public float speed;
+    public float posError;      // distance between npc and point before going back
+    
+    public enum Direction {UpDown, LeftRight};
+    public Direction direction;
+
+    public float pauseTime;
+    float timer = 0;
+
+    private void Awake() 
     {
-        quest_ = new Quest();
-        quest_.title = "test name";
-        quest_.description = "test description";
+        if (direction == Direction.UpDown) anim.SetBool("UpDown", true);
+        else anim.SetBool("UpDown", false);
     }
 
-    public void CompleteQuest()
+    // private void Start()
+    // {
+    //     quest_ = new Quest();
+    //     quest_.title = "test name";
+    //     quest_.description = "test description";
+    // }
+
+    private void Update() 
     {
-        quest_.is_complete = true;
+        Patrol();
+        MoveAnimation();
     }
 
     public void Interact()
@@ -25,6 +49,49 @@ public class NPC : MonoBehaviour
         UnityEvent afterDialogue = new UnityEvent();
         afterDialogue.AddListener(ShowQuest);
         DialogueManager.Instance.StartDialogue(action, afterDialogue);
+    }
+
+    private void Patrol() 
+    {
+        transform.eulerAngles = camera.eulerAngles;
+
+        if (isWalking)
+        {
+            // if (forth) transform.position = Vector3.MoveTowards(transform.position, endPos, speed);
+            // else transform.position = Vector3.MoveTowards(transform.position, startPos, speed);
+            if (forth) transform.localPosition = Vector3.MoveTowards(transform.localPosition, endPos, speed);
+            else transform.localPosition = Vector3.MoveTowards(transform.localPosition, startPos, speed);
+        }
+
+        if (Vector3.Distance(transform.localPosition, endPos) < posError) 
+        {
+            forth = false;
+            isWalking = false;
+        }
+        else if (Vector3.Distance(transform.localPosition, startPos) < posError) {
+            forth = true;
+            isWalking = false;
+        }
+
+        if (!isWalking) 
+        {
+            timer += Time.deltaTime;
+            if (timer > pauseTime) 
+            {
+                timer = 0;
+                isWalking = true;
+            }
+        }
+    }
+
+    void MoveAnimation() {
+        if (isWalking) anim.SetBool("Walking", true);
+        else anim.SetBool("Walking", false);
+    }
+
+    public void CompleteQuest()
+    {
+        quest_.is_complete = true;
     }
 
     public void ShowQuest()

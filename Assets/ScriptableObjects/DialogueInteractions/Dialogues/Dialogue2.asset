@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2065dd0ac23d24c9c2473e5c91a04f, type: 3}
+  m_Name: Dialogue2
+  m_EditorClassIdentifier: 
+  dialogues:
+  - name: Zinnia
+    poses:
+    - neutral
+    - neutral
+    lines:
+    - "Hey Alonso!\r"
+    - "Can you tell yer mother I started work on that new poncho of yers?\r"
+  - name: Alonso
+    poses:
+    - neutral
+    - neutral
+    lines:
+    - "Thanks, Ms. Zinnia, but please take your time.\r"
+    - "It's just a poncho.\r"
+  - name: Zinnia
+    poses:
+    - happy
+    - happy
+    lines:
+    - "Just a poncho huh? \r"
+    - "That must be why you destroyed the first three I made you. *chuckles*\r"
+  - name: Cynthi
+    poses:
+    - happy
+    lines:
+    - "So you didn\u2019t tell her about the poncho you borrowed from me last week?
+      \r"
+  - name: Zinnia
+    poses:
+    - neutral
+    - neutral
+    lines:
+    - "Huh, What poncho?\r"
+    - "Speak up!\r"
+  - name: Alonso
+    poses:
+    - shock
+    - shock
+    - neutral
+    lines:
+    - "Nothing Ms.Zinnia!\r"
+    - "I\u2019ll go tell mom about the progress.\r"
+    - Goodbye!
+  CSV: {fileID: 4900000, guid: 1b930a84ea72742e1a67090c3d61bc31, type: 3}

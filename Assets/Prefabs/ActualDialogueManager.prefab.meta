@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Prefabs/CombatSystem/CombatUI/Action Bar.prefab.meta
-guid: f873e75a4701f3d47b02bbec1c334d4d
-========
 guid: 603fed3e8fe524cf597ee0c7a41a3384
->>>>>>>> main:Assets/Prefabs/ActualDialogueManager.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 

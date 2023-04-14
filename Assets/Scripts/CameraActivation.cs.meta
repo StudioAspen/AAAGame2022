@@ -1,9 +1,5 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/Scripts/CombatSytem/CombatModel/CombatUnits/AlonzoCombatUnit.cs.meta
-guid: 384b2d588b3267b4a8f9324f288946a8
-========
 guid: 46222c9c8a847d040a6cf2356653b46c
->>>>>>>> main:Assets/Scripts/CameraActivation.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
