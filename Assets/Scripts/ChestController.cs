@@ -18,7 +18,7 @@ public class ChestController : MonoBehaviour
 
     void Update()
     {
-        if(!(inRange))
+        if(!(inRange) && isOpen)
             CloseChest();
         if (inRange && Input.GetKeyDown(KeyCode.E) && !(isOpen))
         {
