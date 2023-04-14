@@ -990,7 +990,14 @@ MonoBehaviour:
   chestOpen: {fileID: 8198807766676896581, guid: 8439ed584eff9574eb3d4823d37e54e2, type: 3}
   changeText: {fileID: 355672108}
   text: '*Alonso notices a faded inscription on the surface of a mossy stone, clearly
-    splintered by nature some long time ago.*'
+    splintered by nature some long time ago.*
+
+
+    Pineberries are                   
+    steadily            despite so many setbacks.            Though it seems                
+    reap the sum                         it matters not. Truly the most noble                                
+    under whose shade                             .This generation              but
+    Helen'
 --- !u!4 &94339901
 Transform:
   m_ObjectHideFlags: 0
@@ -1073,8 +1080,12 @@ MonoBehaviour:
   chestClosed: {fileID: 3138909049758191581, guid: 55535fc06369c4246ad6984472fee1ff, type: 3}
   chestOpen: {fileID: 8198807766676896581, guid: 8439ed584eff9574eb3d4823d37e54e2, type: 3}
   changeText: {fileID: 355672108}
-  text: Life on the planet has drastically changed over the course of the last millennia.
-    Most of the few species that managed to survive are almost unrecognizable.
+  text: '
+
+
+
+    Life on the planet has drastically changed over the course of the
+    last millennia. Most of the few species that managed to survive are almost unrecognizable.'
 --- !u!4 &106081579
 Transform:
   m_ObjectHideFlags: 0
@@ -1160,6 +1171,7 @@ GameObject:
   - component: {fileID: 120339555}
   - component: {fileID: 120339554}
   - component: {fileID: 120339553}
+  - component: {fileID: 120339556}
   m_Layer: 5
   m_Name: Scrollbar
   m_TagString: Untagged
@@ -1185,7 +1197,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 42.49991, y: 0}
+  m_AnchoredPosition: {x: 43.8, y: 0}
   m_SizeDelta: {x: 5.1428, y: 85.4576}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &120339553
@@ -1232,7 +1244,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 473531210}
   m_Direction: 2
   m_Value: 1
-  m_Size: 0.99988616
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -1275,6 +1287,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 120339551}
   m_CullTransparentMesh: 1
+--- !u!114 &120339556
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 120339551}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31a19414c41e5ae4aae2af33fee712f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ShowMaskGraphic: 0
 --- !u!1001 &126080280
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1634,8 +1659,8 @@ MonoBehaviour:
   chestClosed: {fileID: 3138909049758191581, guid: 55535fc06369c4246ad6984472fee1ff, type: 3}
   chestOpen: {fileID: 8198807766676896581, guid: 8439ed584eff9574eb3d4823d37e54e2, type: 3}
   changeText: {fileID: 355672108}
-  text: "The city\u2019s protective structure dates back to nearly a thousand years
-    ago\u2026"
+  text: "\n\n\nThe city\u2019s protective structure dates back to nearly a thousand
+    years ago\u2026"
 --- !u!4 &204913978 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 55b571882d7c0134aa510708629d18b8, type: 3}
@@ -2559,8 +2584,12 @@ MonoBehaviour:
   chestClosed: {fileID: 3138909049758191581, guid: 55535fc06369c4246ad6984472fee1ff, type: 3}
   chestOpen: {fileID: 8198807766676896581, guid: 8439ed584eff9574eb3d4823d37e54e2, type: 3}
   changeText: {fileID: 355672108}
-  text: This city is named Lauspes, though the exact origin of this name changes
-    depending on who you ask.
+  text: '
+
+
+
+    This city is named Lauspes, though the exact origin of this name
+    changes depending on who you ask.'
 --- !u!4 &333146184
 Transform:
   m_ObjectHideFlags: 0
@@ -2618,8 +2647,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2.8855, y: 46.591858}
-  m_SizeDelta: {x: 85.628, y: 33.08}
+  m_AnchoredPosition: {x: 0.00019813, y: 46.592}
+  m_SizeDelta: {x: 95.348, y: 75.62}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &355672108
 MonoBehaviour:
@@ -2641,13 +2670,14 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '1
+  m_text: '*Alonso notices a faded inscription on the surface of a mossy stone, clearly
+    splintered by nature some long time ago.*
 
-    2
 
-    3
-
-    4'
+    Reports of a new                  
+    after tunneling                      this could be it, this could be though I
+    believe they will misuse                      Helen would never                  
+    wrong hands'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 04b94e90581a99c4899ec239e5268307, type: 2}
   m_sharedMaterial: {fileID: -344116113315032861, guid: 04b94e90581a99c4899ec239e5268307, type: 2}
@@ -2674,15 +2704,15 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 7
-  m_fontSizeBase: 7
+  m_fontSize: 6
+  m_fontSizeBase: 6
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_HorizontalAlignment: 2
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3153,8 +3183,12 @@ MonoBehaviour:
   chestClosed: {fileID: 3138909049758191581, guid: 55535fc06369c4246ad6984472fee1ff, type: 3}
   chestOpen: {fileID: 8198807766676896581, guid: 8439ed584eff9574eb3d4823d37e54e2, type: 3}
   changeText: {fileID: 355672108}
-  text: Generations prior speak of a terrible disaster that befell the Earth, wiping
-    out almost all mankind.
+  text: '
+
+
+
+    Generations prior speak of a terrible disaster that befell the Earth,
+    wiping out almost all mankind.'
 --- !u!4 &410238012
 Transform:
   m_ObjectHideFlags: 0
@@ -3615,7 +3649,7 @@ RectTransform:
   m_Father: {fileID: 1527510397}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.00011384487}
+  m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
@@ -3724,8 +3758,8 @@ MonoBehaviour:
   chestClosed: {fileID: 3138909049758191581, guid: 55535fc06369c4246ad6984472fee1ff, type: 3}
   chestOpen: {fileID: 8198807766676896581, guid: 8439ed584eff9574eb3d4823d37e54e2, type: 3}
   changeText: {fileID: 355672108}
-  text: "Some records from \u2018the time before\u2019 still exist, mostly accounts
-    of various natural medicines as well as depictions of flora and fauna."
+  text: "\n\n\nSome records from \u2018the time before\u2019 still exist, mostly
+    accounts of various natural medicines as well as depictions of flora and fauna."
 --- !u!4 &473850704
 Transform:
   m_ObjectHideFlags: 0
@@ -4518,8 +4552,15 @@ MonoBehaviour:
   chestClosed: {fileID: 3138909049758191581, guid: 55535fc06369c4246ad6984472fee1ff, type: 3}
   chestOpen: {fileID: 8198807766676896581, guid: 8439ed584eff9574eb3d4823d37e54e2, type: 3}
   changeText: {fileID: 355672108}
-  text: '*Alonso notices a faded inscription on the surface of a mossy stone, clearly
-    splintered by nature some long time ago.*'
+  text: '
+
+    *Alonso notices a faded inscription on the surface of a mossy stone,
+    clearly splintered by nature some long time ago.*
+
+
+    Time is                      
+    . My children and                          but the days are numbered until        
+    my project should be able to                  if I can just'
 --- !u!4 &563381818
 Transform:
   m_ObjectHideFlags: 0
@@ -4956,9 +4997,14 @@ MonoBehaviour:
   chestClosed: {fileID: 3138909049758191581, guid: 55535fc06369c4246ad6984472fee1ff, type: 3}
   chestOpen: {fileID: 8198807766676896581, guid: 8439ed584eff9574eb3d4823d37e54e2, type: 3}
   changeText: {fileID: 355672108}
-  text: '*Alonso notices a faded inscription on the surface of a mossy stone, clearly
-    splintered by nature some long time ago.*To whom this may         I hope         
-    the future. Conditions worsening              but nonetheless               
+  text: '
+
+    *Alonso notices a faded inscription on the surface of a mossy stone,
+    clearly splintered by nature some long time ago.*
+
+
+    To whom this may        
+    I hope          the future. Conditions worsening              but nonetheless               
     my         Helen will'
 --- !u!4 &595715255
 Transform:
@@ -5038,6 +5084,92 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5d0cfcffafdddd649a7661a8de159b81, type: 3}
+--- !u!1 &618725314
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 618725318}
+  - component: {fileID: 618725317}
+  - component: {fileID: 618725316}
+  - component: {fileID: 618725315}
+  m_Layer: 0
+  m_Name: chest14
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &618725315
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618725314}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.7, z: 0.5}
+  m_Center: {x: 0, y: -0.0007212978, z: 0.00543509}
+--- !u!54 &618725316
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618725314}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &618725317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618725314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67968d93e74fb624b844523a44a6d17c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  inRange: 0
+  currentChest: {fileID: 1044379940}
+  chestClosed: {fileID: 3138909049758191581, guid: 55535fc06369c4246ad6984472fee1ff, type: 3}
+  chestOpen: {fileID: 8198807766676896581, guid: 8439ed584eff9574eb3d4823d37e54e2, type: 3}
+  changeText: {fileID: 355672108}
+  text: "*Alonso finds a scrawling page appearing as though it was torn from a notebook
+    or a journal of some kind.*\n\nThe jungle holds so much beauty\u2026and horrors
+    all the same. She has a thousand faces and innumerable arms with which to pluck
+    and prune each life in her bounty."
+--- !u!4 &618725318
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 618725314}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.276, y: 2.381, z: -11.994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1044379941}
+  m_Father: {fileID: 0}
+  m_RootOrder: 34
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &618731057 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2711491653185426101, guid: ab74dd09a5785284dad54b5aadaf796b, type: 3}
@@ -5114,8 +5246,16 @@ MonoBehaviour:
   chestClosed: {fileID: 3138909049758191581, guid: 55535fc06369c4246ad6984472fee1ff, type: 3}
   chestOpen: {fileID: 8198807766676896581, guid: 8439ed584eff9574eb3d4823d37e54e2, type: 3}
   changeText: {fileID: 355672108}
-  text: '*Alonso notices a faded inscription on the surface of a mossy stone, clearly
-    splintered by nature some long time ago.*'
+  text: '
+
+    *Alonso notices a faded inscription on the surface of a mossy stone,
+    clearly splintered by nature some long time ago.*
+
+
+    Reports of a new                  
+    after tunneling                      this could be it, this could be though I
+    believe they will misuse                      Helen would never                  
+    wrong hands'
 --- !u!4 &628220162
 Transform:
   m_ObjectHideFlags: 0
@@ -6538,6 +6678,73 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 1.39, z: 0.62}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &999324781
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2048539786}
+    m_Modifications:
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.00370316
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0037018675
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7072205
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7069737
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -89.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -179.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207964, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_Name
+      value: chest9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+--- !u!1 &999324782 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6203675849423207964, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+  m_PrefabInstance: {fileID: 999324781}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &999324783 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+  m_PrefabInstance: {fileID: 999324781}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1018249658 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2711491653185426101, guid: ab74dd09a5785284dad54b5aadaf796b, type: 3}
@@ -6632,6 +6839,73 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55b571882d7c0134aa510708629d18b8, type: 3}
+--- !u!1001 &1044379939
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 618725318}
+    m_Modifications:
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.00370316
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0037018675
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7072205
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7069737
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -89.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -179.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207964, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_Name
+      value: chest9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+--- !u!1 &1044379940 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6203675849423207964, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+  m_PrefabInstance: {fileID: 1044379939}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1044379941 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+  m_PrefabInstance: {fileID: 1044379939}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1080676654
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6962,6 +7236,73 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.6, y: 1.39, z: 0.62}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &1121010597
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1818512532}
+    m_Modifications:
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.00370316
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0037018675
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7072205
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7069737
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -89.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -179.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207964, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_Name
+      value: chest9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+--- !u!1 &1121010598 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6203675849423207964, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+  m_PrefabInstance: {fileID: 1121010597}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1121010599 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+  m_PrefabInstance: {fileID: 1121010597}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1127314221 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2711491653185426101, guid: ab74dd09a5785284dad54b5aadaf796b, type: 3}
@@ -8285,6 +8626,73 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2711491653185426101, guid: ab74dd09a5785284dad54b5aadaf796b, type: 3}
   m_PrefabInstance: {fileID: 1231049780}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1366939002
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1708647614}
+    m_Modifications:
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.00370316
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.0037018675
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.7072205
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0.7069737
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -89.98
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: -179.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6203675849423207964, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+      propertyPath: m_Name
+      value: chest9
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+--- !u!1 &1366939003 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6203675849423207964, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+  m_PrefabInstance: {fileID: 1366939002}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1366939004 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6203675849423207939, guid: 2e154733162a85442b927bc381d27fd4, type: 3}
+  m_PrefabInstance: {fileID: 1366939002}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1374063340
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8642,7 +9050,7 @@ MonoBehaviour:
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 120339553}
   m_HorizontalScrollbarVisibility: 0
-  m_VerticalScrollbarVisibility: 0
+  m_VerticalScrollbarVisibility: 1
   m_HorizontalScrollbarSpacing: 0
   m_VerticalScrollbarSpacing: 0
   m_OnValueChanged:
@@ -9749,6 +10157,92 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 55b571882d7c0134aa510708629d18b8, type: 3}
   m_PrefabInstance: {fileID: 414422527}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1708647610
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1708647614}
+  - component: {fileID: 1708647613}
+  - component: {fileID: 1708647612}
+  - component: {fileID: 1708647611}
+  m_Layer: 0
+  m_Name: chest15
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1708647611
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708647610}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.7, z: 0.5}
+  m_Center: {x: 0, y: -0.0007212978, z: 0.00543509}
+--- !u!54 &1708647612
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708647610}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &1708647613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708647610}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67968d93e74fb624b844523a44a6d17c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  inRange: 0
+  currentChest: {fileID: 1366939003}
+  chestClosed: {fileID: 3138909049758191581, guid: 55535fc06369c4246ad6984472fee1ff, type: 3}
+  chestOpen: {fileID: 8198807766676896581, guid: 8439ed584eff9574eb3d4823d37e54e2, type: 3}
+  changeText: {fileID: 355672108}
+  text: "*Alonso finds a scrawling page appearing as though it was torn from a notebook
+    or a journal of some kind.*\n\nHe may hide it, but no one respects these lands
+    more than Judge. More than once I have witnessed his admiration for the life
+    these greenwoods hold. Perhaps he too is one of nature\u2019s arms."
+--- !u!4 &1708647614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1708647610}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.746, y: 2.381, z: -12.446}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1366939004}
+  m_Father: {fileID: 0}
+  m_RootOrder: 35
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1710935407 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2711491653185426101, guid: ab74dd09a5785284dad54b5aadaf796b, type: 3}
@@ -10492,8 +10986,12 @@ MonoBehaviour:
   chestClosed: {fileID: 3138909049758191581, guid: 55535fc06369c4246ad6984472fee1ff, type: 3}
   chestOpen: {fileID: 8198807766676896581, guid: 8439ed584eff9574eb3d4823d37e54e2, type: 3}
   changeText: {fileID: 355672108}
-  text: Denizens of Lauspes are introduced to engineering and agricultural practices
-    from a young age.
+  text: '
+
+
+
+    Denizens of Lauspes are introduced to engineering and agricultural
+    practices from a young age.'
 --- !u!4 &1789448830
 Transform:
   m_ObjectHideFlags: 0
@@ -10586,8 +11084,9 @@ MonoBehaviour:
   chestClosed: {fileID: 3138909049758191581, guid: 55535fc06369c4246ad6984472fee1ff, type: 3}
   chestOpen: {fileID: 8198807766676896581, guid: 8439ed584eff9574eb3d4823d37e54e2, type: 3}
   changeText: {fileID: 355672108}
-  text: "The city\u2019s ecosystem is supported by an intricate network of canals,
-    recycling waste water and filtering toxic substances from underwater reservoirs."
+  text: "\n\n\nThe city\u2019s ecosystem is supported by an intricate network of
+    canals, recycling waste water and filtering toxic substances from underwater
+    reservoirs."
 --- !u!4 &1815569378
 Transform:
   m_ObjectHideFlags: 0
@@ -10678,6 +11177,95 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 123727459568938304, guid: 84b0464375ccd0340b34fe7fbe9d7070, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 84b0464375ccd0340b34fe7fbe9d7070, type: 3}
+--- !u!1 &1818512528
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1818512532}
+  - component: {fileID: 1818512531}
+  - component: {fileID: 1818512530}
+  - component: {fileID: 1818512529}
+  m_Layer: 0
+  m_Name: chest13
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &1818512529
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818512528}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.7, z: 0.5}
+  m_Center: {x: 0, y: -0.0007212978, z: 0.00543509}
+--- !u!54 &1818512530
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818512528}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &1818512531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818512528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67968d93e74fb624b844523a44a6d17c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  inRange: 0
+  currentChest: {fileID: 1121010598}
+  chestClosed: {fileID: 3138909049758191581, guid: 55535fc06369c4246ad6984472fee1ff, type: 3}
+  chestOpen: {fileID: 8198807766676896581, guid: 8439ed584eff9574eb3d4823d37e54e2, type: 3}
+  changeText: {fileID: 355672108}
+  text: '*Alonso finds a scrawling page appearing as though it was torn from a notebook
+    or a journal of some kind.*
+
+
+    The first time I left the city dome it was
+    as though I could feel the echoes of time all around us, like something was calling
+    to me.'
+--- !u!4 &1818512532
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1818512528}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 13.746, y: 2.381, z: -11.994}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1121010599}
+  m_Father: {fileID: 0}
+  m_RootOrder: 33
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1843472145
 GameObject:
   m_ObjectHideFlags: 0
@@ -10744,9 +11332,13 @@ MonoBehaviour:
   chestClosed: {fileID: 3138909049758191581, guid: 55535fc06369c4246ad6984472fee1ff, type: 3}
   chestOpen: {fileID: 8198807766676896581, guid: 8439ed584eff9574eb3d4823d37e54e2, type: 3}
   changeText: {fileID: 355672108}
-  text: The Tactical Surveillance Squadron is an elite group of naturalists trained
-    specifically to retrieve samples of the outside world. They are few in numbers
-    but most certainly a hardy group.
+  text: '
+
+
+
+    The Tactical Surveillance Squadron is an elite group of naturalists
+    trained specifically to retrieve samples of the outside world. They are few in
+    numbers but most certainly a hardy group.'
 --- !u!4 &1843472149
 Transform:
   m_ObjectHideFlags: 0
@@ -12059,6 +12651,95 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   first_quest: {fileID: 11400000, guid: 560ac1a316a9830458a64fe7b99aec89, type: 2}
   canEnter: 1
+--- !u!1 &2048539782
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2048539786}
+  - component: {fileID: 2048539785}
+  - component: {fileID: 2048539784}
+  - component: {fileID: 2048539783}
+  m_Layer: 0
+  m_Name: chest16
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!65 &2048539783
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048539782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5, y: 0.7, z: 0.5}
+  m_Center: {x: 0, y: -0.0007212978, z: 0.00543509}
+--- !u!54 &2048539784
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048539782}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0
+--- !u!114 &2048539785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048539782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67968d93e74fb624b844523a44a6d17c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isOpen: 0
+  inRange: 0
+  currentChest: {fileID: 999324782}
+  chestClosed: {fileID: 3138909049758191581, guid: 55535fc06369c4246ad6984472fee1ff, type: 3}
+  chestOpen: {fileID: 8198807766676896581, guid: 8439ed584eff9574eb3d4823d37e54e2, type: 3}
+  changeText: {fileID: 355672108}
+  text: '*Alonso finds a scrawling page appearing as though it was torn from a notebook
+    or a journal of some kind.*
+
+
+    The rocks of this world are scarred; an age
+    of fire has scored layers of sediment with the ashes of a world before. How this
+    fire came to be, I know not yet.'
+--- !u!4 &2048539786
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2048539782}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 14.244, y: 2.381, z: -12.446}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 999324783}
+  m_Father: {fileID: 0}
+  m_RootOrder: 36
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2049289202
 GameObject:
   m_ObjectHideFlags: 0

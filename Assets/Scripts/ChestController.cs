@@ -14,6 +14,7 @@ public class ChestController : MonoBehaviour
     public GameObject chestOpen;
 
     public TMP_Text changeText;
+    [TextAreaAttribute]
     public string text;
 
     void Update()
