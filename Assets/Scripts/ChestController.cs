@@ -53,7 +53,6 @@ public class ChestController : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             inRange = true;
-            Debug.Log("in range");
         }
     }
 
@@ -62,7 +61,6 @@ public class ChestController : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             inRange = false;
-            Debug.Log("out of range");
         }
     }
 
