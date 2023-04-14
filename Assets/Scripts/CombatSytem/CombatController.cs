@@ -28,6 +28,7 @@ public class CombatController : MonoBehaviour
 
     public BoxCollider clearAreaBox;
     public LayerMask cameraObstacle;
+    public UnityEvent battleEndEvent = new UnityEvent();
 
 
     // Update is called once per frame
@@ -126,6 +127,7 @@ public class CombatController : MonoBehaviour
             a.SetActive(true);
         }
         overworldObjects.Clear();
+        battleEndEvent.Invoke();
     }
     public int GetPlayerAliveCount()
     {
@@ -209,6 +211,10 @@ public class CombatController : MonoBehaviour
     public void SetRootPos(Vector3 _rootPos)
     {
         root.transform.position = _rootPos;
+    }
+    public void SetBattleEndEvent(UnityEvent _battleEndEvent)
+    {
+        battleEndEvent = _battleEndEvent;
     }
     public void SetCameraPos(GameObject _overworldCamera)
     {
