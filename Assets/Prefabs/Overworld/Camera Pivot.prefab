@@ -47,8 +47,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   camera: {fileID: 624021787185566730}
-  offsetDistance: 1
-  offsetHeight: 1
+  offsetDistance: 10
+  offsetHeight: 9
+  xRotation: 45
   shakeCount: 20
   shakeSpeed: 0.02
   shakeRange: 0.05

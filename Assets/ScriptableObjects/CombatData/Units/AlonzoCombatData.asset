@@ -15,10 +15,10 @@ MonoBehaviour:
   baseStats:
     maxHP: 100
     maxMP: 100
-    moveCD: 10
-    speed: 9.1
-    mpGain: 0
+    speed: 200
+    mpGain: 10
     attack: 10
-    defence: 0
-  skillKeys: []
+    defence: 100
+  skillKeys:
+  - Regular Strike
   combatPrefab: {fileID: 3293131506066533984, guid: f31e636e80b38e045958be8f1c95fdd8, type: 3}
