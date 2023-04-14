@@ -29,7 +29,7 @@ public class DialogueBox : MonoBehaviour
     [SerializeField]
     private Sprite[] almomsoSprites = new Sprite[5];
     [SerializeField]
-    private Sprite[] zinniaSprites = new Sprite[5];
+    private Sprite[] blankSprites = new Sprite[5];
 
     void Awake() {
         currentPortrait = portrait2;
@@ -48,8 +48,9 @@ public class DialogueBox : MonoBehaviour
         {
             { "Cynthi", cynthiSprites },
             { "Alonso", alonsoSprites },
-            { "ProfessorAurea", almomsoSprites },
-            { "Zinnia", zinniaSprites },
+            { "Prof. Aurea", almomsoSprites },
+            { "Zinnia", blankSprites },
+            { "???", blankSprites },
         };
     }
 
