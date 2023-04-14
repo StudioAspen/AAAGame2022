@@ -8,7 +8,8 @@ using UnityEngine.Events;
 
 public class CombatController : MonoBehaviour
 {
-    //Combat Variables
+    public GameObject sceneCanvas;
+
     public List<GameObject> players;
     public List<GameObject> playerPositions;
     public List<AssignStatBars> playersUI;
@@ -239,5 +240,21 @@ public class CombatController : MonoBehaviour
             yield return new WaitForSeconds(0.01f);
         }
         afterTransition.Invoke();
+    }
+
+    GameObject FindInActiveObjectByName(string name)
+    {
+        Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
+        for (int i = 0; i < objs.Length; i++)
+        {
+            if (objs[i].hideFlags == HideFlags.None)
+            {
+                if (objs[i].name == name)
+                {
+                    return objs[i].gameObject;
+                }
+            }
+        }
+        return null;
     }
 }
