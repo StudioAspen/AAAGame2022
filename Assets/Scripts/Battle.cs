@@ -17,15 +17,14 @@ public class Battle : MonoBehaviour
 
     bool canEnter = true;
     List<GameObject> overworldObjects = new List<GameObject>();
-    public List<CombatData> players;
-    public List<CombatData> enemies;
+    public BattleData battleData;
 
     void Update()
     {
         characterStats.overworldPos = character.transform.position;
     }
 
-    IEnumerator TriggerCombat()
+    IEnumerator TriggerCombat(BattleData _battleData)
     {
         //Getting all objects to disable in current scene
         //overworldObjects = FindObjectsOfType<GameObject>();
@@ -46,7 +45,8 @@ public class Battle : MonoBehaviour
             combatController.SaveOverWorld(overworldObjects);
             combatController.SetRootPos(playerObject.transform.position);
             combatController.SetCameraPos(cameraTransform.gameObject);
-            combatController.InitalizeCombat(players, enemies);
+            combatController.InitalizeCombat(_battleData.players, _battleData.enemies);
+            combatController.SetBattleEndEvent(_battleData.afterCombat);
         }
         //Disabling all objects
         foreach (GameObject a in overworldObjects)
@@ -55,7 +55,10 @@ public class Battle : MonoBehaviour
         }
     }
 
-
+    public void StartCombat(BattleData _battleData)
+    {
+        StartCoroutine(TriggerCombat(_battleData));
+    }
 
 
     private void OnTriggerEnter(Collider other)
@@ -65,7 +68,7 @@ public class Battle : MonoBehaviour
             canEnter = false;
             characterStats.battleScene = true;
             Debug.Log("Battle begins");
-            StartCoroutine(TriggerCombat());
+            StartCoroutine(TriggerCombat(battleData));
         }
     }
     
