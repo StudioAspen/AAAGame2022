@@ -11,6 +11,7 @@ public class CameraRotation : MonoBehaviour
     float distance;
     public float offsetDistance;        // camera distance offset from player
     public float offsetHeight;          // camera height offset from player
+    public float xRotation;
 
     bool isShaking;
     int currentShake = 0;
@@ -58,6 +59,8 @@ public class CameraRotation : MonoBehaviour
         {
             camera.localPosition = new Vector3(0, player.position.y + offsetHeight, distance + offsetDistance);
         }
+        Vector3 newRotation = new Vector3(xRotation, camera.rotation.eulerAngles.y, camera.rotation.eulerAngles.z);
+        camera.rotation = Quaternion.Euler(newRotation);
     }
 
     Vector3 RandomJitter() 

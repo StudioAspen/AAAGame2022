@@ -13,7 +13,7 @@ public class Battle : MonoBehaviour
     public bool battleScene = false;
 
     [SerializeField]
-    private CharacterStats characterStats;
+    //private CharacterStats characterStats;
 
     bool canEnter = true;
     List<GameObject> overworldObjects = new List<GameObject>();
@@ -21,7 +21,7 @@ public class Battle : MonoBehaviour
 
     void Update()
     {
-        characterStats.overworldPos = character.transform.position;
+        //characterStats.overworldPos = character.transform.position;
     }
 
     IEnumerator TriggerCombat(BattleData _battleData)
@@ -29,8 +29,8 @@ public class Battle : MonoBehaviour
         //Getting all objects to disable in current scene
         //overworldObjects = FindObjectsOfType<GameObject>();
         GameObject playerObject = FindObjectOfType<CharacterMovement>().gameObject;
-        Transform cameraTransform = playerObject.transform.GetChild(0);
-        cameraTransform.SetParent(playerObject.transform.parent);
+        CameraRotation cameraRotation = FindObjectOfType<CameraRotation>();
+        //cameraTransform.SetParent(playerObject.transform.parent);
         overworldObjects.Add(playerObject);
         overworldObjects.Add(FindObjectOfType<Canvas>().gameObject);
 
@@ -43,8 +43,8 @@ public class Battle : MonoBehaviour
         if (combatController != null)
         {
             combatController.SaveOverWorld(overworldObjects);
-            combatController.SetRootPos(playerObject.transform.position);
-            combatController.SetCameraPos(cameraTransform.gameObject);
+            combatController.SetRootTransform(playerObject.transform);
+            combatController.SetCameraPos(cameraRotation);
             combatController.InitalizeCombat(_battleData.players, _battleData.enemies);
             combatController.SetBattleEndEvent(_battleData.afterCombat);
         }
@@ -66,7 +66,7 @@ public class Battle : MonoBehaviour
         if(other.CompareTag("Player") && canEnter)
         {
             canEnter = false;
-            characterStats.battleScene = true;
+            //characterStats.battleScene = true;
             Debug.Log("Battle begins");
             StartCoroutine(TriggerCombat(battleData));
         }

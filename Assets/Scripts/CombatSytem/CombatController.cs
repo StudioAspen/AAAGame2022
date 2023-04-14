@@ -20,9 +20,10 @@ public class CombatController : MonoBehaviour
     //Overworld Setup
     public GameObject root;
     public Transform combatCamera;
-    private Vector3 overworldCameraOldPos;
-    private Quaternion overworldCameraOldRot;
-    private GameObject overworldCamera;
+    private float originalCamDistance;
+    private float originalCamHeight;
+    private float originalCamXRotation;
+    private CameraRotation overworldCamera;
     private List<GameObject> overworldObjects = new List<GameObject>();
     private UnityEvent afterTransition = new UnityEvent();
 
@@ -34,7 +35,7 @@ public class CombatController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.K))
+        if (Input.GetKeyDown(KeyCode.K))
         {
             KillEnemies();
         }
@@ -43,7 +44,7 @@ public class CombatController : MonoBehaviour
     {
         InitalizeSide(_players, playerPositions, playersUI, ref players);
         InitalizeSide(_enemies, enemyPositions, enemiesUI, ref enemies);
-        foreach(GameObject player in players)
+        foreach (GameObject player in players)
         {
             player.GetComponent<CombatUnit>().isPlayer = true;
         }
@@ -53,7 +54,7 @@ public class CombatController : MonoBehaviour
     {
         List<GameObject> units = new List<GameObject>();
 
-        foreach(CombatData _data in data)
+        foreach (CombatData _data in data)
         {
             units.Add(_data.combatPrefab);
         }
@@ -88,7 +89,7 @@ public class CombatController : MonoBehaviour
         index = 0;
         foreach (AssignStatBars _UI in UI)
         {
-            
+
             if (index < side.Count)
             {
                 _UI.AssignCombatUnit(side[index].GetComponent<CombatUnit>());
@@ -105,7 +106,7 @@ public class CombatController : MonoBehaviour
     }
     public void EndCombat(bool playerWon)
     {
-        foreach(AssignStatBars statBars in playersUI)
+        foreach (AssignStatBars statBars in playersUI)
         {
             statBars.gameObject.SetActive(false);
         }
@@ -117,7 +118,7 @@ public class CombatController : MonoBehaviour
         root.SetActive(false);
 
         afterTransition.AddListener(ResetOverworld);
-        StartCoroutine(SmoothCameraPos(overworldCamera.transform, overworldCameraOldPos, overworldCameraOldRot, 0.1f));
+        StartCoroutine(SmoothCameraPos(overworldCamera, originalCamDistance, originalCamHeight, originalCamXRotation, 0.1f));
     }
     private void ResetOverworld()
     {
@@ -134,7 +135,7 @@ public class CombatController : MonoBehaviour
         int count = 0;
         foreach (GameObject player in players)
         {
-            if(!player.GetComponent<CombatUnit>().dead)
+            if (!player.GetComponent<CombatUnit>().dead)
             {
                 count++;
             }
@@ -167,7 +168,7 @@ public class CombatController : MonoBehaviour
         //Initalizing Players
         for (int i = 0; i < players.Count; i++)
         {
-            if(!players[i].GetComponent<CombatUnit>().dead)
+            if (!players[i].GetComponent<CombatUnit>().dead)
             {
                 playerAlive = true;
             }
@@ -182,7 +183,7 @@ public class CombatController : MonoBehaviour
             }
         }
 
-        if(!enemyAlive)
+        if (!enemyAlive)
         {
             EndCombat(true);
         }
@@ -193,10 +194,10 @@ public class CombatController : MonoBehaviour
     }
     public void ClearArea()
     {
-        Collider[] obstacles = Physics.OverlapBox(clearAreaBox.center, clearAreaBox.size / 2, 
+        Collider[] obstacles = Physics.OverlapBox(clearAreaBox.center, clearAreaBox.size / 2,
             clearAreaBox.transform.rotation, cameraObstacle);
 
-        foreach(Collider collider in obstacles)
+        foreach (Collider collider in obstacles)
         {
             overworldObjects.Add(collider.gameObject);
         }
@@ -208,29 +209,32 @@ public class CombatController : MonoBehaviour
             overworldObjects.Add(a);
         }
     }
-    public void SetRootPos(Vector3 _rootPos)
+    public void SetRootTransform(Transform _rootTransform)
     {
-        root.transform.position = _rootPos;
+        root.transform.position = _rootTransform.position;
+        Vector3 rootRotation = root.transform.eulerAngles;
+        rootRotation.y = _rootTransform.rotation.eulerAngles.y;
+        root.transform.rotation = Quaternion.Euler(rootRotation);
     }
     public void SetBattleEndEvent(UnityEvent _battleEndEvent)
     {
         battleEndEvent = _battleEndEvent;
     }
-    public void SetCameraPos(GameObject _overworldCamera)
+    public void SetCameraPos(CameraRotation _cameraRotation)
     {
-        overworldCamera = _overworldCamera;
-        Vector3 holderPos = overworldCamera.transform.position;
-        overworldCameraOldPos = new Vector3(holderPos.x, holderPos.y, holderPos.z);
-        Quaternion holderRot = overworldCamera.transform.rotation;
-        overworldCameraOldRot = new Quaternion(holderRot.x, holderRot.y, holderRot.z, holderRot.w);
+        overworldCamera = _cameraRotation;
+        originalCamDistance = overworldCamera.offsetDistance;
+        originalCamHeight = overworldCamera.offsetHeight;
+        originalCamXRotation = overworldCamera.xRotation;
 
-        StartCoroutine(SmoothCameraPos(overworldCamera.transform, combatCamera.position + root.transform.position, combatCamera.rotation, 0.1f));
+        StartCoroutine(SmoothCameraPos(_cameraRotation, Mathf.Abs(combatCamera.position.z), combatCamera.position.y, combatCamera.rotation.eulerAngles.x, 0.1f));
     }
-    IEnumerator SmoothCameraPos(Transform fromTransform, Vector3 toPos, Quaternion toRot, float speed)
+    IEnumerator SmoothCameraPos(CameraRotation _cameraRotation, float _offsetDistance, float _offsetHeight, float _xRotation, float speed)
     {
-        while ((fromTransform.position - toPos).magnitude > 0.05f) {
-            fromTransform.position = Vector3.Lerp(fromTransform.position, toPos, speed);
-            fromTransform.rotation = Quaternion.Lerp(fromTransform.rotation, toRot, speed);
+        while (Mathf.Abs(_cameraRotation.offsetDistance - _offsetDistance) > 0.05f) {
+            _cameraRotation.offsetDistance = Mathf.Lerp(_cameraRotation.offsetDistance, _offsetDistance, speed);
+            _cameraRotation.offsetHeight = Mathf.Lerp(_cameraRotation.offsetHeight, _offsetHeight, speed);
+            _cameraRotation.xRotation = Mathf.Lerp(_cameraRotation.xRotation, _xRotation, speed);
 
             yield return new WaitForSeconds(0.01f);
         }
