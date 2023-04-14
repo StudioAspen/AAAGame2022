@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Dialogue6
   m_EditorClassIdentifier: 
   dialogues:
-  - name: Unknown/Researcher
+  - name: ???
     poses:
     - shock
     - shock

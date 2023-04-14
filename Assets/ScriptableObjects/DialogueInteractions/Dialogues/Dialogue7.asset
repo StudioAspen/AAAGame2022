@@ -41,24 +41,5 @@ MonoBehaviour:
     poses:
     - angry
     lines:
-    - "Get away from him!!! \r"
-  - name: Judge
-    poses:
-    - shock
-    lines:
-    - "Alonso! Run!\r"
-  - name: Alonso
-    poses:
-    - sad
-    - shock
-    - shock
-    lines:
-    - "(weakly) Dad? \r"
-    - "Dad!?\r"
-    - "NOOO-\r"
-  - name: Judge
-    poses:
-    - shock
-    lines:
-    - GRAAGGHHHHH!!!
+    - 'Get away from him!!! '
   CSV: {fileID: 4900000, guid: 17d4cc490fc204e45a5984bfa4536057, type: 3}

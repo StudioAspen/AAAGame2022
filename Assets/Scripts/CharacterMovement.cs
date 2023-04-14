@@ -99,7 +99,7 @@ public class CharacterMovement : MonoBehaviour
                 NPC npc;
                 if(colliders[i].gameObject.TryGetComponent<NPC>(out npc))
                 {
-                    npc.Interact();
+                    if (npc.quest_ != null) npc.Interact();
                     break;
                 }
             }  

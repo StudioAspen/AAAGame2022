@@ -18,7 +18,7 @@ MonoBehaviour:
     - Narrator
     lines:
     - "The doors creak open and PROFESSOR AUREA pops out, holding a metal box. \r"
-  - name: ProfessorAurea
+  - name: Prof. Aurea
     poses:
     - happy
     - happy
@@ -48,7 +48,7 @@ MonoBehaviour:
     lines:
     - "Alonso quickly runs up the stairs and opens the box.\r"
     - "He pulls out a small chip and inserts it into his metal hand's wrist.\r"
-  - name: ProfessorAurea
+  - name: Prof. Aurea
     poses:
     - happy
     - happy
@@ -84,7 +84,7 @@ MonoBehaviour:
     - Narrator
     lines:
     - "Cynthi reaches for him. \r"
-  - name: ProfessorAurea
+  - name: Prof. Aurea
     poses:
     - neutral
     lines:

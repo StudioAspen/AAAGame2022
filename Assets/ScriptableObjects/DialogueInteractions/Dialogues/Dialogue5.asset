@@ -33,7 +33,7 @@ MonoBehaviour:
     - neutral
     lines:
     - "How about we try that one more ti\u2014\r"
-  - name: ProfessorAurea
+  - name: Prof. Aurea
     poses:
     - happy
     - happy
@@ -58,7 +58,7 @@ MonoBehaviour:
     lines:
     - "Professor Aurea winks at them. \r"
     - "*Grumbles*\r"
-  - name: ProfessorAurea
+  - name: Prof. Aurea
     poses:
     - happy
     - happy

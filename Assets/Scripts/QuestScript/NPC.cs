@@ -31,12 +31,12 @@ public class NPC : MonoBehaviour
         else anim.SetBool("UpDown", false);
     }
 
-    private void Start()
-    {
-        quest_ = new Quest();
-        quest_.title = "test name";
-        quest_.description = "test description";
-    }
+    // private void Start()
+    // {
+    //     quest_ = new Quest();
+    //     quest_.title = "test name";
+    //     quest_.description = "test description";
+    // }
 
     private void Update() 
     {
@@ -57,16 +57,18 @@ public class NPC : MonoBehaviour
 
         if (isWalking)
         {
-            if (forth) transform.position = Vector3.MoveTowards(transform.position, endPos, speed);
-            else transform.position = Vector3.MoveTowards(transform.position, startPos, speed);
+            // if (forth) transform.position = Vector3.MoveTowards(transform.position, endPos, speed);
+            // else transform.position = Vector3.MoveTowards(transform.position, startPos, speed);
+            if (forth) transform.localPosition = Vector3.MoveTowards(transform.localPosition, endPos, speed);
+            else transform.localPosition = Vector3.MoveTowards(transform.localPosition, startPos, speed);
         }
 
-        if (Vector3.Distance(transform.position, endPos) < posError) 
+        if (Vector3.Distance(transform.localPosition, endPos) < posError) 
         {
             forth = false;
             isWalking = false;
         }
-        else if (Vector3.Distance(transform.position, startPos) < posError) {
+        else if (Vector3.Distance(transform.localPosition, startPos) < posError) {
             forth = true;
             isWalking = false;
         }
@@ -83,8 +85,6 @@ public class NPC : MonoBehaviour
     }
 
     void MoveAnimation() {
-        Debug.Log(transform.eulerAngles.y);
-
         if (isWalking) anim.SetBool("Walking", true);
         else anim.SetBool("Walking", false);
     }
