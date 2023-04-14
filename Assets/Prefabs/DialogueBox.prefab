@@ -454,12 +454,12 @@ MonoBehaviour:
   - {fileID: 1680625075, guid: c1f697157c1b64031a0d52b226fcfcb6, type: 3}
   - {fileID: 1337706296, guid: c1f697157c1b64031a0d52b226fcfcb6, type: 3}
   - {fileID: 1499339764, guid: c1f697157c1b64031a0d52b226fcfcb6, type: 3}
-  zinniaSprites:
-  - {fileID: 1951683281, guid: f909894b483f54b6380dd23ecce76571, type: 3}
-  - {fileID: -875920419, guid: f909894b483f54b6380dd23ecce76571, type: 3}
-  - {fileID: -1288025405, guid: f909894b483f54b6380dd23ecce76571, type: 3}
-  - {fileID: 1980051502, guid: f909894b483f54b6380dd23ecce76571, type: 3}
-  - {fileID: 1511850572, guid: f909894b483f54b6380dd23ecce76571, type: 3}
+  blankSprites:
+  - {fileID: 21300000, guid: 960a11bc59b064cca880fee915cafae7, type: 3}
+  - {fileID: 21300000, guid: 960a11bc59b064cca880fee915cafae7, type: 3}
+  - {fileID: 21300000, guid: 960a11bc59b064cca880fee915cafae7, type: 3}
+  - {fileID: 21300000, guid: 960a11bc59b064cca880fee915cafae7, type: 3}
+  - {fileID: 21300000, guid: 960a11bc59b064cca880fee915cafae7, type: 3}
 --- !u!1 &8676755957719449157
 GameObject:
   m_ObjectHideFlags: 0

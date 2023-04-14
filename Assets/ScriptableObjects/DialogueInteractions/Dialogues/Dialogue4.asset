@@ -179,8 +179,8 @@ MonoBehaviour:
     - "just can\u2019t be expressed with words alone, ain\u2019t that right Alonso?\r"
   - name: Alonso
     poses:
-    - 'neutral '
-    - 'neutral '
+    - neutral
+    - neutral
     lines:
     - "Without words...?\r"
     - "What are you\u2014\r"

@@ -7,10 +7,14 @@ using UnityEngine.Events;
 public class StartDialogue : MonoBehaviour
 {
     public DialogueInteraction script;
-    public Battle battle;
+    public Battle battle1;
     public DialogueInteraction script2;
+    public Battle battle2;
+    public DialogueInteraction script3;
 
-    bool canEnter = false;
+    // public List<ScriptableObject> events;
+
+    public bool canEnter = false;
 
     private void OnTriggerEnter(Collider player)
     {
@@ -18,15 +22,54 @@ public class StartDialogue : MonoBehaviour
         {
             canEnter = false;
 
-            // UnityEvent afterBattle = new UnityEvent();
-            // afterBattle.AddListener(DialogueManager.Instance.StartDialogue(script));
-            // battle.SetEndEvent(afterBattle);
+            UnityEvent startDialogue3 = new UnityEvent();
+            UnityEvent startBattle2 = new UnityEvent();
+            UnityEvent startDialogue2 = new UnityEvent();
+            UnityEvent startBattle1 = new UnityEvent();
 
-            // UnityEvent afterDialogue = new UnityEvent();
-            // afterDialogue.AddListener(StartCoroutine(battle.TriggerCombat()));
-            // DialogueManager.Instance.StartDialogue(script, afterDialogue);
+            // dialogue 3
+            if (script3 != null)
+            {
+                startDialogue3.AddListener
+                (
+                    delegate { DialogueManager.Instance.StartDialogue(script3); }
+                );
+                battle2.battleData.afterCombat = startDialogue3;
+            }
 
-            DialogueManager.Instance.StartDialogue(script);
+            // battle 2
+            if (battle2 != null)
+            {
+                startBattle2.AddListener
+                (
+                    delegate { battle2.StartCombat(battle2.battleData); }
+                );
+            }
+
+            // dialogue 2
+            if (script2 != null)
+            {
+                startDialogue2.AddListener
+                (
+                    delegate { DialogueManager.Instance.StartDialogue(script2, startBattle2); }
+                );
+                battle1.battleData.afterCombat = startDialogue2;
+            }
+
+            // battle 1
+            if (battle1 != null)
+            {
+                startBattle1.AddListener
+                (
+                    delegate { battle1.StartCombat(battle1.battleData); }
+                );
+                DialogueManager.Instance.StartDialogue(script, startBattle1);
+            }
+            else 
+            {
+                DialogueManager.Instance.StartDialogue(script);
+            }
+
         }
     }
 

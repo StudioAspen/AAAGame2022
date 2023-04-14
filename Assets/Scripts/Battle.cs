@@ -13,16 +13,16 @@ public class Battle : MonoBehaviour
     public bool battleScene = false;
 
     [SerializeField]
-    private CharacterStats characterStats;
+    // private CharacterStats characterStats;
 
     bool canEnter = true;
     List<GameObject> overworldObjects = new List<GameObject>();
     public BattleData battleData;
 
-    void Update()
-    {
-        characterStats.overworldPos = character.transform.position;
-    }
+    // void Update()
+    // {
+    //     characterStats.overworldPos = character.transform.position;
+    // }
 
     IEnumerator TriggerCombat(BattleData _battleData)
     {
@@ -61,24 +61,24 @@ public class Battle : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider other)
-    {
-        if(other.CompareTag("Player") && canEnter)
-        {
-            canEnter = false;
-            characterStats.battleScene = true;
-            Debug.Log("Battle begins");
-            StartCoroutine(TriggerCombat(battleData));
-        }
-    }
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if(other.CompareTag("Player") && canEnter)
+    //     {
+    //         canEnter = false;
+    //         characterStats.battleScene = true;
+    //         Debug.Log("Battle begins");
+    //         StartCoroutine(TriggerCombat(battleData));
+    //     }
+    // }
     
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player") == true)
-        {
-            canEnter = true;
-        }
-    }
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     if (other.CompareTag("Player") == true)
+    //     {
+    //         canEnter = true;
+    //     }
+    // }
 
 
 }
