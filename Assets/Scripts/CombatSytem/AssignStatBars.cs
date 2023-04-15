@@ -12,6 +12,8 @@ public class AssignStatBars : MonoBehaviour
     public Slider HPSlider;
     public Slider MPSlider;
     public Image elementIcon;
+    public Image alonzoChargeIcon;
+    public Image profileImage;
 
     //Skill List
     public GameObject skillList;
@@ -25,8 +27,6 @@ public class AssignStatBars : MonoBehaviour
     public GameObject debuffIcon; //Prefab to instantiate
     public List<GameObject> debuffs;
 
-
-
     private bool previousSelected;
 
     private void Update()
@@ -36,7 +36,8 @@ public class AssignStatBars : MonoBehaviour
             //Updating Stat Bars
             UpdateStatBars();
             UpdateElementIcon();
-            //UpdateStatusEffects();
+            UpdateChargeIcon();
+            UpdateStatusEffects();
 
             //player controller selecting the combat unit
             if (previousSelected != combatUnit.selected)
@@ -61,7 +62,8 @@ public class AssignStatBars : MonoBehaviour
         combatUnit = _combatUnit;
         UpdateMoveList();
         UpdateElementIcon();
-        previousSelected = combatUnit.selected; 
+        previousSelected = combatUnit.selected;
+        profileImage.sprite = combatUnit.profile;
         HideSkillList();
     }
     public void UpdateStatBars()
@@ -74,50 +76,70 @@ public class AssignStatBars : MonoBehaviour
         //Swapping Icon
         elementIcon.sprite = ElementEffect.GetElementIcon(combatUnit.element);
     }
-    /*
+    public void UpdateChargeIcon()
+    {
+        //Swapping Icon
+        AlonzoCombatUnit holder;
+        if (combatUnit.TryGetComponent<AlonzoCombatUnit>(out holder))
+        {
+            alonzoChargeIcon.sprite = ElementEffect.GetElementIcon(holder.charge);
+        }
+        else
+        {
+            alonzoChargeIcon.sprite = ElementEffect.GetElementIcon(Element.NONE);
+        }
+    }
     public void UpdateStatusEffects()
     {
         //Destorying old icons
         for (int i = gridLayout.transform.childCount - 1; i >= 0; i--)
         {
-            Destroy(gridLayout.transform.GetChild(i));
+            Destroy(gridLayout.transform.GetChild(i).gameObject);
         }
+        debuffs.Clear();
+
+
+        GameObject holder;
         //Adding Element Status
-        GameObject holder = Instantiate(debuffIcon);
-        holder.GetComponentInChildren<Image>().sprite = ElementEffect.GetElementIcon(combatUnit.element);
-        holder.transform.SetParent(gridLayout.transform);
-        debuffs.Add(holder);
+        if (combatUnit.currentElementSatus != null)
+        {
+            holder = Instantiate(debuffIcon, gridLayout.transform);
+            holder.GetComponentInChildren<Image>().sprite = ElementEffect.GetElementIcon(combatUnit.currentElementSatus.element);
+            debuffs.Add(holder);
+        }
 
         foreach (StatusEffect status in combatUnit.statusEffects)
         {
             //Adding Debuff
-            holder = Instantiate(debuffIcon);
+            holder = Instantiate(debuffIcon, gridLayout.transform);
             holder.GetComponentInChildren<Image>().sprite = status.icon;
-            holder.transform.SetParent(gridLayout.transform);
+            holder.GetComponentInChildren<Slider>().value = 1 - (status.duration/status.durationBase);
             debuffs.Add(holder);
         }
-    }*/
+    }
     public void UpdateMoveList()
     {
         //Clearing old objects
         for(int i = verticalLayoutGroup.transform.childCount-1; i >= 0; i-- )
         {
-            Destroy(verticalLayoutGroup.transform.GetChild(i));
+            Destroy(verticalLayoutGroup.transform.GetChild(i).gameObject);
         }
-            
-        //Adding Basic Attack
-        GameObject holder = Instantiate(skillButton);
-        holder.GetComponentInChildren<TMP_Text>().text = combatUnit.basicAttack.name;
-        holder.GetComponent<Button>().onClick.AddListener(() => SetCombatMove(combatUnit.basicAttack));
-        holder.transform.SetParent(verticalLayoutGroup.transform);
+        skillButtons.Clear();
 
+        GameObject holder;
+        //Adding Basic Attack
+        if (combatUnit.basicAttack != null)
+        {
+            holder = Instantiate(skillButton, verticalLayoutGroup.transform);
+            holder.GetComponentInChildren<TMP_Text>().text = combatUnit.basicAttack.name;
+            holder.GetComponent<Button>().onClick.AddListener(() => SetCombatMove(combatUnit.basicAttack));
+        }
+        //Adding Skills
         foreach (Skill skill in combatUnit.skills)
         {
-            //Adding Skills
-            holder = Instantiate(skillButton);
+            holder = Instantiate(skillButton, verticalLayoutGroup.transform);
             holder.GetComponentInChildren<TMP_Text>().text = skill.name;
             holder.GetComponent<Button>().onClick.AddListener(() => SetCombatMove(skill));
-            holder.transform.SetParent(verticalLayoutGroup.transform);
             skillButtons.Add(holder);
         }
     }

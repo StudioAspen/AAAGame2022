@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/CombatSytem/CombatModel/CombatMoves/Alonzo/AlonzoBasicAttack.cs.meta
+guid: 57c83d21dfee0134a92490e9fffe8d79
+========
 guid: 53b32d2c5ad3746479aa2c70e13504e5
+>>>>>>>> main:Assets/QuestCollisionComplete.cs.meta
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2

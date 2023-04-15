@@ -1,0 +1,104 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2065dd0ac23d24c9c2473e5c91a04f, type: 3}
+  m_Name: Dialogue5
+  m_EditorClassIdentifier: 
+  dialogues:
+  - name: Cynthi
+    poses:
+    - neutral
+    lines:
+    - "*Panting* Do you get it now?\r"
+  - name: ACTION
+    poses:
+    - Narrator
+    - Narrator
+    - Narrator
+    lines:
+    - "Alonso looks down at his arm, disappointed.\r"
+    - "He closes his eyes and breathes slowly. \r"
+    - "Sparks of electricity fly out from the fingertips as he smoothly creates a
+      fist.\r"
+  - name: Alonso
+    poses:
+    - neutral
+    lines:
+    - "How about we try that one more ti\u2014\r"
+  - name: Prof. Aurea
+    poses:
+    - happy
+    - happy
+    - happy
+    - happy
+    - happy
+    - happy
+    lines:
+    - "Children! \r"
+    - "While I appreciate the enthusiasm.\r"
+    - "And I\u2019d love nothing more than to observe what this apparatus can really
+      do...\r"
+    - "duty calls! \r"
+    - "And without someone around to make sure you two don\u2019t break something
+      ...\r"
+    - "I\u2019d kindly ask that you keep the fighting away from these marvelously
+      polished institute doors for now.\r"
+  - name: ACTION
+    poses:
+    - Narrator
+    - Narrator
+    lines:
+    - "Professor Aurea winks at them. \r"
+    - "*Grumbles*\r"
+  - name: Prof. Aurea
+    poses:
+    - happy
+    - happy
+    - neutral
+    lines:
+    - "Scurry on now you two\u2014 \r"
+    - "and as always my dear boy, c\u2019est magnifique! Ta ta!!\r"
+    - "*Walks Off*\r"
+  - name: Cynthi
+    poses:
+    - neutral
+    - neutral
+    - neutral
+    lines:
+    - "So listen...\r"
+    - "I\u2019ve gotta head out and finish my work with Professor Avrati up in the
+      greenhouse.\r"
+    - "I\u2019m guessing you\u2019re gonna go finish up back out by your house right?\r"
+  - name: ACTION
+    poses:
+    - Narrator
+    lines:
+    - "*Nods*\r"
+  - name: Cynthi
+    poses:
+    - neutral
+    lines:
+    - "Well, I\u2019ll catch up with you later then, right? \r"
+  - name: ACTION
+    poses:
+    - Narrator
+    lines:
+    - "Cynthi begins to walk away, but then turns around.\r"
+  - name: Cynthi
+    poses:
+    - neutral
+    - neutral
+    - neutral
+    lines:
+    - "By the way...\r"
+    - "that arm of yours?\r"
+    - Packs one hell of a punch. Take care, bozo.
+  CSV: {fileID: 4900000, guid: 5fd6c2de8d6784aa9a0b30742933219a, type: 3}

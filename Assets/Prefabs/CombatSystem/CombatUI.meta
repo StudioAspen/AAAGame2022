@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Prefabs/CombatSystem/CombatUI.meta
 guid: 38bb3ce06059109409c6073d7ce1fb6b
+========
+guid: 65375c82ab5857b4ba9b00862d7bdb37
+>>>>>>>> main:Assets/Ciconia Studio.meta
 folderAsset: yes
 DefaultImporter:
   externalObjects: {}

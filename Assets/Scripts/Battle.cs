@@ -13,23 +13,26 @@ public class Battle : MonoBehaviour
     public bool battleScene = false;
 
     [SerializeField]
-    private CharacterStats characterStats;
+    // private CharacterStats characterStats;
 
     bool canEnter = true;
-    GameObject[] overworldObjects;
-    public List<GameObject> players;
-    public List<GameObject> enemies;
+    List<GameObject> overworldObjects = new List<GameObject>();
+    public BattleData battleData;
 
-    void Update()
-    {
-        characterStats.overworldPos = character.transform.position;
-    }
+    // void Update()
+    // {
+    //     characterStats.overworldPos = character.transform.position;
+    // }
 
-    IEnumerator TriggerCombat()
+    IEnumerator TriggerCombat(BattleData _battleData)
     {
         //Getting all objects to disable in current scene
-        overworldObjects = FindObjectsOfType<GameObject>();
-
+        //overworldObjects = FindObjectsOfType<GameObject>();
+        GameObject playerObject = FindObjectOfType<CharacterMovement>().gameObject;
+        CameraRotation cameraRotation = FindObjectOfType<CameraRotation>();
+        //cameraTransform.SetParent(playerObject.transform.parent);
+        overworldObjects.Add(playerObject);
+        overworldObjects.Add(FindObjectOfType<Canvas>().gameObject);
 
         //Load Combat Scene and waiting for it to load
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("CombatScene", LoadSceneMode.Additive);
@@ -40,9 +43,11 @@ public class Battle : MonoBehaviour
         if (combatController != null)
         {
             combatController.SaveOverWorld(overworldObjects);
-            combatController.InitalizeCombat(players, enemies);
+            combatController.SetRootTransform(playerObject.transform);
+            combatController.SetCameraPos(cameraRotation);
+            combatController.InitalizeCombat(_battleData.players, _battleData.enemies);
+            combatController.SetBattleEndEvent(_battleData.afterCombat);
         }
-
         //Disabling all objects
         foreach (GameObject a in overworldObjects)
         {
@@ -50,27 +55,30 @@ public class Battle : MonoBehaviour
         }
     }
 
-
-
-
-    private void OnTriggerEnter(Collider other)
+    public void StartCombat(BattleData _battleData)
     {
-        if(other.CompareTag("Player") && canEnter)
-        {
-            canEnter = false;
-            characterStats.battleScene = true;
-            Debug.Log("Battle begins");
-            StartCoroutine(TriggerCombat());
-        }
+        StartCoroutine(TriggerCombat(_battleData));
     }
+
+
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if(other.CompareTag("Player") && canEnter)
+    //     {
+    //         canEnter = false;
+    //         characterStats.battleScene = true;
+    //         Debug.Log("Battle begins");
+    //         StartCoroutine(TriggerCombat(battleData));
+    //     }
+    // }
     
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.CompareTag("Player") == true)
-        {
-            canEnter = true;
-        }
-    }
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     if (other.CompareTag("Player") == true)
+    //     {
+    //         canEnter = true;
+    //     }
+    // }
 
 
 }

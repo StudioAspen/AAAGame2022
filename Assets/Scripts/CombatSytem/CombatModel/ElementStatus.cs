@@ -2,14 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-/// <summary>
-/// INCOMPLETE, NOT USED ANYWHERE
-/// </summary>
 public class ElementStatus
 {
     public string name;
     public Element element;
     public CombatUnit owner;
+    public AudioClip audio = null;
     public ElementStatus(Element _element, CombatUnit _owner)
     {
         owner = _owner;
@@ -17,12 +15,15 @@ public class ElementStatus
         switch(element) {
             case Element.FIRE:
                 name = "Fire Element";
+                audio = Resources.Load<AudioClip>("Debuffs/ChrisChavez_fireattribute-001");
                 break;
             case Element.WATER:
                 name = "Water Element";
+                audio = Resources.Load<AudioClip>("Debuffs/ChrisChavez_waterattribute");
                 break;
             case Element.TERA:
                 name = "Tera Element";
+                audio = Resources.Load<AudioClip>("Debuffs/ChrisChavez_teraattribute");
                 break;
             default:
                 name = "No Element";
@@ -42,7 +43,7 @@ public void ElementActivation(Element activationElement, CombatUnit target)
             if(elements.Contains(Element.WATER))
             {
                 //FIRE WATER
-                target.ChangeHP(-25);
+                target.TakeDamage(15);
                 target.AddStatEffect(new AttackDownEffect(1)) ;
             }
             else if(elements.Contains(Element.TERA))
@@ -52,7 +53,7 @@ public void ElementActivation(Element activationElement, CombatUnit target)
             else
             {
                 //FIRE FIRE
-                target.ChangeHP(-50);
+                target.TakeDamage(50);
             }
         }
         else if(elements.Contains(Element.WATER))

@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!221 &22100000
+AnimatorOverrideController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: CombatParticleOverride
+  m_Controller: {fileID: 9100000, guid: e6b0e472a88482e49b31bc042213aefe, type: 2}
+  m_Clips:
+  - m_OriginalClip: {fileID: 7400000, guid: 14aac815b9fe72548bfdaeeae6d6c219, type: 2}
+    m_OverrideClip: {fileID: 7400000, guid: 09abb447853eb9240bb0ad10806e5c94, type: 2}
+  - m_OriginalClip: {fileID: 7400000, guid: 09abb447853eb9240bb0ad10806e5c94, type: 2}
+    m_OverrideClip: {fileID: 0}
+  - m_OriginalClip: {fileID: 7400000, guid: 50ae2decee31ec74ebcbecb2ca41f8cf, type: 2}
+    m_OverrideClip: {fileID: 0}
+  - m_OriginalClip: {fileID: 7400000, guid: a685df1beff3f0e47822fd2d7932a88e, type: 2}
+    m_OverrideClip: {fileID: 0}
+  - m_OriginalClip: {fileID: 7400000, guid: b5e100b45b3a52d4d843b3e88dcd226d, type: 2}
+    m_OverrideClip: {fileID: 0}
+  - m_OriginalClip: {fileID: 7400000, guid: 076ab3c6c3a07ef41b5985ae25fc3ee4, type: 2}
+    m_OverrideClip: {fileID: 0}
+  - m_OriginalClip: {fileID: 7400000, guid: b7f1ee40b0d30d24fa6606ffb4713988, type: 2}
+    m_OverrideClip: {fileID: 0}

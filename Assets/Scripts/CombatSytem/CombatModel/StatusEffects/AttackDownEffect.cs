@@ -10,8 +10,10 @@ public class AttackDownEffect : StatusEffect {
         version = Mathf.Clamp(_version, 0, 3);
         name = "Attack Down " + version.ToString();
         percentDecrease = version * 0.25f;
-        duration = version * 2f;
-        icon = Resources.Load<Sprite>("Sprites/DebuffIcons/blueSquareArrow");
+        durationBase = version * 2f;
+        duration = durationBase;
+        icon = GetIcon("Icons_for_daybreak_6");
+        applySound = Resources.Load<AudioClip>("Debuffs/ChrisChavez_attackdowndebuff");
     }
 
     public override Stats ApplyEffect(Stats currentStats)
@@ -19,4 +21,5 @@ public class AttackDownEffect : StatusEffect {
         currentStats.attack *= (1 - percentDecrease);
         return currentStats;
     }
+    public override void ApplyUpdateEffect(CombatUnit owner) { }
 }
