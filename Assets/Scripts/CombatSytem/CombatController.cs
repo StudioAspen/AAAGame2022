@@ -213,7 +213,7 @@ public class CombatController : MonoBehaviour
         }
 
         //added
-        if(!enemyAlive)
+        if (!enemyAlive) { 
             EndCombat(true);
         }
         if (!playerAlive)
