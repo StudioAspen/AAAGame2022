@@ -123,6 +123,7 @@ public class CombatController : MonoBehaviour
             }
         }
 
+        //added
         if(!enemyAlive)
             EndCombat(true);
         if (!playerAlive)
@@ -133,6 +134,7 @@ public class CombatController : MonoBehaviour
         overworldObjects = _overworldObects;
     }
 
+    //added
     GameObject FindInActiveObjectByName(string name)
     {
         Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
