@@ -4,24 +4,32 @@ using UnityEngine.Audio;
 [System.Serializable]
 public class AudioController : MonoBehaviour
 {
-    //public AudioClip AudioClipFade;
-    public AudioClip AudioClipIn;
-    public Sound[] sounds;
-
-    // Start is called before the first frame update
-    void Start()
+    public AudioSource firstSource;
+    public AudioSource secondSource;
+    bool isFirstSource = true;
+    public void FadeIn(AudioClip audioClip)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        
+        if(isFirstSource)
+        {
+            if (firstSource.clip != audioClip)
+            {
+                isFirstSource = !isFirstSource;
+                secondSource.clip = audioClip;
+                secondSource.Play();
+                StartCoroutine(FadeAudioSource.StartFade(secondSource, 2, 1));
+                StartCoroutine(FadeAudioSource.StartFade(firstSource, 2, 0));
+            }
+        }
+        else
+        {
+            if (secondSource.clip != audioClip)
+            {
+                isFirstSource = !isFirstSource;
+                firstSource.clip = audioClip;
+                firstSource.Play();
+                StartCoroutine(FadeAudioSource.StartFade(firstSource, 2, 1));
+                StartCoroutine(FadeAudioSource.StartFade(secondSource, 2, 0));
+            }
+        }
     }
 }

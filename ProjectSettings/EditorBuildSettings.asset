@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/TitleScreen.unity
     guid: 90c6423cbf0cac94eb60319776d55ea5
   - enabled: 0
-    path: Assets/Scenes/Mission01Cutscene.unity
+    path: Assets/Scenes/MoreTestScenes/Mission01Cutscene.unity
     guid: fd9c7811467074f4baf4679c988fbf22
   - enabled: 1
     path: Assets/Scenes/CombatScene.unity
@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Environment.unity
     guid: 37c6f5acf4a60b543831d9674ffbf4d1
   - enabled: 0
-    path: Assets/Scenes/Overworld.unity
+    path: Assets/Scenes/MoreTestScenes/Overworld.unity
     guid: a2905a45d19c0564088dac494c684ee9
   - enabled: 0
     path: 

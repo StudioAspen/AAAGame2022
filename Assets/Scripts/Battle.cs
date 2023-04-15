@@ -32,6 +32,7 @@ public class Battle : MonoBehaviour
         CameraRotation cameraRotation = FindObjectOfType<CameraRotation>();
         //cameraTransform.SetParent(playerObject.transform.parent);
         overworldObjects.Add(playerObject);
+        overworldObjects.Add(FindObjectOfType<AudioController>().gameObject);
         Canvas[] canvases = FindObjectsOfType<Canvas>();
         foreach (Canvas canvas in canvases)
         {
