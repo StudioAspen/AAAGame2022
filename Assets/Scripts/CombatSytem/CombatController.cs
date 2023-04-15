@@ -17,6 +17,9 @@ public class CombatController : MonoBehaviour
     public List<GameObject> enemyPositions;
     public List<AssignStatBars> enemiesUI;
     public ActionBar actionBar;
+    public GameObject victoryScreen;
+    public GameObject defeatScreen;
+
 
     //Overworld Setup
     public GameObject root;
@@ -32,6 +35,7 @@ public class CombatController : MonoBehaviour
     public LayerMask cameraObstacle;
     public UnityEvent battleEndEvent = new UnityEvent();
 
+    private bool scriptedLoss = false;
 
     // Update is called once per frame
     void Update()
@@ -107,19 +111,43 @@ public class CombatController : MonoBehaviour
     }
     public void EndCombat(bool playerWon)
     {
-        foreach (AssignStatBars statBars in playersUI)
+        GameObject screen;
+        if(playerWon)
         {
-            statBars.gameObject.SetActive(false);
+            screen = victoryScreen;
         }
-        foreach (AssignStatBars statBars in enemiesUI)
+        else
         {
-            statBars.gameObject.SetActive(false);
+            screen = defeatScreen;
         }
-        actionBar.gameObject.SetActive(false);
-        root.SetActive(false);
 
-        afterTransition.AddListener(ResetOverworld);
-        StartCoroutine(SmoothCameraPos(overworldCamera, originalCamDistance, originalCamHeight, originalCamXRotation, 0.1f));
+        screen.SetActive(true);
+        screen.GetComponentInChildren<Button>().onClick.AddListener(delegate { StartTransition(playerWon); });
+    }
+    public void StartTransition(bool playerWon)
+    {
+        if (playerWon || scriptedLoss)
+        {
+            foreach (AssignStatBars statBars in playersUI)
+            {
+                statBars.gameObject.SetActive(false);
+            }
+            foreach (AssignStatBars statBars in enemiesUI)
+            {
+                statBars.gameObject.SetActive(false);
+            }
+            victoryScreen.SetActive(false);
+            defeatScreen.SetActive(false);
+            actionBar.gameObject.SetActive(false);
+            root.SetActive(false);
+
+            afterTransition.AddListener(ResetOverworld);
+            StartCoroutine(SmoothCameraPos(overworldCamera, originalCamDistance, originalCamHeight, originalCamXRotation, 0.1f));
+        }
+        else
+        {
+            SceneManager.LoadScene("Title Screen");
+        }
     }
     private void ResetOverworld()
     {
@@ -221,6 +249,10 @@ public class CombatController : MonoBehaviour
     {
         battleEndEvent = _battleEndEvent;
     }
+    public void SetScriptedLoss(bool _scriptedLoss)
+    {
+        scriptedLoss = _scriptedLoss;
+    }
     public void SetCameraPos(CameraRotation _cameraRotation)
     {
         overworldCamera = _cameraRotation;
@@ -244,7 +276,7 @@ public class CombatController : MonoBehaviour
 
     GameObject FindInActiveObjectByName(string name)
     {
-        Transform[] objs = Resources.FindObjectsOfTypeAll<Transform>() as Transform[];
+        GameObject[] objs = FindObjectsOfType<GameObject>(true);
         for (int i = 0; i < objs.Length; i++)
         {
             if (objs[i].hideFlags == HideFlags.None)

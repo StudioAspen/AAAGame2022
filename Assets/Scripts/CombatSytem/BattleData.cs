@@ -6,6 +6,7 @@ using UnityEngine.Events;
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/BattleData", order = 1)]
 public class BattleData : ScriptableObject
 {
+    public bool scriptedLoss = false;
     public List<CombatData> players;
     public List<CombatData> enemies;
     public UnityEvent afterCombat;

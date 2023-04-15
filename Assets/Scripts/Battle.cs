@@ -47,6 +47,7 @@ public class Battle : MonoBehaviour
             combatController.SetCameraPos(cameraRotation);
             combatController.InitalizeCombat(_battleData.players, _battleData.enemies);
             combatController.SetBattleEndEvent(_battleData.afterCombat);
+            combatController.SetScriptedLoss(battleData.scriptedLoss);
         }
         //Disabling all objects
         foreach (GameObject a in overworldObjects)
