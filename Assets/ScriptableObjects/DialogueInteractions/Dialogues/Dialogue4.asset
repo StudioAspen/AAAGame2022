@@ -17,7 +17,7 @@ MonoBehaviour:
     poses:
     - Narrator
     lines:
-    - "The doors creak open and PROFESSOR AUREA pops out, holding a metal box. \r"
+    - "The doors creak open and Professor Aurea pops out, holding a metal box. \r"
   - name: Prof. Aurea
     poses:
     - happy

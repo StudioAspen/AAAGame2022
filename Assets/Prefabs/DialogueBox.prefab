@@ -454,12 +454,8 @@ MonoBehaviour:
   - {fileID: 1680625075, guid: c1f697157c1b64031a0d52b226fcfcb6, type: 3}
   - {fileID: 1337706296, guid: c1f697157c1b64031a0d52b226fcfcb6, type: 3}
   - {fileID: 1499339764, guid: c1f697157c1b64031a0d52b226fcfcb6, type: 3}
-  blankSprites:
-  - {fileID: 21300000, guid: 960a11bc59b064cca880fee915cafae7, type: 3}
-  - {fileID: 21300000, guid: 960a11bc59b064cca880fee915cafae7, type: 3}
-  - {fileID: 21300000, guid: 960a11bc59b064cca880fee915cafae7, type: 3}
-  - {fileID: 21300000, guid: 960a11bc59b064cca880fee915cafae7, type: 3}
-  - {fileID: 21300000, guid: 960a11bc59b064cca880fee915cafae7, type: 3}
+  judgeSprite: {fileID: 21300000, guid: 7229c07d042ce4e5b8f40a944c6d583b, type: 3}
+  blankSprite: {fileID: 21300000, guid: 960a11bc59b064cca880fee915cafae7, type: 3}
 --- !u!1 &8676755957719449157
 GameObject:
   m_ObjectHideFlags: 0

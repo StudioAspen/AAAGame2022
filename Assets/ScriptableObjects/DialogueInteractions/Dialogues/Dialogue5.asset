@@ -57,7 +57,7 @@ MonoBehaviour:
     - Narrator
     lines:
     - "Professor Aurea winks at them. \r"
-    - "*Grumbles*\r"
+    - "Alonso and Cynthi grumble.\r"
   - name: Prof. Aurea
     poses:
     - happy
