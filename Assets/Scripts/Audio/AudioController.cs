@@ -4,7 +4,6 @@ using UnityEngine.Audio;
 [System.Serializable]
 public class AudioController : MonoBehaviour
 {
-    //public AudioClip AudioClipFade;
     public AudioClip AudioClipIn;
     public Sound[] sounds;
 
@@ -16,11 +15,6 @@ public class AudioController : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
-    }
-
-    private void OnCollisionEnter(Collision collision)
     {
         
     }
