@@ -212,8 +212,8 @@ public class CombatController : MonoBehaviour
             }
         }
 
-        if (!enemyAlive)
-        {
+        //added
+        if(!enemyAlive)
             EndCombat(true);
         }
         if (!playerAlive)
@@ -274,6 +274,7 @@ public class CombatController : MonoBehaviour
         afterTransition.Invoke();
     }
 
+    //added
     GameObject FindInActiveObjectByName(string name)
     {
         GameObject[] objs = FindObjectsOfType<GameObject>(true);
