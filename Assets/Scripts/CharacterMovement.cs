@@ -20,7 +20,7 @@ public class CharacterMovement : MonoBehaviour
     public LayerMask enviornment;
 
     public GameObject stepRayLower;
-  
+    public bool canMove = true;
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -30,8 +30,11 @@ public class CharacterMovement : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Move();
-        Step();
+        if (canMove)
+        {
+            Move();
+            Step();
+        }
         MoveAnimation();
     }
 

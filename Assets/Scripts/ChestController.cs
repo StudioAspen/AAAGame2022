@@ -36,7 +36,7 @@ public class ChestController : MonoBehaviour
         isOpen = true;
         Destroy(currentChest);
         currentChest = Instantiate(chestOpen, transform);
-        FindInActiveObjectByName("ChestNote").SetActive(true);
+        FindObjectOfType<MainMenu>(true).gameObject.SetActive(true);
         changeText.text = text;
     }
 
@@ -45,7 +45,7 @@ public class ChestController : MonoBehaviour
         isOpen = false;
         Destroy(currentChest);
         currentChest = Instantiate(chestClosed, transform);
-        GameObject.Find("ChestNote").SetActive(false);
+        FindObjectOfType<MainMenu>(true).gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)

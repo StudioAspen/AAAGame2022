@@ -13,6 +13,7 @@ public class DialogueManager : MonoBehaviour
 
     [SerializeField]
     public DialogueBox dialogueBox;
+    private CharacterMovement characterMovement;
 
     private void Awake() {
         Instance = this;
@@ -33,6 +34,11 @@ public class DialogueManager : MonoBehaviour
                 StartCoroutine(RunDialogue(dialogueInteraction.dialogues, actionAfterDialogue));
             }
         }
+        characterMovement = FindObjectOfType<CharacterMovement>();
+        if(characterMovement != null)
+        {
+            //characterMovement.canMove = false;
+        }
     }
 
     private IEnumerator RunDialogue(Dialogue[] dialogues, UnityEvent actionAfterDialogue = null)
@@ -52,6 +58,7 @@ public class DialogueManager : MonoBehaviour
         if (actionAfterDialogue != null)
         {
             actionAfterDialogue.Invoke();
+            //characterMovement.canMove = true;
         }
     }
 }
