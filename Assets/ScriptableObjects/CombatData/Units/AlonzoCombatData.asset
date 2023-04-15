@@ -14,11 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   baseStats:
     maxHP: 100
-    maxMP: 100
-    speed: 200
+    maxMP: 50
+    speed: 100
     mpGain: 10
-    attack: 10
-    defence: 100
+    attack: 40
+    defence: 20
   skillKeys:
   - Regular Strike
   combatPrefab: {fileID: 3293131506066533984, guid: f31e636e80b38e045958be8f1c95fdd8, type: 3}
