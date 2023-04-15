@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class StartDialogue : MonoBehaviour
 {
@@ -30,11 +31,10 @@ public class StartDialogue : MonoBehaviour
             // dialogue 3
             if (script3 != null)
             {
-                startDialogue3.AddListener
+                battle2.battleData.afterCombat.AddListener
                 (
                     delegate { DialogueManager.Instance.StartDialogue(script3); }
                 );
-                battle2.battleData.afterCombat = startDialogue3;
             }
 
             // battle 2
@@ -49,11 +49,21 @@ public class StartDialogue : MonoBehaviour
             // dialogue 2
             if (script2 != null)
             {
-                startDialogue2.AddListener
+                if(name == "Dialogue 7")
+                {
+                    UnityEvent afterTransition = new UnityEvent();
+                    afterTransition.AddListener(
+                            delegate { SceneManager.LoadScene("TitleScreen"); }
+                        );
+                    TransitionMaker transitionMaker = FindObjectOfType<TransitionMaker>(true);
+                    startBattle2.AddListener(
+                            delegate { transitionMaker.StartTransition(Color.white, afterTransition); }
+                        );
+                }
+                battle1.battleData.afterCombat.AddListener
                 (
                     delegate { DialogueManager.Instance.StartDialogue(script2, startBattle2); }
                 );
-                battle1.battleData.afterCombat = startDialogue2;
             }
 
             // battle 1

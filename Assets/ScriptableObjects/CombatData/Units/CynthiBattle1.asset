@@ -17,7 +17,7 @@ MonoBehaviour:
     maxMP: 0
     speed: 100
     mpGain: 0
-    attack: 20
+    attack: 30
     defence: 10
   skillKeys:
   - Cynthi Strike

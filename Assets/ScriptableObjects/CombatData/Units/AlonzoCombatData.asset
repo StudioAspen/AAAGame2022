@@ -13,12 +13,12 @@ MonoBehaviour:
   m_Name: AlonzoCombatData
   m_EditorClassIdentifier: 
   baseStats:
-    maxHP: 100
+    maxHP: 50
     maxMP: 50
-    speed: 100
+    speed: 75
     mpGain: 10
     attack: 40
-    defence: 20
+    defence: 10
   skillKeys:
   - Regular Strike
   combatPrefab: {fileID: 3293131506066533984, guid: f31e636e80b38e045958be8f1c95fdd8, type: 3}

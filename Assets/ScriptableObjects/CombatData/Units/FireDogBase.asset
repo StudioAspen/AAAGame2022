@@ -15,10 +15,9 @@ MonoBehaviour:
   baseStats:
     maxHP: 50
     maxMP: 0
-    moveCD: 10
     speed: 120
     mpGain: 0
-    attack: 47
+    attack: 50
     defence: 22
   skillKeys:
   - Fire Dog Bite
