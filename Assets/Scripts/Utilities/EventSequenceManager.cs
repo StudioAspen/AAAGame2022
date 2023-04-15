@@ -8,6 +8,8 @@ public class EventSequenceManager : MonoBehaviour
     private int index = 0;
     public void Signal()
     {
-
+        EventSequence[index].SetActive(false);
+        index++;
+        EventSequence[index].SetActive(true);
     }
 }

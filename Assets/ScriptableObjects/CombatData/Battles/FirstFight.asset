@@ -12,11 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ebb293850840e74eb579af62f78ed6b, type: 3}
   m_Name: FirstFight
   m_EditorClassIdentifier: 
+  scriptedLoss: 0
   players:
   - {fileID: 11400000, guid: 05e108159b0ba8640a30685e5c4da1bc, type: 2}
   enemies:
   - {fileID: 11400000, guid: 566335b9cdd7813469ebf6b0cc371a2a, type: 2}
-  - {fileID: 11400000, guid: 8f3d2d352bc010444a7b3f4ad270228a, type: 2}
   afterCombat:
     m_PersistentCalls:
       m_Calls:

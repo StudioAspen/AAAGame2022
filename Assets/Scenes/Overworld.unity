@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.44657898, g: 0.4964133, b: 0.5748178, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -394,6 +394,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   script: {fileID: 11400000, guid: 26505ab7a66a34c44a2fe7f777cd767f, type: 2}
+  battle1: {fileID: 0}
+  script2: {fileID: 0}
+  battle2: {fileID: 0}
+  script3: {fileID: 0}
+  canEnter: 0
+  next: {fileID: 0}
 --- !u!65 &170319938
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -676,6 +682,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   script: {fileID: 11400000, guid: 3be56e76f2499498b995c1f626ff371a, type: 2}
+  battle1: {fileID: 0}
+  script2: {fileID: 0}
+  battle2: {fileID: 0}
+  script3: {fileID: 0}
+  canEnter: 0
+  next: {fileID: 0}
 --- !u!65 &237871597
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -931,8 +943,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf2bb1122ff2c44e8889b6972f63372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 0}
+  anim: {fileID: 0}
   quest_: {fileID: 0}
   action: {fileID: 11400000, guid: a7c25dd366bcc0c41acad2ee855eca30, type: 2}
+  startPos: {x: 0, y: 0, z: 0}
+  endPos: {x: 0, y: 0, z: 0}
+  speed: 0
+  posError: 0
+  direction: 0
+  pauseTime: 0
 --- !u!4 &331868379
 Transform:
   m_ObjectHideFlags: 0
@@ -1689,51 +1709,6 @@ Animator:
   m_CorrespondingSourceObject: {fileID: 8928645480559623745, guid: bce067b2a248e5b43abb12ca82eac57b, type: 3}
   m_PrefabInstance: {fileID: 8928645479983515684}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1060725960
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1060725962}
-  - component: {fileID: 1060725961}
-  m_Layer: 0
-  m_Name: QuestManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1060725961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1060725960}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffb065692e3368b489d5f83bb8124fe8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  all_quests: []
---- !u!4 &1060725962
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1060725960}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 12
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1097527716
 GameObject:
   m_ObjectHideFlags: 0
@@ -1767,8 +1742,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2bf2bb1122ff2c44e8889b6972f63372, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  camera: {fileID: 0}
+  anim: {fileID: 0}
   quest_: {fileID: 0}
   action: {fileID: 11400000, guid: a7c25dd366bcc0c41acad2ee855eca30, type: 2}
+  startPos: {x: 0, y: 0, z: 0}
+  endPos: {x: 0, y: 0, z: 0}
+  speed: 0
+  posError: 0
+  direction: 0
+  pauseTime: 0
 --- !u!65 &1097527719
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1929,6 +1912,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   script: {fileID: 11400000, guid: f0b6b2fc147db4b84be080ba494b56b6, type: 2}
+  battle1: {fileID: 0}
+  script2: {fileID: 0}
+  battle2: {fileID: 0}
+  script3: {fileID: 0}
+  canEnter: 0
+  next: {fileID: 0}
 --- !u!65 &1157959741
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2712,6 +2701,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   script: {fileID: 11400000, guid: ad121755d518e4d6f848f6ddd4865a56, type: 2}
+  battle1: {fileID: 0}
+  script2: {fileID: 0}
+  battle2: {fileID: 0}
+  script3: {fileID: 0}
+  canEnter: 0
+  next: {fileID: 0}
 --- !u!65 &1615765325
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3900,6 +3895,63 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54919ec2cc5e3e248a7f7470ca776013, type: 3}
+--- !u!1001 &8852136062354407755
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8852136062474397057, guid: 03903807717c6174a90ccbb98ee4eb35, type: 3}
+      propertyPath: m_RootOrder
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852136062474397057, guid: 03903807717c6174a90ccbb98ee4eb35, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852136062474397057, guid: 03903807717c6174a90ccbb98ee4eb35, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852136062474397057, guid: 03903807717c6174a90ccbb98ee4eb35, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852136062474397057, guid: 03903807717c6174a90ccbb98ee4eb35, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852136062474397057, guid: 03903807717c6174a90ccbb98ee4eb35, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852136062474397057, guid: 03903807717c6174a90ccbb98ee4eb35, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852136062474397057, guid: 03903807717c6174a90ccbb98ee4eb35, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852136062474397057, guid: 03903807717c6174a90ccbb98ee4eb35, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852136062474397057, guid: 03903807717c6174a90ccbb98ee4eb35, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852136062474397057, guid: 03903807717c6174a90ccbb98ee4eb35, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8852136062474397059, guid: 03903807717c6174a90ccbb98ee4eb35, type: 3}
+      propertyPath: m_Name
+      value: QuestManager
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 03903807717c6174a90ccbb98ee4eb35, type: 3}
 --- !u!1001 &8928645479983515684
 PrefabInstance:
   m_ObjectHideFlags: 0

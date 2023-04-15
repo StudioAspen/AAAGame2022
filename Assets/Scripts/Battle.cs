@@ -32,7 +32,11 @@ public class Battle : MonoBehaviour
         CameraRotation cameraRotation = FindObjectOfType<CameraRotation>();
         //cameraTransform.SetParent(playerObject.transform.parent);
         overworldObjects.Add(playerObject);
-        overworldObjects.Add(FindObjectOfType<Canvas>().gameObject);
+        Canvas[] canvases = FindObjectsOfType<Canvas>();
+        foreach (Canvas canvas in canvases)
+        {
+            overworldObjects.Add(canvas.gameObject);
+        }
 
         //Load Combat Scene and waiting for it to load
         AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("CombatScene", LoadSceneMode.Additive);
