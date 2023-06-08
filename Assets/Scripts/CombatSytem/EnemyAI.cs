@@ -19,11 +19,35 @@ public class EnemyAI : MonoBehaviour
         //Attacks a random target with a random move
         if(combatUnit.canMakeMove)
         {
-            int randomTargetIndex = Random.Range(0, combatController.players.Count);
-            CombatUnit selectedTarget = combatController.players[randomTargetIndex].GetComponent<CombatUnit>();
-            Skill selectedSkill =  combatUnit.skills[Random.Range(0, combatUnit.skills.Count)];
+            Skill selectedSkill = combatUnit.skills[Random.Range(0, combatUnit.skills.Count)];
+            List<CombatUnit> targets = new List<CombatUnit>();
 
-            selectedSkill.UseMove(selectedTarget, combatUnit);
+            if(selectedSkill.targetAmount == -1)
+            {
+                // adding all targets for special case
+                foreach (GameObject player in combatController.players)
+                {
+                    targets.Add(player.GetComponent<CombatUnit>());
+                }
+            }
+            else
+            {
+                //Adding random targets according to amount of targets
+                int playerAliveCount = combatController.GetPlayerAliveCount();
+                while (targets.Count < selectedSkill.targetAmount && selectedSkill.targetAmount <= playerAliveCount)
+                {
+                    int randomTargetIndex = Random.Range(0, combatController.players.Count);
+                    CombatUnit selectedCombatUnit = combatController.players[randomTargetIndex].GetComponent<CombatUnit>();
+
+                    if(!targets.Contains(selectedCombatUnit))
+                    {
+                        targets.Add(selectedCombatUnit);
+                    }
+                }
+            }
+
+            selectedSkill.UseMove(targets, combatUnit);
+            combatUnit.StartAttack();
             combatUnit.ResetTimer();
         }
     }

@@ -46,7 +46,7 @@ public class ActionBar : MonoBehaviour
         Slider currentSlider;
         currentSlider = sliders[index];
         CombatUnit currentUnit = combatUnits[currentSlider];
-        currentSlider.value = 1 - (currentUnit.currentMoveCD / currentUnit.currentStats.moveCD);
+        currentSlider.value = 1 - (currentUnit.currentMoveCD / currentUnit.currentStats.SpeedToSec());
 
         //Moving to layout group if ready
         /*

@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2d31a12268decc4ca6c94f1da03d228, type: 3}
+  m_Name: AlonzoCombatData
+  m_EditorClassIdentifier: 
+  baseStats:
+    maxHP: 50
+    maxMP: 50
+    speed: 75
+    mpGain: 10
+    attack: 40
+    defence: 10
+  skillKeys:
+  - Regular Strike
+  combatPrefab: {fileID: 3293131506066533984, guid: f31e636e80b38e045958be8f1c95fdd8, type: 3}

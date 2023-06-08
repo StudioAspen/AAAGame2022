@@ -4,12 +4,17 @@ using UnityEngine;
 
 public class AudioArea : MonoBehaviour
 {
-    public AudioSource fadeIn;
-    public AudioSource fadeOut;
-    public float duration;
+    public AudioClip fadeInClip;
+    private AudioController audioController;
+    private void Start()
+    {
+        audioController = FindObjectOfType<AudioController>();
+    }
     private void OnTriggerEnter(Collider other)
     {
-        StartCoroutine(FadeAudioSource.StartFade(fadeIn, duration, 1));
-        StartCoroutine(FadeAudioSource.StartFade(fadeOut, duration, 0));
+        if (other.CompareTag("Player"))
+        {
+            audioController.FadeIn(fadeInClip);
+        }
     }
 }

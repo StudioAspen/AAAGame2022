@@ -57,7 +57,7 @@ public class CombatTest : MonoBehaviour
             statsDisplay.text = output;
         }
     }
-
+    /*
     public void UseBasicAttack()
     {
         unitForBasicAttack.basicAttack.UseMove(targetForBasicAttack, unitForBasicAttack);
@@ -74,5 +74,5 @@ public class CombatTest : MonoBehaviour
     public void UseRegularSkill()
     {
         unitForBasicAttack.skills[2].UseMove(targetForBasicAttack, unitForBasicAttack);
-    }
+    }*/
 }

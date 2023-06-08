@@ -1,0 +1,192 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bf2065dd0ac23d24c9c2473e5c91a04f, type: 3}
+  m_Name: Dialogue4
+  m_EditorClassIdentifier: 
+  dialogues:
+  - name: ACTION
+    poses:
+    - Narrator
+    lines:
+    - "The doors creak open and Professor Aurea pops out, holding a metal box. \r"
+  - name: Prof. Aurea
+    poses:
+    - happy
+    - happy
+    - happy
+    - neutral
+    - happy
+    - happy
+    - happy
+    - happy
+    - happy
+    - happy
+    lines:
+    - "Magnificent timing, you two!\r"
+    - "I was just about to take this thing for a test run myself.\r"
+    - "I wasn\u2019t sure if you were coming in today since someone...\r"
+    - "*glances at Cynthi* took forever to get you ...\r"
+    - "Nevertheless!!! \r"
+    - "That prosthetic you have was a real piece of work.\r"
+    - "I stayed up all night experimenting with new components ...\r"
+    - "of course, I couldn\u2019t help making a few tweaks here and there\u2026 \r"
+    - "but this truly is your piece-de-resistance!! \r"
+    - "Just what I expect from my boy...\r"
+  - name: ACTION
+    poses:
+    - Narrator
+    - Narrator
+    lines:
+    - "Alonso quickly runs up the stairs and opens the box.\r"
+    - "He pulls out a small chip and inserts it into his metal hand's wrist.\r"
+  - name: Prof. Aurea
+    poses:
+    - happy
+    - happy
+    lines:
+    - "Of course, I picked out the color myself. So \u2014 \r"
+    - "don\u2019t be shy, it\u2019s all yours! Try it on, wave it around, and tell
+      me what you think!\r"
+  - name: ACTION
+    poses:
+    - Narrator
+    - Narrator
+    - Narrator
+    lines:
+    - "Its smooth exterior glistens a golden hue in the sunlight, while blue circuits
+      pulse within its thin grooves. \r"
+    - "Alonso pulls back his cloak and activates the metallic arm.\r"
+    - "He winces and drops to his knees, as waves of electricity surge outwards from
+      the arm through his body.\r"
+  - name: Cynthi
+    poses:
+    - shock
+    lines:
+    - "Alonso are you okay?! \r"
+  - name: Alonso
+    poses:
+    - shock
+    - neutral
+    lines:
+    - "... Y-yeah...\r"
+    - "I\u2019m alright.\r"
+  - name: ACTION
+    poses:
+    - Narrator
+    lines:
+    - "Cynthi reaches for him. \r"
+  - name: Prof. Aurea
+    poses:
+    - neutral
+    lines:
+    - "Hold on. Let him learn.\r"
+  - name: ACTION
+    poses:
+    - Narrator
+    - Narrator
+    lines:
+    - "Alonso breathes heavily as he rises.\r"
+    - "The arm\u2019s glow settles as its circuits light up. \r"
+  - name: Cynthi
+    poses:
+    - shock
+    lines:
+    - "So? How do you feel?! \r"
+  - name: Alonso
+    poses:
+    - neutral
+    lines:
+    - "...Stronger\r"
+  - name: Cynthi
+    poses:
+    - shock
+    lines:
+    - "Stronger?\r"
+  - name: Alonso
+    poses:
+    - shock
+    - shock
+    - neutral
+    - sad
+    lines:
+    - "I can feel it Cynthi...\r"
+    - "every groove, every cable, every pulse of energy oscillating running through
+      my arm...\r"
+    - "...\r"
+    - "But it\u2019s not mine.\r"
+  - name: ACTION
+    poses:
+    - Narrator
+    - Narrator
+    - Narrator
+    lines:
+    - "Alonso somberly pulls a seed from his pouch, admiring it.\r"
+    - "*CRACK*\r"
+    - "The seed crumbles to dust and flies away with the wind. Alonso lowers his
+      head.\r"
+  - name: Alonso
+    poses:
+    - sad
+    lines:
+    - "It\u2019s not my strength.\r"
+  - name: Cynthi
+    poses:
+    - angry
+    - angry
+    - angry
+    lines:
+    - "Not yours\u2026? \r"
+    - "This is your machine, your arm, and the product of all your hard work ...\r"
+    - "How can you say it isn\u2019t yours?!\r"
+  - name: Alonso
+    poses:
+    - sad
+    lines:
+    - "I just\u2014 \r"
+  - name: Cynthi
+    poses:
+    - neutral
+    lines:
+    - "Stop.\r"
+  - name: ACTION
+    poses:
+    - Narrator
+    lines:
+    - "Cynthis paces back and forth, walking past Alonso and Professor Aurea.\r"
+  - name: Cynthi
+    poses:
+    - neutral
+    lines:
+    - "Some feelings...\r"
+  - name: ACTION
+    poses:
+    - Narrator
+    lines:
+    - "Cynthi walk back and stops in front of Alonso.\r"
+  - name: Cynthi
+    poses:
+    - neutral
+    lines:
+    - "just can\u2019t be expressed with words alone, ain\u2019t that right Alonso?\r"
+  - name: Alonso
+    poses:
+    - neutral
+    - neutral
+    lines:
+    - "Without words...?\r"
+    - "What are you\u2014\r"
+  - name: Cynthi
+    poses:
+    - happy
+    lines:
+    - "Enough talking! Let\u2019s see you grit those teeth! "
+  CSV: {fileID: 4900000, guid: 711a1b61d17944fe7b98366eea3f6468, type: 3}
