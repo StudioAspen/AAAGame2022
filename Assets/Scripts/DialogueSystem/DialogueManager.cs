@@ -22,7 +22,7 @@ public class DialogueManager : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) && completedDialogue == false)
+        if (Input.GetKeyDown(KeyCode.Space) && completedDialogue == false)
         {
             dialogueInterupt = true;
             completedDialogue = true;

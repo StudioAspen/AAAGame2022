@@ -58,7 +58,9 @@ public class CharacterMovement : MonoBehaviour
         }
 
         Vector3 movement = desiredDirection * moveSpeed;
-        rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
+        movement.y = rb.velocity.y;
+        rb.velocity = movement;
+        //rb.MovePosition(rb.position + movement * Time.fixedDeltaTime);
     }
 
     void Step() {
@@ -67,7 +69,7 @@ public class CharacterMovement : MonoBehaviour
         float castDistance = 0.7f;
         float castDownDisplacement = 0.75f;
         Debug.DrawRay(stepRayLower.transform.position + Vector3.down * castDownDisplacement, moveDir.normalized * castDistance);
-        if (Physics.Raycast(stepRayLower.transform.position + Vector3.down * castDownDisplacement, moveDir.normalized, castDistance, enviornment))
+        if (Physics.Raycast(transform.position + Vector3.down * castDownDisplacement, moveDir.normalized, castDistance, enviornment))
         {
             Debug.Log("hit step");
             Vector3 stepDisplacement = (Vector3.up * stepHeight);

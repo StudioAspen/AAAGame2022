@@ -15,10 +15,10 @@ MonoBehaviour:
   baseStats:
     maxHP: 100
     maxMP: 0
-    speed: 100
+    speed: 50
     mpGain: 0
     attack: 30
-    defence: 10
+    defence: 8
   skillKeys:
   - Cynthi Strike
   combatPrefab: {fileID: 5930822611558441162, guid: 5626a683a1b0d5f46940b7f248616c0f, type: 3}
